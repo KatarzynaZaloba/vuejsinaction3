@@ -18,3 +18,25 @@
         </div>
     </header>
 </template>
+<script>
+export default {
+    name: 'my-header',
+    data() {
+        return {
+            sitename: 'Skład dla zwierzaków :: Vue.js'
+        }
+    },
+    props: ['cartItemCount'],
+    methods: {
+        showCheckout() {
+            this.$router.push({name: 'Form'});
+        }
+    }
+}
+</script>
+<style scoped>
+a {
+    text-decoration: none;
+    color: black;
+}
+</style>
