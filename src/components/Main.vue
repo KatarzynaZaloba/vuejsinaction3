@@ -13,7 +13,7 @@
                         <h1 v-text="product.title"></h1>
                         <p v-html="product.description"></p>
                         <p class="price">
-                            {{ product.price | formatPrice }}
+                            {{ formatPrice(product.price) }}
                         </p>
                         <button class="btn btn-primary btn-lg" v-on:click="addToCart(product)" v-if="canAddToCart(product)">Dodaj do koszyka</button>
                         <button disabled="true" class="btn btn-primary btn-lg" v-else>Dodaj do koszyka</button>
@@ -42,6 +42,23 @@
     },
     components: { MyHeader },
     methods: {
+      formatPrice(price) {
+        if (!parseInt(price)) {
+          return '';
+        }
+        if (price > 99999) {
+          var priceString = (price / 100).toFixed(2);
+          var priceArray = priceString.split('').reverse();
+          var index = 3;
+          while (priceArray.length > index + 3) {
+            priceArray.splice(index + 3, 0, ',');
+            index += 4;
+          }
+          return '$' + priceArray.reverse().join('');
+        } else {
+          return '$' + (price / 100).toFixed(2);
+        }
+      },
       checkRating(n, myProduct) {
         return myProduct.rating - n >= 0;
       },
@@ -83,27 +100,8 @@
         }
       }
     },
-    filters: {
-      formatPrice(price) {
-        if (!parseInt(price)) {
-          return '';
-        }
-        if (price > 99999) {
-          var priceString = (price / 100).toFixed(2);
-          var priceArray = priceString.split('').reverse();
-          var index = 3;
-          while (priceArray.length > index + 3) {
-            priceArray.splice(index + 3, 0, ',');
-            index += 4;
-          }
-          return '$' + priceArray.reverse().join('');
-        } else {
-          return '$' + (price / 100).toFixed(2);
-        }
-      }
-    },
     created: function() {
-      axios.get('/static/products.json').then(response => {
+      axios.get('/products.json').then(response => {
         this.products = response.data.products;
         // console.log(this.products);
       });

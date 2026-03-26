@@ -1,23 +1,23 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Form from '@/components/Form.vue'
 import Main from '@/components/Main.vue'
+import Form from '@/components/Form.vue'
+
+const routes = [
+  {
+    path: '/',
+    name: 'Main',
+    component: Main
+  },
+  {
+    path: '/form',
+    name: 'Form',
+    component: Form
+  }
+]
 
 const router = createRouter({
   history: createWebHistory(),
-  routes: [
-    {
-      path: '/',
-      name: 'Main',
-      component: Main,
-      props: true
-    },
-    {
-      path: '/form',
-      name: 'Form',
-      component: Form,
-      props: true
-    }
-  ]
+  routes
 })
 
 export default router
