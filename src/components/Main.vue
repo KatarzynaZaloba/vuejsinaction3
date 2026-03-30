@@ -1,114 +1,116 @@
 <template>
-    <div>
-        <my-header :cartItemCount="cartItemCount"></my-header>
-        <main>
-            <div v-for="product in sortedProducts">
-                <div class="row">
-                    <div class="col-md-5 col-md-offset-0">
-                        <figure>
-                            <img class="product" v-bind:src="product.image">
-                        </figure>
-                    </div>
-                    <div class="col-md-6 col-md-offse-0 description">
-                        <h1 v-text="product.title"></h1>
-                        <p v-html="product.description"></p>
-                        <p class="price">
-                            {{ formatPrice(product.price) }}
-                        </p>
-                        <button class="btn btn-primary btn-lg" v-on:click="addToCart(product)" v-if="canAddToCart(product)">Dodaj do koszyka</button>
-                        <button disabled="true" class="btn btn-primary btn-lg" v-else>Dodaj do koszyka</button>
-                        <span class="inventory-message" v-if="product.availableInventory - cartCount(product.id) === 0">Brak towaru!</span>
-                        <span class="inventory-message" v-else-if="product.availableInventory - cartCount(product.id) < 5">Zostało tylko {{ product.availableInventory - cartCount(product.id) }}!</span>
-                        <span class="inventory-message" v-else>Kupuj teraz!</span>
-                        <div class="rating">
-                            <span v-bind:class="{'rating-active' :checkRating(n, product)}" v-for="n in 5">☆</span>
-                        </div>
-                    </div>
-                </div>
+  <div>
+    <my-header :cartItemCount="cartItemCount"></my-header>
+    <main>
+      <div v-for="product in sortedProducts">
+        <div class="row">
+          <div class="col-md-5 col-md-offset-0">
+            <figure>
+              <img class="product" v-bind:src="product.image">
+            </figure>
+          </div>
+          <div class="col-md-6 col-md-offse-0 description">
+            <router-link tag='h1' :to="{ name: 'Id', params: { id: product.id } }">{{
+              product.title }}</router-link>
+            <p v-html="product.description"></p>
+            <p class="price">
+              {{ formatPrice(product.price) }}
+            </p>
+            <button class="btn btn-primary btn-lg" v-on:click="addToCart(product)" v-if="canAddToCart(product)">Dodaj do
+              koszyka</button>
+            <button disabled="true" class="btn btn-primary btn-lg" v-else>Dodaj do koszyka</button>
+            <span class="inventory-message" v-if="product.availableInventory - cartCount(product.id) === 0">Brak
+              towaru!</span>
+            <span class="inventory-message" v-else-if="product.availableInventory - cartCount(product.id) < 5">Zostało
+              tylko {{ product.availableInventory - cartCount(product.id) }}!</span>
+            <span class="inventory-message" v-else>Kupuj teraz!</span>
+            <div class="rating">
+              <span v-bind:class="{ 'rating-active': checkRating(n, product) }" v-for="n in 5">☆</span>
             </div>
-        </main>
-    </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
 </template>
 
 <script>
-  import MyHeader from './Header.vue';
-  export default {
-    name: 'imain',
-    data() {
-      return {
-        products: {},
-        cart: []
-      };
-    },
-    components: { MyHeader },
-    methods: {
-      formatPrice(price) {
-        if (!parseInt(price)) {
-          return '';
+import MyHeader from './Header.vue';
+export default {
+  name: 'imain',
+  data() {
+    return {
+      products: {},
+      cart: []
+    };
+  },
+  components: { MyHeader },
+  methods: {
+    formatPrice(price) {
+      if (!parseInt(price)) {
+        return '';
+      }
+      if (price > 99999) {
+        var priceString = (price / 100).toFixed(2);
+        var priceArray = priceString.split('').reverse();
+        var index = 3;
+        while (priceArray.length > index + 3) {
+          priceArray.splice(index + 3, 0, ',');
+          index += 4;
         }
-        if (price > 99999) {
-          var priceString = (price / 100).toFixed(2);
-          var priceArray = priceString.split('').reverse();
-          var index = 3;
-          while (priceArray.length > index + 3) {
-            priceArray.splice(index + 3, 0, ',');
-            index += 4;
-          }
-          return '$' + priceArray.reverse().join('');
-        } else {
-          return '$' + (price / 100).toFixed(2);
-        }
-      },
-      checkRating(n, myProduct) {
-        return myProduct.rating - n >= 0;
-      },
-      addToCart(aProduct) {
-        this.cart.push(aProduct.id);
-      },
-      canAddToCart(aProduct) {
-        //return this.product.availableInventory > this.cartItemCount;
-        return (
-          aProduct.availableInventory >
-          this.cartCount(aProduct.id)
-        );
-      },
-      cartCount(id) {
-        let count = 0;
-        for (var i = 0; i < this.cart.length; i++) {
-          if (this.cart[i] === id) {
-            count++;
-          }
-        }
-        return count;
+        return '$' + priceArray.reverse().join('');
+      } else {
+        return '$' + (price / 100).toFixed(2);
       }
     },
-    computed: {
-      cartItemCount() {
-        return this.cart.length || '';
-      },
-      sortedProducts() {
-        if (this.products.length > 0) {
-          let productsArray = this.products.slice(0);
-          function compare(a, b) {
-            if (a.title.toLowerCase() < b.title.toLowerCase())
-              return -1;
-            if (a.title.toLowerCase() > b.title.toLowerCase())
-              return 1;
-            return 0;
-          }
-          return productsArray.sort(compare);
+    checkRating(n, myProduct) {
+      return myProduct.rating - n >= 0;
+    },
+    addToCart(aProduct) {
+      this.cart.push(aProduct.id);
+    },
+    canAddToCart(aProduct) {
+      //return this.product.availableInventory > this.cartItemCount;
+      return (
+        aProduct.availableInventory >
+        this.cartCount(aProduct.id)
+      );
+    },
+    cartCount(id) {
+      let count = 0;
+      for (var i = 0; i < this.cart.length; i++) {
+        if (this.cart[i] === id) {
+          count++;
         }
       }
-    },
-    created: function() {
-      axios.get('/products.json').then(response => {
-        this.products = response.data.products;
-        // console.log(this.products);
-      });
+      return count;
     }
-  };
+  },
+  computed: {
+    cartItemCount() {
+      return this.cart.length || '';
+    },
+    sortedProducts() {
+      if (this.products.length > 0) {
+        let productsArray = this.products.slice(0);
+        function compare(a, b) {
+          if (a.title.toLowerCase() < b.title.toLowerCase())
+            return -1;
+          if (a.title.toLowerCase() > b.title.toLowerCase())
+            return 1;
+          return 0;
+        }
+        return productsArray.sort(compare);
+      }
+    }
+  },
+  created: function () {
+    axios.get('/products.json').then(response => {
+      this.products = response.data.products;
+      // console.log(this.products);
+    });
+  }
+};
 </script>
 
-<style scoped>
-
-</style>ł
+<style scoped></style>ł
