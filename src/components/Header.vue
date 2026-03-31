@@ -3,17 +3,17 @@
         <div class="navbar navbar-default">
             <div class="navbar-header">
                 <h1>
-                    <router-link :to="{name: 'Main'}">
-                        {{sitename}}
+                    <router-link :to="{ name: 'Main' }">
+                        {{ sitename }}
                     </router-link>
                 </h1>
             </div>
             <div class="nav navbar-nav navbar-right cart">
-                <button type="button" class="btn btn-default btn-lg" v-on:click="showCheckout">
+                <router-link active-class="active" tag="button" class="btn btn-default btn-lg" :to="{ name: 'Form' }">
                     <span class="glyphicon glyphicon-shopping-cart">
-                        {{cartItemCount}}
+                        {{ cartItemCount }}
                     </span> Kasa
-                </button>
+                </router-link>
             </div>
         </div>
     </header>
@@ -29,7 +29,7 @@ export default {
     props: ['cartItemCount'],
     methods: {
         showCheckout() {
-            this.$router.push({name: 'Form'});
+            this.$router.push({ name: 'Form' });
         }
     }
 }
