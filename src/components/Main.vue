@@ -23,10 +23,9 @@
               <span class="inventory-message" v-if="product.availableInventory - cartCount(product.id) === 0"
                 key="0">Brak
                 towaru!</span>
-              <span class="inventory-message" v-else-if="product.availableInventory - cartCount(product.id) < 5"
-                key="1">Zostało
+              <span class="inventory-message" v-else-if="product.availableInventory - cartCount(product.id) < 5">Zostało
                 tylko {{ product.availableInventory - cartCount(product.id) }}!</span>
-              <span class="inventory-message" v-else key="2">Kupuj teraz!</span>
+              <span class="inventory-message" v-else>Kupuj teraz!</span>
             </transition>
 
             <div class="rating">
