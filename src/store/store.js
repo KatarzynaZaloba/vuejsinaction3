@@ -11,5 +11,20 @@ export const store = new Vuex.Store({
         'SET_STORE'(state, products) {
             state.products = products;
         }
+    },
+    actions: {
+        initStore: ({commit}) => {
+            axios.get('static/products.json')
+                .then(response => {
+                    console.log(response.data.products);
+                    commit('SET_STORE', response.data);
+                })
+                .catch(error => {
+                    console.error('Error loading products:', error);
+                });
+        }
+    },
+    getters: {
+        products: state => state.products
     }
 })
