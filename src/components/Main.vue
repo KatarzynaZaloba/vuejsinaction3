@@ -40,18 +40,44 @@
 
 <script>
 import MyHeader from './Header.vue';
-import axios from 'axios';
+import { computed, onUnmounted, ref } from 'vue';
+import { useStore } from 'vuex';
+
 export default {
   name: 'imain',
-  data() {
-    return {
-      cart: [],
-      products: []
-    };
-  },
   components: { MyHeader },
-  methods: {
-    formatPrice(price) {
+  setup() {
+    const store = useStore();
+    const cart = ref([]);
+    const productsVersion = ref(0);
+
+    const unsubscribe = store.subscribe((mutation) => {
+      if (mutation.type === 'SET_STORE') {
+        productsVersion.value++;
+      }
+    });
+
+    onUnmounted(() => {
+      unsubscribe();
+    });
+
+    const cartItemCount = computed(() => cart.value.length || '');
+
+    const sortedProducts = computed(() => {
+      // Keep this dependency so Vue recomputes after Vuex SET_STORE mutations.
+      productsVersion.value;
+      const productsArray = (store.state.products || []).slice(0);
+      function compare(a, b) {
+        if (a.title.toLowerCase() < b.title.toLowerCase())
+          return -1;
+        if (a.title.toLowerCase() > b.title.toLowerCase())
+          return 1;
+        return 0;
+      }
+      return productsArray.sort(compare);
+    });
+
+    const formatPrice = (price) => {
       if (!parseInt(price)) {
         return '';
       }
@@ -67,54 +93,37 @@ export default {
       } else {
         return '$' + (price / 100).toFixed(2);
       }
-    },
-    checkRating(n, myProduct) {
-      return myProduct.rating - n >= 0;
-    },
-    addToCart(aProduct) {
-      this.cart.push(aProduct.id);
-    },
-    canAddToCart(aProduct) {
-      //return this.product.availableInventory > this.cartItemCount;
-      return (
-        aProduct.availableInventory >
-        this.cartCount(aProduct.id)
-      );
-    },
-    cartCount(id) {
+    };
+
+    const checkRating = (n, myProduct) => myProduct.rating - n >= 0;
+
+    const addToCart = (aProduct) => {
+      cart.value.push(aProduct.id);
+    };
+
+    const cartCount = (id) => {
       let count = 0;
-      for (var i = 0; i < this.cart.length; i++) {
-        if (this.cart[i] === id) {
+      for (var i = 0; i < cart.value.length; i++) {
+        if (cart.value[i] === id) {
           count++;
         }
       }
       return count;
-    }
-  },
-  computed: {
-    cartItemCount() {
-      return this.cart.length || '';
-    },
-    sortedProducts() {
-      const productsArray = this.products.slice(0);
-      function compare(a, b) {
-        if (a.title.toLowerCase() < b.title.toLowerCase())
-          return -1;
-        if (a.title.toLowerCase() > b.title.toLowerCase())
-          return 1;
-        return 0;
-      }
-      return productsArray.sort(compare);
-    }
-  },
-  created: function () {
-    axios.get('/products.json')
-      .then(response => {
-        this.products = response.data.products || [];
-      })
-      .catch(error => {
-        console.error('Error loading products:', error);
-      });
+    };
+
+    const canAddToCart = (aProduct) => {
+      return aProduct.availableInventory > cartCount(aProduct.id);
+    };
+
+    return {
+      cartItemCount,
+      sortedProducts,
+      formatPrice,
+      checkRating,
+      addToCart,
+      canAddToCart,
+      cartCount
+    };
   }
 };
 </script>
