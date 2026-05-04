@@ -1,11 +1,9 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
+import { createStore } from 'vuex';
+import axios from 'axios';
 
-// Vue.use(Vuex);  
-
-export const store = new Vuex.Store({
+export const store = createStore({
     state: {
-        products: {}
+        products: []
     },
     mutations: {
         'SET_STORE'(state, products) {
@@ -14,10 +12,10 @@ export const store = new Vuex.Store({
     },
     actions: {
         initStore: ({commit}) => {
-            axios.get('static/products.json')
+            axios.get('/products.json')
                 .then(response => {
                     console.log(response.data.products);
-                    commit('SET_STORE', response.data);
+                    commit('SET_STORE', response.data.products);
                 })
                 .catch(error => {
                     console.error('Error loading products:', error);

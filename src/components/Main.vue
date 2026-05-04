@@ -40,11 +40,13 @@
 
 <script>
 import MyHeader from './Header.vue';
+import axios from 'axios';
 export default {
   name: 'imain',
   data() {
     return {
-      cart: []
+      cart: [],
+      products: []
     };
   },
   components: { MyHeader },
@@ -94,27 +96,25 @@ export default {
       return this.cart.length || '';
     },
     sortedProducts() {
-      if (this.products.length > 0) {
-        let productsArray = this.products.slice(0);
-        function compare(a, b) {
-          if (a.title.toLowerCase() < b.title.toLowerCase())
-            return -1;
-          if (a.title.toLowerCase() > b.title.toLowerCase())
-            return 1;
-          return 0;
-        }
-        return productsArray.sort(compare);
+      const productsArray = this.products.slice(0);
+      function compare(a, b) {
+        if (a.title.toLowerCase() < b.title.toLowerCase())
+          return -1;
+        if (a.title.toLowerCase() > b.title.toLowerCase())
+          return 1;
+        return 0;
       }
-    },
-    products() {
-      return this.$store.getters.products;
+      return productsArray.sort(compare);
     }
   },
   created: function () {
-    axios.get('/products.json').then(response => {
-      this.products = response.data.products;
-      // console.log(this.products);
-    });
+    axios.get('/products.json')
+      .then(response => {
+        this.products = response.data.products || [];
+      })
+      .catch(error => {
+        console.error('Error loading products:', error);
+      });
   }
 };
 </script>
