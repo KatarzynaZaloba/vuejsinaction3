@@ -44,7 +44,6 @@ export default {
   name: 'imain',
   data() {
     return {
-      products: {},
       cart: []
     };
   },
@@ -106,6 +105,9 @@ export default {
         }
         return productsArray.sort(compare);
       }
+    },
+    products() {
+      return this.$store.getters.products;
     }
   },
   created: function () {
