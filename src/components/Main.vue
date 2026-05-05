@@ -40,6 +40,7 @@
 
 <script>
 import MyHeader from './Header.vue';
+import { mapGetters } from 'vuex';
 import { computed, onUnmounted, ref } from 'vue';
 import { useStore } from 'vuex';
 
