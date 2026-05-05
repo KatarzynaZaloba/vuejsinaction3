@@ -41,6 +41,7 @@
 <script>
 import MyHeader from './Header.vue';
 import { mapGetters } from 'vuex';
+import { mapState } from 'vuex';
 import { computed, onUnmounted, ref } from 'vue';
 import { useStore } from 'vuex';
 
@@ -65,6 +66,12 @@ export default {
     const mapGetters = computed(() => {
       return {
         products: store.getters.products
+      };
+    });
+
+    const mapState = computed(() => {
+      return {
+        products: store.state.products
       };
     });
 
@@ -126,6 +133,7 @@ export default {
       cartItemCount,
       sortedProducts,
       mapGetters,
+      mapState,
       formatPrice,
       checkRating,
       addToCart,
