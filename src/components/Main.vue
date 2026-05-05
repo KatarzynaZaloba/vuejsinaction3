@@ -62,6 +62,12 @@ export default {
       unsubscribe();
     });
 
+    const mapGetters = computed(() => {
+      return {
+        products: store.getters.products
+      };
+    });
+
     const cartItemCount = computed(() => cart.value.length || '');
 
     const sortedProducts = computed(() => {
@@ -119,6 +125,7 @@ export default {
     return {
       cartItemCount,
       sortedProducts,
+      mapGetters,
       formatPrice,
       checkRating,
       addToCart,
