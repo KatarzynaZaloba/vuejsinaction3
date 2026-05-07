@@ -82,6 +82,12 @@ export default {
       };
     });
 
+    const mapActions = computed(() => {
+      return {
+        fetchProducts: store.dispatch('fetchProducts')
+      };
+    });
+
     const cartItemCount = computed(() => cart.value.length || '');
 
     const sortedProducts = computed(() => {
@@ -142,6 +148,7 @@ export default {
       mapGetters,
       mapState,
       mapMutations,
+      mapActions,
       formatPrice,
       checkRating,
       addToCart,
