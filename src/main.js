@@ -3,15 +3,17 @@ import App from './App.vue'
 import router from './router'
 import './assets/app.css'
 import {store} from './store/store'
-import './firebase'
+import { app as firebaseApp } from './firebase'
 import { VueFire } from 'vuefire'
 
-const app = createApp(App)
+const vueApp = createApp(App)
 
-app.use(router)
-app.use(store)
-app.use(VueFire)
+vueApp.use(router)
+vueApp.use(store)
+vueApp.use(VueFire, {
+	firebaseApp
+})
 
 store.dispatch('initStore')
 
-app.mount('#app')
+vueApp.mount('#app')
