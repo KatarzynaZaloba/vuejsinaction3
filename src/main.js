@@ -3,9 +3,8 @@ import App from './App.vue'
 import router from './router'
 import './assets/app.css'
 import {store} from './store/store'
-import firebase from './firebase'
 import './firebase'
-import VueFire from 'vuefire'
+import { VueFire } from 'vuefire'
 
 const app = createApp(App)
 

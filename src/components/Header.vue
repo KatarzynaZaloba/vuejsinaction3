@@ -33,6 +33,9 @@
     </header>
 </template>
 <script>
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { app } from '../firebase';
+
 export default {
     name: 'my-header',
     data() {
@@ -41,6 +44,12 @@ export default {
         }
     },
     props: ['cartItemCount'],
+    beforeCreate() {
+        const auth = getAuth(app);
+        onAuthStateChanged(auth, (user) => {
+            this.$store.commit('SET_SESSION', user || false);
+        });
+    },
     methods: {
         showCheckout() {
             this.$router.push({ name: 'Form' });
