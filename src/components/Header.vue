@@ -33,26 +33,68 @@
     </header>
 </template>
 <script>
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import {
+    getAuth,
+    onAuthStateChanged,
+    GoogleAuthProvider,
+    signInWithPopup,
+    signOut as firebaseSignOut
+} from 'firebase/auth';
 import { app } from '../firebase';
 
 export default {
     name: 'my-header',
     data() {
         return {
-            sitename: 'Skład dla zwierzaków :: Vue.js'
+            sitename: 'Skład dla zwierzaków :: Vue.js',
+            sessionUser: false,
+            unsubscribeAuth: null
         }
     },
     props: ['cartItemCount'],
-    beforeCreate() {
+    created() {
         const auth = getAuth(app);
-        onAuthStateChanged(auth, (user) => {
+        this.unsubscribeAuth = onAuthStateChanged(auth, (user) => {
+            this.sessionUser = user || false;
             this.$store.commit('SET_SESSION', user || false);
         });
+    },
+    beforeUnmount() {
+        if (typeof this.unsubscribeAuth === 'function') {
+            this.unsubscribeAuth();
+        }
     },
     methods: {
         showCheckout() {
             this.$router.push({ name: 'Form' });
+        },
+        async signIn() {
+            const auth = getAuth(app);
+            const provider = new GoogleAuthProvider();
+            try {
+                const result = await signInWithPopup(auth, provider);
+                this.sessionUser = result.user || false;
+                this.$store.commit('SET_SESSION', result.user || false);
+                console.log('zalogowano!');
+            } catch (error) {
+                console.log('błąd' + error)
+            }
+        },
+        async signOut() {
+            const auth = getAuth(app);
+            try {
+                await firebaseSignOut(auth);
+                this.sessionUser = false;
+                this.$store.commit('SET_SESSION', false);
+                console.log('wylogowano!');
+            } catch (error) {
+                console.log('błąd podczas wylogowywania' + error)
+            }
+        }
+    },
+    computed: {
+        mySession() {
+            return this.sessionUser;
         }
     }
 }

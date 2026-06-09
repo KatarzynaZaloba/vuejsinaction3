@@ -3,11 +3,15 @@ import axios from 'axios';
 
 export const store = createStore({
     state: {
-        products: []
+        products: [],
+        session: false
     },
     mutations: {
         'SET_STORE'(state, products) {
             state.products = products;
+        },
+        'SET_SESSION'(state, session) {
+            state.session = session;
         }
     },
     actions: {
@@ -23,6 +27,7 @@ export const store = createStore({
         }
     },
     getters: {
-        products: state => state.products
+        products: state => state.products,
+        session: state => state.session
     }
 })
