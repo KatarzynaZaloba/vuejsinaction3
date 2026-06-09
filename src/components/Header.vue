@@ -108,4 +108,9 @@ a {
 .router-link-exact-active {
     color: blue;
 }
+
+.photo {
+    width: 20px;
+    height: 20px;
+}
 </style>
