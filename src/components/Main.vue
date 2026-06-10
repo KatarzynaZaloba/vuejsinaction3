@@ -45,9 +45,13 @@ import { mapState } from 'vuex';
 import { mapMutations } from 'vuex';
 import { computed, onUnmounted, ref } from 'vue';
 import { useStore } from 'vuex';
+import { productsRef } from '../firebase';
 
 export default {
   name: 'imain',
+  firebase: {
+    products: productsRef
+  },
   components: { MyHeader },
   setup() {
     const store = useStore();
@@ -66,7 +70,8 @@ export default {
 
     const mapGetters = computed(() => {
       return {
-        products: store.getters.products
+        products: store.getters.products,
+        session: store.getters.session
       };
     });
 
