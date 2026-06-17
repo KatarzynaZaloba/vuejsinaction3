@@ -19,11 +19,18 @@
     "@vue/cli-plugin-router": "~5.0.0",
     "@vue/cli-plugin-unit-jest": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
-    "@vue/test-utils": "^2.0.0-0",
+    "@vue/test-utils": "^2.4.11",
     "@vue/vue3-jest": "^27.0.0-alpha.1",
     "babel-jest": "^27.0.6",
-    "chromedriver": "146",
+    "chromedriver": "115.0.1",
+    "expect": "^30.4.1",
     "geckodriver": "^3.0.1",
-    "jest": "^27.0.5"
+    "jest": "^27.0.5",
+    "jsdom": "^29.1.1",
+    "jsdom-global": "^3.0.2",
+    "mocha": "^10.8.2",
+    "webpack": "^5.107.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-node-externals": "^3.0.0"
   }
 }
