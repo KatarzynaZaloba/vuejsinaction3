@@ -32,5 +32,6 @@
     "webpack": "^5.107.2",
     "webpack-cli": "^5.1.4",
     "webpack-node-externals": "^3.0.0"
-  }
+  },
+  "test": "mocha-webpack --webpack-config build/webpack.base.conf.js --require test/setup.js test/**/*.spec.js"
 }
