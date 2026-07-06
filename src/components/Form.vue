@@ -39,7 +39,7 @@
                 <select v-model="order.state" class="form-control">
                   <option disabled value="">Województwo</option>
                   <option v-for="(state, key) in states" v-bind:value="state">
-                  {{key}}
+                    {{ key }}
                   </option>
                 </select>
               </div>
@@ -47,32 +47,21 @@
             <div class="form-group">
               <div class="col-md-6 col-md-offset-4">
                 <strong>Kod pocztowy:</strong>
-                <input v-model.number="order.zip"
-                   class="form-control"
-                   type="number"/>
+                <input v-model.number="order.zip" class="form-control" type="number" />
               </div>
             </div>
             <div class="form-group">
               <div class="col-md-6 boxes">
-                <input type="checkbox"
-                       id="gift" value="true"
-                                 v-bind:true-value="order.sendGift"
-                                 v-bind:false-value="order.dontSendGift"
-                                 v-model="order.gift">
+                <input type="checkbox" id="gift" value="true" v-bind:true-value="order.sendGift"
+                  v-bind:false-value="order.dontSendGift" v-model="order.gift">
                 <label for="gift">Wysłać jako prezent?</label>
               </div>
             </div><!-- koniec form-group -->
             <div class="form-group">
               <div class="col-md-6 boxes">
-                <input type="radio"
-                       id="home"
-                       v-bind:value="order.home"
-                       v-model="order.method">
+                <input type="radio" id="home" v-bind:value="order.home" v-model="order.method">
                 <label for="home">Domowy</label>
-                <input type="radio"
-                       id="business"
-                       v-bind:value="order.business"
-                       v-model="order.method">
+                <input type="radio" id="business" v-bind:value="order.business" v-model="order.method">
                 <label for="business">Firmowy</label>
               </div>
             </div><!-- koniec form-group-->
@@ -83,14 +72,14 @@
             </div><!-- koniec form-group-->
             <div class="col-md-12 verify">
               <pre>
-                         Imię: {{order.firstName}}
-                     Nazwisko: {{order.lastName}}
-                        Adres: {{order.address}}
-                  Miejscowość: {{order.city}}
-                 Kod pocztowy: {{order.zip}}
-                  Województwo: {{order.state}}
-                       Metoda: {{order.method}}
-                      Prezent: {{order.gift}}
+                         Imię: {{ order.firstName }}
+                     Nazwisko: {{ order.lastName }}
+                        Adres: {{ order.address }}
+                  Miejscowość: {{ order.city }}
+                 Kod pocztowy: {{ order.zip }}
+                  Województwo: {{ order.state }}
+                       Metoda: {{ order.method }}
+                      Prezent: {{ order.gift }}
               </pre>
             </div><!-- koniec col-md-12 verify-->
           </div><!-- koniec panel-body-->
@@ -103,43 +92,43 @@
 </template>
 
 <script>
-  import MyHeader from './Header.vue';
-  export default {
-    name: 'Form',
-    props: ['cartItemCount'],
-    data () {
-      return {
-        states: {
-          DL: 'Dolnośląskie',
-          KP: 'Kujawsko-pomorskie',
-          LB: 'Lubelskie',
-          LU: 'Lubuskie'
-        },
-        order: {
-          firstName: '', 
-          lastName: '',
-          address: '',
-          city: '',
-          zip: '',
-          state: '',
-          method: 'Adres domowy',
-          business: 'Adres firmowy',
-          home: 'Adres domowy',
-          gift: 'Wyślij jako prezent',
-          sendGift: 'Wyślij jako prezent',
-          dontSendGift: 'Nie wysyłaj jako prezentu'
-        }
-  
-      }
-    },
-    components: { MyHeader },
-    methods: {
-      submitForm() {
-        alert('Wysłano formularz!');
-      }
+import MyHeader from './Header.vue';
+export default {
+  name: 'Form',
+  props: ['cartItemCount'],
+  data() {
+    return {
+      states: {
+        DL: 'Dolnośląskie',
+        KP: 'Kujawsko-pomorskie',
+        LB: 'Lubelskie',
+        LU: 'Lubuskie'
+      },
+      order: {
+        firstName: '',
+        lastName: '',
+        address: '',
+        city: '',
+        zip: '',
+        state: '',
+        method: 'Adres domowy',
+        business: 'Adres firmowy',
+        home: 'Adres domowy',
+        gift: 'Wyślij jako prezent',
+        sendGift: 'Wyślij jako prezent',
+        dontSendGift: 'Nie wysyłaj jako prezentu'
+      },
+      madeOrder: false
+
+    }
+  },
+  components: { MyHeader },
+  methods: {
+    submitForm() {
+      this.madeOrder = true;
     }
   }
+}
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
