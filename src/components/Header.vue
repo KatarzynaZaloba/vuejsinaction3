@@ -10,17 +10,17 @@
             </div>
             <div class="nav navbar-nav cart">
                 <div v-if="!mySession">
-                    <button type="button" class="btn btn-default btn-lg" @click="signIn">
+                    <button type="button" class="btn btn-default btn-lg login" @click="signIn">
                         Logowanie
                     </button>
                 </div>
                 <div v-else>
-                    <button type="button" class="btn btn-default btn-lg" @click="signOut">
+                    <button type="button" class="btn btn-default btn-lg login-out" @click="signOut">
                         <img class="photo" :src="mySession.photoURL" alt="profile" /> Wyloguj
                     </button>
                 </div>
                 <div class="nav navbar-nav navbar-right cart">
-                    <router-link active-class="active" tag="button" class="btn btn-default btn-lg"
+                    <router-link active-class="active" tag="button" class="btn btn-default btn-lg cart"
                         :to="{ name: 'Form' }">
                         <span class="glyphicon glyphicon-shopping-cart">
                             {{ cartItemCount }}
@@ -142,6 +142,39 @@ a {
     padding-top: 20px;
     align-items: center;
     margin-bottom: 20px;
+}
+
+.nav.navbar-nav.cart .btn.cart {
+    background-color: #c1552a;
+    color: #faf6f0;
+    font-size: 14px;
+    font-family: 'Outfit', sans-serif;
+    border-radius: 15px;
+    border: none;
+    font-weight: 600;
+    padding: 10px 20px;
+}
+
+.nav.navbar-nav.cart .btn.login-out,
+.nav.navbar-nav.cart .btn.login {
+    color: #6b4226;
+    margin-bottom: unset;
+    margin-right: unset;
+    border: unset;
+    background-color: unset;
+    font-size: 14px;
+    font-family: 'Outfit', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.nav.navbar-nav.cart .btn.login-out img {
+    margin-right: 5px;
+}
+
+span.glyphicon.glyphicon-shopping-cart {
+    margin-right: 5px;
 }
 
 .btn.btn-default.btn-lg {
