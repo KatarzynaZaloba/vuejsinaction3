@@ -8,7 +8,7 @@
                     </router-link>
                 </h1>
             </div>
-            <div class="nav navbar-nav navbar-right cart">
+            <div class="nav navbar-nav cart">
                 <div v-if="!mySession">
                     <button type="button" class="btn btn-default btn-lg" @click="signIn">
                         Logowanie
@@ -100,6 +100,10 @@ export default {
 }
 </script>
 <style scoped>
+header h1 {
+    margin-left: 20px;
+}
+
 a {
     text-decoration: none;
     color: black;
@@ -119,7 +123,32 @@ a {
     height: 20px;
 }
 
+.navbar {
+    border: unset;
+}
+
 .navbar.navbar-default {
     background-color: #faf5f0;
+}
+
+.nav.navbar-nav.cart {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    float: unset;
+    margin: 0;
+    justify-content: end;
+    margin-right: 20px;
+    padding-top: 20px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.btn.btn-default.btn-lg {
+    margin-right: 20px;
+}
+
+.btn.btn-default.btn-lg.login {
+    margin-bottom: 20px;
 }
 </style>
