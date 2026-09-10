@@ -102,6 +102,11 @@ export default {
 <style scoped>
 header h1 {
     margin-left: 20px;
+
+    @media (max-width: 767px) {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
 }
 
 a {
@@ -129,9 +134,14 @@ a {
 
 .navbar.navbar-default {
     background-color: #faf5f0;
+
+    @media (max-width: 767px) {
+        display: flex;
+        flex-flow: column-reverse;
+    }
 }
 
-.nav.navbar-nav.cart {
+.nav.navbar-nav.cart:not(.navbar-right) {
     display: flex;
     flex-direction: row;
     padding: 0;
@@ -142,6 +152,12 @@ a {
     padding-top: 20px;
     align-items: center;
     margin-bottom: 20px;
+
+    @media (max-width: 767px) {
+        margin-left: 20px;
+        margin-bottom: 0;
+        padding-top: 0;
+    }
 }
 
 .nav.navbar-nav.cart .btn.cart {
