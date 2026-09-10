@@ -118,4 +118,8 @@ a {
     width: 20px;
     height: 20px;
 }
+
+.navbar.navbar-default {
+    background-color: #faf5f0;
+}
 </style>
