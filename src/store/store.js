@@ -1,5 +1,4 @@
 import { createStore } from 'vuex';
-import axios from 'axios';
 
 export const store = createStore({
     state: {
@@ -15,15 +14,19 @@ export const store = createStore({
         }
     },
     actions: {
-        initStore: ({commit}) => {
-            axios.get('/products.json')
-                .then(response => {
-                    console.log(response.data.products);
-                    commit('SET_STORE', response.data.products);
-                })
-                .catch(error => {
-                    console.error('Error loading products:', error);
-                });
+        initStore: async ({ commit }) => {
+            try {
+                const response = await fetch('/products.json');
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+
+                const data = await response.json();
+                commit('SET_STORE', data.products || []);
+            } catch (error) {
+                console.error('Error loading products:', error);
+            }
         }
     },
     getters: {

@@ -46,7 +46,7 @@ export default {
     name: 'my-header',
     data() {
         return {
-            sitename: 'Skład dla zwierzaków :: Vue.js',
+            sitename: 'Pawsome',
             sessionUser: false,
             unsubscribeAuth: null
         }
@@ -106,7 +106,12 @@ a {
 }
 
 .router-link-exact-active {
-    color: blue;
+    color: #c1552a;
+    font-style: italic;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: calc(1.75 / 1.25);
+    font-family: 'Fraunces', Georgia, serif;
 }
 
 .photo {
