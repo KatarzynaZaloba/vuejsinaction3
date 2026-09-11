@@ -2,6 +2,60 @@
   <div>
     <my-header :cartItemCount="cartItemCount"></my-header>
     <main>
+      <section class="relative overflow-hidden bg-parchment">
+        <div class="md:hidden relative h-56 bg-bark"><img alt="A dog and cat hugging on grass"
+            class="w-full h-full object-cover opacity-80"
+            src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=800&amp;h=500&amp;fit=crop&amp;auto=format">
+          <div class="absolute inset-0 bg-gradient-to-t from-parchment/80 to-transparent"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10 md:py-28 grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+          <div><span
+              class="inline-block text-xs font-semibold uppercase tracking-widest text-terracotta bg-terracotta/10 px-3 py-1.5 rounded-full mb-4 md:mb-6">Trusted
+              by 50,000+ pet owners</span>
+            <h1
+              class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-bark leading-[1.05] mb-4 md:mb-6">
+              Everything your<br><span class="italic text-terracotta">furry family</span><br>deserves.</h1>
+            <p class="text-base sm:text-lg text-bark-light leading-relaxed max-w-md mb-6 md:mb-8">Curated nutrition,
+              thoughtful toys, and vet-approved accessories — delivered to your door with love.</p>
+            <div class="flex flex-wrap gap-3"><button
+                class="bg-terracotta text-cream font-semibold px-6 py-3 sm:px-7 sm:py-3.5 rounded-xl active:bg-terracotta-dark transition-colors text-sm touch-manipulation">Shop
+                Now</button><button
+                class="border-2 border-bark text-bark font-semibold px-6 py-3 sm:px-7 sm:py-3.5 rounded-xl hover:bg-sand transition-colors text-sm touch-manipulation">Our
+                Story</button></div>
+            <div class="mt-8 md:mt-10 flex items-center gap-6 sm:gap-8">
+              <div>
+                <p class="font-display text-xl sm:text-2xl font-bold text-terracotta">50k+</p>
+                <p class="text-xs text-bark-light font-medium">Happy Pets</p>
+              </div>
+              <div>
+                <p class="font-display text-xl sm:text-2xl font-bold text-terracotta">4.9★</p>
+                <p class="text-xs text-bark-light font-medium">Avg Rating</p>
+              </div>
+              <div>
+                <p class="font-display text-xl sm:text-2xl font-bold text-terracotta">Free</p>
+                <p class="text-xs text-bark-light font-medium">Returns</p>
+              </div>
+            </div>
+          </div>
+          <div class="relative hidden md:block">
+            <div class="absolute inset-0 bg-amber/20 rounded-[40px] rotate-3"></div><img
+              alt="A dog and cat hugging on grass"
+              class="relative rounded-[32px] w-full aspect-square object-cover shadow-2xl"
+              src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=700&amp;h=700&amp;fit=crop&amp;auto=format">
+            <div
+              class="absolute -bottom-4 -left-6 bg-white rounded-2xl shadow-lg px-5 py-4 flex items-center gap-3 border border-sand">
+              <span class="text-2xl">🐾</span>
+              <div>
+                <p class="text-sm font-semibold text-bark">Free delivery</p>
+                <p class="text-xs text-bark-light">On orders over $35</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="absolute top-0 right-0 w-96 h-96 bg-amber/10 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none">
+        </div>
+      </section>
       <div v-for="product in sortedProducts">
         <div class="row">
           <div class="col-md-5 col-md-offset-0">
@@ -165,6 +219,29 @@ export default {
 </script>
 
 <style scoped>
+.relative {
+  position: relative;
+}
+
+.bg-parchment {
+  scrollbar-width: none;
+  background-color: #f2ebe0;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.bg-bark {
+  background-color: #3d2414;
+}
+
+.md\:hidden {
+  @media (width >=48rem) {
+    display: none;
+  }
+}
+
 .bounce-enter-active {
   animation: shake 0.72s cubic-bezier(0.37, 0.07, 0.19, 0.97) both;
   transform: translate3d(0, 0, 0);

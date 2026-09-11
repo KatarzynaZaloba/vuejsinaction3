@@ -134,6 +134,8 @@ a {
 
 .navbar.navbar-default {
     background-color: #faf5f0;
+    border: 1px #e8d9c4 solid;
+    margin-bottom: 0;
 
     @media (max-width: 767px) {
         display: flex;
