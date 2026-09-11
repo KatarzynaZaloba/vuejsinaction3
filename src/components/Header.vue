@@ -106,6 +106,7 @@ header h1 {
     @media (max-width: 767px) {
         margin-top: 0;
         margin-bottom: 0;
+        margin-left: 0;
     }
 }
 
@@ -160,6 +161,13 @@ a {
         margin-bottom: 0;
         padding-top: 0;
     }
+}
+
+.nav.navbar-nav.cart .cart {
+    @media (max-width: 767px) {
+        padding: 10px;
+    }
+
 }
 
 .nav.navbar-nav.cart .btn.cart {

@@ -2,10 +2,10 @@
   <div>
     <my-header :cartItemCount="cartItemCount"></my-header>
     <main>
-      <section class="relative overflow-hidden bg-parchment">
-        <div class="md:hidden relative h-56 bg-bark"><img alt="A dog and cat hugging on grass"
-            class="w-full h-full object-cover opacity-80"
-            src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=800&amp;h=500&amp;fit=crop&amp;auto=format">
+      <section class="section-main">
+        <div class="section-main div">
+          <img alt="A dog and cat hugging on grass" class="section-main img"
+            src="../../public/images/photo-1450778869180-41d0601e046e.jpg">
           <div class="absolute inset-0 bg-gradient-to-t from-parchment/80 to-transparent"></div>
         </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10 md:py-28 grid md:grid-cols-2 gap-8 md:gap-12 items-center">
@@ -219,29 +219,6 @@ export default {
 </script>
 
 <style scoped>
-.relative {
-  position: relative;
-}
-
-.bg-parchment {
-  scrollbar-width: none;
-  background-color: #f2ebe0;
-}
-
-.overflow-hidden {
-  overflow: hidden;
-}
-
-.bg-bark {
-  background-color: #3d2414;
-}
-
-.md\:hidden {
-  @media (width >=48rem) {
-    display: none;
-  }
-}
-
 .bounce-enter-active {
   animation: shake 0.72s cubic-bezier(0.37, 0.07, 0.19, 0.97) both;
   transform: translate3d(0, 0, 0);
