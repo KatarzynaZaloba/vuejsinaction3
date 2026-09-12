@@ -10,11 +10,12 @@
         </div>
         <div class="section-main div-content">
           <div>
-            <span class="trusted">Trusted
+            <span class="trusted-text">Trusted
               by 50,000+ pet owners</span>
-            <h1 class="">
-              Everything your<br><span class="">furry family</span><br>deserves.</h1>
-            <p class="">Curated nutrition,
+            <h1 class="everything-text">
+              Everything your<br><span class="furry-text">furry family</span><span
+                class="deserves-text"><br>deserves.</span></h1>
+            <p class="curated-text">Curated nutrition,
               thoughtful toys, and vet-approved accessories — delivered to your door with love.</p>
             <div class=""><button class="">Shop
                 Now</button><button class="">Our
@@ -242,9 +243,10 @@ export default {
 .section-main.div-content {
   padding-top: 40px;
   padding-left: 20px;
+  background-color: #f2ebe0;
 }
 
-.section-main.div-content .trusted {
+.section-main.div-content .trusted-text {
   font-family: 'Outfit', sans-serif;
   font-size: 12px;
   font-weight: 600;
@@ -254,6 +256,18 @@ export default {
   background-color: rgba(193, 85, 42, 0.1);
   padding: 5px 10px;
   border-radius: calc(infinity * 1px)
+}
+
+.section-main.div-content .everything-text {
+  font-family: 'Fraunces', serif;
+  font-size: 36px;
+  font-weight: 600;
+  color: #3d2414;
+}
+
+.section-main.div-content .furry-text {
+  font-style: italic;
+  color: #c1552a;
 }
 
 @supports (color: color-mix(in oklab, red, red)) {
