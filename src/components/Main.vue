@@ -9,7 +9,8 @@
           <div class="section-main img-div"></div>
         </div>
         <div class="section-main div-content">
-          <div><span class="">Trusted
+          <div>
+            <span class="trusted">Trusted
               by 50,000+ pet owners</span>
             <h1 class="">
               Everything your<br><span class="">furry family</span><br>deserves.</h1>
@@ -241,6 +242,26 @@ export default {
 .section-main.div-content {
   padding-top: 40px;
   padding-left: 20px;
+}
+
+.section-main.div-content .trusted {
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #c1552a;
+  background-color: rgba(193, 85, 42, 0.1);
+  padding: 5px 10px;
+  border-radius: calc(infinity * 1px)
+}
+
+@supports (color: color-mix(in oklab, red, red)) {
+  .section-main.div-content .trusted {
+    background-color: color-mix(in oklab,
+        #c1552a 10%,
+        transparent);
+  }
 }
 
 @keyframes shake {
