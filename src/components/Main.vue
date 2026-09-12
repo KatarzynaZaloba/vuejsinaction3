@@ -6,9 +6,9 @@
         <div class="section-main div">
           <img alt="A dog and cat hugging on grass" class="section-main img"
             src="../../public/images/photo-1450778869180-41d0601e046e.avif">
-          <div class=""></div>
+          <div class="section-main img-div"></div>
         </div>
-        <div class="">
+        <div class="section-main div-content">
           <div><span class="">Trusted
               by 50,000+ pet owners</span>
             <h1 class="">
@@ -215,6 +215,32 @@ export default {
   animation: shake 0.72s cubic-bezier(0.37, 0.07, 0.19, 0.97) both;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
+}
+
+.section-main.div {
+  position: relative;
+}
+
+.section-main.img {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  display: block;
+  vertical-align: middle;
+  opacity: 80%;
+  object-fit: cover;
+}
+
+.section-main.img-div {
+  position: absolute;
+  background: linear-gradient(to bottom,
+      #f2ebe0,
+      transparent);
+}
+
+.section-main.div-content {
+  padding-top: 40px;
+  padding-left: 20px;
 }
 
 @keyframes shake {

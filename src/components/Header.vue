@@ -102,6 +102,7 @@ export default {
 <style scoped>
 header h1 {
     margin-left: 20px;
+    font-size: 20px;
 
     @media (max-width: 767px) {
         margin-top: 0;
