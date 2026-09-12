@@ -17,9 +17,12 @@
                 class="deserves-text"><br>deserves.</span></h1>
             <p class="curated-text">Curated nutrition,
               thoughtful toys, and vet-approved accessories — delivered to your door with love.</p>
-            <div class=""><button class="">Shop
-                Now</button><button class="">Our
-                Story</button></div>
+            <!-- <div class="">
+              <button class="">Shop
+                Now</button>
+              <button class="">Our
+                Story</button>
+            </div> -->
             <div class="">
               <div>
                 <p class="">50k+</p>
@@ -268,6 +271,13 @@ export default {
 .section-main.div-content .furry-text {
   font-style: italic;
   color: #c1552a;
+}
+
+.section-main.div-content .curated-text {
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  color: #6b4226;
+  line-height: 1.625;
 }
 
 @supports (color: color-mix(in oklab, red, red)) {
