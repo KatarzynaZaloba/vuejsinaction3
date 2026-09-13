@@ -17,12 +17,12 @@
                 class="deserves-text"><br>deserves.</span></h1>
             <p class="curated-text">Curated nutrition,
               thoughtful toys, and vet-approved accessories — delivered to your door with love.</p>
-            <!-- <div class="">
+            <div class="">
               <button class="">Shop
                 Now</button>
               <button class="">Our
                 Story</button>
-            </div> -->
+            </div>
             <div class="rating">
               <div>
                 <p class="title">50k+</p>
@@ -54,6 +54,30 @@
           </div>
         </div>
         <div class="">
+        </div>
+      </section>
+      <section class="section-table">
+        <div class="div">
+          <button class="dogs">
+            <span class="">🐕</span>
+            <p class="title">Dogs</p>
+            <p class="subtitle">340+ products</p>
+          </button>
+          <button class="cats">
+            <span class="">🐈</span>
+            <p class="title">Cats</p>
+            <p class="subtitle">210+ products</p>
+          </button>
+          <button class="small-pets">
+            <span class="">🐹</span>
+            <p class="title">Small Pets</p>
+            <p class="subtitle">90+ products</p>
+          </button>
+          <button class="birds">
+            <span class="">🐦</span>
+            <p class="title">Birds</p>
+            <p class="subtitle">60+ products</p>
+          </button>
         </div>
       </section>
       <div v-for="product in sortedProducts">
@@ -312,7 +336,46 @@ export default {
   line-height: calc(1 / 0.75);
 }
 
+.section-table {
+  background-color: #3d2414;
+  padding: 20px;
+}
 
+.section-table .div {
+  display: grid;
+  margin-inline: auto;
+  color: #3d2414;
+  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.section-table button {
+  background-color: #6b4226;
+  text-align: left;
+  padding: 20px;
+  border: unset;
+  background-color: #6b4226;
+  border-radius: 1rem;
+}
+
+.section-table button span {
+  font-size: 30px;
+}
+
+.section-table button .title {
+  color: #faf6f0;
+  font-family: 'Fraunces', serif;
+  font-size: 16px;
+  font-weight: 600;
+  padding-top: 5px;
+}
+
+.section-table button .subtitle {
+  color: #f0b868;
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  padding-bottom: 0;
+}
 
 @supports (color: color-mix(in oklab, red, red)) {
   .section-main.div-content .trusted {
