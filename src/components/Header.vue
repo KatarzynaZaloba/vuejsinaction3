@@ -158,9 +158,10 @@ a {
     margin-bottom: 20px;
 
     @media (max-width: 767px) {
-        margin-left: 20px;
+        /* margin-left: 20px;
         margin-bottom: 0;
-        padding-top: 0;
+        padding-top: 0; */
+        display: none;
     }
 }
 

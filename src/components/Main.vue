@@ -416,6 +416,48 @@ export default {
   padding-bottom: 0;
 }
 
+.footer {
+  background-color: #3d2414;
+  color: #f1ece6;
+  padding: 20px 20px;
+}
+
+.footer .div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer .title {
+  color: #faf6f0;
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-weight: 600;
+  font-style: italic;
+  padding-bottom: 20px;
+  padding-top: 10px;
+}
+
+.footer .subtitle {
+  color: #faf6f0;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+}
+
+.footer .links {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  color: #faf6f0;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  padding-bottom: 10px;
+}
+
+.footer .links a {
+  color: #faf6f0;
+}
+
 @supports (color: color-mix(in oklab, red, red)) {
   .section-main.div-content .trusted {
     background-color: color-mix(in oklab,
