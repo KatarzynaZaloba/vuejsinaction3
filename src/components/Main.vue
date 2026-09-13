@@ -112,10 +112,14 @@
           </div>
         </div>
       </div>
-      <footer class="">
-        <div class=""><span class="">Pawsome</span>
-          <p class="">© 2026 Pawsome Pet Supply. All rights reserved.</p>
-          <div class=""><a href="#" class="">Privacy</a><a href="#" class="">Terms</a><a href="#" class="">Contact</a>
+      <footer class="footer">
+        <div class="div">
+          <span class="title">Pawsome</span>
+          <p class="subtitle">© 2026 Pawsome Pet Supply. All rights reserved.</p>
+          <div class="links">
+            <a href="#" class="">Privacy</a>
+            <a href="#" class="">Terms</a>
+            <a href="#" class="">Contact</a>
           </div>
         </div>
       </footer>
