@@ -17,10 +17,10 @@
                 class="deserves-text"><br>deserves.</span></h1>
             <p class="curated-text">Curated nutrition,
               thoughtful toys, and vet-approved accessories — delivered to your door with love.</p>
-            <div class="">
-              <button class="">Shop
+            <div class="buttons">
+              <button class="shop">Shop
                 Now</button>
-              <button class="">Our
+              <button class="story">Our
                 Story</button>
             </div>
             <div class="rating">
@@ -336,6 +336,34 @@ export default {
   line-height: calc(1 / 0.75);
 }
 
+.section-main .buttons {
+  flex-wrap: wrap;
+  display: flex;
+  gap: 12px;
+  padding-top: 12px;
+}
+
+.section-main .shop,
+.section-main .story {
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.section-main .shop {
+  background-color: #c1552a;
+  color: #faf6f0;
+  border: unset;
+}
+
+.section-main .story {
+  background-color: transparent;
+  border: 2px solid #3d2414;
+  color: #3d2414;
+}
+
 .section-table {
   background-color: #3d2414;
   padding: 20px;
@@ -352,10 +380,10 @@ export default {
 .section-table button {
   background-color: #6b4226;
   text-align: left;
-  padding: 20px;
+  padding: 10px 20px;
   border: unset;
   background-color: #6b4226;
-  border-radius: 1rem;
+  border-radius: 20px;
 }
 
 .section-table button span {
