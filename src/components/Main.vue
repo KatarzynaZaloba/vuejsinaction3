@@ -23,30 +23,33 @@
               <button class="">Our
                 Story</button>
             </div> -->
-            <div class="">
+            <div class="rating">
               <div>
-                <p class="">50k+</p>
-                <p class="">Happy Pets</p>
+                <p class="title">50k+</p>
+                <p class="subtitle">Happy Pets</p>
               </div>
               <div>
-                <p class="">4.9★</p>
-                <p class="">Avg Rating</p>
+                <p class="title">4.9★</p>
+                <p class="subtitle">Avg Rating</p>
               </div>
               <div>
-                <p class="">Free</p>
-                <p class="">Returns</p>
+                <p class="title">Free</p>
+                <p class="subtitle">Returns</p>
               </div>
             </div>
           </div>
           <div class="">
-            <div class=""></div><img alt="" class=""
-              src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=700&amp;h=700&amp;fit=crop&amp;auto=format">
             <div class="">
-              <span class="">🐾</span>
+
+            </div>
+            <!-- <img alt="" class=""
+              src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=700&amp;h=700&amp;fit=crop&amp;auto=format"> -->
+            <div class="">
+              <!-- <span class="">🐾</span>
               <div>
                 <p class="">Free delivery</p>
                 <p class="">On orders over $35</p>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -279,6 +282,37 @@ export default {
   color: #6b4226;
   line-height: 1.625;
 }
+
+.section-main.div-content .rating {
+  align-items: center;
+  display: flex;
+  gap: calc(0.25rem * 6);
+  margin-top: calc(0.25rem * 8);
+  width: 100%;
+  background-color: #f2ebe0;
+  float: unset;
+  margin-left: 0;
+  padding-bottom: 30px;
+}
+
+.section-main.div-content .title {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #c1552a;
+  margin: unset;
+}
+
+.section-main.div-content .subtitle {
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #6b4226;
+  margin: unset;
+  line-height: calc(1 / 0.75);
+}
+
+
 
 @supports (color: color-mix(in oklab, red, red)) {
   .section-main.div-content .trusted {
