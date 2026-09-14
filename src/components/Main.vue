@@ -80,38 +80,54 @@
           </button>
         </div>
       </section>
-      <div v-for="product in sortedProducts">
-        <div class="row">
-          <div class="col-md-5 col-md-offset-0">
-            <figure>
-              <img class="product" v-bind:src="product.image">
-            </figure>
+      <section class="section-products">
+        <div class="text">
+          <div>
+            <h2 class="title">Shop our <span class="title-orange">favourites</span></h2>
+            <p class="subtitle">Hand-picked by our team of pet lovers &amp; vets.</p>
           </div>
-          <div class="col-md-6 col-md-offse-0 description">
-            <router-link tag='h1' :to="{ name: 'Id', params: { id: product.id } }">{{
-              product.title }}</router-link>
-            <p v-html="product.description"></p>
-            <p class="price">
-              {{ formatPrice(product.price) }}
-            </p>
-            <button class="btn btn-primary btn-lg" v-on:click="addToCart(product)" v-if="canAddToCart(product)">Dodaj do
-              koszyka</button>
-            <button disabled="true" class="btn btn-primary btn-lg" v-else>Dodaj do koszyka</button>
-            <transition>
-              <span class="inventory-message" v-if="product.availableInventory - cartCount(product.id) === 0"
-                key="0">Brak
-                towaru!</span>
-              <span class="inventory-message" v-else-if="product.availableInventory - cartCount(product.id) < 5">Zostało
-                tylko {{ product.availableInventory - cartCount(product.id) }}!</span>
-              <span class="inventory-message" v-else>Kupuj teraz!</span>
-            </transition>
+          <div class=""><button class="">All</button><button class="">Dog
+              Food</button><button class="">Cat
+              Food</button><button class="">Toys</button><button class="">Accessories</button><button
+              class="">Health</button>
+          </div>
+        </div>
+        <div v-for="product in sortedProducts">
+          <div class="row">
+            <div class="col-md-5 col-md-offset-0">
+              <figure>
+                <img class="product" v-bind:src="product.image">
+              </figure>
+            </div>
+            <div class="col-md-6 col-md-offse-0 description">
+              <router-link tag='h1' :to="{ name: 'Id', params: { id: product.id } }">{{
+                product.title }}</router-link>
+              <p v-html="product.description"></p>
+              <p class="price">
+                {{ formatPrice(product.price) }}
+              </p>
+              <button class="btn btn-primary btn-lg" v-on:click="addToCart(product)" v-if="canAddToCart(product)">Dodaj
+                do
+                koszyka</button>
+              <button disabled="true" class="btn btn-primary btn-lg" v-else>Dodaj do koszyka</button>
+              <transition>
+                <span class="inventory-message" v-if="product.availableInventory - cartCount(product.id) === 0"
+                  key="0">Brak
+                  towaru!</span>
+                <span class="inventory-message"
+                  v-else-if="product.availableInventory - cartCount(product.id) < 5">Zostało
+                  tylko {{ product.availableInventory - cartCount(product.id) }}!</span>
+                <span class="inventory-message" v-else>Kupuj teraz!</span>
+              </transition>
 
-            <div class="rating">
-              <span v-bind:class="{ 'rating-active': checkRating(n, product) }" v-for="n in 5">☆</span>
+              <div class="rating">
+                <span v-bind:class="{ 'rating-active': checkRating(n, product) }" v-for="n in 5">☆</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
+
       <footer class="footer">
         <div class="div">
           <span class="title">Pawsome</span>
@@ -414,6 +430,31 @@ export default {
   font-family: 'Outfit', sans-serif;
   font-size: 12px;
   padding-bottom: 0;
+}
+
+.section-products {
+  padding-inline: 20px;
+  padding-block: 30px;
+  background-color: #faf6f0;
+}
+
+.section-products .title {
+  color: #3d2414;
+  font-family: 'Fraunces', serif;
+  font-size: 30px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.section-products .title-orange {
+  color: #c1552a;
+  font-style: italic;
+}
+
+.section-products .subtitle {
+  color: #6b4226;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
 }
 
 .footer {
