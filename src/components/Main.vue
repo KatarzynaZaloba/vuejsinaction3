@@ -86,10 +86,13 @@
             <h2 class="title">Shop our <span class="title-orange">favourites</span></h2>
             <p class="subtitle">Hand-picked by our team of pet lovers &amp; vets.</p>
           </div>
-          <div class=""><button class="">All</button><button class="">Dog
-              Food</button><button class="">Cat
-              Food</button><button class="">Toys</button><button class="">Accessories</button><button
-              class="">Health</button>
+          <div class="categories">
+            <button class="active">All</button>
+            <button class="">Dog Food</button>
+            <button class="">Cat Food</button>
+            <button class="">Toys</button>
+            <button class="">Accessories</button>
+            <button class="">Health</button>
           </div>
         </div>
         <div v-for="product in sortedProducts">
@@ -453,6 +456,29 @@ export default {
 
 .section-products .subtitle {
   color: #6b4226;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+}
+
+.section-products .categories {
+  overflow-x: auto;
+  gap: 5px;
+  scroll-snap-type: x proximity;
+  display: flex;
+  margin-inline: -10px;
+  padding-top: 10px;
+}
+
+.section-products .categories button.active {
+  color: #faf6f0;
+  background-color: #c1552a;
+  border-radius: 10px;
+  border: unset;
+}
+
+.section-products .categories button {
+  border-radius: 10px;
+  border: unset;
   font-family: 'Outfit', sans-serif;
   font-size: 14px;
 }
