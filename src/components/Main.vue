@@ -96,13 +96,13 @@
           </div>
         </div>
         <div v-for="product in sortedProducts">
-          <div class="row">
-            <div class="col-md-5 col-md-offset-0">
+          <div class="products">
+            <div class="">
               <figure>
                 <img class="product" v-bind:src="product.image">
               </figure>
             </div>
-            <div class="col-md-6 col-md-offse-0 description">
+            <div class="description">
               <router-link tag='h1' :to="{ name: 'Id', params: { id: product.id } }">{{
                 product.title }}</router-link>
               <p v-html="product.description"></p>
@@ -467,20 +467,40 @@ export default {
   display: flex;
   margin-inline: -10px;
   padding-top: 10px;
+  padding-inline: 10px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.section-products .categories::-webkit-scrollbar {
+  display: none;
+}
+
+.section-products .categories button {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  white-space: nowrap;
+  padding: 8px 16px;
 }
 
 .section-products .categories button.active {
   color: #faf6f0;
   background-color: #c1552a;
-  border-radius: 10px;
   border: unset;
 }
 
 .section-products .categories button {
-  border-radius: 10px;
+  border-radius: 15px;
   border: unset;
   font-family: 'Outfit', sans-serif;
   font-size: 14px;
+  color: #6b4226;
+  background-color: #e8d9c4;
+  font-weight: 500;
+}
+
+.section-products .text {
+  margin-bottom: 20px;
 }
 
 .footer {
