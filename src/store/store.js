@@ -1,4 +1,6 @@
 import { createStore } from 'vuex';
+import { onValue } from 'firebase/database';
+import { productsRef } from '../firebase';
 
 export const store = createStore({
     state: {
@@ -14,19 +16,17 @@ export const store = createStore({
         }
     },
     actions: {
-        initStore: async ({ commit }) => {
-            try {
-                const response = await fetch('/products.json');
+        initStore: ({ commit }) => {
+            onValue(productsRef, (snapshot) => {
+                const value = snapshot.val();
+                const products = Array.isArray(value)
+                    ? value.filter(Boolean)
+                    : Object.values(value || {}).filter(Boolean);
 
-                if (!response.ok) {
-                    throw new Error(`HTTP ${response.status}`);
-                }
-
-                const data = await response.json();
-                commit('SET_STORE', data.products || []);
-            } catch (error) {
-                console.error('Error loading products:', error);
-            }
+                commit('SET_STORE', products);
+            }, (error) => {
+                console.error('Error loading products from Firebase:', error);
+            });
         }
     },
     getters: {

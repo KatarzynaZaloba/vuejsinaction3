@@ -99,7 +99,7 @@
           <div class="products">
             <div class="">
               <figure>
-                <img class="product" v-bind:src="product.image">
+                <img class="product" v-bind:src="product?.image">
               </figure>
             </div>
             <div class="description">
@@ -204,7 +204,6 @@ export default {
     const cartItemCount = computed(() => cart.value.length || '');
 
     const sortedProducts = computed(() => {
-      // Keep this dependency so Vue recomputes after Vuex SET_STORE mutations.
       productsVersion.value;
       const productsArray = (store.state.products || []).slice(0);
       function compare(a, b) {
