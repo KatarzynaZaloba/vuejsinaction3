@@ -101,7 +101,9 @@
               <figure class="figure">
                 <img class="" v-bind:src="product?.image">
               </figure>
+
             </div>
+            <span class="label bestseller" v-if="product.labels === 'bestseller'">Best Seller</span>
             <div class="description">
               <router-link tag='h1' :to="{ name: 'Id', params: { id: product.id } }">{{
                 product.title }}</router-link>
@@ -499,7 +501,7 @@ export default {
 }
 
 .section-products .text {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .section-products .product {
@@ -509,6 +511,21 @@ export default {
   border: 1px solid #e8d9c4;
   margin-bottom: 15px;
   border-radius: 15px;
+}
+
+.section-products .product .label {
+  position: absolute;
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 10px;
+  margin: 15px;
+}
+
+.section-products .product .label.bestseller {
+  background-color: #f0b868;
+  color: #3d2414;
 }
 
 .section-products .product .image-div .figure {
