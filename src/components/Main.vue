@@ -96,10 +96,10 @@
           </div>
         </div>
         <div v-for="product in sortedProducts">
-          <div class="products">
-            <div class="">
-              <figure>
-                <img class="product" v-bind:src="product?.image">
+          <div class="product">
+            <div class="image-div">
+              <figure class="figure">
+                <img class="" v-bind:src="product?.image">
               </figure>
             </div>
             <div class="description">
@@ -500,6 +500,30 @@ export default {
 
 .section-products .text {
   margin-bottom: 20px;
+}
+
+.section-products .product {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  display: grid;
+  background-color: #fff;
+  border: 1px solid #e8d9c4;
+  margin-bottom: 15px;
+  border-radius: 15px;
+}
+
+.section-products .product .image-div .figure {
+  height: calc(0.4rem * 48);
+  background-color: #f2ebe0;
+  position: relative;
+  border-radius: 15px 15px 0 0;
+}
+
+.section-products .product .image-div .figure img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  border-radius: 15px 15px 0 0;
 }
 
 .footer {
