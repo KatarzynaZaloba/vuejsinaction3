@@ -104,10 +104,35 @@
 
             </div>
             <span class="label bestseller" v-if="product.labels === 'bestseller'">Best Seller</span>
+            <span class="label new" v-if="product.labels === 'new'">New</span>
+            <span class="label sale" v-if="product.labels === 'sale'">Sale</span>
             <div class="description">
-              <router-link tag='h1' :to="{ name: 'Id', params: { id: product.id } }">{{
+              <p class="category">{{ (product.category) }}</p>
+              <router-link tag='h1' class="title" :to="{ name: 'Id', params: { id: product.id } }">{{
                 product.title }}</router-link>
-              <p v-html="product.description"></p>
+              <p class="product-description" v-html="product.description"></p>
+              <div class=""><svg class="w-3.5 h-3.5 text-amber" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                  </path>
+                </svg><svg class="w-3.5 h-3.5 text-amber" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                  </path>
+                </svg><svg class="w-3.5 h-3.5 text-amber" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                  </path>
+                </svg><svg class="w-3.5 h-3.5 text-amber" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                  </path>
+                </svg><svg class="w-3.5 h-3.5 text-amber" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                  </path>
+                </svg><span class="ml-1 text-xs text-bark-light font-medium">4.7</span></div>
+              <p class="">204 reviews</p>
               <p class="price">
                 {{ formatPrice(product.price) }}
               </p>
@@ -518,13 +543,53 @@ export default {
   font-family: 'Outfit', sans-serif;
   font-size: 12px;
   font-weight: 600;
-  padding: 4px 10px;
+  padding: 5px 10px;
   border-radius: 10px;
   margin: 15px;
 }
 
 .section-products .product .label.bestseller {
   background-color: #f0b868;
+  color: #3d2414;
+}
+
+.section-products .product .label.new {
+  background-color: #7a8c6e;
+  color: #faf6f0;
+}
+
+.section-products .product .label.sale {
+  background-color: #c1552a;
+  color: #faf6f0;
+}
+
+.section-products .product .category {
+  text-transform: uppercase;
+  color: #6b4226;
+  font-size: 12px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+  letter-spacing: 2px;
+  margin-bottom: 0;
+}
+
+.section-products .product .description {
+  margin-top: 15px;
+  margin-left: 15px;
+}
+
+.section-products .product .description .product-description {
+  color: #6b4226;
+  line-height: 1.625;
+  font-size: 14px;
+  font-family: 'Outfit', sans-serif;
+  margin-top: 5px;
+}
+
+.section-products .product .description .title {
+  font-size: 16px;
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 600;
   color: #3d2414;
 }
 
