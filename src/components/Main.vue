@@ -148,6 +148,20 @@
         </div>
       </section>
 
+      <section class="">
+        <div class=""><img alt="Dog and cat together" class=""
+            src="https://images.unsplash.com/photo-1509205477838-a534e43a849f?w=1400&amp;h=500&amp;fit=crop&amp;auto=format">
+        </div>
+        <div class="">
+          <p class="">Limited time offer</p>
+          <h2 class="">20% off your first order
+          </h2>
+          <p class="">Use code <span class="">PAWSOME20</span> at checkout. New
+            customers only.</p><button class="">Claim
+            Offer</button>
+        </div>
+      </section>
+
       <footer class="footer">
         <div class="div">
           <span class="title">Pawsome</span>
@@ -621,6 +635,7 @@ export default {
   font-size: 20px;
   font-family: "Fraunces", Georgia, serif;
   font-weight: 700;
+  margin: 0;
 }
 
 .section-products .product .description .priceOld {
@@ -647,6 +662,8 @@ export default {
   font-size: 12px;
   font-family: 'Outfit', sans-serif;
   font-weight: 500;
+  display: flex;
+  justify-content: end;
 }
 
 .section-products .product .description .title {
