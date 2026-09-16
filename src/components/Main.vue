@@ -162,6 +162,26 @@
         </div>
       </section>
 
+      <section class="section-motto">
+        <div class="div">
+          <span class="">🚚</span>
+          <h3 class="title">Free Shipping</h3>
+          <p class="subtitle">On all orders over $35. Express delivery available at
+            checkout.</p>
+        </div>
+        <div class="div">
+          <span class="">🔬</span>
+          <h3 class="title">Vet Approved</h3>
+          <p class="subtitle">Every product is reviewed and approved by our in-house
+            veterinary team.</p>
+        </div>
+        <div class="div"><span class="">♻️</span>
+          <h3 class="title">Eco Packaging</h3>
+          <p class="subtitle">We use 100% compostable or recycled packaging on every
+            shipment.</p>
+        </div>
+      </section>
+
       <footer class="footer">
         <div class="div">
           <span class="title">Pawsome</span>
@@ -539,6 +559,7 @@ export default {
   background-color: #fff;
   border: 1px solid #e8d9c4;
   border-radius: 15px;
+  margin-bottom: 20px;
 }
 
 .section-products .product .label {
@@ -763,6 +784,39 @@ export default {
   font-weight: 600;
 }
 
+.section-motto {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  display: grid;
+  gap: 20px;
+  margin: 20px;
+  margin-bottom: 60px;
+}
+
+.section-motto .div {
+  border-radius: 15px;
+  padding: 28px;
+  background-color: #f2ebe0;
+}
+
+.section-motto span {
+  font-size: 30px;
+}
+
+.section-motto .title {
+  font-family: 'Fraunces', Georgia, serif;
+  color: #3d2414;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.section-motto .subtitle {
+  font-family: 'Outfit', system-ui, sans-serif;
+  color: #6b4226;
+  font-size: 14px;
+  margin-top: 10px;
+  line-height: 1.625;
+}
 
 .footer {
   background-color: #3d2414;
