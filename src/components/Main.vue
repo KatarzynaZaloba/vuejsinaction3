@@ -740,6 +740,7 @@ export default {
     color-mix(in oklab, #faf6f0 80%, transparent);
   font-size: 18px;
   font-family: 'Outfit', system-ui, sans-serif;
+  padding-bottom: 20px;
 }
 
 .section-banner .info .description .code {
@@ -748,6 +749,17 @@ export default {
   border-radius: 5px;
   color: #f0b868;
   padding: 4px 8px;
+  font-weight: 600;
+}
+
+.section-banner .info .claim-offer {
+  color: #c1552a;
+  background-color: #faf6f0;
+  border: none;
+  font-size: 14px;
+  font-family: 'Outfit', system-ui, sans-serif;
+  padding: 16px 32px;
+  border-radius: 10px;
   font-weight: 600;
 }
 
