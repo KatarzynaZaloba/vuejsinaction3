@@ -122,20 +122,19 @@
               </div>
               <p class="reviews">204 reviews</p>
               <p class="price">
-                {{ formatPrice(product.price) }}
-              </p>
-              <button class="btn btn-primary btn-lg" v-on:click="addToCart(product)" v-if="canAddToCart(product)">Dodaj
-                do
-                koszyka</button>
-              <button disabled="true" class="btn btn-primary btn-lg" v-else>Dodaj do koszyka</button>
+                ${{ (product.price).toFixed(2) }}
+              </p><span class="priceOld" v-if="product.priceOld">${{ (product.priceOld).toFixed(2) }}</span>
+              <button class="btn btn-primary btn-lg" v-on:click="addToCart(product)" v-if="canAddToCart(product)">Add
+                to
+                cart</button>
+              <button disabled="true" class="btn btn-primary btn-lg" v-else>Add to cart</button>
               <transition>
                 <span class="inventory-message" v-if="product.availableInventory - cartCount(product.id) === 0"
-                  key="0">Brak
-                  towaru!</span>
-                <span class="inventory-message"
-                  v-else-if="product.availableInventory - cartCount(product.id) < 5">Zostało
-                  tylko {{ product.availableInventory - cartCount(product.id) }}!</span>
-                <span class="inventory-message" v-else>Kupuj teraz!</span>
+                  key="0">Out of
+                  stock!</span>
+                <span class="inventory-message" v-else-if="product.availableInventory - cartCount(product.id) < 5">Only
+                  {{ product.availableInventory - cartCount(product.id) }} left!</span>
+                <span class="inventory-message" v-else>Buy now!</span>
               </transition>
             </div>
           </div>
@@ -597,6 +596,20 @@ export default {
   color: #6b4226;
   font-size: 12px;
   font-family: 'Outfit', sans-serif;
+}
+
+.section-products .product .description .price {
+  color: #c1552a;
+  font-size: 20px;
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 700;
+}
+
+.section-products .product .description .priceOld {
+  color: #6b4226;
+  font-size: 14px;
+  font-family: 'Outfit', sans-serif;
+  text-decoration-line: line-through;
 }
 
 .section-products .product .description .title {
