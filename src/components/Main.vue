@@ -121,21 +121,26 @@
                 <span class="rating-value">{{ (product.rating).toFixed(1) }}</span>
               </div>
               <p class="reviews">204 reviews</p>
-              <p class="price">
-                ${{ (product.price).toFixed(2) }}
-              </p><span class="priceOld" v-if="product.priceOld">${{ (product.priceOld).toFixed(2) }}</span>
-              <button class="btn btn-primary btn-lg" v-on:click="addToCart(product)" v-if="canAddToCart(product)">Add
-                to
-                cart</button>
-              <button disabled="true" class="btn btn-primary btn-lg" v-else>Add to cart</button>
-              <transition>
-                <span class="inventory-message" v-if="product.availableInventory - cartCount(product.id) === 0"
-                  key="0">Out of
-                  stock!</span>
-                <span class="inventory-message" v-else-if="product.availableInventory - cartCount(product.id) < 5">Only
-                  {{ product.availableInventory - cartCount(product.id) }} left!</span>
-                <span class="inventory-message" v-else>Buy now!</span>
-              </transition>
+              <div>
+                <p class="price">
+                  ${{ (product.price).toFixed(2) }}
+                </p>
+                <span class="priceOld" v-if="product.priceOld">${{ (product.priceOld).toFixed(2) }}</span>
+                <button class="btn addToCart" v-on:click="addToCart(product)" v-if="canAddToCart(product)">Add
+                  to
+                  cart</button>
+                <button disabled="true" class="btn addToCart" v-else>Add to cart</button>
+                <transition>
+                  <span class="inventory-message" v-if="product.availableInventory - cartCount(product.id) === 0"
+                    key="0">Out of
+                    stock!</span>
+                  <span class="inventory-message"
+                    v-else-if="product.availableInventory - cartCount(product.id) < 5">Only
+                    {{ product.availableInventory - cartCount(product.id) }} left!</span>
+                  <span class="inventory-message" v-else>Buy now!</span>
+                </transition>
+              </div>
+
             </div>
           </div>
         </div>
@@ -610,6 +615,25 @@ export default {
   font-size: 14px;
   font-family: 'Outfit', sans-serif;
   text-decoration-line: line-through;
+}
+
+.section-products .product .description .btn.addToCart {
+  color: #faf6f0;
+  background-color: #c1552a;
+  border: none;
+  border-radius: 10px;
+  padding-inline: 15px;
+  padding-block: 8px;
+  font-size: 14px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+}
+
+.section-products .product .description .inventory-message {
+  color: #6b4226;
+  font-size: 12px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
 }
 
 .section-products .product .description .title {
