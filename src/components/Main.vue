@@ -742,6 +742,15 @@ export default {
   font-family: 'Outfit', system-ui, sans-serif;
 }
 
+.section-banner .info .description .code {
+  background-color:
+    color-mix(in oklab, #fff 10%, transparent);
+  border-radius: 5px;
+  color: #f0b868;
+  padding: 4px 8px;
+  font-weight: 600;
+}
+
 
 .footer {
   background-color: #3d2414;
