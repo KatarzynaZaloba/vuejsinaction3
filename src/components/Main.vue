@@ -148,17 +148,17 @@
         </div>
       </section>
 
-      <section class="">
-        <div class=""><img alt="Dog and cat together" class=""
-            src="https://images.unsplash.com/photo-1509205477838-a534e43a849f?w=1400&amp;h=500&amp;fit=crop&amp;auto=format">
+      <section class="section-banner">
+        <div class="background">
+          <img alt="Dog and cat together" class="image" src="/images/photo-1509205477838-a534e43a849f.avif">
         </div>
-        <div class="">
-          <p class="">Limited time offer</p>
-          <h2 class="">20% off your first order
+        <div class="info">
+          <p class="limited">Limited time offer</p>
+          <h2 class="headline">20% off your first order
           </h2>
-          <p class="">Use code <span class="">PAWSOME20</span> at checkout. New
-            customers only.</p><button class="">Claim
-            Offer</button>
+          <p class="description">Use code <span class="code">PAWSOME20</span> at checkout. New
+            customers only.</p>
+          <button class="claim-offer">Claim Offer</button>
         </div>
       </section>
 
@@ -538,7 +538,6 @@ export default {
   display: grid;
   background-color: #fff;
   border: 1px solid #e8d9c4;
-  margin-bottom: 15px;
   border-radius: 15px;
 }
 
@@ -687,6 +686,62 @@ export default {
   max-width: 100%;
   border-radius: 15px 15px 0 0;
 }
+
+.section-banner {
+  background-color: #c1552a;
+  border-radius: 20px;
+  margin-bottom: 50px;
+  margin-inline: 20px;
+  position: relative;
+}
+
+.section-banner .background {
+  position: absolute;
+  inset: calc(0.25rem * 0);
+}
+
+.section-banner .background .image {
+  mix-blend-mode: overlay;
+  opacity: .2;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  vertical-align: middle;
+  display: block;
+}
+
+.section-banner .info {
+  text-align: center;
+  padding: 64px 32px;
+  max-width: 80rem;
+  position: relative;
+}
+
+.section-banner .info .limited {
+  color: #f0b868;
+  font-size: 14px;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.section-banner .info .headline {
+  color: #faf6f0;
+  font-size: 36px;
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.section-banner .info .description {
+  color:
+    color-mix(in oklab, #faf6f0 80%, transparent);
+  font-size: 18px;
+  font-family: 'Outfit', system-ui, sans-serif;
+}
+
 
 .footer {
   background-color: #3d2414;
