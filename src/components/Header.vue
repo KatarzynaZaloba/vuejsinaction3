@@ -116,7 +116,6 @@ export default {
 </script>
 <style scoped>
 header h1 {
-    margin-left: 20px;
     font-size: 20px;
 
     @media (max-width: 767px) {
@@ -138,6 +137,7 @@ a {
     letter-spacing: -0.025em;
     line-height: calc(1.75 / 1.25);
     font-family: 'Fraunces', Georgia, serif;
+    font-size: 24px;
 }
 
 .photo {
@@ -181,6 +181,7 @@ a {
     justify-content: space-between;
     align-items: center;
     margin-right: 20px;
+    margin-left: 20px;
 }
 
 .nav.navbar-nav.cart .cart {
@@ -222,6 +223,7 @@ a {
 .navbar.navbar-default .login-div {
     display: flex;
     align-items: center;
+    margin-right: 15px;
 }
 
 .nav.navbar-nav.cart .btn.cart {
