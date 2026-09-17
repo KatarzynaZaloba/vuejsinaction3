@@ -44,6 +44,25 @@
                     </button>
                 </div>
             </div>
+            <nav class="hamburger-menu categories">
+                <a href="#" class="">Shop</a>
+                <a href="#" class="">Breeds</a>
+                <a href="#" class="">Nutrition</a>
+                <a href="#" class="">About</a>
+                <a href="#" class="">Blog</a>
+                <div class="login-div">
+                    <div v-if="!mySession" class="session">
+                        <button type="button" class="btn btn-default btn-lg login" @click="signIn">
+                            Logowanie
+                        </button>
+                    </div>
+                    <div v-else class="session">
+                        <button type="button" class="btn btn-default btn-lg login-out" @click="signOut">
+                            <img class="photo" :src="mySession.photoURL" alt="profile" /> Wyloguj
+                        </button>
+                    </div>
+                </div>
+            </nav>
         </div>
     </header>
 </template>
@@ -164,10 +183,19 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-flow: column;
+}
 
-    @media (max-width: 767px) {
-        flex-flow: column-reverse;
-    }
+.navbar.navbar-default .hamburger-menu.categories {
+    background-color: #faf6f0;
+    border-color: #e8d9c4;
+    border-top-style: solid;
+    border-top-width: 1px;
+    gap: 10px;
+    flex-direction: column;
+    display: flex;
+    width: 100%;
+    padding: 16px 24px;
 }
 
 .nav.navbar-nav.cart:not(.navbar-right) {
