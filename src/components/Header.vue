@@ -45,11 +45,11 @@
                 </div>
             </div>
             <nav class="hamburger-menu categories">
-                <a href="#" class="">Shop</a>
-                <a href="#" class="">Breeds</a>
-                <a href="#" class="">Nutrition</a>
-                <a href="#" class="">About</a>
-                <a href="#" class="">Blog</a>
+                <a href="#" class="link">Shop</a>
+                <a href="#" class="link">Breeds</a>
+                <a href="#" class="link">Nutrition</a>
+                <a href="#" class="link">About</a>
+                <a href="#" class="link">Blog</a>
                 <div class="login-div">
                     <div v-if="!mySession" class="session">
                         <button type="button" class="btn btn-default btn-lg login" @click="signIn">
@@ -196,6 +196,13 @@ a {
     display: flex;
     width: 100%;
     padding: 16px 24px;
+}
+
+.navbar.navbar-default .hamburger-menu.categories .link {
+    color: #6b4226;
+    font-size: 14px;
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-weight: 500;
 }
 
 .nav.navbar-nav.cart:not(.navbar-right) {
