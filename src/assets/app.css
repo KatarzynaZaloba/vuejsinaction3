@@ -5,6 +5,7 @@ header h1{
 
 body {
     max-width: 100% !important;
+    margin: 0;
 }
 .cart {
   padding: 20px 50px;

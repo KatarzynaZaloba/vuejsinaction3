@@ -1,7 +1,7 @@
 <template>
     <header>
         <div class="navbar navbar-default">
-            <div class="navbar-header">
+            <div class="navbar-header desktop">
                 <h1>
                     <router-link :to="{ name: 'Main' }">
                         {{ sitename }}
@@ -9,25 +9,40 @@
                 </h1>
             </div>
             <div class="nav navbar-nav cart">
-                <div v-if="!mySession">
-                    <button type="button" class="btn btn-default btn-lg login" @click="signIn">
-                        Logowanie
+                <div class="navbar-header mobile">
+                    <h1>
+                        <router-link :to="{ name: 'Main' }">
+                            {{ sitename }}
+                        </router-link>
+                    </h1>
+                </div>
+                <div class="login-div">
+                    <div v-if="!mySession" class="session">
+                        <button type="button" class="btn btn-default btn-lg login" @click="signIn">
+                            Logowanie
+                        </button>
+                    </div>
+                    <div v-else class="session">
+                        <button type="button" class="btn btn-default btn-lg login-out" @click="signOut">
+                            <img class="photo" :src="mySession.photoURL" alt="profile" /> Wyloguj
+                        </button>
+                    </div>
+                    <div class="nav navbar-nav navbar-right cart">
+                        <router-link active-class="active" tag="button" class="btn btn-default btn-lg cart"
+                            :to="{ name: 'Form' }">
+                            <span class="glyphicon glyphicon-shopping-cart">
+                                {{ cartItemCount }}
+                            </span> Kasa
+                        </router-link>
+                    </div>
+                    <button class="hamburger-menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16">
+                            </path>
+                        </svg>
                     </button>
                 </div>
-                <div v-else>
-                    <button type="button" class="btn btn-default btn-lg login-out" @click="signOut">
-                        <img class="photo" :src="mySession.photoURL" alt="profile" /> Wyloguj
-                    </button>
-                </div>
-                <div class="nav navbar-nav navbar-right cart">
-                    <router-link active-class="active" tag="button" class="btn btn-default btn-lg cart"
-                        :to="{ name: 'Form' }">
-                        <span class="glyphicon glyphicon-shopping-cart">
-                            {{ cartItemCount }}
-                        </span> Kasa
-                    </router-link>
-                </div>
-
             </div>
         </div>
     </header>
@@ -134,13 +149,23 @@ a {
     border: unset;
 }
 
+.navbar.navbar-default::before,
+.navbar.navbar-default::after,
+.nav.navbar-nav::before,
+.nav.navbar-nav::after {
+    display: none;
+    content: none;
+}
+
 .navbar.navbar-default {
     background-color: #faf5f0;
     border: 1px #e8d9c4 solid;
     margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
     @media (max-width: 767px) {
-        display: flex;
         flex-flow: column-reverse;
     }
 }
@@ -148,28 +173,55 @@ a {
 .nav.navbar-nav.cart:not(.navbar-right) {
     display: flex;
     flex-direction: row;
+    flex: 1;
+    width: 100%;
     padding: 0;
     float: unset;
     margin: 0;
-    justify-content: end;
-    margin-right: 20px;
-    padding-top: 20px;
+    justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
-
-    @media (max-width: 767px) {
-        /* margin-left: 20px;
-        margin-bottom: 0;
-        padding-top: 0; */
-        display: none;
-    }
+    margin-right: 20px;
 }
 
 .nav.navbar-nav.cart .cart {
     @media (max-width: 767px) {
         padding: 10px;
     }
+}
 
+.nav.navbar-nav.cart .session {
+    @media (max-width: 767px) {
+        display: none;
+    }
+}
+
+.nav.navbar-nav.cart .hamburger-menu {
+    color: #3d2414;
+    border: unset;
+    width: 35px;
+    height: 35px;
+    padding-top: 5px;
+
+    @media (min-width: 768px) {
+        display: none;
+    }
+}
+
+.navbar.navbar-default .navbar-header.desktop {
+    @media (max-width: 767px) {
+        display: none;
+    }
+}
+
+.navbar.navbar-default .navbar-header.mobile {
+    @media (min-width: 768px) {
+        display: none;
+    }
+}
+
+.navbar.navbar-default .login-div {
+    display: flex;
+    align-items: center;
 }
 
 .nav.navbar-nav.cart .btn.cart {
