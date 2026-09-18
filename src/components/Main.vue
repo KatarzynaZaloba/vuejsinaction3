@@ -87,12 +87,17 @@
             <p class="subtitle">Hand-picked by our team of pet lovers &amp; vets.</p>
           </div>
           <div class="categories">
-            <button class="active">All</button>
-            <button class="">Dog Food</button>
-            <button class="">Cat Food</button>
-            <button class="">Toys</button>
-            <button class="">Accessories</button>
-            <button class="">Health</button>
+            <button :class="{ active: selectedCategory === 'All' }" v-on:click="selectCategory('All')">All</button>
+            <button :class="{ active: selectedCategory === 'dog food' }" v-on:click="selectCategory('dog food')">Dog
+              Food</button>
+            <button :class="{ active: selectedCategory === 'cat food' }" v-on:click="selectCategory('cat food')">Cat
+              Food</button>
+            <button :class="{ active: selectedCategory === 'toys' }" v-on:click="selectCategory('toys')">Toys</button>
+            <button :class="{ active: selectedCategory === 'accessories' }"
+              v-on:click="selectCategory('accessories')">Accessories</button>
+            <button :class="{ active: selectedCategory === 'health' }"
+              v-on:click="selectCategory('health')">Health</button>
+            <button :class="{ active: selectedCategory === 'sale' }" v-on:click="selectCategory('sale')">Sale</button>
           </div>
         </div>
         <div v-for="product in sortedProducts">
@@ -216,6 +221,7 @@ export default {
     const store = useStore();
     const cart = ref([]);
     const productsVersion = ref(0);
+    const selectedCategory = ref('All');
 
     const unsubscribe = store.subscribe((mutation) => {
       if (mutation.type === 'SET_STORE') {
@@ -264,8 +270,15 @@ export default {
           return 1;
         return 0;
       }
-      return productsArray.sort(compare);
+      const filtered = selectedCategory.value === 'All'
+        ? productsArray
+        : productsArray.filter((product) => product.category === selectedCategory.value);
+      return filtered.sort(compare);
     });
+
+    const selectCategory = (category) => {
+      selectedCategory.value = category;
+    };
 
     const formatPrice = (price) => {
       if (!parseInt(price)) {
@@ -308,6 +321,8 @@ export default {
     return {
       cartItemCount,
       sortedProducts,
+      selectedCategory,
+      selectCategory,
       mapGetters,
       mapState,
       mapMutations,

@@ -254,6 +254,7 @@ a {
     width: 35px;
     height: 35px;
     padding-top: 5px;
+    background-color: transparent;
 
     @media (min-width: 768px) {
         display: none;
