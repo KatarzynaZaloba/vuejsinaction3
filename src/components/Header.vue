@@ -53,12 +53,12 @@
                 <div class="login-div">
                     <div v-if="!mySession" class="session">
                         <button type="button" class="btn btn-default btn-lg login" @click="signIn">
-                            Logowanie
+                            Log in
                         </button>
                     </div>
                     <div v-else class="session">
                         <button type="button" class="btn btn-default btn-lg login-out" @click="signOut">
-                            <img class="photo" :src="mySession.photoURL" alt="profile" /> Wyloguj
+                            <img class="photo" :src="mySession.photoURL" alt="profile" /> Log out
                         </button>
                     </div>
                 </div>
@@ -196,6 +196,7 @@ a {
     display: flex;
     width: 100%;
     padding: 16px 24px;
+    padding-bottom: 24px;
 }
 
 .navbar.navbar-default .hamburger-menu.categories .link {
@@ -203,6 +204,16 @@ a {
     font-size: 14px;
     font-family: 'Outfit', system-ui, sans-serif;
     font-weight: 500;
+}
+
+.navbar.navbar-default .hamburger-menu.categories .login-div .btn {
+    color: #6b4226;
+    font-size: 14px;
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-weight: 500;
+    border: unset;
+    background-color: unset;
+    padding: 0;
 }
 
 .nav.navbar-nav.cart:not(.navbar-right) {
@@ -296,9 +307,5 @@ span.glyphicon.glyphicon-shopping-cart {
 
 .btn.btn-default.btn-lg {
     margin-right: 20px;
-}
-
-.btn.btn-default.btn-lg.login {
-    margin-bottom: 20px;
 }
 </style>
