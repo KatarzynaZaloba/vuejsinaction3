@@ -35,7 +35,7 @@
                             </span> Kasa
                         </router-link>
                     </div>
-                    <button class="hamburger-menu">
+                    <button class="hamburger-menu" @click="showMenu">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 6h16M4 12h16M4 18h16">
@@ -124,6 +124,12 @@ export default {
             } catch (error) {
                 console.log('błąd podczas wylogowywania' + error)
             }
+        },
+        showMenu() {
+            const target = document.querySelector('.hamburger-menu.categories');
+            if (target) {
+                target.style.display = target.style.display === 'flex' ? 'none' : 'flex';
+            }
         }
     },
     computed: {
@@ -193,7 +199,7 @@ a {
     border-top-width: 1px;
     gap: 10px;
     flex-direction: column;
-    display: flex;
+    display: none;
     width: 100%;
     padding: 16px 24px;
     padding-bottom: 24px;
