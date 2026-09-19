@@ -100,7 +100,8 @@
             <button :class="{ active: selectedCategory === 'sale' }" v-on:click="selectCategory('sale')">Sale</button>
           </div>
         </div>
-        <div v-for="product in sortedProducts">
+        <div v-if="!productsLoaded" class="products-spinner" role="status" aria-label="Loading products"></div>
+        <div v-else v-for="product in sortedProducts" :key="product.id">
           <div class="product">
             <div class="image-div">
               <figure class="figure">
@@ -223,6 +224,8 @@ export default {
     const productsVersion = ref(0);
     const selectedCategory = ref('All');
 
+    const productsLoaded = computed(() => Array.isArray(store.state.products) && store.state.products.length > 0);
+
     const unsubscribe = store.subscribe((mutation) => {
       if (mutation.type === 'SET_STORE') {
         productsVersion.value++;
@@ -320,6 +323,7 @@ export default {
 
     return {
       cartItemCount,
+      productsLoaded,
       sortedProducts,
       selectedCategory,
       selectCategory,
@@ -342,6 +346,22 @@ export default {
   animation: shake 0.72s cubic-bezier(0.37, 0.07, 0.19, 0.97) both;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
+}
+
+.products-spinner {
+  width: 42px;
+  height: 42px;
+  margin: 48px auto;
+  border: 4px solid rgba(193, 85, 42, 0.2);
+  border-top-color: #c1552a;
+  border-radius: 50%;
+  animation: products-spin 0.8s linear infinite;
+}
+
+@keyframes products-spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .section-main.div {

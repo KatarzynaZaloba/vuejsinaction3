@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const state = {
     products: {},
     session: false
@@ -10,10 +12,12 @@ const getters = {
 
 const actions = {
     initStore: ({commit}) => {
-        axios.get('/products.json')
+        return axios.get('/products.json')
         .then((response) => {
-            console.log(response.data.products);
             commit('SET_STORE', response.data.products);
+        })
+        .catch((error) => {
+            console.error('Failed to load products:', error);
         });
     }
 };
