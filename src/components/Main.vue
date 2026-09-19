@@ -101,6 +101,9 @@
           </div>
         </div>
         <div v-if="!productsLoaded" class="products-spinner" role="status" aria-label="Loading products"></div>
+        <p v-else-if="sortedProducts.length === 0" class="no-products-message" role="status">
+          No products found in the {{ selectedCategory }} category.
+        </p>
         <div v-else v-for="product in sortedProducts" :key="product.id">
           <div class="product">
             <div class="image-div">
@@ -135,8 +138,7 @@
                   <span class="priceOld" v-if="product.priceOld">${{ (product.priceOld).toFixed(2) }}</span>
                 </div>
 
-                <button class="btn addToCart" v-on:click="addToCart(product)" v-if="canAddToCart(product)">Add
-                  to
+                <button class="btn addToCart" v-on:click="addToCart(product)" v-if="canAddToCart(product)">Add to
                   cart</button>
                 <button disabled="true" class="btn addToCart" v-else>Add to cart</button>
 
@@ -595,6 +597,13 @@ export default {
   border: 1px solid #e8d9c4;
   border-radius: 15px;
   margin-bottom: 20px;
+}
+
+.section-products .no-products-message {
+  color: #6b4226;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  margin: 0;
 }
 
 .section-products .product .label {
