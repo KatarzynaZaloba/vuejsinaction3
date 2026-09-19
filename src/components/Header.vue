@@ -245,6 +245,11 @@ a {
     margin: 0;
 }
 
+.nav.navbar-nav.cart .cart .cart-items {
+    font-family: 'Outfit', sans-serif;
+    font-size: 10px;
+}
+
 .nav.navbar-nav.cart .session {
     display: none;
 }
