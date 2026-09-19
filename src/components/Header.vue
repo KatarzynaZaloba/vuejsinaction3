@@ -19,20 +19,20 @@
                 <div class="login-div">
                     <div v-if="!mySession" class="session">
                         <button type="button" class="btn btn-default btn-lg login" @click="signIn">
-                            Logowanie
+                            Login
                         </button>
                     </div>
                     <div v-else class="session">
                         <button type="button" class="btn btn-default btn-lg login-out" @click="signOut">
-                            <img class="photo" :src="mySession.photoURL" alt="profile" /> Wyloguj
+                            <img class="photo" :src="mySession.photoURL" alt="profile" /> Logout
                         </button>
                     </div>
                     <div class="nav navbar-nav navbar-right cart">
                         <router-link active-class="active" tag="button" class="btn btn-default btn-lg cart"
                             :to="{ name: 'Form' }">
                             <span class="glyphicon glyphicon-shopping-cart">
-                                {{ cartItemCount }}
-                            </span> Kasa
+                                <span class="cart-items">{{ cartItemCount }}</span>
+                            </span> Cart
                         </router-link>
                     </div>
                     <button class="hamburger-menu" @click="showMenu">
@@ -53,12 +53,12 @@
                 <div class="login-div">
                     <div v-if="!mySession" class="session">
                         <button type="button" class="btn btn-default btn-lg login" @click="signIn">
-                            Log in
+                            Login
                         </button>
                     </div>
                     <div v-else class="session">
                         <button type="button" class="btn btn-default btn-lg login-out" @click="signOut">
-                            <img class="photo" :src="mySession.photoURL" alt="profile" /> Log out
+                            <img class="photo" :src="mySession.photoURL" alt="profile" /> Logout
                         </button>
                     </div>
                 </div>
@@ -174,6 +174,10 @@ a {
     border: unset;
 }
 
+.nav.navbar-nav.navbar-right.cart {
+    margin: 0;
+}
+
 .navbar.navbar-default::before,
 .navbar.navbar-default::after,
 .nav.navbar-nav::before,
@@ -237,15 +241,12 @@ a {
 }
 
 .nav.navbar-nav.cart .cart {
-    @media (max-width: 767px) {
-        padding: 10px;
-    }
+    padding: 10px;
+    margin: 0;
 }
 
 .nav.navbar-nav.cart .session {
-    @media (max-width: 767px) {
-        display: none;
-    }
+    display: none;
 }
 
 .nav.navbar-nav.cart .hamburger-menu {
