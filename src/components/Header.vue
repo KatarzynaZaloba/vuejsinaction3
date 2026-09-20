@@ -265,7 +265,7 @@ header.desktop .div {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 24px;
+    padding: 0 2.4rem;
     height: 65px;
     margin-inline: auto;
     width: 100%;
@@ -296,7 +296,7 @@ header.desktop .div .categories {
 header.desktop .div .categories .category {
     color: #6b4226;
     font-weight: 500;
-    font-size: 14px;
+    font-size: 1.4rem;
     font-family: 'Outfit', system-ui, sans-serif;
     line-height: calc(1.75 / 1.25);
 }

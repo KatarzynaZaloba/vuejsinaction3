@@ -663,8 +663,8 @@ export default {
     color-mix(in oklab, #d98c3a 10%, transparent);
   border-radius: 3.40282e38px;
   translate: calc(1 / 2 * 100%) calc(calc(1 / 2 * 100%) * -1);
-  width: calc(0.25rem * 140);
-  height: calc(0.25rem * 140);
+  width: calc(0.25rem * 155);
+  height: calc(0.25rem * 155);
   position: absolute;
   right: calc(0.25rem * 0);
   top: calc(0.25rem * 0);
@@ -783,17 +783,32 @@ export default {
 }
 
 .section-products {
-  padding-inline: 20px;
-  padding-block: 30px;
+  padding-block: calc(0.25rem * 25.6);
+  padding-inline: calc(0.25rem * 9.6);
   background-color: #faf6f0;
+}
+
+.section-products .text {
+  @media (min-width: 768px) {
+    align-items: flex-end;
+    flex-direction: row;
+    gap: calc(0.25rem * 10);
+    justify-content: space-between;
+    display: flex;
+    margin-bottom: calc(0.25rem * 10);
+  }
 }
 
 .section-products .title {
   color: #3d2414;
   font-family: 'Fraunces', serif;
-  font-size: 30px;
+  font-size: 3rem;
   font-weight: 600;
   margin-top: 10px;
+
+  @media (min-width: 768px) {
+    font-size: 3.6rem;
+  }
 }
 
 .section-products .title-orange {
@@ -805,11 +820,15 @@ export default {
   color: #6b4226;
   font-family: 'Outfit', sans-serif;
   font-size: 14px;
+
+  @media (min-width: 768px) {
+    font-size: 1.6rem;
+  }
 }
 
 .section-products .categories {
   overflow-x: auto;
-  gap: 5px;
+  gap: calc(0.25rem * 3);
   scroll-snap-type: x proximity;
   display: flex;
   margin-inline: -10px;
@@ -817,6 +836,10 @@ export default {
   padding-inline: 10px;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
+
+  @media (min-width: 768px) {
+    flex-wrap: wrap;
+  }
 }
 
 .section-products .categories::-webkit-scrollbar {
