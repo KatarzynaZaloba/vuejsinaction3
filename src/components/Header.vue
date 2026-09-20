@@ -258,7 +258,6 @@ header.desktop {
         z-index: 50;
         position: sticky;
         top: 0;
-        max-width: 80rem;
     }
 }
 
@@ -269,6 +268,8 @@ header.desktop .div {
     padding: 0 24px;
     height: 65px;
     margin-inline: auto;
+    width: 100%;
+    max-width: 80rem;
 }
 
 header.desktop .div h1 {
