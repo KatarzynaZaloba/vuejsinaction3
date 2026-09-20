@@ -85,10 +85,11 @@
               </div>
             </div>
           </div>
-          <div class="">
-            <div class=""></div><img alt="A dog and cat hugging on grass" class=""
+          <div class="image-container">
+            <div class="image-overlay"></div>
+            <img alt="A dog and cat hugging on grass" class="image"
               src="../../public/images/photo-1450778869180-41d0601e046e.avif">
-            <div class="">
+            <div class="free-delivery">
               <span class="">🐾</span>
               <div>
                 <p class="">Free delivery</p>
@@ -97,7 +98,7 @@
             </div>
           </div>
         </div>
-        <div class="">
+        <div class="circle">
         </div>
       </section>
 
@@ -650,7 +651,62 @@ export default {
   font-weight: 500;
   font-size: 1.2rem;
   line-height: calc(1 / 1.2);
-  font-family: 'Outfit', system-ui sans-serif;
+  font-family: 'Outfit', sans-serif;
+}
+
+.section-main.desktop .circle {
+  background-color:
+    color-mix(in oklab, #d98c3a 10%, transparent);
+  border-radius: 3.40282e38px;
+  translate: calc(1 / 2 * 100%) calc(calc(1 / 2 * 100%) * -1);
+  width: calc(0.25rem * 140);
+  height: calc(0.25rem * 140);
+  position: absolute;
+  right: calc(0.25rem * 0);
+  top: calc(0.25rem * 0);
+  pointer-events: none;
+}
+
+.section-main.desktop .image-container {
+  position: relative;
+  display: block;
+}
+
+.section-main.desktop .image-container .image-overlay {
+  border-radius: 40px;
+  rotate: 3deg;
+  inset: calc(0.25rem * 0);
+  position: absolute;
+  background-color:
+    color-mix(in oklab, #d98c3a 20%, transparent);
+}
+
+.section-main.desktop .image-container .image {
+  object-fit: cover;
+  border-radius: 32px;
+  width: 100%;
+  aspect-ratio: 1;
+  position: relative;
+  max-width: 100%;
+  height: auto;
+  box-shadow: 2px 13px 40px 14px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 2px 13px 40px 14px rgba(0, 0, 0, 0.25);
+}
+
+.section-main.desktop .image-container .free-delivery {
+  position: absolute;
+  box-shadow: 2px 13px 40px 14px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 2px 13px 40px 14px rgba(0, 0, 0, 0.25);
+  padding-block: calc(0.25rem * 4);
+  padding-inline: calc(0.25rem * 5);
+  background-color: #fff;
+  border: 1px solid #e8d9c4;
+  border-radius: 2rem;
+  gap: calc(0.25rem * 3);
+  align-items: center;
+  display: flex;
+  left: calc(0.25rem * -6);
+  bottom: calc(0.25rem * -4);
 }
 
 .section-table {
