@@ -150,8 +150,8 @@
         <p v-else-if="sortedProducts.length === 0" class="no-products-message" role="status">
           No products found in the {{ selectedCategory }} category.
         </p>
-        <div v-else v-for="product in sortedProducts" :key="product.id">
-          <div class="product">
+        <div v-else class="products">
+          <div v-for="product in sortedProducts" :key="product.id" class="product">
             <div class="image-div">
               <figure class="figure">
                 <img class="" v-bind:src="publicAsset(product?.image)">
@@ -871,6 +871,14 @@ export default {
 
 .section-products .text {
   margin-bottom: 30px;
+}
+
+.section-products .products {
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    display: grid;
+    gap: calc(0.25rem * 9);
+  }
 }
 
 .section-products .product {
