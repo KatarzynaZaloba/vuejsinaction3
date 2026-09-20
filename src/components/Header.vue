@@ -31,8 +31,8 @@
                         <router-link active-class="active" tag="button" class="btn btn-default btn-lg cart"
                             :to="{ name: 'Form' }">
                             <span class="glyphicon glyphicon-shopping-cart">
-                                <span class="cart-items">{{ cartItemCount }}</span>
                             </span> Cart
+                            <span v-if="cartItemCount > 0" class="cart-items">{{ cartItemCount }}</span>
                         </router-link>
                     </div>
                     <button class="hamburger-menu" @click="showMenu">
@@ -247,7 +247,19 @@ a {
 
 .nav.navbar-nav.cart .cart .cart-items {
     font-family: 'Outfit', sans-serif;
-    font-size: 10px;
+    font-size: 12px;
+    background-color: #d98c3a;
+    color: #3d2414;
+    font-weight: 700;
+    position: absolute;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: -5px;
+    top: -5px;
 }
 
 .nav.navbar-nav.cart .session {
@@ -294,6 +306,7 @@ a {
     border: none;
     font-weight: 600;
     padding: 10px 20px;
+    position: relative;
 }
 
 .nav.navbar-nav.cart .btn.login-out,
