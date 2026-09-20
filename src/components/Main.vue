@@ -138,7 +138,8 @@
                   <span class="priceOld" v-if="product.priceOld">${{ (product.priceOld).toFixed(2) }}</span>
                 </div>
 
-                <button class="btn addToCart" v-on:click="addToCart(product)" v-if="canAddToCart(product)">Add to
+                <button class="btn addToCart added" v-if="isAdded(product.id)">Added</button>
+                <button class="btn addToCart" v-on:click="addToCart(product)" v-else-if="canAddToCart(product)">Add to
                   cart</button>
                 <button disabled="true" class="btn addToCart" v-else>Add to cart</button>
 
@@ -223,6 +224,7 @@ export default {
   setup() {
     const store = useStore();
     const cart = ref([]);
+    const addedProducts = ref([]);
     const productsVersion = ref(0);
     const selectedCategory = ref('All');
 
@@ -307,7 +309,13 @@ export default {
 
     const addToCart = (aProduct) => {
       cart.value.push(aProduct.id);
+      addedProducts.value.push(aProduct.id);
+      setTimeout(() => {
+        addedProducts.value = addedProducts.value.filter((id) => id !== aProduct.id);
+      }, 2000);
     };
+
+    const isAdded = (id) => addedProducts.value.includes(id);
 
     const cartCount = (id) => {
       let count = 0;
@@ -337,6 +345,7 @@ export default {
       checkRating,
       addToCart,
       canAddToCart,
+      isAdded,
       cartCount
     };
   }
@@ -719,6 +728,10 @@ export default {
   font-size: 14px;
   font-family: 'Outfit', sans-serif;
   font-weight: 600;
+}
+
+.section-products .product .description .btn.addToCart.added {
+  background-color: #7a8c6e;
 }
 
 .section-products .product .description .inventory-message {
