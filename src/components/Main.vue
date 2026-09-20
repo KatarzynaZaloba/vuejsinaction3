@@ -2,7 +2,7 @@
   <div>
     <my-header :cartItemCount="cartItemCount"></my-header>
     <main>
-      <section class="section-main">
+      <section class="section-main mobile">
         <div class="section-main div">
           <img alt="A dog and cat hugging on grass" class="section-main img"
             src="../../public/images/photo-1450778869180-41d0601e046e.avif">
@@ -56,6 +56,51 @@
         <div class="">
         </div>
       </section>
+      <section class="section-main desktop">
+        <div class="div-desktop">
+          <div class="div-content-desktop">
+            <span class="trusted-text-desktop">Trusted by 50,000+ pet owners</span>
+            <h1 class="everything-text-desktop">Everything your<br>
+              <span class="furry-text-desktop">furry family</span><br>deserves.
+            </h1>
+            <p class="curated-text-desktop">Curated nutrition, thoughtful toys, and vet-approved accessories — delivered
+              to your door with
+              love.</p>
+            <div class="buttons-desktop">
+              <button class="shop-desktop">Shop Now</button>
+              <button class="story-desktop">Our Story</button>
+            </div>
+            <div class="rating-desktop">
+              <div>
+                <p class="title-desktop">50k+</p>
+                <p class="subtitle-desktop">Happy Pets</p>
+              </div>
+              <div>
+                <p class="title-desktop">4.9★</p>
+                <p class="subtitle-desktop">Avg Rating</p>
+              </div>
+              <div>
+                <p class="title-desktop">Free</p>
+                <p class="subtitle-desktop">Returns</p>
+              </div>
+            </div>
+          </div>
+          <div class="">
+            <div class=""></div><img alt="A dog and cat hugging on grass" class=""
+              src="../../public/images/photo-1450778869180-41d0601e046e.avif">
+            <div class="">
+              <span class="">🐾</span>
+              <div>
+                <p class="">Free delivery</p>
+                <p class="">On orders over $35</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="">
+        </div>
+      </section>
+
       <section class="section-table">
         <div class="div">
           <button class="dogs">
@@ -375,8 +420,22 @@ export default {
   }
 }
 
+.section-main {
+  background-color: #f2ebe0;
+}
+
+.section-main.mobile {
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
 .section-main.div {
-  position: relative;
+  position: unset;
+  padding: unset;
+  grid-template-columns: unset;
+  display: unset;
+  gap: unset;
 }
 
 .section-main.img {
@@ -400,6 +459,7 @@ export default {
   padding-top: 40px;
   padding-left: 20px;
   background-color: #f2ebe0;
+  grid-column: 1;
 }
 
 .section-main.div-content .trusted-text {
@@ -488,6 +548,26 @@ export default {
   background-color: transparent;
   border: 2px solid #3d2414;
   color: #3d2414;
+}
+
+.section-main.desktop {
+  display: none;
+
+  @media (min-width: 768px) {
+    display: block;
+    position: relative;
+  }
+}
+
+.section-main.desktop .div-desktop {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding-block: calc(0.25rem * 28);
+  padding-inline: calc(0.25rem * 6);
+  gap: calc(0.25rem * 12);
+  align-items: center;
+  margin-inline: auto;
+  max-width: 80rem;
 }
 
 .section-table {

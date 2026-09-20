@@ -258,6 +258,7 @@ header.desktop {
         z-index: 50;
         position: sticky;
         top: 0;
+        max-width: 80rem;
     }
 }
 
