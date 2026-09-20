@@ -888,6 +888,10 @@ export default {
   border: 1px solid #e8d9c4;
   border-radius: 15px;
   margin-bottom: 20px;
+
+  @media (min-width: 768px) {
+    margin-bottom: 0;
+  }
 }
 
 .section-products .no-products-message {
