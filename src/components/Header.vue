@@ -1,13 +1,13 @@
 <template>
-    <header>
+    <header class="mobile">
         <div class="navbar navbar-default">
-            <div class="navbar-header desktop">
+            <!-- <div class="navbar-header desktop">
                 <h1>
                     <router-link :to="{ name: 'Main' }">
                         {{ sitename }}
                     </router-link>
                 </h1>
-            </div>
+            </div> -->
             <div class="nav navbar-nav cart">
                 <div class="navbar-header mobile">
                     <h1>
@@ -63,6 +63,59 @@
                     </div>
                 </div>
             </nav>
+        </div>
+    </header>
+    <header class="desktop">
+        <div class="div">
+            <h1>
+                <router-link :to="{ name: 'Main' }" class="title">
+                    {{ sitename }}
+                </router-link>
+            </h1>
+            <nav class="categories">
+                <a href="#" class="category">Shop</a>
+                <a href="#" class="category">Breeds</a>
+                <a href="#" class="category">Nutrition</a>
+                <a href="#" class="category">About</a>
+                <a href="#" class="category">Blog</a>
+                <div class="login-div">
+                    <div v-if="!mySession" class="session">
+                        <button type="button" class="category btn btn-default btn-lg login" @click="signIn">
+                            Login
+                        </button>
+                    </div>
+                    <div v-else class="session">
+                        <button type="button" class="category btn btn-default btn-lg login-out" @click="signOut">
+                            <img class="photo" :src="mySession.photoURL" alt="profile" /> Logout
+                        </button>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="">
+                <button class="">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                    Search
+                </button>
+                <button class="">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">
+                        </path>
+                    </svg>
+                    Cart
+                    <span class="">6</span>
+                </button>
+                <button class="">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
         </div>
     </header>
 </template>
@@ -194,6 +247,76 @@ a {
     align-items: center;
     justify-content: space-between;
     flex-flow: column;
+}
+
+header.mobile {
+    @media (min-width: 768px) {
+        display: none;
+    }
+}
+
+header.desktop {
+    display: none;
+
+    @media (min-width: 768px) {
+        display: block;
+        backdrop-filter: blur(8px);
+        background-color:
+            color-mix(in oklab, #faf6f0 90%, transparent);
+        border-bottom: 1px solid #e8d9c4;
+        z-index: 50;
+        position: sticky;
+        top: 0;
+    }
+}
+
+header.desktop .div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    height: 65px;
+    margin-inline: auto;
+}
+
+header.desktop .div h1 {
+    margin: 0;
+    padding: 0;
+}
+
+header.desktop .div .title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: calc(1.75 / 1.25);
+    font-style: italic;
+    color: #c1552a;
+}
+
+header.desktop .div .categories {
+    display: flex;
+    gap: calc(0.25rem * 10);
+    align-items: center;
+}
+
+header.desktop .div .categories .category {
+    color: #6b4226;
+    font-weight: 500;
+    font-size: 14px;
+    font-family: 'Outfit', system-ui, sans-serif;
+    line-height: calc(1.75 / 1.25);
+}
+
+header.desktop .div .categories .category.btn.btn-default {
+    padding: 0;
+    margin-right: 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    align-items: center;
+    border: unset;
+    background-color: transparent;
 }
 
 .navbar.navbar-default .hamburger-menu.categories {
