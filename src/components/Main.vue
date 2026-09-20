@@ -732,7 +732,7 @@ export default {
 
 .section-table {
   background-color: #3d2414;
-  padding: 20px;
+  padding-block: calc(0.25rem * 16);
 }
 
 .section-table .div {
@@ -741,6 +741,13 @@ export default {
   color: #3d2414;
   gap: 12px;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    padding-inline: calc(0.25rem * 6);
+    gap: calc(0.25rem * 6);
+    max-width: 80rem;
+  }
 }
 
 .section-table button {
