@@ -630,6 +630,29 @@ export default {
   color: #3d2414;
 }
 
+.section-main.desktop .rating-desktop {
+  gap: calc(0.25rem * 10);
+  align-items: center;
+  display: flex;
+  margin-top: calc(0.25rem * 12);
+}
+
+.section-main.desktop .rating-desktop .title-desktop {
+  color: #c1552a;
+  font-weight: 700;
+  font-size: 2.4rem;
+  font-family: "Fraunces", Georgia, serif;
+  padding-bottom: 0;
+}
+
+.section-main.desktop .rating-desktop .subtitle-desktop {
+  color: #6b4226;
+  font-weight: 500;
+  font-size: 1.2rem;
+  line-height: calc(1 / 1.2);
+  font-family: 'Outfit', system-ui sans-serif;
+}
+
 .section-table {
   background-color: #3d2414;
   padding: 20px;
