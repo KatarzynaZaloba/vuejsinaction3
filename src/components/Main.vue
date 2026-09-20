@@ -154,7 +154,7 @@
           <div class="product">
             <div class="image-div">
               <figure class="figure">
-                <img class="" v-bind:src="product?.image">
+                <img class="" v-bind:src="publicAsset(product?.image)">
               </figure>
 
             </div>
@@ -205,7 +205,8 @@
 
       <section class="section-banner">
         <div class="background">
-          <img alt="Dog and cat together" class="image" src="/images/photo-1509205477838-a534e43a849f.avif">
+          <img alt="Dog and cat together" class="image"
+            :src="publicAsset('/images/photo-1509205477838-a534e43a849f.avif')">
         </div>
         <div class="info">
           <p class="limited">Limited time offer</p>
@@ -260,6 +261,7 @@ import { mapMutations } from 'vuex';
 import { computed, onUnmounted, ref } from 'vue';
 import { useStore } from 'vuex';
 import { productsRef } from '../firebase';
+import { publicAsset } from '../utils/publicAsset';
 
 export default {
   name: 'imain',
@@ -392,7 +394,8 @@ export default {
       addToCart,
       canAddToCart,
       isAdded,
-      cartCount
+      cartCount,
+      publicAsset
     };
   }
 };

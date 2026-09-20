@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-5 col-md-offset-0">
                 <figure>
-                    <img class="product" v-bind:src="product.image">
+                    <img class="product" v-bind:src="publicAsset(product.image)">
                 </figure>
             </div>
             <div class="col-md-6 col-md-offset-0 description">
@@ -21,9 +21,13 @@
 
 <script>
 import MyHeader from './Header.vue'
+import { publicAsset } from '../utils/publicAsset'
 
 export default {
     components: { MyHeader },
+    methods: {
+        publicAsset
+    },
     computed: {
         product() {
             return this.$store.getters.products.find(
