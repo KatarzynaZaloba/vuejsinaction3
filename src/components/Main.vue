@@ -563,8 +563,8 @@ export default {
 .section-main.desktop .div-desktop {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  padding-block: calc(0.25rem * 30);
-  padding-inline: calc(0.25rem * 10);
+  padding-block: calc(0.25rem * 44.8);
+  padding-inline: calc(0.25rem * 9.6);
   gap: calc(0.25rem * 12);
   align-items: center;
   margin-inline: auto;
@@ -644,6 +644,7 @@ export default {
   font-size: 2.4rem;
   font-family: "Fraunces", Georgia, serif;
   padding-bottom: 0;
+  margin-bottom: 3px;
 }
 
 .section-main.desktop .rating-desktop .subtitle-desktop {
@@ -744,7 +745,7 @@ export default {
 
   @media (min-width: 768px) {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    padding-inline: calc(0.25rem * 6);
+    padding-inline: calc(0.25rem * 9.6);
     gap: calc(0.25rem * 6);
     max-width: 80rem;
   }
