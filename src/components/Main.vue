@@ -424,6 +424,10 @@ export default {
   }
 }
 
+main {
+  background-color: #faf6f0;
+}
+
 .section-main {
   background-color: #f2ebe0;
 }
@@ -796,6 +800,8 @@ export default {
     justify-content: space-between;
     display: flex;
     margin-bottom: calc(0.25rem * 10);
+    max-width: 80rem;
+    margin-inline: auto;
   }
 }
 
@@ -878,6 +884,9 @@ export default {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     display: grid;
     gap: calc(0.25rem * 9);
+    max-width: 80rem;
+    margin-inline: auto;
+
   }
 }
 
@@ -1057,6 +1066,11 @@ export default {
   margin-bottom: 50px;
   margin-inline: 20px;
   position: relative;
+
+  @media (min-width: 768px) {
+    margin-inline: auto;
+    max-width: 80rem;
+  }
 }
 
 .section-banner .background {
@@ -1133,6 +1147,12 @@ export default {
   gap: 20px;
   margin: 20px;
   margin-bottom: 60px;
+
+  @media (min-width: 768px) {
+    margin-inline: auto;
+    max-width: 80rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 .section-motto .div {
