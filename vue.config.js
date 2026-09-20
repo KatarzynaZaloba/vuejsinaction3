@@ -3,6 +3,7 @@ const nodeExternals = require('webpack-node-externals')
 
 module.exports = defineConfig({
   transpileDependencies: true,
+  publicPath: process.env.NODE_ENV === 'production' ? '/vuejsinaction3/' : '/',
   configureWebpack: (config) => {
     if (process.env.NODE_ENV === 'test') {
       config.externals = [nodeExternals()]
