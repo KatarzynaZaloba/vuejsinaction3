@@ -562,12 +562,72 @@ export default {
 .section-main.desktop .div-desktop {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  padding-block: calc(0.25rem * 28);
-  padding-inline: calc(0.25rem * 6);
+  padding-block: calc(0.25rem * 30);
+  padding-inline: calc(0.25rem * 10);
   gap: calc(0.25rem * 12);
   align-items: center;
   margin-inline: auto;
   max-width: 80rem;
+}
+
+.section-main.desktop .trusted-text-desktop {
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #c1552a;
+  background-color: rgba(193, 85, 42, 0.1);
+  padding: 5px 10px;
+  border-radius: calc(infinity * 1px)
+}
+
+.section-main.desktop .everything-text-desktop {
+  font-family: 'Fraunces', serif;
+  font-size: 60px;
+  font-weight: 600;
+  color: #3d2414;
+}
+
+.section-main.desktop .furry-text-desktop {
+  font-style: italic;
+  color: #c1552a;
+}
+
+.section-main.desktop .curated-text-desktop {
+  font-family: 'Outfit', sans-serif;
+  font-size: 18px;
+  color: #6b4226;
+  line-height: 1.625;
+}
+
+.section-main.desktop .buttons-desktop {
+  flex-wrap: wrap;
+  display: flex;
+  gap: calc(0.25rem * 6);
+  padding-top: 12px;
+}
+
+.section-main.desktop .buttons-desktop .shop-desktop,
+.section-main.desktop .buttons-desktop .story-desktop {
+  padding-block: calc(0.25rem * 6);
+  padding-inline: calc(0.25rem * 12);
+  border-radius: 10px;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.section-main.desktop .buttons-desktop .shop-desktop {
+  background-color: #c1552a;
+  color: #faf6f0;
+  border: unset;
+}
+
+.section-main.desktop .buttons-desktop .story-desktop {
+  background-color: transparent;
+  border: 2px solid #3d2414;
+  color: #3d2414;
 }
 
 .section-table {
