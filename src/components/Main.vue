@@ -90,10 +90,10 @@
             <img alt="A dog and cat hugging on grass" class="image"
               src="../../public/images/photo-1450778869180-41d0601e046e.avif">
             <div class="free-delivery">
-              <span class="">🐾</span>
+              <span class="icon">🐾</span>
               <div>
-                <p class="">Free delivery</p>
-                <p class="">On orders over $35</p>
+                <p class="title">Free delivery</p>
+                <p class="subtitle">On orders over $35</p>
               </div>
             </div>
           </div>
@@ -697,8 +697,8 @@ export default {
   position: absolute;
   box-shadow: 2px 13px 40px 14px rgba(0, 0, 0, 0.25);
   -webkit-box-shadow: 2px 13px 40px 14px rgba(0, 0, 0, 0.25);
-  padding-block: calc(0.25rem * 4);
-  padding-inline: calc(0.25rem * 5);
+  padding-block: calc(0.25rem * 6.25);
+  padding-inline: calc(0.25rem * 8);
   background-color: #fff;
   border: 1px solid #e8d9c4;
   border-radius: 2rem;
@@ -707,6 +707,27 @@ export default {
   display: flex;
   left: calc(0.25rem * -6);
   bottom: calc(0.25rem * -4);
+}
+
+.section-main.desktop .image-container .free-delivery .icon {
+  font-size: 2.4rem;
+}
+
+.section-main.desktop .image-container .free-delivery .title {
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 1.4rem;
+  color: #3d2414;
+  font-weight: 600;
+  line-height: calc(1.25 / .875);
+  padding: 0;
+  margin: 0;
+}
+
+.section-main.desktop .image-container .free-delivery .subtitle {
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 1.2rem;
+  color: #6b4226;
+  margin: 0;
 }
 
 .section-table {
