@@ -92,29 +92,20 @@
                 </div>
             </nav>
 
-            <div class="">
-                <button class="">
+            <div class="search-and-cart">
+                <button class="category btn btn-default search">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                     </svg>
                     Search
                 </button>
-                <button class="">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">
-                        </path>
-                    </svg>
-                    Cart
-                    <span class="">6</span>
-                </button>
-                <button class="">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
+                <router-link active-class="active" tag="button" class="btn btn-default btn-lg cart"
+                    :to="{ name: 'Form' }">
+                    <span class="glyphicon glyphicon-shopping-cart">
+                    </span> Cart
+                    <span v-if="cartItemCount > 0" class="cart-items">{{ cartItemCount }}</span>
+                </router-link>
             </div>
         </div>
     </header>
@@ -308,7 +299,55 @@ header.desktop .div .categories .category {
     line-height: calc(1.75 / 1.25);
 }
 
-header.desktop .div .categories .category.btn.btn-default {
+header.desktop .div .categories .login-div .category {
+    padding: 0;
+    border: unset;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    align-items: center;
+}
+
+header.desktop .div .search-and-cart {
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+    align-items: center;
+}
+
+header.desktop .div .search-and-cart .cart {
+    padding: 10px;
+    margin: 0;
+    color: #faf6f0;
+    background-color: #c1552a;
+    font-size: 14px;
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-weight: 600;
+    border: unset;
+    border-radius: 10px;
+    padding: 8px 16px;
+    position: relative;
+}
+
+header.desktop .div .search-and-cart .cart .cart-items {
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px;
+    background-color: #d98c3a;
+    color: #3d2414;
+    font-weight: 700;
+    position: absolute;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: -6px;
+    top: -6px;
+}
+
+header.desktop .div .search-and-cart .category.btn.btn-default {
     padding: 0;
     margin-right: 0;
     display: flex;
@@ -318,6 +357,20 @@ header.desktop .div .categories .category.btn.btn-default {
     border: unset;
     background-color: transparent;
 }
+
+header.desktop .div .search-and-cart .category.btn.btn-default.search {
+    color: #6b4226;
+    font-weight: 500;
+    font-size: 14px;
+    font-family: 'Outfit', system-ui, sans-serif;
+    line-height: calc(1.75 / 1.25);
+}
+
+header.desktop .div .search-and-cart .category.btn.btn-default svg {
+    width: 20px;
+    height: 20px;
+}
+
 
 .navbar.navbar-default .hamburger-menu.categories {
     background-color: #faf6f0;
