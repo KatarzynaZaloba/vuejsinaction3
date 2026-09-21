@@ -27,7 +27,7 @@
                             <img class="photo" :src="mySession.photoURL" alt="profile" /> Logout
                         </button>
                     </div>
-                    <div class="nav navbar-nav navbar-right cart">
+                    <div v-if="!isCartPage" class="nav navbar-nav navbar-right cart">
                         <router-link active-class="active" tag="button" class="btn btn-default btn-lg cart"
                             :to="{ name: 'Form' }">
                             <span class="glyphicon glyphicon-shopping-cart">
@@ -92,7 +92,7 @@
                 </div>
             </nav>
 
-            <div class="search-and-cart">
+            <div v-if="!isCartPage" class="search-and-cart">
                 <button class="category btn btn-default search">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -179,6 +179,9 @@ export default {
     computed: {
         mySession() {
             return this.sessionUser;
+        },
+        isCartPage() {
+            return this.$route.name === 'Form';
         }
     }
 }
