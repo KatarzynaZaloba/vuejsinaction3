@@ -624,18 +624,28 @@ main {
   font-family: 'Outfit', system-ui, sans-serif;
   font-size: 14px;
   font-weight: 600;
+  transition-timing-function: var(--tw-ease, cubic-bezier(.4, 0, .2, 1));
+  transition-duration: 0.15s;
 }
 
 .section-main.desktop .buttons-desktop .shop-desktop {
   background-color: #c1552a;
   color: #faf6f0;
   border: unset;
+
+  &:hover {
+    background-color: #9e3f1c;
+  }
 }
 
 .section-main.desktop .buttons-desktop .story-desktop {
   background-color: transparent;
   border: 2px solid #3d2414;
   color: #3d2414;
+
+  &:hover {
+    background-color: #e8d9c4;
+  }
 }
 
 .section-main.desktop .rating-desktop {
@@ -765,6 +775,12 @@ main {
   border: unset;
   background-color: #6b4226;
   border-radius: 20px;
+  transition-timing-function: var(--tw-ease, cubic-bezier(.4, 0, .2, 1));
+  transition-duration: 0.15s;
+
+  &:hover {
+    background-color: #c1552a;
+  }
 }
 
 .section-table button span {
