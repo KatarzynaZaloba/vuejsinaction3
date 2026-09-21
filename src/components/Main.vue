@@ -873,6 +873,14 @@ main {
   scroll-snap-align: start;
   white-space: nowrap;
   padding: 8px 16px;
+  transition-timing-function: var(--tw-ease, cubic-bezier(.4, 0, .2, 1));
+  transition-duration: 0.15s;
+}
+
+.section-products .categories button:not(.active) {
+  &:hover {
+    background-color: #f2ebe0;
+  }
 }
 
 .section-products .categories button.active {
@@ -1066,6 +1074,10 @@ main {
   background-color: #f2ebe0;
   position: relative;
   border-radius: 15px 15px 0 0;
+
+  @media (min-width: 768px) {
+    height: calc(0.4rem * 80);
+  }
 }
 
 .section-products .product .image-div .figure img {
