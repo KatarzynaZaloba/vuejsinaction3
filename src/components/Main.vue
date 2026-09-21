@@ -575,7 +575,7 @@ main {
   gap: calc(0.25rem * 12);
   align-items: center;
   margin-inline: auto;
-  max-width: 80rem;
+  max-width: 110rem;
 }
 
 .section-main.desktop .trusted-text-desktop {
@@ -764,7 +764,11 @@ main {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     padding-inline: calc(0.25rem * 9.6);
     gap: calc(0.25rem * 6);
-    max-width: 80rem;
+    max-width: 110rem;
+  }
+
+  @media (min-width: 1280px) {
+    padding-inline: 0;
   }
 }
 
@@ -816,7 +820,7 @@ main {
     justify-content: space-between;
     display: flex;
     margin-bottom: calc(0.25rem * 10);
-    max-width: 80rem;
+    max-width: 110rem;
     margin-inline: auto;
   }
 }
@@ -908,9 +912,24 @@ main {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     display: grid;
     gap: calc(0.25rem * 9);
-    max-width: 80rem;
+    max-width: 110rem;
     margin-inline: auto;
+  }
 
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    display: grid;
+    gap: calc(0.25rem * 9);
+    max-width: 110rem;
+    margin-inline: auto;
+  }
+
+  @media (min-width: 1280px) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    display: grid;
+    gap: calc(0.25rem * 9);
+    max-width: 110rem;
+    margin-inline: auto;
   }
 }
 
@@ -1078,6 +1097,10 @@ main {
   @media (min-width: 768px) {
     height: calc(0.4rem * 80);
   }
+
+  @media (min-width: 1024px) {
+    height: calc(0.4rem * 50);
+  }
 }
 
 .section-products .product .image-div .figure img {
@@ -1097,7 +1120,8 @@ main {
 
   @media (min-width: 768px) {
     margin-inline: auto;
-    max-width: 80rem;
+    max-width: 110rem;
+    margin: 0 2.4rem;
   }
 }
 
@@ -1120,7 +1144,7 @@ main {
 .section-banner .info {
   text-align: center;
   padding: 64px 32px;
-  max-width: 80rem;
+  max-width: 110rem;
   position: relative;
 }
 
@@ -1167,6 +1191,12 @@ main {
   padding: 16px 32px;
   border-radius: 10px;
   font-weight: 600;
+  transition-timing-function: var(--tw-ease, cubic-bezier(.4, 0, .2, 1));
+  transition-duration: 0.15s;
+
+  &:hover {
+    background-color: #f2ebe0;
+  }
 }
 
 .section-motto {
@@ -1178,8 +1208,9 @@ main {
 
   @media (min-width: 768px) {
     margin-inline: auto;
-    max-width: 80rem;
+    max-width: 110rem;
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin: 2rem 2.4rem;
   }
 }
 

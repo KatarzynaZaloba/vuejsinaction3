@@ -269,7 +269,11 @@ header.desktop .div {
     height: 65px;
     margin-inline: auto;
     width: 100%;
-    max-width: 80rem;
+    max-width: 110rem;
+
+    @media (min-width: 1024px) {
+        padding: 0;
+    }
 }
 
 header.desktop .div h1 {
