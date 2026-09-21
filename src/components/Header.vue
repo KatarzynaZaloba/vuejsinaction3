@@ -11,7 +11,7 @@
             <div class="nav navbar-nav cart">
                 <div class="navbar-header mobile">
                     <h1>
-                        <router-link :to="{ name: 'Main' }">
+                        <router-link class="router-link-active router-link-exact-active" :to="{ name: 'Main' }">
                             {{ sitename }}
                         </router-link>
                     </h1>
