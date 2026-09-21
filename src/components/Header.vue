@@ -299,6 +299,12 @@ header.desktop .div .categories .category {
     font-size: 1.4rem;
     font-family: 'Outfit', system-ui, sans-serif;
     line-height: calc(1.75 / 1.25);
+    transition-timing-function: var(--tw-ease, cubic-bezier(.4, 0, .2, 1));
+    transition-duration: 0.15s;
+
+    &:hover {
+        color: #c1552a;
+    }
 }
 
 header.desktop .div .categories .login-div .category {
@@ -330,6 +336,12 @@ header.desktop .div .search-and-cart .cart {
     border-radius: 10px;
     padding: 8px 16px;
     position: relative;
+    transition-timing-function: var(--tw-ease, cubic-bezier(.4, 0, .2, 1));
+    transition-duration: 0.15s;
+
+    &:hover {
+        background-color: #9e3f1c;
+    }
 }
 
 header.desktop .div .search-and-cart .cart .cart-items {
@@ -366,6 +378,12 @@ header.desktop .div .search-and-cart .category.btn.btn-default.search {
     font-size: 14px;
     font-family: 'Outfit', system-ui, sans-serif;
     line-height: calc(1.75 / 1.25);
+    transition-timing-function: var(--tw-ease, cubic-bezier(.4, 0, .2, 1));
+    transition-duration: 0.15s;
+
+    &:hover {
+        color: #c1552a;
+    }
 }
 
 header.desktop .div .search-and-cart .category.btn.btn-default svg {
