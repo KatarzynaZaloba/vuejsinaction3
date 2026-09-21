@@ -35,6 +35,7 @@
                             <span v-if="cartItemCount > 0" class="cart-items">{{ cartItemCount }}</span>
                         </router-link>
                     </div>
+
                     <button class="hamburger-menu" @click="showMenu">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -107,6 +108,11 @@
                     <span v-if="cartItemCount > 0" class="cart-items">{{ cartItemCount }}</span>
                 </router-link>
             </div>
+            <div v-if="isCartPage" class="search-and-cart">
+                <button v-if="isCartPage" @click="$router.push({ name: 'Main' })" class="go-back">← Shop</button>
+            </div>
+
+
         </div>
     </header>
 </template>
@@ -329,6 +335,22 @@ header.desktop .div .search-and-cart {
     justify-content: end;
     gap: 10px;
     align-items: center;
+}
+
+header.desktop .div .search-and-cart .go-back {
+    color: #6b4226;
+    border: unset;
+    padding: 0;
+    background-color: transparent;
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 1.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+        color: #c1552a;
+    }
 }
 
 header.desktop .div .search-and-cart .cart {
