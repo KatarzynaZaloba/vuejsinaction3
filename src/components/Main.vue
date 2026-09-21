@@ -1121,7 +1121,7 @@ main {
   @media (min-width: 768px) {
     margin-inline: auto;
     max-width: 110rem;
-    margin: 0 2.4rem;
+    /* margin: 0 2.4rem; */
   }
 }
 
@@ -1210,7 +1210,7 @@ main {
     margin-inline: auto;
     max-width: 110rem;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    margin: 2rem 2.4rem;
+    /* margin: 2rem 2.4rem; */
   }
 }
 
