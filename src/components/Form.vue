@@ -24,32 +24,36 @@
             <p class="subtitle">Tell us where to send your order</p>
           </div>
 
-          <div class="">
-            <div class="form-group">
+          <div class="delivery-details-body">
+            <div class="form-group1">
               <div class="">
-                <strong>First name:</strong>
-                <input v-model.trim="order.firstName" class="form-control" />
+                <strong class="label">First name:</strong>
+                <input v-model.trim="order.firstName" placeholder="Jane" class="form-control" />
               </div>
               <div class="">
-                <strong>Last name:</strong>
-                <input v-model.trim="order.lastName" class="form-control" />
+                <strong class="label">Last name:</strong>
+                <input v-model.trim="order.lastName" placeholder="Smith" class="form-control" />
               </div>
             </div>
-            <div class="form-group">
-              <div class=""><strong>Address:</strong></div>
+            <div class="form-group2">
+              <div class="">
+                <strong class="label">Address:</strong>
+              </div>
               <div class="">
                 <input v-model.trim="order.address" class="form-control" />
               </div>
             </div>
             <div class="form-group">
-              <div class=""><strong>City:</strong></div>
+              <div class="">
+                <strong class="label">City:</strong>
+              </div>
               <div class="">
                 <input v-model.trim="order.city" class="form-control" />
               </div>
             </div>
             <div class="form-group">
               <div class="">
-                <strong>State:</strong>
+                <strong class="label">State:</strong>
                 <select v-model="order.state" class="form-control">
                   <option disabled value="">State</option>
                   <option v-for="(state, key) in states" v-bind:value="state">
@@ -60,7 +64,7 @@
             </div>
             <div class="form-group">
               <div class="">
-                <strong>Zip code:</strong>
+                <strong class="label">Zip code:</strong>
                 <input v-model.number="order.zip" class="form-control" type="number" />
               </div>
             </div>
@@ -68,15 +72,15 @@
               <div class="">
                 <input type="checkbox" id="gift" value="true" v-bind:true-value="order.sendGift"
                   v-bind:false-value="order.dontSendGift" v-model="order.gift">
-                <label for="gift">Send as a gift?</label>
+                <label class="label" for="gift">Send as a gift?</label>
               </div>
             </div><!-- koniec form-group -->
             <div class="form-group">
               <div class="">
                 <input type="radio" id="home" v-bind:value="order.home" v-model="order.method">
-                <label for="home">Home</label>
+                <label class="label" for="home">Home</label>
                 <input type="radio" id="business" v-bind:value="order.business" v-model="order.method">
-                <label for="business">Business</label>
+                <label class="label" for="business">Business</label>
               </div>
             </div><!-- koniec form-group-->
             <div class="form-group">
@@ -274,5 +278,44 @@ export default {
   margin-top: calc(0.25rem * 2);
   margin-bottom: 0;
   font-family: 'Outfit', system-ui, sans-serif;
+}
+
+.cart-page .cart-info .delivery-details .label {
+  color: #6b4226;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1.2rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+  letter-spacing: 0.05em;
+  margin-bottom: calc(0.25rem * 2);
+  padding: 0;
+}
+
+.cart-page .cart-info .delivery-details input {
+  margin-top: calc(0.25rem * 2);
+  color: #3d2414;
+  background-color: #faf6f0;
+  border: 1px solid #e8d9c4;
+  border-radius: 1.4rem;
+  padding: 2rem 1.6rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 1.4rem;
+}
+
+.cart-page .cart-info .delivery-details .delivery-details-body .form-group1 {
+  display: flex;
+  flex-direction: row;
+  gap: calc(0.25rem * 6);
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.6rem;
+}
+
+.cart-page .cart-info .delivery-details .delivery-details-body .form-group1>div {
+  width: 100%;
+}
+
+.cart-page .cart-info .delivery-details-body {
+  padding: 2rem;
 }
 </style>
