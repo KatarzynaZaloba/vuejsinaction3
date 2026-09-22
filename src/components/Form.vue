@@ -1,12 +1,14 @@
 <template>
-  <div>
+  <div class="cart-page">
     <my-header :cartItemCount="cartItemCount"></my-header>
-    <div class="">
-      <div class=""><button class=""><svg class="" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <div class="container">
+      <div class="header">
+        <button class="go-back">
+          <svg class="" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
           </svg>Back to shop</button>
-        <h1 class="">Your <span class="">cart</span></h1>
-        <p class="">Your cart is empty</p>
+        <h1 class="title">Your <span class="highlight">cart</span></h1>
+        <p class="subtitle">Your cart is empty</p>
       </div>
     </div>
     <div class="">
@@ -139,4 +141,56 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.cart-page .container {
+  background-color: #f2ebe0;
+  padding: 3.2rem 2.4rem;
+  width: 100%
+}
+
+.cart-page .container .go-back {
+  transition-timing-function: var(--tw-ease, cubic-bezier(.4, 0, .2, 1));
+  transition-duration: 0.15s;
+  color: #6b4226;
+  font-size: 1.4rem;
+  line-height: calc(1.25 / .875);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(0.25rem * 1.5);
+  background-color: transparent;
+  border: unset;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 1.4rem;
+  padding: 0;
+
+  &:hover {
+    color: #c1552a;
+  }
+}
+
+.cart-page .container .go-back svg {
+  width: calc(0.25rem * 6);
+  height: calc(0.25rem * 6);
+}
+
+.cart-page .container .title {
+  font-size: 3.6rem;
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 600;
+  color: #3d2414;
+  margin-bottom: 0;
+}
+
+.cart-page .container .title .highlight {
+  font-style: italic;
+  color: #c1552a;
+}
+
+.cart-page .container .subtitle {
+  color: #6b4226;
+  font-size: 1.4rem;
+  margin-top: calc(0.25rem * 1);
+  font-family: 'Outfit', system-ui, sans-serif;
+}
+</style>

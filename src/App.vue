@@ -17,6 +17,10 @@ export default {
 <style>
 #app {}
 
+.cart-page header.desktop .div {
+  padding: 0 !important;
+}
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity .5s ease-out;
