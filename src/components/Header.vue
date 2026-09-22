@@ -267,6 +267,7 @@ header.desktop {
         z-index: 50;
         position: sticky;
         top: 0;
+        padding-inline: 2.4rem;
     }
 }
 

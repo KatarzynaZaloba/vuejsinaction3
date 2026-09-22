@@ -751,6 +751,7 @@ main {
 .section-table {
   background-color: #3d2414;
   padding-block: calc(0.25rem * 16);
+  margin-inline: auto;
 }
 
 .section-table .div {
@@ -759,13 +760,13 @@ main {
   color: #3d2414;
   gap: 12px;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  margin-inline: 2rem;
+  padding-inline: 2rem;
 
   @media (min-width: 768px) {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    padding-inline: calc(0.25rem * 9.6);
     gap: calc(0.25rem * 6);
     max-width: 110rem;
+    padding-inline: 2rem;
   }
 
   @media (min-width: 1280px) {
@@ -1115,14 +1116,12 @@ main {
 .section-banner {
   background-color: #c1552a;
   border-radius: 20px;
-  margin-bottom: 50px;
-  margin-inline: 20px;
+  margin: 2rem 2.4rem;
   position: relative;
 
   @media (min-width: 768px) {
-    margin-inline: auto;
     max-width: 110rem;
-    /* margin: 0 2.4rem; */
+    margin-inline: auto;
   }
 }
 
@@ -1204,14 +1203,12 @@ main {
   grid-template-columns: repeat(1, minmax(0, 1fr));
   display: grid;
   gap: 20px;
-  margin: 20px;
-  margin-bottom: 60px;
+  margin: 2rem 2.4rem;
 
   @media (min-width: 768px) {
     margin-inline: auto;
     max-width: 110rem;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    /* margin: 2rem 2.4rem; */
   }
 }
 
