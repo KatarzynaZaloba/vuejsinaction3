@@ -11,8 +11,13 @@
         <p class="subtitle">Your cart is empty</p>
       </div>
     </div>
-    <div class="">
-      <div class="">
+    <div class="cart-info">
+      <div class="cart-status">
+        <p class="icon">🛒</p>
+        <p class="info">Your cart is empty.</p>
+        <button class="go-back">Back to shop</button>
+      </div>
+      <div class="delivery-details">
         <div class="">
           <div class="">Delivery details</div>
           <div class="">
@@ -145,7 +150,8 @@ export default {
 .cart-page .container {
   background-color: #f2ebe0;
   padding: 3.2rem 2.4rem;
-  width: 100%
+  width: 100%;
+  border-bottom: 1px solid #e8d9c4;
 }
 
 .cart-page .container .go-back {
@@ -192,5 +198,55 @@ export default {
   font-size: 1.4rem;
   margin-top: calc(0.25rem * 1);
   font-family: 'Outfit', system-ui, sans-serif;
+}
+
+.cart-page .cart-info {
+  background-color: #faf6f0;
+  padding: 3.2rem 2.4rem;
+}
+
+.cart-page .cart-info .cart-status {
+  margin: 0 0 2.4rem;
+  padding: calc(0.25rem * 16);
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid #e8d9c4;
+  border-radius: 1.6rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.cart-page .cart-info .cart-status .icon {
+  font-size: 3.6rem;
+  margin-bottom: calc(0.25rem * 4.8);
+}
+
+.cart-page .cart-info .cart-status .info {
+  color: #6b4226;
+  font-size: 1.6rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+}
+
+.cart-page .cart-info .cart-status .go-back {
+  transition-timing-function: var(--tw-ease, cubic-bezier(.4, 0, .2, 1));
+  transition-duration: 0.15s;
+  color: #c1552a;
+  font-size: 1.4rem;
+  line-height: calc(1.25 / .875);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(0.25rem * 1.5);
+  background-color: transparent;
+  border: unset;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding: 0;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 </style>
