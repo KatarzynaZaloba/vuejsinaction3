@@ -19,13 +19,12 @@
       </div>
       <div class="delivery-details">
         <div class="">
-          <div class="">Delivery details</div>
+          <div class="delivery-details-header">
+            <h2 class="title">Delivery details</h2>
+            <p class="subtitle">Tell us where to send your order</p>
+          </div>
+
           <div class="">
-            <div class="form-group">
-              <div class="">
-                <h4><strong>Tell us where to send your order</strong></h4>
-              </div>
-            </div>
             <div class="form-group">
               <div class="">
                 <strong>First name:</strong>
@@ -248,5 +247,32 @@ export default {
   &:hover {
     text-decoration: underline;
   }
+}
+
+.cart-page .cart-info .delivery-details {
+  background-color: #fff;
+  border: 1px solid #e8d9c4;
+  border-radius: 1.6rem;
+}
+
+.cart-page .cart-info .delivery-details-header {
+  border-bottom: 1px solid #e8d9c4;
+  padding: 1.6rem 2rem;
+}
+
+.cart-page .cart-info .delivery-details-header .title {
+  color: #3d2414;
+  font-size: 1.8rem;
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 600;
+  margin: 0;
+}
+
+.cart-page .cart-info .delivery-details-header .subtitle {
+  color: #6b4226;
+  font-size: 1.2rem;
+  margin-top: calc(0.25rem * 2);
+  margin-bottom: 0;
+  font-family: 'Outfit', system-ui, sans-serif;
 }
 </style>
