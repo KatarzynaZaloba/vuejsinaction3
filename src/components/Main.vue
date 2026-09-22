@@ -759,6 +759,7 @@ main {
   color: #3d2414;
   gap: 12px;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-inline: 2rem;
 
   @media (min-width: 768px) {
     grid-template-columns: repeat(4, minmax(0, 1fr));
