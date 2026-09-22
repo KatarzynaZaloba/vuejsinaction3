@@ -304,11 +304,15 @@ export default {
 
 .cart-page .cart-info .delivery-details .delivery-details-body .form-group1 {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: calc(0.25rem * 6);
   align-items: center;
   justify-content: space-between;
   margin-bottom: 1.6rem;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
 }
 
 .cart-page .cart-info .delivery-details .delivery-details-body .form-group1>div {
