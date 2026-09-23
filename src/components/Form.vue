@@ -103,7 +103,8 @@ Method: {{ order.method }}
 Gift: {{ order.gift }}
               </pre>
                 </div>
-                <button type="submit" class="btn btn-primary submit" v-on:click="submitForm">Place order</button>
+                <button type="submit" class="btn btn-primary submit inactive" v-on:click="submitForm">Place order
+                  →</button>
               </div>
             </div>
           </div><!-- koniec panel-body-->
@@ -341,16 +342,31 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column-reverse;
+  margin-bottom: 1.6rem;
 }
 
 .cart-page .cart-info .delivery-details .place-order.container pre {
   width: 100%;
+  margin-bottom: 0;
 }
 
 .cart-page .cart-info .delivery-details .submit {
   float: unset;
   margin-top: unset;
   width: 100%;
+  background-color: #c1552a;
+  color: #faf6f0;
+  font-weight: 600;
+  font-size: 1.4rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+  border: unset;
+  padding-block: calc(0.25rem * 6.4);
+  padding-inline: 0;
+  border-radius: 1.4rem;
+}
+
+.cart-page .cart-info .delivery-details .submit.inactive {
+  opacity: 0.4;
 }
 
 .form-group6 {
@@ -422,5 +438,6 @@ export default {
 
 .cart-page .cart-info .delivery-details-body {
   padding: 2rem;
+  padding-bottom: 0;
 }
 </style>
