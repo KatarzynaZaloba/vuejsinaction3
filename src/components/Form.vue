@@ -78,11 +78,12 @@
                 <label class="business">
                   <input class="sr-only" type="radio" value="business" name="addressType">🏢 Business
                 </label>
-              </div><label class="">
-                <div class="">
+              </div>
+              <label class="gift">
+                <div class="checkbox">
                 </div>
-                <input class="" type="checkbox">
-                <span class="">🎁 Send as a gift?</span>
+                <input class="sr-only" type="checkbox">
+                <span class="text">🎁 Send as a gift?</span>
               </label>
             </div>
             <div class="">
@@ -385,6 +386,31 @@ export default {
     color-mix(in oklab, #c1552a 5%, transparent);
   color: #3d2414;
   border: 2px solid #c1552a;
+}
+
+.form-group6 .gift {
+  display: flex;
+  flex-direction: row;
+  gap: calc(0.25rem * 6);
+  align-items: center;
+}
+
+.form-group6 .gift .checkbox {
+  border: 2px solid #e8d9c4;
+  border-radius: .25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(0.25rem * 8);
+  height: calc(0.25rem * 8);
+  margin: 0;
+}
+
+.form-group6 .gift .text {
+  color: #6b4226;
+  font-size: 1.4rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-weight: 400;
 }
 
 .cart-page .cart-info .delivery-details-body {
