@@ -43,7 +43,7 @@
                 <input v-model.trim="order.address" class="form-control" />
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group3">
               <div class="">
                 <strong class="label">City:</strong>
               </div>
@@ -51,7 +51,7 @@
                 <input v-model.trim="order.city" class="form-control" />
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group4">
               <div class="">
                 <strong class="label">State:</strong>
                 <select v-model="order.state" class="form-control">
@@ -62,20 +62,20 @@
                 </select>
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group5">
               <div class="">
                 <strong class="label">Zip code:</strong>
                 <input v-model.number="order.zip" class="form-control" type="number" />
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group6">
               <div class="">
                 <input type="checkbox" id="gift" value="true" v-bind:true-value="order.sendGift"
                   v-bind:false-value="order.dontSendGift" v-model="order.gift">
                 <label class="label" for="gift">Send as a gift?</label>
               </div>
             </div><!-- koniec form-group -->
-            <div class="form-group">
+            <div class="form-group7">
               <div class="">
                 <input type="radio" id="home" v-bind:value="order.home" v-model="order.method">
                 <label class="label" for="home">Home</label>
@@ -83,7 +83,7 @@
                 <label class="label" for="business">Business</label>
               </div>
             </div><!-- koniec form-group-->
-            <div class="form-group">
+            <div class="form-group8">
               <div class="">
                 <button type="submit" class="btn btn-primary submit" v-on:click="submitForm">Place order</button>
               </div><!-- koniec col-md-6-->
@@ -317,6 +317,17 @@ export default {
 
 .cart-page .cart-info .delivery-details .delivery-details-body .form-group1>div {
   width: 100%;
+}
+
+.cart-page .cart-info .delivery-details .delivery-details-body .form-group2,
+.cart-page .cart-info .delivery-details .delivery-details-body .form-group3,
+.cart-page .cart-info .delivery-details .delivery-details-body .form-group4,
+.cart-page .cart-info .delivery-details .delivery-details-body .form-group5,
+.cart-page .cart-info .delivery-details .delivery-details-body .form-group6,
+.cart-page .cart-info .delivery-details .delivery-details-body .form-group7,
+.cart-page .cart-info .delivery-details .delivery-details-body .form-group8 {
+  width: 100%;
+  margin-bottom: 1.6rem;
 }
 
 .cart-page .cart-info .delivery-details-body {
