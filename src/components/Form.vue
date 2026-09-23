@@ -91,21 +91,21 @@
             </div>
             <div class="form-group8">
               <div class="">
-                <button type="submit" class="btn btn-primary submit" v-on:click="submitForm">Place order</button>
-              </div><!-- koniec col-md-6-->
-            </div><!-- koniec form-group-->
-            <div class="">
-              <pre>
-                         First name: {{ order.firstName }}
-                     Last name: {{ order.lastName }}
-                        Address: {{ order.address }}
-                  City: {{ order.city }}
-                 Zip code: {{ order.zip }}
-                  State: {{ order.state }}
-                       Method: {{ order.method }}
-                      Gift: {{ order.gift }}
+                <div class="place-order container">
+                  <pre>
+First name: {{ order.firstName }}
+Last name: {{ order.lastName }}
+Address: {{ order.address }}
+City: {{ order.city }}
+Zip code: {{ order.zip }}
+State: {{ order.state }}
+Method: {{ order.method }}
+Gift: {{ order.gift }}
               </pre>
-            </div><!-- koniec col-md-12 verify-->
+                </div>
+                <button type="submit" class="btn btn-primary submit" v-on:click="submitForm">Place order</button>
+              </div>
+            </div>
           </div><!-- koniec panel-body-->
         </div><!-- koniec panel panel-info-->
 
@@ -334,6 +334,23 @@ export default {
 .cart-page .cart-info .delivery-details .delivery-details-body .form-group8 {
   width: 100%;
   margin-bottom: 1.6rem;
+}
+
+.cart-page .cart-info .delivery-details .place-order.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column-reverse;
+}
+
+.cart-page .cart-info .delivery-details .place-order.container pre {
+  width: 100%;
+}
+
+.cart-page .cart-info .delivery-details .submit {
+  float: unset;
+  margin-top: unset;
+  width: 100%;
 }
 
 .form-group6 {
