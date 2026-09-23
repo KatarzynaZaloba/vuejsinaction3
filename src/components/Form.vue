@@ -71,12 +71,12 @@
 
             <div class="form-group6">
               <p class="delivery-options">Delivery options</p>
-              <div class="">
-                <label class="">
-                  <input class="" type="radio" value="home" checked="" name="addressType">🏠 Home
+              <div class="types">
+                <label class="home active">
+                  <input class="sr-only" type="radio" value="home" checked="" name="addressType">🏠 Home
                 </label>
-                <label class="">
-                  <input class="" type="radio" value="business" name="addressType">🏢 Business
+                <label class="business">
+                  <input class="sr-only" type="radio" value="business" name="addressType">🏢 Business
                 </label>
               </div><label class="">
                 <div class="">
@@ -358,6 +358,33 @@ export default {
   font-family: 'Outfit', system-ui, sans-serif;
   letter-spacing: 0.05em;
   margin-bottom: calc(0.25rem * 4.8);
+}
+
+.form-group6 .types {
+  display: flex;
+  gap: calc(0.25rem * 6);
+  margin-bottom: 1.6rem;
+}
+
+.form-group6 .types .home,
+.form-group6 .types .business {
+  padding-block: calc(0.25rem * 4.8);
+  padding-inline: calc(0.25rem * 6.4);
+  margin-bottom: 0;
+  font-weight: 500;
+  border-radius: 1.4rem;
+  font-size: 1.4rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+  border: 2px solid #e8d9c4;
+  color: #6b4226;
+}
+
+.form-group6 .types .home.active,
+.form-group6 .types .business.active {
+  background-color:
+    color-mix(in oklab, #c1552a 5%, transparent);
+  color: #3d2414;
+  border: 2px solid #c1552a;
 }
 
 .cart-page .cart-info .delivery-details-body {
