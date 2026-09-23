@@ -68,13 +68,28 @@
                 <input v-model.number="order.zip" class="form-control" type="number" />
               </div>
             </div>
+
             <div class="form-group6">
+              <p class="delivery-options">Delivery options</p>
               <div class="">
-                <input type="checkbox" id="gift" value="true" v-bind:true-value="order.sendGift"
-                  v-bind:false-value="order.dontSendGift" v-model="order.gift">
-                <label class="label" for="gift">Send as a gift?</label>
-              </div>
-            </div><!-- koniec form-group -->
+                <label class="">
+                  <input class="" type="radio" value="home" checked="" name="addressType">🏠 Home
+                </label>
+                <label class="">
+                  <input class="" type="radio" value="business" name="addressType">🏢 Business
+                </label>
+              </div><label class="">
+                <div class="">
+                </div>
+                <input class="" type="checkbox">
+                <span class="">🎁 Send as a gift?</span>
+              </label>
+            </div>
+            <div class="">
+              <input type="checkbox" id="gift" value="true" v-bind:true-value="order.sendGift"
+                v-bind:false-value="order.dontSendGift" v-model="order.gift">
+              <label class="label" for="gift">Send as a gift?</label>
+            </div>
             <div class="form-group7">
               <div class="">
                 <input type="radio" id="home" v-bind:value="order.home" v-model="order.method">
@@ -328,6 +343,21 @@ export default {
 .cart-page .cart-info .delivery-details .delivery-details-body .form-group8 {
   width: 100%;
   margin-bottom: 1.6rem;
+}
+
+.form-group6 {
+  padding-top: calc(0.25rem * 6.4);
+  border-top: 1px solid #e8d9c4;
+}
+
+.form-group6 .delivery-options {
+  color: #6b4226;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1.2rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+  letter-spacing: 0.05em;
+  margin-bottom: calc(0.25rem * 4.8);
 }
 
 .cart-page .cart-info .delivery-details-body {
