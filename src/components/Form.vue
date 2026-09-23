@@ -40,7 +40,7 @@
                 <strong class="label">Address:</strong>
               </div>
               <div class="">
-                <input v-model.trim="order.address" class="form-control" />
+                <input v-model.trim="order.address" class="form-control" placeholder="123 Maple Street, Apt 4" />
               </div>
             </div>
             <div class="form-group3">
@@ -48,7 +48,7 @@
                 <strong class="label">City:</strong>
               </div>
               <div class="">
-                <input v-model.trim="order.city" class="form-control" />
+                <input v-model.trim="order.city" class="form-control" placeholder="New York" />
               </div>
             </div>
             <div class="form-group4">
@@ -65,7 +65,7 @@
             <div class="form-group5">
               <div class="">
                 <strong class="label">Zip code:</strong>
-                <input v-model.number="order.zip" class="form-control" type="number" />
+                <input v-model.number="order.zip" class="form-control" type="number" placeholder="10001" />
               </div>
             </div>
 
@@ -73,32 +73,22 @@
               <p class="delivery-options">Delivery options</p>
               <div class="types">
                 <label class="home active">
-                  <input class="sr-only" type="radio" value="home" checked="" name="addressType">🏠 Home
+                  <input class="sr-only" type="radio" id="home" v-bind:value="order.home" v-model="order.method">🏠 Home
                 </label>
                 <label class="business">
-                  <input class="sr-only" type="radio" value="business" name="addressType">🏢 Business
+                  <input class="sr-only" type="radio" id="business" v-bind:value="order.business"
+                    v-model="order.method">🏢
+                  Business
                 </label>
               </div>
               <label class="gift">
                 <div class="checkbox">
                 </div>
-                <input class="sr-only" type="checkbox">
-                <span class="text">🎁 Send as a gift?</span>
+                <input class="sr-only" type="checkbox" id="gift" value="true" v-bind:true-value="order.sendGift"
+                  v-bind:false-value="order.dontSendGift" v-model="order.gift">
+                <label class="text" for="gift">🎁 Send as a gift?</label>
               </label>
             </div>
-            <div class="">
-              <input type="checkbox" id="gift" value="true" v-bind:true-value="order.sendGift"
-                v-bind:false-value="order.dontSendGift" v-model="order.gift">
-              <label class="label" for="gift">Send as a gift?</label>
-            </div>
-            <div class="form-group7">
-              <div class="">
-                <input type="radio" id="home" v-bind:value="order.home" v-model="order.method">
-                <label class="label" for="home">Home</label>
-                <input type="radio" id="business" v-bind:value="order.business" v-model="order.method">
-                <label class="label" for="business">Business</label>
-              </div>
-            </div><!-- koniec form-group-->
             <div class="form-group8">
               <div class="">
                 <button type="submit" class="btn btn-primary submit" v-on:click="submitForm">Place order</button>
