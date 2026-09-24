@@ -90,8 +90,9 @@
               </label>
             </div>
             <div class="form-group8">
+              <p data-v-1b5a9218="" class="test-text">TEST</p>
               <div class="">
-                <div class="place-order container">
+                <div class="place-order">
                   <pre>
 First name: {{ order.firstName }}
 Last name: {{ order.lastName }}
@@ -298,7 +299,8 @@ export default {
   padding: 0;
 }
 
-.cart-page .cart-info .delivery-details input {
+.cart-page .cart-info .delivery-details input,
+.cart-page .cart-info .delivery-details select {
   margin-top: calc(0.25rem * 2);
   color: #3d2414;
   background-color: #faf6f0;
@@ -337,7 +339,7 @@ export default {
   margin-bottom: 1.6rem;
 }
 
-.cart-page .cart-info .delivery-details .place-order.container {
+.cart-page .cart-info .delivery-details .place-order {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -345,9 +347,17 @@ export default {
   margin-bottom: 1.6rem;
 }
 
-.cart-page .cart-info .delivery-details .place-order.container pre {
+.cart-page .cart-info .delivery-details .place-order pre {
   width: 100%;
   margin-bottom: 0;
+  margin-top: calc(0.25rem * 2);
+  color: #555;
+  background-color: #faf6f0;
+  border: 1px solid #e8d9c4;
+  border-radius: 1.4rem;
+  padding: 2rem 1.6rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 1.4rem;
 }
 
 .cart-page .cart-info .delivery-details .submit {
@@ -369,12 +379,17 @@ export default {
   opacity: 0.4;
 }
 
+.cart-page .cart-info .delivery-details .place-order {
+  padding: 0;
+}
+
 .form-group6 {
   padding-top: calc(0.25rem * 6.4);
   border-top: 1px solid #e8d9c4;
 }
 
-.form-group6 .delivery-options {
+.form-group6 .delivery-options,
+.form-group8 .test-text {
   color: #6b4226;
   text-transform: uppercase;
   font-weight: 600;
