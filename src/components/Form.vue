@@ -127,7 +127,7 @@ Gift: {{ order.gift }}
             <span class="title">Shipping</span>
             <span class="subtitle">$9.99</span>
           </div>
-          <p class="">Add <strong class="">$35.00</strong> more to qualify for free shipping.</p>
+          <p class="banner">Add <strong class="">$35.00</strong> more to qualify for free shipping.</p>
           <div class="total">
             <span class="">Total</span>
             <span class="">$9.99</span>
@@ -452,6 +452,22 @@ export default {
 .cart-page .cart-info .order-summary .body .shipping span.subtitle {
   color: #3d2414;
   font-weight: 500;
+}
+
+.cart-page .cart-info .order-summary .body .banner {
+  background-color: #f2ebe0;
+  padding-block: calc(0.25rem * 3.2);
+  padding-inline: calc(0.25rem * 4.8);
+  border-radius: 0.5rem;
+  margin-bottom: 1.2rem;
+  color: #6b4226;
+  font-size: 1.2rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+}
+
+.cart-page .cart-info .order-summary .body .banner strong {
+  color: #3d2414;
+  font-weight: bolder;
 }
 
 .form-group6 {
