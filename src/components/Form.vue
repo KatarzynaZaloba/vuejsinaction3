@@ -129,10 +129,10 @@ Gift: {{ order.gift }}
           </div>
           <p class="banner">Add <strong class="">$35.00</strong> more to qualify for free shipping.</p>
           <div class="total">
-            <span class="">Total</span>
-            <span class="">$9.99</span>
+            <span class="title">Total</span>
+            <span class="subtitle">$9.99</span>
           </div>
-          <p class="">🔒 Secure payment · Free returns within 30 days</p>
+          <p class="info">🔒 Secure payment · Free returns within 30 days</p>
         </div>
       </div>
 
@@ -468,6 +468,35 @@ export default {
 .cart-page .cart-info .order-summary .body .banner strong {
   color: #3d2414;
   font-weight: bolder;
+}
+
+.cart-page .cart-info .order-summary .body .total {
+  border-top: 1px solid #e8d9c4;
+  padding-top: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart-page .cart-info .order-summary .body .total .title {
+  color: #3d2414;
+  font-size: 1.6rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-weight: 600;
+}
+
+.cart-page .cart-info .order-summary .body .info {
+  color: #6b4226;
+  text-align: center;
+  font-size: 1.2rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+
+}
+
+.cart-page .cart-info .order-summary .body .total .subtitle {
+  color: #c1552a;
+  font-weight: 700;
+  font-size: 2rem;
+  font-family: 'Fraunces', Georgia, sans-serif;
 }
 
 .form-group6 {
