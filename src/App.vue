@@ -15,7 +15,9 @@ export default {
 </script>
 
 <style>
-#app {}
+#app {
+  overflow: hidden;
+}
 
 .cart-page header.desktop .div {
   padding: 0 !important;

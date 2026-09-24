@@ -108,12 +108,28 @@ Gift: {{ order.gift }}
                   →</button>
               </div>
             </div>
-          </div><!-- koniec panel-body-->
-        </div><!-- koniec panel panel-info-->
+          </div>
+        </div>
 
 
-      </div><!-- koniec col-md-10 col-md-offset-1-->
-    </div><!-- koniec row-->
+      </div>
+
+      <div class="order-summary">
+        <div class="header">
+          <h2 class="title">Order summary</h2>
+        </div>
+        <div class="">
+          <div class=""><span>Items (0)</span><span class="">$0.00</span></div>
+          <div class=""><span>Shipping</span><span class="">$9.99</span></div>
+          <p class="">Add <strong class="">$35.00</strong> more to qualify for free shipping.</p>
+          <div class=""><span class="">Total</span><span class="">$9.99</span></div><button type="submit" form=""
+            disabled="" class="">Place
+            order →</button>
+          <p class="">🔒 Secure payment · Free returns within 30 days</p>
+        </div>
+      </div>
+
+    </div>
   </div>
 </template>
 
@@ -381,6 +397,28 @@ export default {
 
 .cart-page .cart-info .delivery-details .place-order {
   padding: 0;
+}
+
+.cart-page .cart-info .order-summary {
+  background-color: #fff;
+  border: 1px solid #e8d9c4;
+  border-radius: 1.6rem;
+  margin-top: 2.4rem;
+}
+
+.cart-page .cart-info .order-summary .header {
+  padding-block: calc(0.25rem * 6.4);
+  padding-inline: calc(0.25rem * 8);
+  border-bottom: 1px solid #e8d9c4;
+  margin: 0;
+}
+
+.cart-page .cart-info .order-summary .header .title {
+  margin: 0;
+  color: #3d2414;
+  font-weight: 600;
+  font-size: 1.8rem;
+  font-family: 'Fraunces', Georgia, sans-serif;
 }
 
 .form-group6 {
