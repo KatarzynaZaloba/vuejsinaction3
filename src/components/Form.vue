@@ -118,13 +118,20 @@ Gift: {{ order.gift }}
         <div class="header">
           <h2 class="title">Order summary</h2>
         </div>
-        <div class="">
-          <div class=""><span>Items (0)</span><span class="">$0.00</span></div>
-          <div class=""><span>Shipping</span><span class="">$9.99</span></div>
+        <div class="body">
+          <div class="items">
+            <span class="title">Items (0)</span>
+            <span class="subtitle">$0.00</span>
+          </div>
+          <div class="shipping">
+            <span class="title">Shipping</span>
+            <span class="subtitle">$9.99</span>
+          </div>
           <p class="">Add <strong class="">$35.00</strong> more to qualify for free shipping.</p>
-          <div class=""><span class="">Total</span><span class="">$9.99</span></div><button type="submit" form=""
-            disabled="" class="">Place
-            order →</button>
+          <div class="total">
+            <span class="">Total</span>
+            <span class="">$9.99</span>
+          </div>
           <p class="">🔒 Secure payment · Free returns within 30 days</p>
         </div>
       </div>
@@ -419,6 +426,32 @@ export default {
   font-weight: 600;
   font-size: 1.8rem;
   font-family: 'Fraunces', Georgia, sans-serif;
+}
+
+.cart-page .cart-info .order-summary .body {
+  padding: calc(0.25rem * 8);
+}
+
+.cart-page .cart-info .order-summary .body .items,
+.cart-page .cart-info .order-summary .body .shipping,
+.cart-page .cart-info .order-summary .body .total {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.6rem;
+  font-size: 1.4rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+}
+
+.cart-page .cart-info .order-summary .body .items span.title,
+.cart-page .cart-info .order-summary .body .shipping span.title {
+  color: #6b4226;
+
+}
+
+.cart-page .cart-info .order-summary .body .items span.subtitle,
+.cart-page .cart-info .order-summary .body .shipping span.subtitle {
+  color: #3d2414;
+  font-weight: 500;
 }
 
 .form-group6 {
