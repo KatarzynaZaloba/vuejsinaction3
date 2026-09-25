@@ -184,7 +184,7 @@ export default {
 
 <style scoped>
 .cart-page {
-  max-width: 110rem;
+  background-color: #faf6f0;
 }
 
 .cart-page .container {
