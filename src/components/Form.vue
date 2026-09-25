@@ -46,9 +46,11 @@
             <div class="form-group3">
               <div class="">
                 <strong class="label">City:</strong>
+                <input v-model.trim="order.city" class="form-control" placeholder="New York" />
               </div>
               <div class="">
-                <input v-model.trim="order.city" class="form-control" placeholder="New York" />
+                <strong class="label">Zip code:</strong>
+                <input v-model.number="order.zip" class="form-control" type="number" placeholder="10001" />
               </div>
             </div>
             <div class="form-group4">
@@ -60,12 +62,6 @@
                     {{ key }}
                   </option>
                 </select>
-              </div>
-            </div>
-            <div class="form-group5">
-              <div class="">
-                <strong class="label">Zip code:</strong>
-                <input v-model.number="order.zip" class="form-control" type="number" placeholder="10001" />
               </div>
             </div>
 
@@ -332,7 +328,8 @@ export default {
   font-size: 1.4rem;
 }
 
-.cart-page .cart-info .delivery-details .delivery-details-body .form-group1 {
+.cart-page .cart-info .delivery-details .delivery-details-body .form-group1,
+.cart-page .cart-info .delivery-details .delivery-details-body .form-group3 {
   display: flex;
   flex-direction: column;
   gap: calc(0.25rem * 6);
@@ -340,12 +337,13 @@ export default {
   justify-content: space-between;
   margin-bottom: 1.6rem;
 
-  @media (min-width: 768px) {
+  @media (min-width: 640px) {
     flex-direction: row;
   }
 }
 
-.cart-page .cart-info .delivery-details .delivery-details-body .form-group1>div {
+.cart-page .cart-info .delivery-details .delivery-details-body .form-group1>div,
+.cart-page .cart-info .delivery-details .delivery-details-body .form-group3>div {
   width: 100%;
 }
 
