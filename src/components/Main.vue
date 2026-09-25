@@ -953,6 +953,7 @@ main {
   font-family: 'Outfit', sans-serif;
   font-size: 14px;
   margin: 0;
+  text-align: center;
 }
 
 .section-products .product .label {
