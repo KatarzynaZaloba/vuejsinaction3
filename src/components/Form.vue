@@ -132,6 +132,15 @@ Gift: {{ order.gift }}
             <span class="title">Total</span>
             <span class="subtitle">$9.99</span>
           </div>
+          <div class="order-details">
+            <p class="title">Order details</p>
+            <p class="order-detail"><span class="bolder">Name:</span> Anna Wanna</p>
+            <p class="order-detail"><span class="bolder">Address:</span> test</p>
+            <p class="order-detail"><span class="bolder">City:</span> test test</p>
+            <p class="order-detail"><span class="bolder">State:</span> Alabama</p>
+            <p class="order-detail"><span class="bolder">Type:</span> Home address</p>
+            <p class="order-detail"><span class="bolder">Gift:</span> Yes 🎁</p>
+          </div>
           <p class="info">🔒 Secure payment · Free returns within 30 days</p>
         </div>
       </div>
@@ -497,6 +506,36 @@ export default {
   font-weight: 700;
   font-size: 2rem;
   font-family: 'Fraunces', Georgia, sans-serif;
+}
+
+.cart-page .cart-info .order-summary .body .order-details {
+  padding: calc(0.25rem * 4.8);
+  color: #6b4226;
+  font-size: 1.2rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+  background-color: #f2ebe0;
+  border: 1px solid #e8d9c4;
+  border-radius: 1rem;
+  margin-bottom: 1.6rem;
+}
+
+.cart-page .cart-info .order-summary .body .order-details .title {
+  color: #3d2414;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.cart-page .cart-info .order-summary .body .order-details .order-detail:not(:last-child) {
+  margin-bottom: 0.4rem;
+}
+
+.cart-page .cart-info .order-summary .body .order-details .order-detail:last-child {
+  margin-bottom: 0;
+}
+
+.cart-page .cart-info .order-summary .body .order-details .bolder {
+  font-weight: 500;
+  color: #3d2414;
 }
 
 .form-group6 {
