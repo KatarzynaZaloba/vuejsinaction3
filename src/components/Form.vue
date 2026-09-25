@@ -12,91 +12,95 @@
       </div>
     </div>
     <div class="cart-info">
-      <div class="cart-status">
-        <p class="icon">🛒</p>
-        <p class="info">Your cart is empty.</p>
-        <button class="go-back">Back to shop</button>
-      </div>
-      <div class="delivery-details">
-        <div class="">
-          <div class="delivery-details-header">
-            <h2 class="title">Delivery details</h2>
-            <p class="subtitle">Tell us where to send your order</p>
-          </div>
-
-          <div class="delivery-details-body">
-            <div class="form-group1">
-              <div class="">
-                <strong class="label">First name:</strong>
-                <input v-model.trim="order.firstName" placeholder="Jane" class="form-control" />
-              </div>
-              <div class="">
-                <strong class="label">Last name:</strong>
-                <input v-model.trim="order.lastName" placeholder="Smith" class="form-control" />
-              </div>
-            </div>
-            <div class="form-group2">
-              <div class="">
-                <strong class="label">Address:</strong>
-              </div>
-              <div class="">
-                <input v-model.trim="order.address" class="form-control" placeholder="123 Maple Street, Apt 4" />
-              </div>
-            </div>
-            <div class="form-group3">
-              <div class="">
-                <strong class="label">City:</strong>
-                <input v-model.trim="order.city" class="form-control" placeholder="New York" />
-              </div>
-              <div class="">
-                <strong class="label">Zip code:</strong>
-                <input v-model.number="order.zip" class="form-control" type="number" placeholder="10001" />
-              </div>
-            </div>
-            <div class="form-group4">
-              <div class="">
-                <strong class="label">State:</strong>
-                <select v-model="order.state" class="form-control">
-                  <option disabled value="">State</option>
-                  <option v-for="(state, key) in states" v-bind:value="state">
-                    {{ key }}
-                  </option>
-                </select>
-              </div>
-            </div>
-
-            <div class="form-group6">
-              <p class="delivery-options">Delivery options</p>
-              <div class="types">
-                <label class="home active">
-                  <input class="sr-only" type="radio" id="home" v-bind:value="order.home" v-model="order.method">🏠 Home
-                </label>
-                <label class="business">
-                  <input class="sr-only" type="radio" id="business" v-bind:value="order.business"
-                    v-model="order.method">🏢
-                  Business
-                </label>
-              </div>
-              <label class="gift">
-                <div class="checkbox">
-                </div>
-                <input class="sr-only" type="checkbox" id="gift" value="true" v-bind:true-value="order.sendGift"
-                  v-bind:false-value="order.dontSendGift" v-model="order.gift">
-                <label class="text" for="gift">🎁 Send as a gift?</label>
-              </label>
-            </div>
-            <div class="form-group8">
-              <p data-v-1b5a9218="" class="test-text">TEST</p>
-              <div class="">
-                <button type="submit" class="btn btn-primary submit inactive" v-on:click="submitForm">Place order
-                  →</button>
-              </div>
-            </div>
-          </div>
+      <div class="cart-status-wrapper">
+        <div class="cart-status">
+          <p class="icon">🛒</p>
+          <p class="info">Your cart is empty.</p>
+          <button class="go-back">Back to shop</button>
         </div>
+        <div class="delivery-details">
+          <div class="">
+            <div class="delivery-details-header">
+              <h2 class="title">Delivery details</h2>
+              <p class="subtitle">Tell us where to send your order</p>
+            </div>
+
+            <div class="delivery-details-body">
+              <div class="form-group1">
+                <div class="">
+                  <strong class="label">First name:</strong>
+                  <input v-model.trim="order.firstName" placeholder="Jane" class="form-control" />
+                </div>
+                <div class="">
+                  <strong class="label">Last name:</strong>
+                  <input v-model.trim="order.lastName" placeholder="Smith" class="form-control" />
+                </div>
+              </div>
+              <div class="form-group2">
+                <div class="">
+                  <strong class="label">Address:</strong>
+                </div>
+                <div class="">
+                  <input v-model.trim="order.address" class="form-control" placeholder="123 Maple Street, Apt 4" />
+                </div>
+              </div>
+              <div class="form-group3">
+                <div class="">
+                  <strong class="label">City:</strong>
+                  <input v-model.trim="order.city" class="form-control" placeholder="New York" />
+                </div>
+                <div class="">
+                  <strong class="label">Zip code:</strong>
+                  <input v-model.number="order.zip" class="form-control" type="number" placeholder="10001" />
+                </div>
+              </div>
+              <div class="form-group4">
+                <div class="">
+                  <strong class="label">State:</strong>
+                  <select v-model="order.state" class="form-control">
+                    <option disabled value="">State</option>
+                    <option v-for="(state, key) in states" v-bind:value="state">
+                      {{ key }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group6">
+                <p class="delivery-options">Delivery options</p>
+                <div class="types">
+                  <label class="home active">
+                    <input class="sr-only" type="radio" id="home" v-bind:value="order.home" v-model="order.method">🏠
+                    Home
+                  </label>
+                  <label class="business">
+                    <input class="sr-only" type="radio" id="business" v-bind:value="order.business"
+                      v-model="order.method">🏢
+                    Business
+                  </label>
+                </div>
+                <label class="gift">
+                  <div class="checkbox">
+                  </div>
+                  <input class="sr-only" type="checkbox" id="gift" value="true" v-bind:true-value="order.sendGift"
+                    v-bind:false-value="order.dontSendGift" v-model="order.gift">
+                  <label class="text" for="gift">🎁 Send as a gift?</label>
+                </label>
+              </div>
+              <div class="form-group8">
+                <p data-v-1b5a9218="" class="test-text">TEST</p>
+                <div class="">
+                  <button type="submit" class="btn btn-primary submit inactive" v-on:click="submitForm">Place order
+                    →</button>
+                </div>
+              </div>
+            </div>
+          </div>
 
 
+        </div>
       </div>
+
 
       <div class="order-summary">
         <div class="header">
@@ -179,6 +183,10 @@ export default {
 </script>
 
 <style scoped>
+.cart-page {
+  max-width: 110rem;
+}
+
 .cart-page .container {
   background-color: #f2ebe0;
   padding: 3.2rem 2.4rem;
@@ -235,6 +243,23 @@ export default {
 .cart-page .cart-info {
   background-color: #faf6f0;
   padding: 3.2rem 2.4rem;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, minmax(0px, 1fr));
+    display: grid;
+    padding-inline: calc(0.25rem * 9.6);
+    padding-block: calc(0.25rem * 12.8);
+    gap: calc(0.25rem * 14);
+    max-width: 110rem;
+    margin-inline: auto;
+  }
+}
+
+.cart-page .cart-status-wrapper {
+  @media (min-width: 1024px) {
+    grid-column: span 2 / span 2;
+    display: grid;
+  }
 }
 
 .cart-page .cart-info .cart-status {
@@ -428,6 +453,10 @@ export default {
   border: 1px solid #e8d9c4;
   border-radius: 1.6rem;
   margin-top: 2.4rem;
+
+  @media (min-width: 1024px) {
+    margin-top: 0;
+  }
 }
 
 .cart-page .cart-info .order-summary .header {
