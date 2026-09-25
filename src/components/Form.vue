@@ -14,9 +14,19 @@
     <div class="cart-info">
       <div class="cart-status-wrapper">
         <div class="cart-status">
-          <p class="icon">🛒</p>
-          <p class="info">Your cart is empty.</p>
-          <button class="go-back">Back to shop</button>
+          <div v-if="cart.length">
+            <div v-for="(product, index) in cart" :key="`${product.id}-${index}`">
+              <img :src="product.image" :alt="product.title">
+              <h3>{{ product.title }}</h3>
+              <p>{{ product.description }}</p>
+              <p>${{ Number(product.price).toFixed(2) }}</p>
+            </div>
+          </div>
+          <div v-else class="empty">
+            <p class="icon">🛒</p>
+            <p class="info">Your cart is empty.</p>
+            <button class="go-back">Back to shop</button>
+          </div>
         </div>
         <div class="delivery-details">
           <div class="">
@@ -159,7 +169,18 @@ export default {
   name: 'Form',
   props: ['cartItemCount'],
   data() {
+    let cart = [];
+
+    try {
+      const savedCart = localStorage.getItem('cart');
+      const parsedCart = savedCart ? JSON.parse(savedCart) : [];
+      cart = Array.isArray(parsedCart) ? parsedCart : [];
+    } catch {
+      cart = [];
+    }
+
     return {
+      cart,
       states: {
         DL: 'Dolnośląskie',
         KP: 'Kujawsko-pomorskie',
@@ -182,6 +203,11 @@ export default {
       },
       madeOrder: false
 
+    }
+  },
+  computed: {
+    subtotal() {
+      return this.cart.reduce((sum, product) => sum + Number(product.price || 0), 0);
     }
   },
   components: { MyHeader },
