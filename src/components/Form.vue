@@ -92,18 +92,6 @@
             <div class="form-group8">
               <p data-v-1b5a9218="" class="test-text">TEST</p>
               <div class="">
-                <div class="place-order">
-                  <pre>
-First name: {{ order.firstName }}
-Last name: {{ order.lastName }}
-Address: {{ order.address }}
-City: {{ order.city }}
-Zip code: {{ order.zip }}
-State: {{ order.state }}
-Method: {{ order.method }}
-Gift: {{ order.gift }}
-              </pre>
-                </div>
                 <button type="submit" class="btn btn-primary submit inactive" v-on:click="submitForm">Place order
                   →</button>
               </div>
@@ -134,12 +122,13 @@ Gift: {{ order.gift }}
           </div>
           <div class="order-details">
             <p class="title">Order details</p>
-            <p class="order-detail"><span class="bolder">Name:</span> Anna Wanna</p>
-            <p class="order-detail"><span class="bolder">Address:</span> test</p>
-            <p class="order-detail"><span class="bolder">City:</span> test test</p>
-            <p class="order-detail"><span class="bolder">State:</span> Alabama</p>
-            <p class="order-detail"><span class="bolder">Type:</span> Home address</p>
-            <p class="order-detail"><span class="bolder">Gift:</span> Yes 🎁</p>
+            <p class="order-detail"><span class="bolder">Name:</span> {{ order.firstName }} {{ order.lastName }}</p>
+            <p class="order-detail"><span class="bolder">Address:</span> {{ order.address }}</p>
+            <p class="order-detail"><span class="bolder">City:</span> {{ order.address }}</p>
+            <p class="order-detail"><span class="bolder">State:</span> {{ order.city }}</p>
+            <p class="order-detail"><span class="bolder">Zip code:</span> {{ order.zip }}</p>
+            <p class="order-detail"><span class="bolder">Type:</span> {{ order.method }}</p>
+            <p class="order-detail"><span class="bolder">Gift:</span> {{ order.gift }}</p>
           </div>
           <p class="info">🔒 Secure payment · Free returns within 30 days</p>
         </div>
@@ -169,12 +158,12 @@ export default {
         city: '',
         zip: '',
         state: '',
-        method: 'Adres domowy',
-        business: 'Adres firmowy',
-        home: 'Adres domowy',
-        gift: 'Wyślij jako prezent',
-        sendGift: 'Wyślij jako prezent',
-        dontSendGift: 'Nie wysyłaj jako prezentu'
+        method: 'Home address',
+        business: 'Business address',
+        home: 'Home address',
+        gift: 'Send as a gift',
+        sendGift: 'Send as a gift',
+        dontSendGift: 'Do not send as a gift'
       },
       madeOrder: false
 
