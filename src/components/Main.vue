@@ -42,14 +42,7 @@
             <div class="">
 
             </div>
-            <!-- <img alt="" class=""
-              src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=700&amp;h=700&amp;fit=crop&amp;auto=format"> -->
             <div class="">
-              <!-- <span class="">🐾</span>
-              <div>
-                <p class="">Free delivery</p>
-                <p class="">On orders over $35</p>
-              </div> -->
             </div>
           </div>
         </div>
@@ -271,7 +264,15 @@ export default {
   components: { MyHeader },
   setup() {
     const store = useStore();
-    const cart = ref([]);
+    const loadCart = () => {
+      try {
+        const savedCart = JSON.parse(localStorage.getItem('cart') || '[]');
+        return Array.isArray(savedCart) ? savedCart : [];
+      } catch {
+        return [];
+      }
+    };
+    const cart = ref(loadCart());
     const addedProducts = ref([]);
     const productsVersion = ref(0);
     const selectedCategory = ref('All');
@@ -356,7 +357,8 @@ export default {
     const checkRating = (n, myProduct) => myProduct.rating - n >= 0;
 
     const addToCart = (aProduct) => {
-      cart.value.push(aProduct.id);
+      cart.value.push(aProduct);
+      localStorage.setItem('cart', JSON.stringify(cart.value));
       addedProducts.value.push(aProduct.id);
       setTimeout(() => {
         addedProducts.value = addedProducts.value.filter((id) => id !== aProduct.id);
@@ -368,7 +370,7 @@ export default {
     const cartCount = (id) => {
       let count = 0;
       for (var i = 0; i < cart.value.length; i++) {
-        if (cart.value[i] === id) {
+        if (cart.value[i].id === id) {
           count++;
         }
       }
