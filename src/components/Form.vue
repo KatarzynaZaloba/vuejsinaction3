@@ -126,6 +126,10 @@
             <p class="order-detail"><span class="bolder">Type:</span> {{ order.method }}</p>
             <p class="order-detail"><span class="bolder">Gift:</span> {{ order.gift }}</p>
           </div>
+          <div class="second">
+            <button type="submit inactive" class="btn btn-primary submit inactive" v-on:click="submitForm">Place order
+              →</button>
+          </div>
           <p class="info">🔒 Secure payment · Free returns within 30 days</p>
         </div>
       </div>
@@ -379,7 +383,7 @@ export default {
   font-size: 1.4rem;
 }
 
-.cart-page .cart-info .delivery-details .submit {
+.cart-page .cart-info .submit {
   float: unset;
   margin-top: unset;
   width: 100%;
@@ -394,7 +398,24 @@ export default {
   border-radius: 1.4rem;
 }
 
-.cart-page .cart-info .delivery-details .submit.inactive {
+.cart-page .cart-info .second .submit {
+  display: none;
+
+  @media (min-width: 768px) {
+    display: block;
+    margin-bottom: 1.6rem;
+  }
+}
+
+.cart-page .cart-info .form-group8 .submit {
+  display: block;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.cart-page .cart-info .submit.inactive {
   opacity: 0.4;
 }
 
