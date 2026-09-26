@@ -12,6 +12,36 @@
       </div>
     </div>
     <div class="cart-info">
+      <div class="">
+        <div class="">
+          <div class="">
+            <div class="">1</div>
+            <span class="">Cart</span>
+          </div>
+          <div class=""></div>
+        </div>
+        <div class="">
+          <div class="">
+            <div class="">2</div>
+            <span class="">Delivery</span>
+          </div>
+          <div class=""></div>
+        </div>
+        <div class="">
+          <div class="">
+            <div class="">3</div>
+            <span class="">Payment</span>
+          </div>
+          <div class=""></div>
+        </div>
+        <div class="">
+          <div class="">
+            <div class="">
+              4</div>
+            <span class="">Confirm</span>
+          </div>
+        </div>
+      </div>
       <div class="cart-status-wrapper">
         <div class="cart-status">
           <div v-if="cart.length">
