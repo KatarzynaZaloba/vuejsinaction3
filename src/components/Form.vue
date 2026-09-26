@@ -12,29 +12,29 @@
       </div>
     </div>
     <div class="cart-info">
-      <div class="">
+      <div class="cart-steps">
         <div class="">
-          <div class="">
+          <div class="step-1">
             <div class="">1</div>
             <span class="">Cart</span>
           </div>
           <div class=""></div>
         </div>
-        <div class="">
+        <div class="step-2">
           <div class="">
             <div class="">2</div>
             <span class="">Delivery</span>
           </div>
           <div class=""></div>
         </div>
-        <div class="">
+        <div class="step-3">
           <div class="">
             <div class="">3</div>
             <span class="">Payment</span>
           </div>
           <div class=""></div>
         </div>
-        <div class="">
+        <div class="step-4">
           <div class="">
             <div class="">
               4</div>
@@ -325,6 +325,12 @@ export default {
     max-width: 110rem;
     margin-inline: auto;
   }
+}
+
+.cart-page .cart-info .cart-steps {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .cart-page .cart-status-wrapper {
