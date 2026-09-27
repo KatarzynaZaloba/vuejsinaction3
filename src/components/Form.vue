@@ -14,8 +14,8 @@
     <div class="cart-info">
       <div class="cart-steps">
         <div class="step-1">
-          <div class="step-indicator">
-            <div class="circle active">1</div>
+          <div class="step-indicator active">
+            <div class="circle">1</div>
             <span class="">Cart</span>
           </div>
           <div class=""></div>
@@ -366,9 +366,21 @@ export default {
   font-family: 'Outfit', system-ui, sans-serif;
 }
 
-.cart-page .cart-info .cart-steps .step-indicator .circle.active {
+.cart-page .cart-info .cart-steps .step-indicator.active .circle {
   color: #faf6f0;
   background-color: #c1552a;
+}
+
+.cart-page .cart-info .cart-steps .step-indicator span {
+  color: #6b4226;
+  font-weight: 500;
+  font-size: 10px;
+  font-family: 'Outfit', system-ui, sans-serif;
+  margin-top: calc(0.25rem * 1.6);
+}
+
+.cart-page .cart-info .cart-steps .step-indicator.active span {
+  color: #c1552a;
 }
 
 .cart-page .cart-status-wrapper {
