@@ -209,6 +209,10 @@ a {
     line-height: calc(1.75 / 1.25);
     font-family: 'Fraunces', Georgia, serif;
     font-size: 2rem;
+
+    @media (min-width: 640px) {
+        font-size: 2.4rem;
+    }
 }
 
 .photo {
@@ -241,6 +245,10 @@ a {
     justify-content: space-between;
     flex-flow: column;
     height: calc(0.25rem * 23.04);
+
+    @media (min-width: 640px) {
+        height: calc(0.25rem * 26.24);
+    }
 }
 
 header.mobile {
@@ -457,6 +465,10 @@ header.desktop .div .search-and-cart .category.btn.btn-default svg {
     margin: 0;
     justify-content: space-between;
     align-items: center;
+
+    @media (min-width: 640px) {
+        padding: 0 2.4rem;
+    }
 }
 
 .nav.navbar-nav.cart .cart {
