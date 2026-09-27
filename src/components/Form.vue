@@ -13,8 +13,8 @@
     </div>
     <div class="cart-info">
       <div class="cart-steps">
-        <div class="">
-          <div class="step-1">
+        <div class="step-1">
+          <div class="">
             <div class="">1</div>
             <span class="">Cart</span>
           </div>
@@ -333,6 +333,14 @@ export default {
   align-items: center;
   gap: 0;
   margin-bottom: calc(0.25rem * 12.8);
+}
+
+.cart-page .cart-info .cart-steps .step-1,
+.cart-page .cart-info .cart-steps .step-2,
+.cart-page .cart-info .cart-steps .step-3,
+.cart-page .cart-info .cart-steps .step-4 {
+  display: flex;
+  align-items: center;
 }
 
 .cart-page .cart-status-wrapper {
