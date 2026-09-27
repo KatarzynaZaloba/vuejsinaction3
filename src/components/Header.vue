@@ -1,13 +1,6 @@
 <template>
     <header class="mobile">
         <div class="navbar navbar-default">
-            <!-- <div class="navbar-header desktop">
-                <h1>
-                    <router-link :to="{ name: 'Main' }">
-                        {{ sitename }}
-                    </router-link>
-                </h1>
-            </div> -->
             <div class="nav navbar-nav cart">
                 <div class="navbar-header mobile">
                     <h1>
@@ -215,7 +208,11 @@ a {
     letter-spacing: -0.025em;
     line-height: calc(1.75 / 1.25);
     font-family: 'Fraunces', Georgia, serif;
-    font-size: 24px;
+    font-size: 2rem;
+
+    @media (min-width: 640px) {
+        font-size: 2.4rem;
+    }
 }
 
 .photo {
@@ -247,9 +244,15 @@ a {
     align-items: center;
     justify-content: space-between;
     flex-flow: column;
+    height: calc(0.25rem * 23.04);
+
+    @media (min-width: 640px) {
+        height: calc(0.25rem * 26.24);
+    }
 }
 
 header.mobile {
+
     @media (min-width: 768px) {
         display: none;
     }
@@ -457,13 +460,15 @@ header.desktop .div .search-and-cart .category.btn.btn-default svg {
     flex-direction: row;
     flex: 1;
     width: 100%;
-    padding: 0;
+    padding: 0 1.6rem;
     float: unset;
     margin: 0;
     justify-content: space-between;
     align-items: center;
-    margin-right: 20px;
-    margin-left: 20px;
+
+    @media (min-width: 640px) {
+        padding: 0 2.4rem;
+    }
 }
 
 .nav.navbar-nav.cart .cart {
@@ -520,7 +525,6 @@ header.desktop .div .search-and-cart .category.btn.btn-default svg {
 .navbar.navbar-default .login-div {
     display: flex;
     align-items: center;
-    margin-right: 15px;
 }
 
 .nav.navbar-nav.cart .btn.cart {
