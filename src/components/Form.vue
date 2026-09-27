@@ -391,6 +391,10 @@ export default {
   height: 0.5px;
   margin-bottom: calc(0.25rem * 8);
   margin-inline: calc(0.25rem * 1.6);
+
+  @media (min-width: 640px) {
+    width: calc((0.25rem * 19.2) * 2);
+  }
 }
 
 .cart-page .cart-status-wrapper {
