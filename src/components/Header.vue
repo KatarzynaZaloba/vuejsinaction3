@@ -240,9 +240,11 @@ a {
     align-items: center;
     justify-content: space-between;
     flex-flow: column;
+    height: calc(0.25rem * 23.04);
 }
 
 header.mobile {
+
     @media (min-width: 768px) {
         display: none;
     }
@@ -511,7 +513,6 @@ header.desktop .div .search-and-cart .category.btn.btn-default svg {
 .navbar.navbar-default .login-div {
     display: flex;
     align-items: center;
-    margin-right: 15px;
 }
 
 .nav.navbar-nav.cart .btn.cart {
