@@ -14,29 +14,29 @@
     <div class="cart-info">
       <div class="cart-steps">
         <div class="step-1">
-          <div class="">
-            <div class="">1</div>
+          <div class="step-indicator">
+            <div class="circle">1</div>
             <span class="">Cart</span>
           </div>
           <div class=""></div>
         </div>
         <div class="step-2">
-          <div class="">
-            <div class="">2</div>
+          <div class="step-indicator">
+            <div class="circle">2</div>
             <span class="">Delivery</span>
           </div>
           <div class=""></div>
         </div>
         <div class="step-3">
-          <div class="">
-            <div class="">3</div>
+          <div class="step-indicator">
+            <div class="circle">3</div>
             <span class="">Payment</span>
           </div>
           <div class=""></div>
         </div>
         <div class="step-4">
-          <div class="">
-            <div class="">
+          <div class="step-indicator">
+            <div class="circle">
               4</div>
             <span class="">Confirm</span>
           </div>
@@ -339,6 +339,12 @@ export default {
 .cart-page .cart-info .cart-steps .step-2,
 .cart-page .cart-info .cart-steps .step-3,
 .cart-page .cart-info .cart-steps .step-4 {
+  display: flex;
+  align-items: center;
+}
+
+.cart-page .cart-info .cart-steps .step-indicator {
+  flex-direction: column;
   display: flex;
   align-items: center;
 }
