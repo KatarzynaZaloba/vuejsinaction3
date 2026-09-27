@@ -1,18 +1,19 @@
 <template>
-  <div class="cart-page">
-    <my-header :cartItemCount="cartItemCount"></my-header>
-    <div class="container">
-      <div class="header">
-        <button class="go-back">
-          <svg class="" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-          </svg>Back to shop</button>
-        <h1 class="title">Your <span class="highlight">cart</span></h1>
-        <p class="subtitle">Your cart is empty</p>
+  <div>
+    <div class="cart-page">
+      <my-header :cartItemCount="cartItemCount"></my-header>
+      <div class="container">
+        <div class="header">
+          <button class="go-back">
+            <svg class="" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>Back to shop</button>
+          <h1 class="title">Your <span class="highlight">cart</span></h1>
+          <p class="subtitle">Your cart is empty</p>
+        </div>
       </div>
-    </div>
-    <div class="cart-info">
-      <!-- <div class="cart-steps">
+      <div class="cart-info">
+        <!-- <div class="cart-steps">
         <div class="step-1">
           <div class="step-indicator active">
             <div class="circle">1</div>
@@ -42,9 +43,9 @@
           </div>
         </div>
       </div> -->
-      <div class="cart-status-wrapper">
-        <div class="cart-status">
-          <!-- <div v-if="cart.length">
+        <div class="cart-status-wrapper">
+          <div class="cart-status">
+            <!-- <div v-if="cart.length">
             <div v-for="(product, index) in cart" :key="`${product.id}-${index}`">
               <img :src="product.image" :alt="product.title">
               <h3>{{ product.title }}</h3>
@@ -52,145 +53,146 @@
               <p>${{ Number(product.price).toFixed(2) }}</p>
             </div>
           </div> -->
-          <div class="empty">
-            <p class="icon">🛒</p>
-            <p class="info">Your cart is empty.</p>
-            <button class="go-back">Back to shop</button>
-          </div>
-        </div>
-        <div class="delivery-details">
-          <div class="">
-            <div class="delivery-details-header">
-              <h2 class="title">Delivery details</h2>
-              <p class="subtitle">Tell us where to send your order</p>
+            <div class="empty">
+              <p class="icon">🛒</p>
+              <p class="info">Your cart is empty.</p>
+              <button class="go-back">Back to shop</button>
             </div>
-
-            <div class="delivery-details-body">
-              <div class="form-group1">
-                <div class="">
-                  <strong class="label">First name:</strong>
-                  <input v-model.trim="order.firstName" placeholder="Jane" class="form-control" />
-                </div>
-                <div class="">
-                  <strong class="label">Last name:</strong>
-                  <input v-model.trim="order.lastName" placeholder="Smith" class="form-control" />
-                </div>
-              </div>
-              <div class="form-group2">
-                <div class="">
-                  <strong class="label">Address:</strong>
-                </div>
-                <div class="">
-                  <input v-model.trim="order.address" class="form-control" placeholder="123 Maple Street, Apt 4" />
-                </div>
-              </div>
-              <div class="form-group3">
-                <div class="">
-                  <strong class="label">City:</strong>
-                  <input v-model.trim="order.city" class="form-control" placeholder="New York" />
-                </div>
-                <div class="">
-                  <strong class="label">Zip code:</strong>
-                  <input v-model.number="order.zip" class="form-control" type="number" placeholder="10001" />
-                </div>
-              </div>
-              <div class="form-group4">
-                <div class="">
-                  <strong class="label">State:</strong>
-                  <select v-model="order.state" class="form-control">
-                    <option disabled value="">State</option>
-                    <option v-for="(state, key) in states" v-bind:value="state">
-                      {{ key }}
-                    </option>
-                  </select>
-                </div>
+          </div>
+          <div class="delivery-details">
+            <div class="">
+              <div class="delivery-details-header">
+                <h2 class="title">Delivery details</h2>
+                <p class="subtitle">Tell us where to send your order</p>
               </div>
 
-              <div class="form-group6">
-                <p class="delivery-options">Delivery options</p>
-                <div class="types">
-                  <label class="home active">
-                    <input class="sr-only" type="radio" id="home" v-bind:value="order.home" v-model="order.method">🏠
-                    Home
-                  </label>
-                  <label class="business">
-                    <input class="sr-only" type="radio" id="business" v-bind:value="order.business"
-                      v-model="order.method">🏢
-                    Business
-                  </label>
-                </div>
-                <label class="gift">
-                  <div class="checkbox">
+              <div class="delivery-details-body">
+                <div class="form-group1">
+                  <div class="">
+                    <strong class="label">First name:</strong>
+                    <input v-model.trim="order.firstName" placeholder="Jane" class="form-control" />
                   </div>
-                  <input class="sr-only" type="checkbox" id="gift" value="true" v-bind:true-value="order.sendGift"
-                    v-bind:false-value="order.dontSendGift" v-model="order.gift">
-                  <label class="text" for="gift">🎁 Send as a gift?</label>
-                </label>
-              </div>
-              <div class="form-group8">
-                <p data-v-1b5a9218="" class="test-text">TEST</p>
-                <div class="">
-                  <button type="submit" class="btn btn-primary submit inactive" v-on:click="submitForm">Place order
-                    →</button>
+                  <div class="">
+                    <strong class="label">Last name:</strong>
+                    <input v-model.trim="order.lastName" placeholder="Smith" class="form-control" />
+                  </div>
+                </div>
+                <div class="form-group2">
+                  <div class="">
+                    <strong class="label">Address:</strong>
+                  </div>
+                  <div class="">
+                    <input v-model.trim="order.address" class="form-control" placeholder="123 Maple Street, Apt 4" />
+                  </div>
+                </div>
+                <div class="form-group3">
+                  <div class="">
+                    <strong class="label">City:</strong>
+                    <input v-model.trim="order.city" class="form-control" placeholder="New York" />
+                  </div>
+                  <div class="">
+                    <strong class="label">Zip code:</strong>
+                    <input v-model.number="order.zip" class="form-control" type="number" placeholder="10001" />
+                  </div>
+                </div>
+                <div class="form-group4">
+                  <div class="">
+                    <strong class="label">State:</strong>
+                    <select v-model="order.state" class="form-control">
+                      <option disabled value="">State</option>
+                      <option v-for="(state, key) in states" v-bind:value="state">
+                        {{ key }}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group6">
+                  <p class="delivery-options">Delivery options</p>
+                  <div class="types">
+                    <label class="home active">
+                      <input class="sr-only" type="radio" id="home" v-bind:value="order.home" v-model="order.method">🏠
+                      Home
+                    </label>
+                    <label class="business">
+                      <input class="sr-only" type="radio" id="business" v-bind:value="order.business"
+                        v-model="order.method">🏢
+                      Business
+                    </label>
+                  </div>
+                  <label class="gift">
+                    <div class="checkbox">
+                    </div>
+                    <input class="sr-only" type="checkbox" id="gift" value="true" v-bind:true-value="order.sendGift"
+                      v-bind:false-value="order.dontSendGift" v-model="order.gift">
+                    <label class="text" for="gift">🎁 Send as a gift?</label>
+                  </label>
+                </div>
+                <div class="form-group8">
+                  <p data-v-1b5a9218="" class="test-text">TEST</p>
+                  <div class="">
+                    <button type="submit" class="btn btn-primary submit inactive" v-on:click="submitForm">Place order
+                      →</button>
+                  </div>
                 </div>
               </div>
             </div>
+
+
           </div>
-
-
         </div>
+
+
+        <div class="order-summary">
+          <div class="header">
+            <h2 class="title">Order summary</h2>
+          </div>
+          <div class="body">
+            <div class="items">
+              <span class="title">Items (0)</span>
+              <span class="subtitle">$0.00</span>
+            </div>
+            <div class="shipping">
+              <span class="title">Shipping</span>
+              <span class="subtitle">$9.99</span>
+            </div>
+            <p class="banner">Add <strong class="">$35.00</strong> more to qualify for free shipping.</p>
+            <div class="total">
+              <span class="title">Total</span>
+              <span class="subtitle">$9.99</span>
+            </div>
+            <div class="order-details">
+              <p class="title">Order details</p>
+              <p class="order-detail"><span class="bolder">Name:</span> {{ order.firstName }} {{ order.lastName }}</p>
+              <p class="order-detail"><span class="bolder">Address:</span> {{ order.address }}</p>
+              <p class="order-detail"><span class="bolder">City:</span> {{ order.address }}</p>
+              <p class="order-detail"><span class="bolder">State:</span> {{ order.city }}</p>
+              <p class="order-detail"><span class="bolder">Zip code:</span> {{ order.zip }}</p>
+              <p class="order-detail"><span class="bolder">Type:</span> {{ order.method }}</p>
+              <p class="order-detail"><span class="bolder">Gift:</span> {{ order.gift }}</p>
+            </div>
+            <div class="second">
+              <button type="submit inactive" class="btn btn-primary submit inactive" v-on:click="submitForm">Place order
+                →</button>
+            </div>
+            <p class="info">🔒 Secure payment · Free returns within 30 days</p>
+          </div>
+        </div>
+
       </div>
-
-
-      <div class="order-summary">
-        <div class="header">
-          <h2 class="title">Order summary</h2>
-        </div>
-        <div class="body">
-          <div class="items">
-            <span class="title">Items (0)</span>
-            <span class="subtitle">$0.00</span>
-          </div>
-          <div class="shipping">
-            <span class="title">Shipping</span>
-            <span class="subtitle">$9.99</span>
-          </div>
-          <p class="banner">Add <strong class="">$35.00</strong> more to qualify for free shipping.</p>
-          <div class="total">
-            <span class="title">Total</span>
-            <span class="subtitle">$9.99</span>
-          </div>
-          <div class="order-details">
-            <p class="title">Order details</p>
-            <p class="order-detail"><span class="bolder">Name:</span> {{ order.firstName }} {{ order.lastName }}</p>
-            <p class="order-detail"><span class="bolder">Address:</span> {{ order.address }}</p>
-            <p class="order-detail"><span class="bolder">City:</span> {{ order.address }}</p>
-            <p class="order-detail"><span class="bolder">State:</span> {{ order.city }}</p>
-            <p class="order-detail"><span class="bolder">Zip code:</span> {{ order.zip }}</p>
-            <p class="order-detail"><span class="bolder">Type:</span> {{ order.method }}</p>
-            <p class="order-detail"><span class="bolder">Gift:</span> {{ order.gift }}</p>
-          </div>
-          <div class="second">
-            <button type="submit inactive" class="btn btn-primary submit inactive" v-on:click="submitForm">Place order
-              →</button>
-          </div>
-          <p class="info">🔒 Secure payment · Free returns within 30 days</p>
-        </div>
-      </div>
-
     </div>
+    <footer class="footer">
+      <div class="div">
+        <span class="title">Pawsome</span>
+        <p class="subtitle">© 2026 Pawsome Pet Supply. All rights reserved.</p>
+        <div class="links">
+          <a href="#" class="">Privacy</a>
+          <a href="#" class="">Terms</a>
+          <a href="#" class="">Contact</a>
+        </div>
+      </div>
+    </footer>
   </div>
-  <footer class="footer">
-    <div class="div">
-      <span class="title">Pawsome</span>
-      <p class="subtitle">© 2026 Pawsome Pet Supply. All rights reserved.</p>
-      <div class="links">
-        <a href="#" class="">Privacy</a>
-        <a href="#" class="">Terms</a>
-        <a href="#" class="">Contact</a>
-      </div>
-    </div>
-  </footer>
 </template>
 
 <script>

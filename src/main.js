@@ -14,6 +14,12 @@ vueApp.use(VueFire, {
 	firebaseApp
 })
 
+// Prevents a blocked/unavailable browser storage (IndexedDB/localStorage) from crashing the whole SPA
+window.addEventListener('unhandledrejection', (event) => {
+	console.error('Unhandled promise rejection:', event.reason);
+	event.preventDefault();
+});
+
 store.dispatch('initStore')
 
 vueApp.mount('#app')
