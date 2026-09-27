@@ -1,13 +1,6 @@
 <template>
     <header class="mobile">
         <div class="navbar navbar-default">
-            <!-- <div class="navbar-header desktop">
-                <h1>
-                    <router-link :to="{ name: 'Main' }">
-                        {{ sitename }}
-                    </router-link>
-                </h1>
-            </div> -->
             <div class="nav navbar-nav cart">
                 <div class="navbar-header mobile">
                     <h1>
@@ -215,7 +208,7 @@ a {
     letter-spacing: -0.025em;
     line-height: calc(1.75 / 1.25);
     font-family: 'Fraunces', Georgia, serif;
-    font-size: 24px;
+    font-size: 2rem;
 }
 
 .photo {
@@ -457,13 +450,11 @@ header.desktop .div .search-and-cart .category.btn.btn-default svg {
     flex-direction: row;
     flex: 1;
     width: 100%;
-    padding: 0;
+    padding: 0 1.6rem;
     float: unset;
     margin: 0;
     justify-content: space-between;
     align-items: center;
-    margin-right: 20px;
-    margin-left: 20px;
 }
 
 .nav.navbar-nav.cart .cart {
