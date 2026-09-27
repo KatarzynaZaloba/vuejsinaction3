@@ -12,8 +12,7 @@
           <p class="subtitle">Your cart is empty</p>
         </div>
       </div>
-      <div class="cart-info">
-        <!-- <div class="cart-steps">
+      <div class="cart-steps">
         <div class="step-1">
           <div class="step-indicator active">
             <div class="circle">1</div>
@@ -42,7 +41,8 @@
             <span class="">Confirm</span>
           </div>
         </div>
-      </div> -->
+      </div>
+      <div class="cart-info">
         <div class="cart-status-wrapper">
           <div class="cart-status">
             <!-- <div v-if="cart.length">
@@ -316,42 +316,43 @@ export default {
 
 .cart-page .cart-info {
   background-color: #faf6f0;
-  padding: 3.2rem 2.4rem;
+  padding: 0 2.4rem 3.2rem 2.4rem;
 
   @media (min-width: 1024px) {
     grid-template-columns: repeat(3, minmax(0px, 1fr));
     display: grid;
     padding-inline: calc(0.25rem * 9.6);
-    padding-block: calc(0.25rem * 12.8);
+    padding-block: 0 calc(0.25rem * 12.8);
     gap: calc(0.25rem * 14);
     max-width: 110rem;
     margin-inline: auto;
   }
 }
 
-.cart-page .cart-info .cart-steps {
+.cart-page .cart-steps {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0;
   margin-bottom: calc(0.25rem * 12.8);
+  margin-top: calc(0.25rem * 12.8);
 }
 
-.cart-page .cart-info .cart-steps .step-1,
-.cart-page .cart-info .cart-steps .step-2,
-.cart-page .cart-info .cart-steps .step-3,
-.cart-page .cart-info .cart-steps .step-4 {
+.cart-page .cart-steps .step-1,
+.cart-page .cart-steps .step-2,
+.cart-page .cart-steps .step-3,
+.cart-page .cart-steps .step-4 {
   display: flex;
   align-items: center;
 }
 
-.cart-page .cart-info .cart-steps .step-indicator {
+.cart-page .cart-steps .step-indicator {
   flex-direction: column;
   display: flex;
   align-items: center;
 }
 
-.cart-page .cart-info .cart-steps .step-indicator .circle {
+.cart-page .cart-steps .step-indicator .circle {
   transition-timing-function: cubic-bezier(.4, 0, .2, 1);
   transition-duration: 0.15s;
   color: #6b4226;
@@ -368,12 +369,12 @@ export default {
   font-family: 'Outfit', system-ui, sans-serif;
 }
 
-.cart-page .cart-info .cart-steps .step-indicator.active .circle {
+.cart-page .cart-steps .step-indicator.active .circle {
   color: #faf6f0;
   background-color: #c1552a;
 }
 
-.cart-page .cart-info .cart-steps .step-indicator span {
+.cart-page .cart-steps .step-indicator span {
   color: #6b4226;
   font-weight: 500;
   font-size: 10px;
@@ -381,11 +382,11 @@ export default {
   margin-top: calc(0.25rem * 1.6);
 }
 
-.cart-page .cart-info .cart-steps .step-indicator.active span {
+.cart-page .cart-steps .step-indicator.active span {
   color: #c1552a;
 }
 
-.cart-page .cart-info .cart-steps .border {
+.cart-page .cart-steps .border {
   transition-timing-function: cubic-bezier(.4, 0, .2, 1);
   transition-duration: 0.15s;
   background-color: #e8d9c4;
