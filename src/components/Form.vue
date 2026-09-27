@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="cart-info">
-      <div class="cart-steps">
+      <!-- <div class="cart-steps">
         <div class="step-1">
           <div class="step-indicator active">
             <div class="circle">1</div>
@@ -41,7 +41,7 @@
             <span class="">Confirm</span>
           </div>
         </div>
-      </div>
+      </div> -->
       <div class="cart-status-wrapper">
         <div class="cart-status">
           <!-- <div v-if="cart.length">

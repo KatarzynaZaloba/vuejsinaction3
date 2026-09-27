@@ -111,13 +111,12 @@
 </template>
 <script>
 import {
-    getAuth,
     onAuthStateChanged,
     GoogleAuthProvider,
     signInWithPopup,
     signOut as firebaseSignOut
 } from 'firebase/auth';
-import { app } from '../firebase';
+import { auth } from '../firebase';
 
 export default {
     name: 'my-header',
@@ -130,10 +129,11 @@ export default {
     },
     props: ['cartItemCount'],
     created() {
-        const auth = getAuth(app);
         this.unsubscribeAuth = onAuthStateChanged(auth, (user) => {
             this.sessionUser = user || false;
             this.$store.commit('SET_SESSION', user || false);
+        }, (error) => {
+            console.error('Auth state error:', error);
         });
     },
     beforeUnmount() {
@@ -146,7 +146,6 @@ export default {
             this.$router.push({ name: 'Form' });
         },
         async signIn() {
-            const auth = getAuth(app);
             const provider = new GoogleAuthProvider();
             try {
                 const result = await signInWithPopup(auth, provider);
@@ -158,7 +157,6 @@ export default {
             }
         },
         async signOut() {
-            const auth = getAuth(app);
             try {
                 await firebaseSignOut(auth);
                 this.sessionUser = false;
