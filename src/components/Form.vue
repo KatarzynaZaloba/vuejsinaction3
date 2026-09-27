@@ -15,7 +15,7 @@
       <div class="cart-steps">
         <div class="step-1">
           <div class="step-indicator">
-            <div class="circle">1</div>
+            <div class="circle active">1</div>
             <span class="">Cart</span>
           </div>
           <div class=""></div>
@@ -347,6 +347,28 @@ export default {
   flex-direction: column;
   display: flex;
   align-items: center;
+}
+
+.cart-page .cart-info .cart-steps .step-indicator .circle {
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  transition-duration: 0.15s;
+  color: #6b4226;
+  font-weight: 700;
+  font-size: 1rem;
+  background-color: #e8d9c4;
+  border-radius: 50%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  scale: 110% 110%;
+  width: calc(0.25rem * 12.8);
+  height: calc(0.25rem * 12.8);
+  font-family: 'Outfit', system-ui, sans-serif;
+}
+
+.cart-page .cart-info .cart-steps .step-indicator .circle.active {
+  color: #faf6f0;
+  background-color: #c1552a;
 }
 
 .cart-page .cart-status-wrapper {
