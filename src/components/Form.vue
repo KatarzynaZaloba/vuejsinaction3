@@ -44,15 +44,15 @@
       </div>
       <div class="cart-status-wrapper">
         <div class="cart-status">
-          <div v-if="cart.length">
+          <!-- <div v-if="cart.length">
             <div v-for="(product, index) in cart" :key="`${product.id}-${index}`">
               <img :src="product.image" :alt="product.title">
               <h3>{{ product.title }}</h3>
               <p>{{ product.description }}</p>
               <p>${{ Number(product.price).toFixed(2) }}</p>
             </div>
-          </div>
-          <div v-else class="empty">
+          </div> -->
+          <div class="empty">
             <p class="icon">🛒</p>
             <p class="info">Your cart is empty.</p>
             <button class="go-back">Back to shop</button>
