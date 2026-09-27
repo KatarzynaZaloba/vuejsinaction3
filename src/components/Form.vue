@@ -18,21 +18,21 @@
             <div class="circle">1</div>
             <span class="">Cart</span>
           </div>
-          <div class=""></div>
+          <div class="border"></div>
         </div>
         <div class="step-2">
           <div class="step-indicator">
             <div class="circle">2</div>
             <span class="">Delivery</span>
           </div>
-          <div class=""></div>
+          <div class="border"></div>
         </div>
         <div class="step-3">
           <div class="step-indicator">
             <div class="circle">3</div>
             <span class="">Payment</span>
           </div>
-          <div class=""></div>
+          <div class="border"></div>
         </div>
         <div class="step-4">
           <div class="step-indicator">
@@ -381,6 +381,16 @@ export default {
 
 .cart-page .cart-info .cart-steps .step-indicator.active span {
   color: #c1552a;
+}
+
+.cart-page .cart-info .cart-steps .border {
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  transition-duration: 0.15s;
+  background-color: #e8d9c4;
+  width: calc(0.25rem * 19.2);
+  height: 0.5px;
+  margin-bottom: calc(0.25rem * 8);
+  margin-inline: calc(0.25rem * 1.6);
 }
 
 .cart-page .cart-status-wrapper {
