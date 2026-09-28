@@ -540,7 +540,7 @@ export default {
 }
 
 .cart-page .cart-info .cart-status .items-body .item {
-  padding-block: calc(0.25rem * 5);
+  padding-block: calc(0.25rem * 8);
   border-bottom: 1px solid #e8d9c4;
   gap: calc(0.25rem * (4 * 1.6));
   display: flex;
