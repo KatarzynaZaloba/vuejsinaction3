@@ -50,9 +50,10 @@
                 <h2 class="title">Items <span class="amount">(4)</span></h2>
                 <button class="clear-all">Clear all</button>
               </div>
-              <ul class="">
-                <li class="">
-                  <div class=""><img alt="Premium Grain-Free Kibble" class="w-full h-full object-cover"
+              <ul class="items-body">
+                <li class="item">
+                  <div class="image-container">
+                    <img alt="Premium Grain-Free Kibble" class="image"
                       src="https://images.unsplash.com/photo-1591946559594-8c6d3b7391eb?w=300&amp;h=300&amp;fit=crop&amp;auto=format">
                   </div>
                   <div class="">
@@ -74,8 +75,9 @@
                     <p class="">$42.99</p>
                   </div>
                 </li>
-                <li class="">
-                  <div class=""><img alt="Plush Elephant Toy" class="w-full h-full object-cover"
+                <li class="item">
+                  <div class="image-container">
+                    <img alt="Plush Elephant Toy" class="image"
                       src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?w=300&amp;h=300&amp;fit=crop&amp;auto=format">
                   </div>
                   <div class="">
@@ -97,8 +99,9 @@
                     <p class="">2 × $18.50</p>
                   </div>
                 </li>
-                <li class="">
-                  <div class=""><img alt="Adjustable Leather Collar" class="w-full h-full object-cover"
+                <li class="item">
+                  <div class="image-container">
+                    <img alt="Adjustable Leather Collar" class="image"
                       src="https://images.unsplash.com/photo-1589924749359-9697080c3577?w=300&amp;h=300&amp;fit=crop&amp;auto=format">
                   </div>
                   <div class="">
@@ -529,6 +532,35 @@ export default {
   font-size: 1.6rem;
   font-family: 'Outfit', system-ui, sans-serif;
   font-weight: 400;
+}
+
+.cart-page .cart-info .cart-status .items-body {
+  padding-inline: calc(0.25rem * 8);
+  list-style: none;
+}
+
+.cart-page .cart-info .cart-status .items-body .item {
+  padding-block: calc(0.25rem * 5);
+  border-bottom: 1px solid #e8d9c4;
+  gap: calc(0.25rem * 4);
+  display: flex;
+}
+
+.cart-page .cart-info .cart-status .items-body .item .image-container {
+  background-color: #f2ebe0;
+  flex-shrink: 0;
+  width: calc(0.25rem * 32);
+  height: calc(0.25rem * 32);
+  position: relative;
+  border-radius: 1.6rem;
+}
+
+.cart-page .cart-info .cart-status .items-body .item .image-container .image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  border-radius: 1.6rem;
 }
 
 .cart-page .cart-info .cart-status .icon {
