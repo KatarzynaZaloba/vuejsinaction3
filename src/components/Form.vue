@@ -56,10 +56,10 @@
                     <img alt="Premium Grain-Free Kibble" class="image"
                       src="https://images.unsplash.com/photo-1591946559594-8c6d3b7391eb?w=300&amp;h=300&amp;fit=crop&amp;auto=format">
                   </div>
-                  <div class="">
-                    <p class="">Dog Food</p>
-                    <p class="">Premium Grain-Free Kibble</p>
-                    <p class="">$42.99</p>
+                  <div class="item-details">
+                    <p class="category">Dog Food</p>
+                    <p class="name">Premium Grain-Free Kibble</p>
+                    <p class="price">$42.99</p>
                     <div class="">
                       <div class=""><button class="">−</button><span class="">1</span><button class="">+</button>
                       </div>
@@ -80,10 +80,10 @@
                     <img alt="Plush Elephant Toy" class="image"
                       src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?w=300&amp;h=300&amp;fit=crop&amp;auto=format">
                   </div>
-                  <div class="">
-                    <p class="">Toys</p>
-                    <p class="">Plush Elephant Toy</p>
-                    <p class="">$18.50</p>
+                  <div class="item-details">
+                    <p class="category">Toys</p>
+                    <p class="name">Plush Elephant Toy</p>
+                    <p class="price">$18.50</p>
                     <div class="">
                       <div class=""><button class="">−</button><span class="">2</span><button class="">+</button>
                       </div>
@@ -95,8 +95,8 @@
                     </div>
                   </div>
                   <div class="">
-                    <p class="">$37.00</p>
-                    <p class="">2 × $18.50</p>
+                    <p class="price">$37.00</p>
+                    <p class="quantity">2 × $18.50</p>
                   </div>
                 </li>
                 <li class="item">
@@ -104,10 +104,10 @@
                     <img alt="Adjustable Leather Collar" class="image"
                       src="https://images.unsplash.com/photo-1589924749359-9697080c3577?w=300&amp;h=300&amp;fit=crop&amp;auto=format">
                   </div>
-                  <div class="">
-                    <p class="">Accessories</p>
-                    <p class="">Adjustable Leather Collar</p>
-                    <p class="">$34.00</p>
+                  <div class="item-details">
+                    <p class="category">Accessories</p>
+                    <p class="name">Adjustable Leather Collar</p>
+                    <p class="price">$34.00</p>
                     <div class="">
                       <div class=""><button class="">−</button><span class="">1</span><button class="">+</button>
                       </div><button class=""><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor"
@@ -542,7 +542,7 @@ export default {
 .cart-page .cart-info .cart-status .items-body .item {
   padding-block: calc(0.25rem * 5);
   border-bottom: 1px solid #e8d9c4;
-  gap: calc(0.25rem * 4);
+  gap: calc(0.25rem * (4 * 1.6));
   display: flex;
 }
 
@@ -561,6 +561,21 @@ export default {
   height: 100%;
   max-width: 100%;
   border-radius: 1.6rem;
+}
+
+.cart-page .cart-info .cart-status .items-body .item .item-details {
+  flex: 1 1 0%;
+  min-width: calc(0.25rem * 0);
+}
+
+.cart-page .cart-info .cart-status .items-body .item .item-details .category {
+  text-transform: uppercase;
+  color: #6b4226;
+  letter-spacing: 0.1rem;
+  font-weight: 600;
+  font-size: 1rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+  margin-bottom: calc(0.25rem * 0.8);
 }
 
 .cart-page .cart-info .cart-status .icon {
