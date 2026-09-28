@@ -71,8 +71,8 @@
                         </svg>Remove</button>
                     </div>
                   </div>
-                  <div class="">
-                    <p class="">$42.99</p>
+                  <div class="price-container">
+                    <p class="price">$42.99</p>
                   </div>
                 </li>
                 <li class="item">
@@ -94,7 +94,7 @@
                         </svg>Remove</button>
                     </div>
                   </div>
-                  <div class="">
+                  <div class="price-container">
                     <p class="price">$37.00</p>
                     <p class="quantity">2 × $18.50</p>
                   </div>
@@ -118,8 +118,8 @@
                         </svg>Remove</button>
                     </div>
                   </div>
-                  <div class="">
-                    <p class="">$34.00</p>
+                  <div class="price-container">
+                    <p class="price">$34.00</p>
                   </div>
                 </li>
               </ul>
@@ -586,6 +586,17 @@ export default {
   font-family: 'Fraunces', Georgia, serif;
   font-size: 1.6rem;
   text-align: left;
+  margin-bottom: 0;
+}
+
+.cart-page .cart-info .cart-status .items-body .item .item-details .price {
+  color: #c1552a;
+  font-size: 1.6rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-weight: 600;
+  text-align: left;
+  margin-top: calc(0.25rem * .8);
+  margin-bottom: 0;
 }
 
 .cart-page .cart-info .cart-status .icon {
