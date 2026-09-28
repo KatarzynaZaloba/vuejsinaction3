@@ -576,6 +576,16 @@ export default {
   font-size: 1rem;
   font-family: 'Outfit', system-ui, sans-serif;
   margin-bottom: calc(0.25rem * 0.8);
+  text-align: left;
+}
+
+.cart-page .cart-info .cart-status .items-body .item .item-details .name {
+  color: #3d2414;
+  font-weight: 600;
+  line-height: 1.375;
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.6rem;
+  text-align: left;
 }
 
 .cart-page .cart-info .cart-status .icon {
