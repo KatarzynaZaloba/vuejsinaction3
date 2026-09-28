@@ -44,142 +44,218 @@
       </div>
       <div class="cart-info">
         <div class="cart-status-wrapper">
-          <div class="cart-status">
-            <!-- <div v-if="cart.length">
-            <div v-for="(product, index) in cart" :key="`${product.id}-${index}`">
-              <img :src="product.image" :alt="product.title">
-              <h3>{{ product.title }}</h3>
-              <p>{{ product.description }}</p>
-              <p>${{ Number(product.price).toFixed(2) }}</p>
+          <div v-if="cart.length" class="cart-status">
+            <div class="">
+              <div class="items-header">
+                <h2 class="title">Items <span class="amount">(4)</span></h2>
+                <button class="clear-all">Clear all</button>
+              </div>
+              <ul class="items-body">
+                <li class="item">
+                  <div class="image-container">
+                    <img alt="Premium Grain-Free Kibble" class="image"
+                      src="https://images.unsplash.com/photo-1591946559594-8c6d3b7391eb?w=300&amp;h=300&amp;fit=crop&amp;auto=format">
+                  </div>
+                  <div class="item-details">
+                    <p class="category">Dog Food</p>
+                    <p class="name">Premium Grain-Free Kibble</p>
+                    <p class="price">$42.99</p>
+                    <div class="buttons">
+                      <div class="quantity-controls">
+                        <button class="less">−</button>
+                        <span class="quantity">1</span>
+                        <button class="more">+</button>
+                      </div>
+                      <button class="remove">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
+                          </path>
+                        </svg>Remove</button>
+                    </div>
+                  </div>
+                  <div class="price-container">
+                    <p class="price">$42.99</p>
+                  </div>
+                </li>
+                <li class="item">
+                  <div class="image-container">
+                    <img alt="Plush Elephant Toy" class="image"
+                      src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?w=300&amp;h=300&amp;fit=crop&amp;auto=format">
+                  </div>
+                  <div class="item-details">
+                    <p class="category">Toys</p>
+                    <p class="name">Plush Elephant Toy</p>
+                    <p class="price">$18.50</p>
+                    <div class="">
+                      <div class=""><button class="">−</button><span class="">2</span><button class="">+</button>
+                      </div>
+                      <button class=""><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
+                          </path>
+                        </svg>Remove</button>
+                    </div>
+                  </div>
+                  <div class="price-container">
+                    <p class="price">$37.00</p>
+                    <p class="quantity">2 × $18.50</p>
+                  </div>
+                </li>
+                <li class="item">
+                  <div class="image-container">
+                    <img alt="Adjustable Leather Collar" class="image"
+                      src="https://images.unsplash.com/photo-1589924749359-9697080c3577?w=300&amp;h=300&amp;fit=crop&amp;auto=format">
+                  </div>
+                  <div class="item-details">
+                    <p class="category">Accessories</p>
+                    <p class="name">Adjustable Leather Collar</p>
+                    <p class="price">$34.00</p>
+                    <div class="">
+                      <div class=""><button class="">−</button><span class="">1</span><button class="">+</button>
+                      </div><button class=""><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor"
+                          viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
+                          </path>
+                        </svg>Remove</button>
+                    </div>
+                  </div>
+                  <div class="price-container">
+                    <p class="price">$34.00</p>
+                  </div>
+                </li>
+              </ul>
             </div>
-          </div> -->
+          </div>
+          <div v-else class="cart-status">
             <div class="empty">
               <p class="icon">🛒</p>
               <p class="info">Your cart is empty.</p>
               <button class="go-back">Back to shop</button>
             </div>
           </div>
-          <div class="delivery-details">
-            <div class="">
-              <div class="delivery-details-header">
-                <h2 class="title">Delivery details</h2>
-                <p class="subtitle">Tell us where to send your order</p>
+        </div>
+        <div class="delivery-details">
+          <div class="">
+            <div class="delivery-details-header">
+              <h2 class="title">Delivery details</h2>
+              <p class="subtitle">Tell us where to send your order</p>
+            </div>
+
+            <div class="delivery-details-body">
+              <div class="form-group1">
+                <div class="">
+                  <strong class="label">First name:</strong>
+                  <input v-model.trim="order.firstName" placeholder="Jane" class="form-control" />
+                </div>
+                <div class="">
+                  <strong class="label">Last name:</strong>
+                  <input v-model.trim="order.lastName" placeholder="Smith" class="form-control" />
+                </div>
+              </div>
+              <div class="form-group2">
+                <div class="">
+                  <strong class="label">Address:</strong>
+                </div>
+                <div class="">
+                  <input v-model.trim="order.address" class="form-control" placeholder="123 Maple Street, Apt 4" />
+                </div>
+              </div>
+              <div class="form-group3">
+                <div class="">
+                  <strong class="label">City:</strong>
+                  <input v-model.trim="order.city" class="form-control" placeholder="New York" />
+                </div>
+                <div class="">
+                  <strong class="label">Zip code:</strong>
+                  <input v-model.number="order.zip" class="form-control" type="number" placeholder="10001" />
+                </div>
+              </div>
+              <div class="form-group4">
+                <div class="">
+                  <strong class="label">State:</strong>
+                  <select v-model="order.state" class="form-control">
+                    <option disabled value="">State</option>
+                    <option v-for="(state, key) in states" v-bind:value="state">
+                      {{ key }}
+                    </option>
+                  </select>
+                </div>
               </div>
 
-              <div class="delivery-details-body">
-                <div class="form-group1">
-                  <div class="">
-                    <strong class="label">First name:</strong>
-                    <input v-model.trim="order.firstName" placeholder="Jane" class="form-control" />
-                  </div>
-                  <div class="">
-                    <strong class="label">Last name:</strong>
-                    <input v-model.trim="order.lastName" placeholder="Smith" class="form-control" />
-                  </div>
-                </div>
-                <div class="form-group2">
-                  <div class="">
-                    <strong class="label">Address:</strong>
-                  </div>
-                  <div class="">
-                    <input v-model.trim="order.address" class="form-control" placeholder="123 Maple Street, Apt 4" />
-                  </div>
-                </div>
-                <div class="form-group3">
-                  <div class="">
-                    <strong class="label">City:</strong>
-                    <input v-model.trim="order.city" class="form-control" placeholder="New York" />
-                  </div>
-                  <div class="">
-                    <strong class="label">Zip code:</strong>
-                    <input v-model.number="order.zip" class="form-control" type="number" placeholder="10001" />
-                  </div>
-                </div>
-                <div class="form-group4">
-                  <div class="">
-                    <strong class="label">State:</strong>
-                    <select v-model="order.state" class="form-control">
-                      <option disabled value="">State</option>
-                      <option v-for="(state, key) in states" v-bind:value="state">
-                        {{ key }}
-                      </option>
-                    </select>
-                  </div>
-                </div>
-
-                <div class="form-group6">
-                  <p class="delivery-options">Delivery options</p>
-                  <div class="types">
-                    <label class="home active">
-                      <input class="sr-only" type="radio" id="home" v-bind:value="order.home" v-model="order.method">🏠
-                      Home
-                    </label>
-                    <label class="business">
-                      <input class="sr-only" type="radio" id="business" v-bind:value="order.business"
-                        v-model="order.method">🏢
-                      Business
-                    </label>
-                  </div>
-                  <label class="gift">
-                    <div class="checkbox">
-                    </div>
-                    <input class="sr-only" type="checkbox" id="gift" value="true" v-bind:true-value="order.sendGift"
-                      v-bind:false-value="order.dontSendGift" v-model="order.gift">
-                    <label class="text" for="gift">🎁 Send as a gift?</label>
+              <div class="form-group6">
+                <p class="delivery-options">Delivery options</p>
+                <div class="types">
+                  <label class="home active">
+                    <input class="sr-only" type="radio" id="home" v-bind:value="order.home" v-model="order.method">🏠
+                    Home
+                  </label>
+                  <label class="business">
+                    <input class="sr-only" type="radio" id="business" v-bind:value="order.business"
+                      v-model="order.method">🏢
+                    Business
                   </label>
                 </div>
-                <div class="form-group8">
-                  <p data-v-1b5a9218="" class="test-text">TEST</p>
-                  <div class="">
-                    <button type="submit" class="btn btn-primary submit inactive" v-on:click="submitForm">Place order
-                      →</button>
+                <label class="gift">
+                  <div class="checkbox">
                   </div>
+                  <input class="sr-only" type="checkbox" id="gift" value="true" v-bind:true-value="order.sendGift"
+                    v-bind:false-value="order.dontSendGift" v-model="order.gift">
+                  <label class="text" for="gift">🎁 Send as a gift?</label>
+                </label>
+              </div>
+              <div class="form-group8">
+                <p data-v-1b5a9218="" class="test-text">TEST</p>
+                <div class="">
+                  <button type="submit" class="btn btn-primary submit inactive" v-on:click="submitForm">Place order
+                    →</button>
                 </div>
               </div>
             </div>
-
-
           </div>
+
+
         </div>
-
-
-        <div class="order-summary">
-          <div class="header">
-            <h2 class="title">Order summary</h2>
-          </div>
-          <div class="body">
-            <div class="items">
-              <span class="title">Items (0)</span>
-              <span class="subtitle">$0.00</span>
-            </div>
-            <div class="shipping">
-              <span class="title">Shipping</span>
-              <span class="subtitle">$9.99</span>
-            </div>
-            <p class="banner">Add <strong class="">$35.00</strong> more to qualify for free shipping.</p>
-            <div class="total">
-              <span class="title">Total</span>
-              <span class="subtitle">$9.99</span>
-            </div>
-            <div class="order-details">
-              <p class="title">Order details</p>
-              <p class="order-detail"><span class="bolder">Name:</span> {{ order.firstName }} {{ order.lastName }}</p>
-              <p class="order-detail"><span class="bolder">Address:</span> {{ order.address }}</p>
-              <p class="order-detail"><span class="bolder">City:</span> {{ order.address }}</p>
-              <p class="order-detail"><span class="bolder">State:</span> {{ order.city }}</p>
-              <p class="order-detail"><span class="bolder">Zip code:</span> {{ order.zip }}</p>
-              <p class="order-detail"><span class="bolder">Type:</span> {{ order.method }}</p>
-              <p class="order-detail"><span class="bolder">Gift:</span> {{ order.gift }}</p>
-            </div>
-            <div class="second">
-              <button type="submit inactive" class="btn btn-primary submit inactive" v-on:click="submitForm">Place order
-                →</button>
-            </div>
-            <p class="info">🔒 Secure payment · Free returns within 30 days</p>
-          </div>
-        </div>
-
       </div>
+
+
+      <div class="order-summary">
+        <div class="header">
+          <h2 class="title">Order summary</h2>
+        </div>
+        <div class="body">
+          <div class="items">
+            <span class="title">Items (0)</span>
+            <span class="subtitle">$0.00</span>
+          </div>
+          <div class="shipping">
+            <span class="title">Shipping</span>
+            <span class="subtitle">$9.99</span>
+          </div>
+          <p class="banner">Add <strong class="">$35.00</strong> more to qualify for free shipping.</p>
+          <div class="total">
+            <span class="title">Total</span>
+            <span class="subtitle">$9.99</span>
+          </div>
+          <div class="order-details">
+            <p class="title">Order details</p>
+            <p class="order-detail"><span class="bolder">Name:</span> {{ order.firstName }} {{ order.lastName }}</p>
+            <p class="order-detail"><span class="bolder">Address:</span> {{ order.address }}</p>
+            <p class="order-detail"><span class="bolder">City:</span> {{ order.address }}</p>
+            <p class="order-detail"><span class="bolder">State:</span> {{ order.city }}</p>
+            <p class="order-detail"><span class="bolder">Zip code:</span> {{ order.zip }}</p>
+            <p class="order-detail"><span class="bolder">Type:</span> {{ order.method }}</p>
+            <p class="order-detail"><span class="bolder">Gift:</span> {{ order.gift }}</p>
+          </div>
+          <div class="second">
+            <button type="submit inactive" class="btn btn-primary submit inactive" v-on:click="submitForm">Place order
+              →</button>
+          </div>
+          <p class="info">🔒 Secure payment · Free returns within 30 days</p>
+        </div>
+      </div>
+
     </div>
     <footer class="footer">
       <div class="div">
@@ -417,6 +493,180 @@ export default {
   display: flex;
   justify-content: center;
   flex-direction: column;
+}
+
+.cart-page .cart-info .cart-status:has(.items-header) {
+  padding: 0;
+}
+
+.cart-page .cart-info .cart-status .items-header {
+  padding-block: calc(0.25rem * 6.4);
+  padding-inline: calc(0.25rem * 8);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e8d9c4;
+}
+
+.cart-page .cart-info .cart-status .items-header .clear-all {
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  transition-duration: 0.15s;
+  border: unset;
+  padding: 0;
+  background-color: transparent;
+  font-size: 1.2rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+
+  &:hover {
+    color: #c1552a;
+  }
+}
+
+.cart-page .cart-info .cart-status .items-header .title {
+  margin: 0;
+  color: #3d2414;
+  font-weight: 600;
+  font-size: 1.8rem;
+  font-family: 'Fraunces', Georgia, serif;
+}
+
+.cart-page .cart-info .cart-status .items-header .title .amount {
+  color: #6b4226;
+  font-size: 1.6rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-weight: 400;
+}
+
+.cart-page .cart-info .cart-status .items-body {
+  padding-inline: calc(0.25rem * 8);
+  list-style: none;
+}
+
+.cart-page .cart-info .cart-status .items-body .item {
+  padding-block: calc(0.25rem * 8);
+  border-bottom: 1px solid #e8d9c4;
+  gap: calc(0.25rem * (4 * 1.6));
+  display: flex;
+}
+
+.cart-page .cart-info .cart-status .items-body .item .image-container {
+  background-color: #f2ebe0;
+  flex-shrink: 0;
+  width: calc(0.25rem * 32);
+  height: calc(0.25rem * 32);
+  position: relative;
+  border-radius: 1.6rem;
+}
+
+.cart-page .cart-info .cart-status .items-body .item .image-container .image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  border-radius: 1.6rem;
+}
+
+.cart-page .cart-info .cart-status .items-body .item .item-details {
+  flex: 1 1 0%;
+  min-width: calc(0.25rem * 0);
+}
+
+.cart-page .cart-info .cart-status .items-body .item .item-details .category {
+  text-transform: uppercase;
+  color: #6b4226;
+  letter-spacing: 0.1rem;
+  font-weight: 600;
+  font-size: 1rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+  margin-bottom: calc(0.25rem * 0.8);
+  text-align: left;
+}
+
+.cart-page .cart-info .cart-status .items-body .item .item-details .name {
+  color: #3d2414;
+  font-weight: 600;
+  line-height: 1.375;
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.6rem;
+  text-align: left;
+  margin-bottom: 0;
+}
+
+.cart-page .cart-info .cart-status .items-body .item .item-details .price {
+  color: #c1552a;
+  font-size: 1.6rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-weight: 600;
+  text-align: left;
+  margin-top: calc(0.25rem * .8);
+  margin-bottom: 0;
+}
+
+.cart-page .cart-info .cart-status .items-body .item .item-details .buttons {
+  display: flex;
+  align-items: center;
+  gap: calc(0.25rem * 4.8);
+  margin-top: calc(0.25rem * 4.8);
+}
+
+.cart-page .cart-info .cart-status .items-body .item .item-details .buttons .quantity-controls {
+  border: 1px solid #e8d9c4;
+  border-radius: 1.6rem;
+  display: flex;
+  align-items: center;
+  font-family: 'Outfit', system-ui, sans-serif;
+}
+
+.cart-page .cart-info .cart-status .items-body .item .item-details .buttons .quantity-controls .less,
+.cart-page .cart-info .cart-status .items-body .item .item-details .buttons .quantity-controls .more {
+  color: #6b4226;
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  transition-duration: 0.15s;
+  font-weight: 700;
+  line-height: calc(1.5 / 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  touch-action: manipulation;
+  width: calc(0.25rem * 8);
+  height: calc(0.25rem * 12.8);
+  border: unset;
+  background-color: transparent;
+  font-size: 1.6rem;
+  padding: 0;
+}
+
+.cart-page .cart-info .cart-status .items-body .item .item-details .buttons .quantity-controls .quantity {
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding: 0;
+}
+
+.cart-page .cart-info .cart-status .items-body .item .item-details .buttons .remove {
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  transition-duration: 0.15s;
+  color: #6b4226;
+  border: unset;
+  background-color: transparent;
+  line-height: calc(1 / .75);
+  gap: calc(0.25rem * 1);
+  align-items: center;
+  display: flex;
+  touch-action: manipulation;
+
+}
+
+.cart-page .cart-info .cart-status .items-body .item .price-container {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.cart-page .cart-info .cart-status .items-body .item .price-container .price {
+  color: #3d2414;
+  font-size: 1.8rem;
+  font-family: 'Fraunces', Georgia, sans-serif;
+  font-weight: 700;
+  line-height: calc(1.75 / 1.125);
 }
 
 .cart-page .cart-info .cart-status .icon {
