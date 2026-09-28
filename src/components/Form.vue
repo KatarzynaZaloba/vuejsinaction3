@@ -599,6 +599,19 @@ export default {
   margin-bottom: 0;
 }
 
+.cart-page .cart-info .cart-status .items-body .item .price-container {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.cart-page .cart-info .cart-status .items-body .item .price-container .price {
+  color: #3d2414;
+  font-size: 1.8rem;
+  font-family: 'Fraunces', Georgia, sans-serif;
+  font-weight: 700;
+  line-height: calc(1.75 / 1.125);
+}
+
 .cart-page .cart-info .cart-status .icon {
   font-size: 3.6rem;
   margin-bottom: calc(0.25rem * 4.8);
