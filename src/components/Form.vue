@@ -44,142 +44,212 @@
       </div>
       <div class="cart-info">
         <div class="cart-status-wrapper">
-          <div class="cart-status">
-            <!-- <div v-if="cart.length">
-            <div v-for="(product, index) in cart" :key="`${product.id}-${index}`">
-              <img :src="product.image" :alt="product.title">
-              <h3>{{ product.title }}</h3>
-              <p>{{ product.description }}</p>
-              <p>${{ Number(product.price).toFixed(2) }}</p>
+          <div v-if="cart.length" class="cart-status">
+            <div class="">
+              <div class="items-header">
+                <h2 class="title">Items <span class="amount">(4)</span></h2>
+                <button class="clear-all">Clear all</button>
+              </div>
+              <ul class="">
+                <li class="">
+                  <div class=""><img alt="Premium Grain-Free Kibble" class="w-full h-full object-cover"
+                      src="https://images.unsplash.com/photo-1591946559594-8c6d3b7391eb?w=300&amp;h=300&amp;fit=crop&amp;auto=format">
+                  </div>
+                  <div class="">
+                    <p class="">Dog Food</p>
+                    <p class="">Premium Grain-Free Kibble</p>
+                    <p class="">$42.99</p>
+                    <div class="">
+                      <div class=""><button class="">−</button><span class="">1</span><button class="">+</button>
+                      </div>
+                      <button class="">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
+                          </path>
+                        </svg>Remove</button>
+                    </div>
+                  </div>
+                  <div class="">
+                    <p class="">$42.99</p>
+                  </div>
+                </li>
+                <li class="">
+                  <div class=""><img alt="Plush Elephant Toy" class="w-full h-full object-cover"
+                      src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?w=300&amp;h=300&amp;fit=crop&amp;auto=format">
+                  </div>
+                  <div class="">
+                    <p class="">Toys</p>
+                    <p class="">Plush Elephant Toy</p>
+                    <p class="">$18.50</p>
+                    <div class="">
+                      <div class=""><button class="">−</button><span class="">2</span><button class="">+</button>
+                      </div>
+                      <button class=""><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
+                          </path>
+                        </svg>Remove</button>
+                    </div>
+                  </div>
+                  <div class="">
+                    <p class="">$37.00</p>
+                    <p class="">2 × $18.50</p>
+                  </div>
+                </li>
+                <li class="">
+                  <div class=""><img alt="Adjustable Leather Collar" class="w-full h-full object-cover"
+                      src="https://images.unsplash.com/photo-1589924749359-9697080c3577?w=300&amp;h=300&amp;fit=crop&amp;auto=format">
+                  </div>
+                  <div class="">
+                    <p class="">Accessories</p>
+                    <p class="">Adjustable Leather Collar</p>
+                    <p class="">$34.00</p>
+                    <div class="">
+                      <div class=""><button class="">−</button><span class="">1</span><button class="">+</button>
+                      </div><button class=""><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor"
+                          viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
+                          </path>
+                        </svg>Remove</button>
+                    </div>
+                  </div>
+                  <div class="">
+                    <p class="">$34.00</p>
+                  </div>
+                </li>
+              </ul>
             </div>
-          </div> -->
+          </div>
+          <div v-else class="cart-status">
             <div class="empty">
               <p class="icon">🛒</p>
               <p class="info">Your cart is empty.</p>
               <button class="go-back">Back to shop</button>
             </div>
           </div>
-          <div class="delivery-details">
-            <div class="">
-              <div class="delivery-details-header">
-                <h2 class="title">Delivery details</h2>
-                <p class="subtitle">Tell us where to send your order</p>
+        </div>
+        <div class="delivery-details">
+          <div class="">
+            <div class="delivery-details-header">
+              <h2 class="title">Delivery details</h2>
+              <p class="subtitle">Tell us where to send your order</p>
+            </div>
+
+            <div class="delivery-details-body">
+              <div class="form-group1">
+                <div class="">
+                  <strong class="label">First name:</strong>
+                  <input v-model.trim="order.firstName" placeholder="Jane" class="form-control" />
+                </div>
+                <div class="">
+                  <strong class="label">Last name:</strong>
+                  <input v-model.trim="order.lastName" placeholder="Smith" class="form-control" />
+                </div>
+              </div>
+              <div class="form-group2">
+                <div class="">
+                  <strong class="label">Address:</strong>
+                </div>
+                <div class="">
+                  <input v-model.trim="order.address" class="form-control" placeholder="123 Maple Street, Apt 4" />
+                </div>
+              </div>
+              <div class="form-group3">
+                <div class="">
+                  <strong class="label">City:</strong>
+                  <input v-model.trim="order.city" class="form-control" placeholder="New York" />
+                </div>
+                <div class="">
+                  <strong class="label">Zip code:</strong>
+                  <input v-model.number="order.zip" class="form-control" type="number" placeholder="10001" />
+                </div>
+              </div>
+              <div class="form-group4">
+                <div class="">
+                  <strong class="label">State:</strong>
+                  <select v-model="order.state" class="form-control">
+                    <option disabled value="">State</option>
+                    <option v-for="(state, key) in states" v-bind:value="state">
+                      {{ key }}
+                    </option>
+                  </select>
+                </div>
               </div>
 
-              <div class="delivery-details-body">
-                <div class="form-group1">
-                  <div class="">
-                    <strong class="label">First name:</strong>
-                    <input v-model.trim="order.firstName" placeholder="Jane" class="form-control" />
-                  </div>
-                  <div class="">
-                    <strong class="label">Last name:</strong>
-                    <input v-model.trim="order.lastName" placeholder="Smith" class="form-control" />
-                  </div>
-                </div>
-                <div class="form-group2">
-                  <div class="">
-                    <strong class="label">Address:</strong>
-                  </div>
-                  <div class="">
-                    <input v-model.trim="order.address" class="form-control" placeholder="123 Maple Street, Apt 4" />
-                  </div>
-                </div>
-                <div class="form-group3">
-                  <div class="">
-                    <strong class="label">City:</strong>
-                    <input v-model.trim="order.city" class="form-control" placeholder="New York" />
-                  </div>
-                  <div class="">
-                    <strong class="label">Zip code:</strong>
-                    <input v-model.number="order.zip" class="form-control" type="number" placeholder="10001" />
-                  </div>
-                </div>
-                <div class="form-group4">
-                  <div class="">
-                    <strong class="label">State:</strong>
-                    <select v-model="order.state" class="form-control">
-                      <option disabled value="">State</option>
-                      <option v-for="(state, key) in states" v-bind:value="state">
-                        {{ key }}
-                      </option>
-                    </select>
-                  </div>
-                </div>
-
-                <div class="form-group6">
-                  <p class="delivery-options">Delivery options</p>
-                  <div class="types">
-                    <label class="home active">
-                      <input class="sr-only" type="radio" id="home" v-bind:value="order.home" v-model="order.method">🏠
-                      Home
-                    </label>
-                    <label class="business">
-                      <input class="sr-only" type="radio" id="business" v-bind:value="order.business"
-                        v-model="order.method">🏢
-                      Business
-                    </label>
-                  </div>
-                  <label class="gift">
-                    <div class="checkbox">
-                    </div>
-                    <input class="sr-only" type="checkbox" id="gift" value="true" v-bind:true-value="order.sendGift"
-                      v-bind:false-value="order.dontSendGift" v-model="order.gift">
-                    <label class="text" for="gift">🎁 Send as a gift?</label>
+              <div class="form-group6">
+                <p class="delivery-options">Delivery options</p>
+                <div class="types">
+                  <label class="home active">
+                    <input class="sr-only" type="radio" id="home" v-bind:value="order.home" v-model="order.method">🏠
+                    Home
+                  </label>
+                  <label class="business">
+                    <input class="sr-only" type="radio" id="business" v-bind:value="order.business"
+                      v-model="order.method">🏢
+                    Business
                   </label>
                 </div>
-                <div class="form-group8">
-                  <p data-v-1b5a9218="" class="test-text">TEST</p>
-                  <div class="">
-                    <button type="submit" class="btn btn-primary submit inactive" v-on:click="submitForm">Place order
-                      →</button>
+                <label class="gift">
+                  <div class="checkbox">
                   </div>
+                  <input class="sr-only" type="checkbox" id="gift" value="true" v-bind:true-value="order.sendGift"
+                    v-bind:false-value="order.dontSendGift" v-model="order.gift">
+                  <label class="text" for="gift">🎁 Send as a gift?</label>
+                </label>
+              </div>
+              <div class="form-group8">
+                <p data-v-1b5a9218="" class="test-text">TEST</p>
+                <div class="">
+                  <button type="submit" class="btn btn-primary submit inactive" v-on:click="submitForm">Place order
+                    →</button>
                 </div>
               </div>
             </div>
-
-
           </div>
+
+
         </div>
-
-
-        <div class="order-summary">
-          <div class="header">
-            <h2 class="title">Order summary</h2>
-          </div>
-          <div class="body">
-            <div class="items">
-              <span class="title">Items (0)</span>
-              <span class="subtitle">$0.00</span>
-            </div>
-            <div class="shipping">
-              <span class="title">Shipping</span>
-              <span class="subtitle">$9.99</span>
-            </div>
-            <p class="banner">Add <strong class="">$35.00</strong> more to qualify for free shipping.</p>
-            <div class="total">
-              <span class="title">Total</span>
-              <span class="subtitle">$9.99</span>
-            </div>
-            <div class="order-details">
-              <p class="title">Order details</p>
-              <p class="order-detail"><span class="bolder">Name:</span> {{ order.firstName }} {{ order.lastName }}</p>
-              <p class="order-detail"><span class="bolder">Address:</span> {{ order.address }}</p>
-              <p class="order-detail"><span class="bolder">City:</span> {{ order.address }}</p>
-              <p class="order-detail"><span class="bolder">State:</span> {{ order.city }}</p>
-              <p class="order-detail"><span class="bolder">Zip code:</span> {{ order.zip }}</p>
-              <p class="order-detail"><span class="bolder">Type:</span> {{ order.method }}</p>
-              <p class="order-detail"><span class="bolder">Gift:</span> {{ order.gift }}</p>
-            </div>
-            <div class="second">
-              <button type="submit inactive" class="btn btn-primary submit inactive" v-on:click="submitForm">Place order
-                →</button>
-            </div>
-            <p class="info">🔒 Secure payment · Free returns within 30 days</p>
-          </div>
-        </div>
-
       </div>
+
+
+      <div class="order-summary">
+        <div class="header">
+          <h2 class="title">Order summary</h2>
+        </div>
+        <div class="body">
+          <div class="items">
+            <span class="title">Items (0)</span>
+            <span class="subtitle">$0.00</span>
+          </div>
+          <div class="shipping">
+            <span class="title">Shipping</span>
+            <span class="subtitle">$9.99</span>
+          </div>
+          <p class="banner">Add <strong class="">$35.00</strong> more to qualify for free shipping.</p>
+          <div class="total">
+            <span class="title">Total</span>
+            <span class="subtitle">$9.99</span>
+          </div>
+          <div class="order-details">
+            <p class="title">Order details</p>
+            <p class="order-detail"><span class="bolder">Name:</span> {{ order.firstName }} {{ order.lastName }}</p>
+            <p class="order-detail"><span class="bolder">Address:</span> {{ order.address }}</p>
+            <p class="order-detail"><span class="bolder">City:</span> {{ order.address }}</p>
+            <p class="order-detail"><span class="bolder">State:</span> {{ order.city }}</p>
+            <p class="order-detail"><span class="bolder">Zip code:</span> {{ order.zip }}</p>
+            <p class="order-detail"><span class="bolder">Type:</span> {{ order.method }}</p>
+            <p class="order-detail"><span class="bolder">Gift:</span> {{ order.gift }}</p>
+          </div>
+          <div class="second">
+            <button type="submit inactive" class="btn btn-primary submit inactive" v-on:click="submitForm">Place order
+              →</button>
+          </div>
+          <p class="info">🔒 Secure payment · Free returns within 30 days</p>
+        </div>
+      </div>
+
     </div>
     <footer class="footer">
       <div class="div">
@@ -417,6 +487,48 @@ export default {
   display: flex;
   justify-content: center;
   flex-direction: column;
+}
+
+.cart-page .cart-info .cart-status:has(.items-header) {
+  padding: 0;
+}
+
+.cart-page .cart-info .cart-status .items-header {
+  padding-block: calc(0.25rem * 6.4);
+  padding-inline: calc(0.25rem * 8);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e8d9c4;
+}
+
+.cart-page .cart-info .cart-status .items-header .clear-all {
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  transition-duration: 0.15s;
+  border: unset;
+  padding: 0;
+  background-color: transparent;
+  font-size: 1.2rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+
+  &:hover {
+    color: #c1552a;
+  }
+}
+
+.cart-page .cart-info .cart-status .items-header .title {
+  margin: 0;
+  color: #3d2414;
+  font-weight: 600;
+  font-size: 1.8rem;
+  font-family: 'Fraunces', Georgia, serif;
+}
+
+.cart-page .cart-info .cart-status .items-header .title .amount {
+  color: #6b4226;
+  font-size: 1.6rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-weight: 400;
 }
 
 .cart-page .cart-info .cart-status .icon {
