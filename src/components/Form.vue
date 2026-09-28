@@ -60,10 +60,13 @@
                     <p class="category">Dog Food</p>
                     <p class="name">Premium Grain-Free Kibble</p>
                     <p class="price">$42.99</p>
-                    <div class="">
-                      <div class=""><button class="">−</button><span class="">1</span><button class="">+</button>
+                    <div class="buttons">
+                      <div class="quantity-controls">
+                        <button class="less">−</button>
+                        <span class="quantity">1</span>
+                        <button class="more">+</button>
                       </div>
-                      <button class="">
+                      <button class="remove">
                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
@@ -597,6 +600,60 @@ export default {
   text-align: left;
   margin-top: calc(0.25rem * .8);
   margin-bottom: 0;
+}
+
+.cart-page .cart-info .cart-status .items-body .item .item-details .buttons {
+  display: flex;
+  align-items: center;
+  gap: calc(0.25rem * 4.8);
+  margin-top: calc(0.25rem * 4.8);
+}
+
+.cart-page .cart-info .cart-status .items-body .item .item-details .buttons .quantity-controls {
+  border: 1px solid #e8d9c4;
+  border-radius: 1.6rem;
+  display: flex;
+  align-items: center;
+  font-family: 'Outfit', system-ui, sans-serif;
+}
+
+.cart-page .cart-info .cart-status .items-body .item .item-details .buttons .quantity-controls .less,
+.cart-page .cart-info .cart-status .items-body .item .item-details .buttons .quantity-controls .more {
+  color: #6b4226;
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  transition-duration: 0.15s;
+  font-weight: 700;
+  line-height: calc(1.5 / 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  touch-action: manipulation;
+  width: calc(0.25rem * 8);
+  height: calc(0.25rem * 12.8);
+  border: unset;
+  background-color: transparent;
+  font-size: 1.6rem;
+  padding: 0;
+}
+
+.cart-page .cart-info .cart-status .items-body .item .item-details .buttons .quantity-controls .quantity {
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding: 0;
+}
+
+.cart-page .cart-info .cart-status .items-body .item .item-details .buttons .remove {
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  transition-duration: 0.15s;
+  color: #6b4226;
+  border: unset;
+  background-color: transparent;
+  line-height: calc(1 / .75);
+  gap: calc(0.25rem * 1);
+  align-items: center;
+  display: flex;
+  touch-action: manipulation;
+
 }
 
 .cart-page .cart-info .cart-status .items-body .item .price-container {
