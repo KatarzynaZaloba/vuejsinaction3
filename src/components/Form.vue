@@ -653,7 +653,6 @@ export default {
   align-items: center;
   display: flex;
   touch-action: manipulation;
-
 }
 
 .cart-page .cart-info .cart-status .items-body .item .price-container {
