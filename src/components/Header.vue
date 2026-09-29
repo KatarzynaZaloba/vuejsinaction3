@@ -431,9 +431,17 @@ header.desktop .div .search-and-cart .category.btn.btn-default svg {
     gap: 10px;
     flex-direction: column;
     display: none;
-    width: 100%;
-    padding: 16px 24px;
-    padding-bottom: 24px;
+    width: 101%;
+    padding-block: calc(0.25rem * 6.4);
+    padding-inline: calc(0.25rem * 9.6);
+    z-index: 10;
+    top: 56px;
+    position: absolute;
+
+    @media (min-width: 640px) {
+        top: 64px;
+        position: absolute;
+    }
 }
 
 .navbar.navbar-default .hamburger-menu.categories .link {
