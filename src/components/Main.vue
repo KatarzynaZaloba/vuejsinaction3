@@ -935,9 +935,17 @@ main {
   border: 1px solid #e8d9c4;
   border-radius: 15px;
   margin-bottom: 20px;
+  transition-duration: 0.3s;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
 
   @media (min-width: 768px) {
     margin-bottom: 0;
+  }
+
+  &:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    translate: 0 calc(0.25rem * -1);
   }
 }
 
