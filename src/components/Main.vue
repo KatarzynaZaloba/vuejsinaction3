@@ -119,7 +119,7 @@
           </button>
         </div>
       </section>
-      <!-- <section class="section-products">
+      <section class="section-products">
         <div class="text">
           <div>
             <h2 class="title">Shop our <span class="title-orange">favourites</span></h2>
@@ -194,7 +194,7 @@
             </div>
           </div>
         </div>
-      </section> -->
+      </section>
 
       <section class="section-banner">
         <div class="background">
