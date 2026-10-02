@@ -181,13 +181,22 @@
 
       </div>
     </div>
-    <my-footer></my-footer>
+    <footer class="footer">
+      <div class="div">
+        <span class="title">Pawsome</span>
+        <p class="subtitle">© 2026 Pawsome Pet Supply. All rights reserved.</p>
+        <div class="links">
+          <a href="#" class="">Privacy</a>
+          <a href="#" class="">Terms</a>
+          <a href="#" class="">Contact</a>
+        </div>
+      </div>
+    </footer>
   </div>
 </template>
 
 <script>
 import MyHeader from './Header.vue';
-import MyFooter from './Footer.vue';
 export default {
   name: 'Form',
   props: ['cartItemCount'],
@@ -233,7 +242,7 @@ export default {
       return this.cart.reduce((sum, product) => sum + Number(product.price || 0), 0);
     }
   },
-  components: { MyHeader, MyFooter },
+  components: { MyHeader },
   methods: {
     submitForm() {
       this.madeOrder = true;

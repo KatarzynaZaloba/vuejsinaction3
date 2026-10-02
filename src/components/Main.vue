@@ -119,7 +119,7 @@
           </button>
         </div>
       </section>
-      <section class="section-products">
+      <!-- <section class="section-products">
         <div class="text">
           <div>
             <h2 class="title">Shop our <span class="title-orange">favourites</span></h2>
@@ -194,7 +194,7 @@
             </div>
           </div>
         </div>
-      </section>
+      </section> -->
 
       <section class="section-banner">
         <div class="background">
@@ -231,14 +231,23 @@
         </div>
       </section>
 
-      <my-footer></my-footer>
+      <footer class="footer">
+        <div class="div">
+          <span class="title">Pawsome</span>
+          <p class="subtitle">© 2026 Pawsome Pet Supply. All rights reserved.</p>
+          <div class="links">
+            <a href="#" class="">Privacy</a>
+            <a href="#" class="">Terms</a>
+            <a href="#" class="">Contact</a>
+          </div>
+        </div>
+      </footer>
     </main>
   </div>
 </template>
 
 <script>
 import MyHeader from './Header.vue';
-import MyFooter from './Footer.vue';
 import { mapGetters } from 'vuex';
 import { mapState } from 'vuex';
 import { mapMutations } from 'vuex';
@@ -252,7 +261,7 @@ export default {
   firebase: {
     products: productsRef
   },
-  components: { MyHeader, MyFooter },
+  components: { MyHeader },
   setup() {
     const store = useStore();
     const loadCart = () => {
@@ -1238,6 +1247,48 @@ main {
   font-size: 14px;
   margin-top: 10px;
   line-height: 1.625;
+}
+
+.footer {
+  background-color: #3d2414;
+  color: #f1ece6;
+  padding: 20px 20px;
+}
+
+.footer .div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer .title {
+  color: #faf6f0;
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-weight: 600;
+  font-style: italic;
+  padding-bottom: 20px;
+  padding-top: 10px;
+}
+
+.footer .subtitle {
+  color: #faf6f0;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+}
+
+.footer .links {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  color: #faf6f0;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  padding-bottom: 10px;
+}
+
+.footer .links a {
+  color: #faf6f0;
 }
 
 @supports (color: color-mix(in oklab, red, red)) {
