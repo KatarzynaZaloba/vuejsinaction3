@@ -1,3 +1,160 @@
+<script>
+import MyHeader from './Header.vue';
+import { mapGetters } from 'vuex';
+import { mapState } from 'vuex';
+import { mapMutations } from 'vuex';
+import { computed, onUnmounted, ref } from 'vue';
+import { useStore } from 'vuex';
+import { productsRef } from '../firebase';
+import { publicAsset } from '../utils/publicAsset';
+
+export default {
+  name: 'imain',
+  firebase: {
+    products: productsRef
+  },
+  components: { MyHeader },
+  setup() {
+    const store = useStore();
+    const loadCart = () => {
+      try {
+        const savedCart = JSON.parse(localStorage.getItem('cart') || '[]');
+        return Array.isArray(savedCart) ? savedCart : [];
+      } catch {
+        return [];
+      }
+    };
+    const cart = ref(loadCart());
+    const addedProducts = ref([]);
+    const productsVersion = ref(0);
+    const selectedCategory = ref('All');
+
+    const productsLoaded = computed(() => Array.isArray(store.state.products) && store.state.products.length > 0);
+
+    const unsubscribe = store.subscribe((mutation) => {
+      if (mutation.type === 'SET_STORE') {
+        productsVersion.value++;
+      }
+    });
+
+    onUnmounted(() => {
+      unsubscribe();
+    });
+
+    const mapGetters = computed(() => {
+      return {
+        products: store.getters.products,
+        session: store.getters.session
+      };
+    });
+
+    const mapState = computed(() => {
+      return {
+        products: store.state.products
+      };
+    });
+
+    const mapMutations = computed(() => {
+      return {
+        setStore: store.commit('SET_STORE')
+      };
+    });
+
+    const mapActions = computed(() => {
+      return {
+        fetchProducts: store.dispatch('fetchProducts')
+      };
+    });
+
+    const cartItemCount = computed(() => cart.value.length || '');
+
+    const sortedProducts = computed(() => {
+      productsVersion.value;
+      const productsArray = (store.state.products || []).slice(0);
+      function compare(a, b) {
+        if (a.title.toLowerCase() < b.title.toLowerCase())
+          return -1;
+        if (a.title.toLowerCase() > b.title.toLowerCase())
+          return 1;
+        return 0;
+      }
+      const filtered = selectedCategory.value === 'All'
+        ? productsArray
+        : productsArray.filter((product) => product.category === selectedCategory.value);
+      return filtered.sort(compare);
+    });
+
+    const selectCategory = (category) => {
+      selectedCategory.value = category;
+    };
+
+    const formatPrice = (price) => {
+      if (!parseInt(price)) {
+        return '';
+      }
+      if (price > 99999) {
+        var priceString = (price / 100).toFixed(2);
+        var priceArray = priceString.split('').reverse();
+        var index = 3;
+        while (priceArray.length > index + 3) {
+          priceArray.splice(index + 3, 0, ',');
+          index += 4;
+        }
+        return '$' + priceArray.reverse().join('');
+      } else {
+        return '$' + (price / 100).toFixed(2);
+      }
+    };
+
+    const checkRating = (n, myProduct) => myProduct.rating - n >= 0;
+
+    const addToCart = (aProduct) => {
+      cart.value.push(aProduct);
+      localStorage.setItem('cart', JSON.stringify(cart.value));
+      addedProducts.value.push(aProduct.id);
+      setTimeout(() => {
+        addedProducts.value = addedProducts.value.filter((id) => id !== aProduct.id);
+      }, 2000);
+    };
+
+    const isAdded = (id) => addedProducts.value.includes(id);
+
+    const cartCount = (id) => {
+      let count = 0;
+      for (var i = 0; i < cart.value.length; i++) {
+        if (cart.value[i].id === id) {
+          count++;
+        }
+      }
+      return count;
+    };
+
+    const canAddToCart = (aProduct) => {
+      return aProduct.availableInventory > cartCount(aProduct.id);
+    };
+
+    return {
+      cartItemCount,
+      productsLoaded,
+      sortedProducts,
+      selectedCategory,
+      selectCategory,
+      mapGetters,
+      mapState,
+      mapMutations,
+      mapActions,
+      formatPrice,
+      checkRating,
+      addToCart,
+      canAddToCart,
+      isAdded,
+      cartCount,
+      publicAsset
+    };
+  }
+};
+</script>
+
 <template>
   <div>
     <my-header :cartItemCount="cartItemCount"></my-header>
@@ -246,162 +403,7 @@
   </div>
 </template>
 
-<script>
-import MyHeader from './Header.vue';
-import { mapGetters } from 'vuex';
-import { mapState } from 'vuex';
-import { mapMutations } from 'vuex';
-import { computed, onUnmounted, ref } from 'vue';
-import { useStore } from 'vuex';
-import { productsRef } from '../firebase';
-import { publicAsset } from '../utils/publicAsset';
 
-export default {
-  name: 'imain',
-  firebase: {
-    products: productsRef
-  },
-  components: { MyHeader },
-  setup() {
-    const store = useStore();
-    const loadCart = () => {
-      try {
-        const savedCart = JSON.parse(localStorage.getItem('cart') || '[]');
-        return Array.isArray(savedCart) ? savedCart : [];
-      } catch {
-        return [];
-      }
-    };
-    const cart = ref(loadCart());
-    const addedProducts = ref([]);
-    const productsVersion = ref(0);
-    const selectedCategory = ref('All');
-
-    const productsLoaded = computed(() => Array.isArray(store.state.products) && store.state.products.length > 0);
-
-    const unsubscribe = store.subscribe((mutation) => {
-      if (mutation.type === 'SET_STORE') {
-        productsVersion.value++;
-      }
-    });
-
-    onUnmounted(() => {
-      unsubscribe();
-    });
-
-    const mapGetters = computed(() => {
-      return {
-        products: store.getters.products,
-        session: store.getters.session
-      };
-    });
-
-    const mapState = computed(() => {
-      return {
-        products: store.state.products
-      };
-    });
-
-    const mapMutations = computed(() => {
-      return {
-        setStore: store.commit('SET_STORE')
-      };
-    });
-
-    const mapActions = computed(() => {
-      return {
-        fetchProducts: store.dispatch('fetchProducts')
-      };
-    });
-
-    const cartItemCount = computed(() => cart.value.length || '');
-
-    const sortedProducts = computed(() => {
-      productsVersion.value;
-      const productsArray = (store.state.products || []).slice(0);
-      function compare(a, b) {
-        if (a.title.toLowerCase() < b.title.toLowerCase())
-          return -1;
-        if (a.title.toLowerCase() > b.title.toLowerCase())
-          return 1;
-        return 0;
-      }
-      const filtered = selectedCategory.value === 'All'
-        ? productsArray
-        : productsArray.filter((product) => product.category === selectedCategory.value);
-      return filtered.sort(compare);
-    });
-
-    const selectCategory = (category) => {
-      selectedCategory.value = category;
-    };
-
-    const formatPrice = (price) => {
-      if (!parseInt(price)) {
-        return '';
-      }
-      if (price > 99999) {
-        var priceString = (price / 100).toFixed(2);
-        var priceArray = priceString.split('').reverse();
-        var index = 3;
-        while (priceArray.length > index + 3) {
-          priceArray.splice(index + 3, 0, ',');
-          index += 4;
-        }
-        return '$' + priceArray.reverse().join('');
-      } else {
-        return '$' + (price / 100).toFixed(2);
-      }
-    };
-
-    const checkRating = (n, myProduct) => myProduct.rating - n >= 0;
-
-    const addToCart = (aProduct) => {
-      cart.value.push(aProduct);
-      localStorage.setItem('cart', JSON.stringify(cart.value));
-      addedProducts.value.push(aProduct.id);
-      setTimeout(() => {
-        addedProducts.value = addedProducts.value.filter((id) => id !== aProduct.id);
-      }, 2000);
-    };
-
-    const isAdded = (id) => addedProducts.value.includes(id);
-
-    const cartCount = (id) => {
-      let count = 0;
-      for (var i = 0; i < cart.value.length; i++) {
-        if (cart.value[i].id === id) {
-          count++;
-        }
-      }
-      return count;
-    };
-
-    const canAddToCart = (aProduct) => {
-      return aProduct.availableInventory > cartCount(aProduct.id);
-    };
-
-    return {
-      cartItemCount,
-      productsLoaded,
-      sortedProducts,
-      selectedCategory,
-      selectCategory,
-      mapGetters,
-      mapState,
-      mapMutations,
-      mapActions,
-      formatPrice,
-      checkRating,
-      addToCart,
-      canAddToCart,
-      isAdded,
-      cartCount,
-      publicAsset
-    };
-  }
-};
-</script>
 
 <style scoped>
 .bounce-enter-active {
@@ -950,11 +952,6 @@ main {
 
   @media (min-width: 768px) {
     margin-bottom: 0;
-  }
-
-  &:hover {
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-    translate: 0 calc(0.25rem * -1);
   }
 }
 
