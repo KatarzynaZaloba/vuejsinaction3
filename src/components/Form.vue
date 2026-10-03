@@ -1,3 +1,59 @@
+<script>
+import MyHeader from './Header.vue';
+export default {
+  name: 'Form',
+  props: ['cartItemCount'],
+  data() {
+    let cart = [];
+
+    try {
+      const savedCart = localStorage.getItem('cart');
+      const parsedCart = savedCart ? JSON.parse(savedCart) : [];
+      cart = Array.isArray(parsedCart) ? parsedCart : [];
+    } catch {
+      cart = [];
+    }
+
+    return {
+      cart,
+      states: {
+        DL: 'Dolnośląskie',
+        KP: 'Kujawsko-pomorskie',
+        LB: 'Lubelskie',
+        LU: 'Lubuskie'
+      },
+      order: {
+        firstName: '',
+        lastName: '',
+        address: '',
+        city: '',
+        zip: '',
+        state: '',
+        method: 'Home address',
+        business: 'Business address',
+        home: 'Home address',
+        gift: 'Send as a gift',
+        sendGift: 'Send as a gift',
+        dontSendGift: 'Do not send as a gift'
+      },
+      madeOrder: false
+
+    }
+  },
+  computed: {
+    subtotal() {
+      return this.cart.reduce((sum, product) => sum + Number(product.price || 0), 0);
+    }
+  },
+  components: { MyHeader },
+  methods: {
+    submitForm() {
+      this.madeOrder = true;
+    }
+  }
+}
+</script>
+
 <template>
   <div>
     <div class="cart-page">
@@ -194,62 +250,6 @@
     </footer>
   </div>
 </template>
-
-<script>
-import MyHeader from './Header.vue';
-export default {
-  name: 'Form',
-  props: ['cartItemCount'],
-  data() {
-    let cart = [];
-
-    try {
-      const savedCart = localStorage.getItem('cart');
-      const parsedCart = savedCart ? JSON.parse(savedCart) : [];
-      cart = Array.isArray(parsedCart) ? parsedCart : [];
-    } catch {
-      cart = [];
-    }
-
-    return {
-      cart,
-      states: {
-        DL: 'Dolnośląskie',
-        KP: 'Kujawsko-pomorskie',
-        LB: 'Lubelskie',
-        LU: 'Lubuskie'
-      },
-      order: {
-        firstName: '',
-        lastName: '',
-        address: '',
-        city: '',
-        zip: '',
-        state: '',
-        method: 'Home address',
-        business: 'Business address',
-        home: 'Home address',
-        gift: 'Send as a gift',
-        sendGift: 'Send as a gift',
-        dontSendGift: 'Do not send as a gift'
-      },
-      madeOrder: false
-
-    }
-  },
-  computed: {
-    subtotal() {
-      return this.cart.reduce((sum, product) => sum + Number(product.price || 0), 0);
-    }
-  },
-  components: { MyHeader },
-  methods: {
-    submitForm() {
-      this.madeOrder = true;
-    }
-  }
-}
-</script>
 
 <style scoped>
 .cart-page {

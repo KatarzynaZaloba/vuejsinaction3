@@ -1,3 +1,78 @@
+<script>
+import {
+    onAuthStateChanged,
+    GoogleAuthProvider,
+    signInWithPopup,
+    signOut as firebaseSignOut
+} from 'firebase/auth';
+import { auth } from '../firebase';
+
+export default {
+    name: 'my-header',
+    data() {
+        return {
+            sitename: 'Pawsome',
+            sessionUser: false,
+            unsubscribeAuth: null
+        }
+    },
+    props: ['cartItemCount'],
+    created() {
+        this.unsubscribeAuth = onAuthStateChanged(auth, (user) => {
+            this.sessionUser = user || false;
+            this.$store.commit('SET_SESSION', user || false);
+        }, (error) => {
+            console.error('Auth state error:', error);
+        });
+    },
+    beforeUnmount() {
+        if (typeof this.unsubscribeAuth === 'function') {
+            this.unsubscribeAuth();
+        }
+    },
+    methods: {
+        showCheckout() {
+            this.$router.push({ name: 'Form' });
+        },
+        async signIn() {
+            const provider = new GoogleAuthProvider();
+            try {
+                const result = await signInWithPopup(auth, provider);
+                this.sessionUser = result.user || false;
+                this.$store.commit('SET_SESSION', result.user || false);
+                console.log('zalogowano!');
+            } catch (error) {
+                console.log('błąd' + error)
+            }
+        },
+        async signOut() {
+            try {
+                await firebaseSignOut(auth);
+                this.sessionUser = false;
+                this.$store.commit('SET_SESSION', false);
+                console.log('wylogowano!');
+            } catch (error) {
+                console.log('błąd podczas wylogowywania' + error)
+            }
+        },
+        showMenu() {
+            const target = document.querySelector('.hamburger-menu.categories');
+            if (target) {
+                target.style.display = target.style.display === 'flex' ? 'none' : 'flex';
+            }
+        }
+    },
+    computed: {
+        mySession() {
+            return this.sessionUser;
+        },
+        isCartPage() {
+            return this.$route.name === 'Form';
+        }
+    }
+}
+</script>
+
 <template>
     <header class="mobile">
         <div class="navbar navbar-default">
@@ -109,80 +184,7 @@
         </div>
     </header>
 </template>
-<script>
-import {
-    onAuthStateChanged,
-    GoogleAuthProvider,
-    signInWithPopup,
-    signOut as firebaseSignOut
-} from 'firebase/auth';
-import { auth } from '../firebase';
 
-export default {
-    name: 'my-header',
-    data() {
-        return {
-            sitename: 'Pawsome',
-            sessionUser: false,
-            unsubscribeAuth: null
-        }
-    },
-    props: ['cartItemCount'],
-    created() {
-        this.unsubscribeAuth = onAuthStateChanged(auth, (user) => {
-            this.sessionUser = user || false;
-            this.$store.commit('SET_SESSION', user || false);
-        }, (error) => {
-            console.error('Auth state error:', error);
-        });
-    },
-    beforeUnmount() {
-        if (typeof this.unsubscribeAuth === 'function') {
-            this.unsubscribeAuth();
-        }
-    },
-    methods: {
-        showCheckout() {
-            this.$router.push({ name: 'Form' });
-        },
-        async signIn() {
-            const provider = new GoogleAuthProvider();
-            try {
-                const result = await signInWithPopup(auth, provider);
-                this.sessionUser = result.user || false;
-                this.$store.commit('SET_SESSION', result.user || false);
-                console.log('zalogowano!');
-            } catch (error) {
-                console.log('błąd' + error)
-            }
-        },
-        async signOut() {
-            try {
-                await firebaseSignOut(auth);
-                this.sessionUser = false;
-                this.$store.commit('SET_SESSION', false);
-                console.log('wylogowano!');
-            } catch (error) {
-                console.log('błąd podczas wylogowywania' + error)
-            }
-        },
-        showMenu() {
-            const target = document.querySelector('.hamburger-menu.categories');
-            if (target) {
-                target.style.display = target.style.display === 'flex' ? 'none' : 'flex';
-            }
-        }
-    },
-    computed: {
-        mySession() {
-            return this.sessionUser;
-        },
-        isCartPage() {
-            return this.$route.name === 'Form';
-        }
-    }
-}
-</script>
 <style scoped>
 header h1 {
     font-size: 20px;
