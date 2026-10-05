@@ -67,7 +67,7 @@
                         <button class="more">+</button>
                       </div>
                       <button class="remove">
-                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
                           </path>
@@ -613,7 +613,7 @@ export default {
 
 .cart-page .cart-info .cart-status .items-body .item .item-details .buttons .quantity-controls {
   border: 1px solid #e8d9c4;
-  border-radius: 1.6rem;
+  border-radius: 1.2rem;
   display: flex;
   align-items: center;
   font-family: 'Outfit', system-ui, sans-serif;
@@ -642,6 +642,7 @@ export default {
   font-size: 1.4rem;
   font-weight: 600;
   padding: 0;
+  width: calc(0.25rem * 8);
 }
 
 .cart-page .cart-info .cart-status .items-body .item .item-details .buttons .remove {
@@ -651,11 +652,19 @@ export default {
   border: unset;
   background-color: transparent;
   line-height: calc(1 / .75);
-  gap: calc(0.25rem * 1);
+  gap: calc(0.25rem * 2);
   align-items: center;
   display: flex;
   touch-action: manipulation;
+  font-size: 1.2rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+}
 
+.cart-page .cart-info .cart-status .items-body .item .item-details .buttons .remove svg {
+  width: calc(0.25rem * 5.6);
+  height: calc(0.25rem * 5.6);
+  vertical-align: middle;
+  display: block;
 }
 
 .cart-page .cart-info .cart-status .items-body .item .price-container {
