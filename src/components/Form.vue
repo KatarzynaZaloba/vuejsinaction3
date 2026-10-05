@@ -9,7 +9,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
             </svg>Back to shop</button>
           <h1 class="title">Your <span class="highlight">cart</span></h1>
-          <p class="subtitle">Your cart is empty</p>
+          <p class="subtitle" v-if="!cart.length">Your cart is empty</p>
         </div>
       </div>
       <div class="cart-steps">
@@ -334,7 +334,7 @@ export default {
 
 .cart-page .container {
   background-color: #f2ebe0;
-  padding: 3.2rem 2.4rem;
+  padding: 2.4rem 1.6rem;
   width: 100%;
   border-bottom: 1px solid #e8d9c4;
 }
@@ -353,12 +353,13 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: calc(0.25rem * 1.5);
+  gap: calc(0.25rem * 3);
   background-color: transparent;
   border: unset;
   font-family: 'Outfit', system-ui, sans-serif;
   font-size: 1.4rem;
   padding: 0;
+  margin-bottom: calc(0.25rem * 6.4);
 
   &:hover {
     color: #c1552a;
@@ -371,11 +372,12 @@ export default {
 }
 
 .cart-page .container .title {
-  font-size: 3.6rem;
+  font-size: 3rem;
   font-family: 'Fraunces', Georgia, serif;
   font-weight: 600;
   color: #3d2414;
   margin-bottom: 0;
+  margin-top: 0;
 }
 
 .cart-page .container .title .highlight {
