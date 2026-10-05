@@ -553,9 +553,12 @@ export default {
 
 .cart-page .cart-info .cart-status .items-body .item {
   padding-block: calc(0.25rem * 8);
-  border-bottom: 1px solid #e8d9c4;
   gap: calc(0.25rem * (4 * 1.6));
   display: flex;
+}
+
+.cart-page .cart-info .cart-status .items-body .item:not(:last-child) {
+  border-bottom: 1px solid #e8d9c4;
 }
 
 .cart-page .cart-info .cart-status .items-body .item .image-container {
@@ -685,6 +688,14 @@ export default {
   font-family: 'Fraunces', Georgia, sans-serif;
   font-weight: 700;
   line-height: calc(1.75 / 1.125);
+  margin-bottom: 0;
+}
+
+.cart-page .cart-info .cart-status .items-body .item .price-container .quantity {
+  margin-bottom: 0;
+  color: #6b4226;
+  font-size: 1.2rem;
+  font-family: 'Outfit', system-ui, sans-serif;
 }
 
 .cart-page .cart-info .cart-status .icon {
