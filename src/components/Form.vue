@@ -87,10 +87,13 @@
                     <p class="category">Toys</p>
                     <p class="name">Plush Elephant Toy</p>
                     <p class="price">$18.50</p>
-                    <div class="">
-                      <div class=""><button class="">−</button><span class="">2</span><button class="">+</button>
+                    <div class="buttons">
+                      <div class="quantity-controls">
+                        <button class="less">−</button>
+                        <span class="quantity">2</span><button class="more">+</button>
                       </div>
-                      <button class=""><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <button class="remove">
+                        <svg class="" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
                           </path>
@@ -111,10 +114,14 @@
                     <p class="category">Accessories</p>
                     <p class="name">Adjustable Leather Collar</p>
                     <p class="price">$34.00</p>
-                    <div class="">
-                      <div class=""><button class="">−</button><span class="">1</span><button class="">+</button>
-                      </div><button class=""><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor"
-                          viewBox="0 0 24 24">
+                    <div class="buttons">
+                      <div class="quantity-controls">
+                        <button class="less">−</button>
+                        <span class="quantity">1</span>
+                        <button class="more">+</button>
+                      </div>
+                      <button class="remove">
+                        <svg class="" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
                           </path>
