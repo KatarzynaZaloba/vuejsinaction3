@@ -143,6 +143,15 @@
             </div>
           </div>
         </div>
+
+        <div class="promo-code-container">
+          <h3 class="title">🏷️ Promo code</h3>
+          <div class="promo-code-input">
+            <input placeholder="Enter code (try PAWSOME20)" class="" value="">
+            <button class="apply-button">Apply</button>
+          </div>
+        </div>
+
         <div class="delivery-details">
           <div class="">
             <div class="delivery-details-header">
@@ -490,6 +499,55 @@ export default {
     grid-column: span 2 / span 2;
     display: grid;
   }
+}
+
+.cart-page .promo-code-container {
+  padding: calc(0.25rem * 8);
+  background-color: #fff;
+  border: 1px solid #e8d9c4;
+  border-radius: 1.6rem;
+  margin-bottom: 2.4rem;
+}
+
+.cart-page .promo-code-container .title {
+  color: #3d2414;
+  font-size: 1.4rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-weight: 600;
+  margin-bottom: calc(0.25rem * 4.8);
+  margin-top: 0;
+}
+
+.cart-page .promo-code-container .promo-code-input {
+  gap: calc(0.25rem * 3.5);
+  display: flex;
+}
+
+.cart-page .promo-code-container .promo-code-input input {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  transition-duration: 0.15s;
+  color: #3d2414;
+  padding-block: calc(0.25rem * 4.8);
+  padding-inline: calc(0.25rem * 6.4);
+  font-size: 1.4rem;
+  background-color: #faf6f0;
+  border: 1px solid #e8d9c4;
+  border-radius: 1.2rem;
+}
+
+.cart-page .promo-code-container .promo-code-input button {
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  transition-duration: 0.15s;
+  color: #faf6f0;
+  font-weight: 600;
+  font-size: 1.4rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+  background-color: #3d2414;
+  border: none;
+  border-radius: 1.2rem;
+  padding-block: calc(0.25rem * 4.8);
+  padding-inline: calc(0.25rem * 6.4);
 }
 
 .cart-page .cart-info .cart-status {
