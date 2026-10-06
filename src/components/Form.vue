@@ -99,15 +99,21 @@ export default {
       <cart-steps></cart-steps>
 
       <div class="cart-info">
-        <cart-items :cart="cart"></cart-items>
-        <promo-code></promo-code>
-        <cart-recommender></cart-recommender>
+        <div class="cart-info-left">
+          <cart-items :cart="cart"></cart-items>
+          <promo-code></promo-code>
+          <cart-recommender></cart-recommender>
+        </div>
+        <div class="cart-info-right">
+          <pre-order-summary :order="order"></pre-order-summary>
+        </div>
+
         <!-- <delivery-details
           :order="order"
           :states="states"
           @place-order="submitForm"
         ></delivery-details> -->
-        <pre-order-summary :order="order"></pre-order-summary>
+
         <!-- <order-summary :order="order" @place-order="submitForm"></order-summary> -->
       </div>
     </div>
