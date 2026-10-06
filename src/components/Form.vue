@@ -1,5 +1,325 @@
+<<<<<<< HEAD
+=======
+<template>
+  <div>
+    <div class="cart-page">
+      <my-header :cartItemCount="cartItemCount"></my-header>
+      <div class="container">
+        <div class="header">
+          <button class="go-back">
+            <svg class="" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>Back to shop</button>
+          <h1 class="title">Your <span class="highlight">cart</span></h1>
+          <p class="subtitle" v-if="!cart.length">Your cart is empty</p>
+        </div>
+      </div>
+      <div class="cart-steps">
+        <div class="step-1">
+          <div class="step-indicator active">
+            <div class="circle">1</div>
+            <span class="">Cart</span>
+          </div>
+          <div class="border"></div>
+        </div>
+        <div class="step-2">
+          <div class="step-indicator">
+            <div class="circle">2</div>
+            <span class="">Delivery</span>
+          </div>
+          <div class="border"></div>
+        </div>
+        <div class="step-3">
+          <div class="step-indicator">
+            <div class="circle">3</div>
+            <span class="">Payment</span>
+          </div>
+          <div class="border"></div>
+        </div>
+        <div class="step-4">
+          <div class="step-indicator">
+            <div class="circle">
+              4</div>
+            <span class="">Confirm</span>
+          </div>
+        </div>
+      </div>
+      <div class="cart-info">
+        <div class="cart-status-wrapper">
+          <div v-if="cart.length" class="cart-status">
+            <div class="">
+              <div class="items-header">
+                <h2 class="title">Items <span class="amount">(4)</span></h2>
+                <button class="clear-all">Clear all</button>
+              </div>
+              <ul class="items-body">
+                <li class="item">
+                  <div class="image-container">
+                    <img alt="Premium Grain-Free Kibble" class="image"
+                      src="https://images.unsplash.com/photo-1591946559594-8c6d3b7391eb?w=300&amp;h=300&amp;fit=crop&amp;auto=format">
+                  </div>
+                  <div class="item-details">
+                    <p class="category">Dog Food</p>
+                    <p class="name">Premium Grain-Free Kibble</p>
+                    <p class="price">$42.99</p>
+                    <div class="buttons">
+                      <div class="quantity-controls">
+                        <button class="less">−</button>
+                        <span class="quantity">1</span>
+                        <button class="more">+</button>
+                      </div>
+                      <button class="remove">
+                        <svg class="" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
+                          </path>
+                        </svg>Remove</button>
+                    </div>
+                  </div>
+                  <div class="price-container">
+                    <p class="price">$42.99</p>
+                  </div>
+                </li>
+                <li class="item">
+                  <div class="image-container">
+                    <img alt="Plush Elephant Toy" class="image"
+                      src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?w=300&amp;h=300&amp;fit=crop&amp;auto=format">
+                  </div>
+                  <div class="item-details">
+                    <p class="category">Toys</p>
+                    <p class="name">Plush Elephant Toy</p>
+                    <p class="price">$18.50</p>
+                    <div class="buttons">
+                      <div class="quantity-controls">
+                        <button class="less">−</button>
+                        <span class="quantity">2</span><button class="more">+</button>
+                      </div>
+                      <button class="remove">
+                        <svg class="" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
+                          </path>
+                        </svg>Remove</button>
+                    </div>
+                  </div>
+                  <div class="price-container">
+                    <p class="price">$37.00</p>
+                    <p class="quantity">2 × $18.50</p>
+                  </div>
+                </li>
+                <li class="item">
+                  <div class="image-container">
+                    <img alt="Adjustable Leather Collar" class="image"
+                      src="https://images.unsplash.com/photo-1589924749359-9697080c3577?w=300&amp;h=300&amp;fit=crop&amp;auto=format">
+                  </div>
+                  <div class="item-details">
+                    <p class="category">Accessories</p>
+                    <p class="name">Adjustable Leather Collar</p>
+                    <p class="price">$34.00</p>
+                    <div class="buttons">
+                      <div class="quantity-controls">
+                        <button class="less">−</button>
+                        <span class="quantity">1</span>
+                        <button class="more">+</button>
+                      </div>
+                      <button class="remove">
+                        <svg class="" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
+                          </path>
+                        </svg>Remove</button>
+                    </div>
+                  </div>
+                  <div class="price-container">
+                    <p class="price">$34.00</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div v-else class="cart-status">
+            <div class="empty">
+              <p class="icon">🛒</p>
+              <p class="info">Your cart is empty.</p>
+              <button class="go-back">Back to shop</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="promo-code-container">
+          <h3 class="title">🏷️ Promo code</h3>
+          <div class="promo-code-input">
+            <input placeholder="Enter code (try PAWSOME20)" class="" value="">
+            <button class="apply-button">Apply</button>
+          </div>
+        </div>
+
+        <div class="frequently-bought-together">
+          <div class="frequently-bought-together-header">
+            <h3 class="title">Frequently bought together</h3>
+          </div>
+          <div class="frequently-bought-together-body">
+            <div class="frequently-bought-together-item">
+              <img alt=""
+                src="https://images.unsplash.com/photo-1573435567032-ff5982925350?w=200&amp;h=200&amp;fit=crop&amp;auto=format">
+              <div class="">
+                <p class="">Health</p>
+                <p class="">Omega-3 Supplement Drops</p>
+                <p class="">$29.95</p>
+              </div>
+            </div>
+            <div
+              class="flex gap-3 items-center p-3 rounded-xl border border-sand hover:border-terracotta/40 hover:bg-parchment/50 transition-all group">
+              <img alt="Ceramic Dog Bowl Set" class="w-14 h-14 rounded-xl object-cover flex-shrink-0"
+                src="https://images.unsplash.com/photo-1714068691210-073dc52c6c1d?w=200&amp;h=200&amp;fit=crop&amp;auto=format">
+              <div class="min-w-0 flex-1">
+                <p class="text-xs text-bark-light">Accessories</p>
+                <p class="text-sm font-semibold text-bark leading-snug">Ceramic Dog Bowl Set</p>
+                <p class="text-terracotta font-bold text-sm mt-0.5">$38.00</p>
+              </div>
+            </div>
+            <div
+              class="flex gap-3 items-center p-3 rounded-xl border border-sand hover:border-terracotta/40 hover:bg-parchment/50 transition-all group">
+              <img alt="Kong Chew Bone" class="w-14 h-14 rounded-xl object-cover flex-shrink-0"
+                src="https://images.unsplash.com/photo-1535294435445-d7249524ef2e?w=200&amp;h=200&amp;fit=crop&amp;auto=format">
+              <div class="min-w-0 flex-1">
+                <p class="text-xs text-bark-light">Toys</p>
+                <p class="text-sm font-semibold text-bark leading-snug">Kong Chew Bone</p>
+                <p class="text-terracotta font-bold text-sm mt-0.5">$14.00</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="delivery-details">
+          <div class="">
+            <div class="delivery-details-header">
+              <h2 class="title">Delivery details</h2>
+              <p class="subtitle">Tell us where to send your order</p>
+            </div>
+
+            <div class="delivery-details-body">
+              <div class="form-group1">
+                <div class="">
+                  <strong class="label">First name:</strong>
+                  <input v-model.trim="order.firstName" placeholder="Jane" class="form-control" />
+                </div>
+                <div class="">
+                  <strong class="label">Last name:</strong>
+                  <input v-model.trim="order.lastName" placeholder="Smith" class="form-control" />
+                </div>
+              </div>
+              <div class="form-group2">
+                <div class="">
+                  <strong class="label">Address:</strong>
+                </div>
+                <div class="">
+                  <input v-model.trim="order.address" class="form-control" placeholder="123 Maple Street, Apt 4" />
+                </div>
+              </div>
+              <div class="form-group3">
+                <div class="">
+                  <strong class="label">City:</strong>
+                  <input v-model.trim="order.city" class="form-control" placeholder="New York" />
+                </div>
+                <div class="">
+                  <strong class="label">Zip code:</strong>
+                  <input v-model.number="order.zip" class="form-control" type="number" placeholder="10001" />
+                </div>
+              </div>
+              <div class="form-group4">
+                <div class="">
+                  <strong class="label">State:</strong>
+                  <select v-model="order.state" class="form-control">
+                    <option disabled value="">State</option>
+                    <option v-for="(state, key) in states" v-bind:value="state">
+                      {{ key }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group6">
+                <p class="delivery-options">Delivery options</p>
+                <div class="types">
+                  <label class="home active">
+                    <input class="sr-only" type="radio" id="home" v-bind:value="order.home" v-model="order.method">🏠
+                    Home
+                  </label>
+                  <label class="business">
+                    <input class="sr-only" type="radio" id="business" v-bind:value="order.business"
+                      v-model="order.method">🏢
+                    Business
+                  </label>
+                </div>
+                <label class="gift">
+                  <div class="checkbox">
+                  </div>
+                  <input class="sr-only" type="checkbox" id="gift" value="true" v-bind:true-value="order.sendGift"
+                    v-bind:false-value="order.dontSendGift" v-model="order.gift">
+                  <label class="text" for="gift">🎁 Send as a gift?</label>
+                </label>
+              </div>
+              <div class="form-group8">
+                <p data-v-1b5a9218="" class="test-text">TEST</p>
+                <div class="">
+                  <button type="submit" class="btn btn-primary submit inactive" v-on:click="submitForm">Place order
+                    →</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div> -->
+      </div>
+
+
+      <!-- <div class="order-summary">
+        <div class="header">
+          <h2 class="title">Order summary</h2>
+        </div>
+        <div class="body">
+          <div class="items">
+            <span class="title">Items (0)</span>
+            <span class="subtitle">$0.00</span>
+          </div>
+          <div class="shipping">
+            <span class="title">Shipping</span>
+            <span class="subtitle">$9.99</span>
+          </div>
+          <p class="banner">Add <strong class="">$35.00</strong> more to qualify for free shipping.</p>
+          <div class="total">
+            <span class="title">Total</span>
+            <span class="subtitle">$9.99</span>
+          </div>
+          <div class="order-details">
+            <p class="title">Order details</p>
+            <p class="order-detail"><span class="bolder">Name:</span> {{ order.firstName }} {{ order.lastName }}</p>
+            <p class="order-detail"><span class="bolder">Address:</span> {{ order.address }}</p>
+            <p class="order-detail"><span class="bolder">City:</span> {{ order.address }}</p>
+            <p class="order-detail"><span class="bolder">State:</span> {{ order.city }}</p>
+            <p class="order-detail"><span class="bolder">Zip code:</span> {{ order.zip }}</p>
+            <p class="order-detail"><span class="bolder">Type:</span> {{ order.method }}</p>
+            <p class="order-detail"><span class="bolder">Gift:</span> {{ order.gift }}</p>
+          </div>
+          <div class="second">
+            <button type="submit inactive" class="btn btn-primary submit inactive" v-on:click="submitForm">Place order
+              →</button>
+          </div>
+          <p class="info">🔒 Secure payment · Free returns within 30 days</p>
+        </div>
+      </div> -->
+
+    </div>
+    <MyFooter />
+  </div>
+</template>
+
+>>>>>>> 793dec9 (feat: implement footer component and integrate into main and form pages)
 <script>
 import MyHeader from './Header.vue';
+import MyFooter from './Footer.vue';
 export default {
   name: 'Form',
   props: ['cartItemCount'],
@@ -45,7 +365,7 @@ export default {
       return this.cart.reduce((sum, product) => sum + Number(product.price || 0), 0);
     }
   },
-  components: { MyHeader },
+  components: { MyHeader, MyFooter },
   methods: {
     submitForm() {
       this.madeOrder = true;
@@ -407,6 +727,66 @@ export default {
   }
 }
 
+<<<<<<< HEAD
+=======
+.cart-page .promo-code-container,
+.cart-page .frequently-bought-together {
+  padding: calc(0.25rem * 8);
+  background-color: #fff;
+  border: 1px solid #e8d9c4;
+  border-radius: 1.6rem;
+  margin-bottom: 2.4rem;
+}
+
+.cart-page .promo-code-container .title {
+  color: #3d2414;
+  font-size: 1.4rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-weight: 600;
+  margin-bottom: calc(0.25rem * 4.8);
+  margin-top: 0;
+}
+
+.cart-page .promo-code-container .promo-code-input {
+  gap: calc(0.25rem * 3.5);
+  display: flex;
+}
+
+.cart-page .promo-code-container .promo-code-input input {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  transition-duration: 0.15s;
+  color: #3d2414;
+  padding-block: calc(0.25rem * 4.8);
+  padding-inline: calc(0.25rem * 6.4);
+  font-size: 1.4rem;
+  background-color: #faf6f0;
+  border: 1px solid #e8d9c4;
+  border-radius: 1.2rem;
+}
+
+.cart-page .promo-code-container .promo-code-input button {
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  transition-duration: 0.15s;
+  color: #faf6f0;
+  font-weight: 600;
+  font-size: 1.4rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+  background-color: #3d2414;
+  border: none;
+  border-radius: 1.2rem;
+  padding-block: calc(0.25rem * 4.8);
+  padding-inline: calc(0.25rem * 6.4);
+}
+
+.cart-page .frequently-bought-together .frequently-bought-together-header {
+  padding-block: calc(0.25rem * 4);
+  padding-inline: calc(0.25rem * 5);
+  border-bottom: 1px solid #e8d9c4;
+  color: #3d2414;
+}
+
+>>>>>>> 793dec9 (feat: implement footer component and integrate into main and form pages)
 .cart-page .cart-info .cart-status {
   margin: 0 0 2.4rem;
   padding: calc(0.25rem * 16);
@@ -791,47 +1171,5 @@ export default {
 .cart-page .cart-info .delivery-details-body {
   padding: 2rem;
   padding-bottom: 0;
-}
-
-.footer {
-  background-color: #3d2414;
-  color: #f1ece6;
-  padding: 20px 20px;
-}
-
-.footer .div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.footer .title {
-  color: #faf6f0;
-  font-family: 'Fraunces', serif;
-  font-size: 20px;
-  font-weight: 600;
-  font-style: italic;
-  padding-bottom: 20px;
-  padding-top: 10px;
-}
-
-.footer .subtitle {
-  color: #faf6f0;
-  font-family: 'Outfit', sans-serif;
-  font-size: 14px;
-}
-
-.footer .links {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  color: #faf6f0;
-  font-family: 'Outfit', sans-serif;
-  font-size: 14px;
-  padding-bottom: 10px;
-}
-
-.footer .links a {
-  color: #faf6f0;
 }
 </style>
