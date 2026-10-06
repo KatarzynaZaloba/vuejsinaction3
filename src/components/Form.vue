@@ -238,17 +238,7 @@ export default {
 
       </div>
     </div>
-    <footer class="footer">
-      <div class="div">
-        <span class="title">Pawsome</span>
-        <p class="subtitle">© 2026 Pawsome Pet Supply. All rights reserved.</p>
-        <div class="links">
-          <a href="#" class="">Privacy</a>
-          <a href="#" class="">Terms</a>
-          <a href="#" class="">Contact</a>
-        </div>
-      </div>
-    </footer>
+    <MyFooter></MyFooter>
   </div>
 </template>
 
