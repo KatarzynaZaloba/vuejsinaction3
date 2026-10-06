@@ -1,19 +1,21 @@
 <script>
-import MyHeader from './Header.vue';
-import CartSteps from './CartSteps.vue';
-import CartItems from './CartItems.vue';
-import PromoCode from './PromoCode.vue';
-import DeliveryDetails from './DeliveryDetails.vue';
-import OrderSummary from './OrderSummary.vue';
-import StoreFooter from './StoreFooter.vue';
+import MyHeader from "./Header.vue";
+import CartSteps from "./CartSteps.vue";
+import CartItems from "./CartItems.vue";
+import PromoCode from "./PromoCode.vue";
+import DeliveryDetails from "./DeliveryDetails.vue";
+import OrderSummary from "./OrderSummary.vue";
+import CartRecommender from "./CartRecommender.vue";
+import MyFooter from "./Footer.vue";
+import PreOrderSummary from "./PreOrderSummary.vue";
 export default {
-  name: 'Form',
-  props: ['cartItemCount'],
+  name: "Form",
+  props: ["cartItemCount"],
   data() {
     let cart = [];
 
     try {
-      const savedCart = localStorage.getItem('cart');
+      const savedCart = localStorage.getItem("cart");
       const parsedCart = savedCart ? JSON.parse(savedCart) : [];
       cart = Array.isArray(parsedCart) ? parsedCart : [];
     } catch {
@@ -23,41 +25,53 @@ export default {
     return {
       cart,
       states: {
-        DL: 'Dolnośląskie',
-        KP: 'Kujawsko-pomorskie',
-        LB: 'Lubelskie',
-        LU: 'Lubuskie'
+        DL: "Dolnośląskie",
+        KP: "Kujawsko-pomorskie",
+        LB: "Lubelskie",
+        LU: "Lubuskie",
       },
       order: {
-        firstName: '',
-        lastName: '',
-        address: '',
-        city: '',
-        zip: '',
-        state: '',
-        method: 'Home address',
-        business: 'Business address',
-        home: 'Home address',
-        gift: 'Send as a gift',
-        sendGift: 'Send as a gift',
-        dontSendGift: 'Do not send as a gift'
+        firstName: "",
+        lastName: "",
+        address: "",
+        city: "",
+        zip: "",
+        state: "",
+        method: "Home address",
+        business: "Business address",
+        home: "Home address",
+        gift: "Send as a gift",
+        sendGift: "Send as a gift",
+        dontSendGift: "Do not send as a gift",
       },
-      madeOrder: false
-
-    }
+      madeOrder: false,
+    };
   },
   computed: {
     subtotal() {
-      return this.cart.reduce((sum, product) => sum + Number(product.price || 0), 0);
-    }
+      return this.cart.reduce(
+        (sum, product) => sum + Number(product.price || 0),
+        0,
+      );
+    },
   },
-  components: { MyHeader, CartSteps, CartItems, PromoCode, DeliveryDetails, OrderSummary, StoreFooter },
+  components: {
+    MyHeader,
+    CartSteps,
+    CartItems,
+    PromoCode,
+    DeliveryDetails,
+    OrderSummary,
+    CartRecommender,
+    MyFooter,
+    PreOrderSummary,
+  },
   methods: {
     submitForm() {
       this.madeOrder = true;
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <template>
@@ -68,7 +82,12 @@ export default {
         <div class="header">
           <button class="go-back">
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 19l-7-7 7-7"
+              ></path>
             </svg>
             Back to shop
           </button>
@@ -82,11 +101,17 @@ export default {
       <div class="cart-info">
         <cart-items :cart="cart"></cart-items>
         <promo-code></promo-code>
-        <delivery-details :order="order" :states="states" @place-order="submitForm"></delivery-details>
-        <order-summary :order="order" @place-order="submitForm"></order-summary>
+        <cart-recommender></cart-recommender>
+        <!-- <delivery-details
+          :order="order"
+          :states="states"
+          @place-order="submitForm"
+        ></delivery-details> -->
+        <pre-order-summary :order="order"></pre-order-summary>
+        <!-- <order-summary :order="order" @place-order="submitForm"></order-summary> -->
       </div>
     </div>
-    <store-footer></store-footer>
+    <my-footer></my-footer>
   </div>
 </template>
 

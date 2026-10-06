@@ -15,18 +15,18 @@
 }
 
 .cart-page .container .go-back {
-  transition-timing-function: var(--tw-ease, cubic-bezier(.4, 0, .2, 1));
+  transition-timing-function: var(--tw-ease, cubic-bezier(0.4, 0, 0.2, 1));
   transition-duration: 0.15s;
   color: #6b4226;
   font-size: 1.4rem;
-  line-height: calc(1.25 / .875);
+  line-height: calc(1.25 / 0.875);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: calc(0.25rem * 3);
   background-color: transparent;
   border: unset;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: "Outfit", system-ui, sans-serif;
   font-size: 1.4rem;
   padding: 0;
   margin-bottom: calc(0.25rem * 6.4);
@@ -43,7 +43,7 @@
 
 .cart-page .container .title {
   font-size: 3rem;
-  font-family: 'Fraunces', Georgia, serif;
+  font-family: "Fraunces", Georgia, serif;
   font-weight: 600;
   color: #3d2414;
   margin-bottom: 0;
@@ -59,7 +59,7 @@
   color: #6b4226;
   font-size: 1.4rem;
   margin-top: calc(0.25rem * 1);
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: "Outfit", system-ui, sans-serif;
 }
 
 .cart-page .cart-info {
@@ -101,7 +101,7 @@
 }
 
 .cart-page .cart-steps .step-indicator .circle {
-  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 0.15s;
   color: #6b4226;
   font-weight: 700;
@@ -114,7 +114,7 @@
   scale: 110% 110%;
   width: calc(0.25rem * 12.8);
   height: calc(0.25rem * 12.8);
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: "Outfit", system-ui, sans-serif;
 }
 
 .cart-page .cart-steps .step-indicator.active .circle {
@@ -126,7 +126,7 @@
   color: #6b4226;
   font-weight: 500;
   font-size: 10px;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: "Outfit", system-ui, sans-serif;
   margin-top: calc(0.25rem * 1.6);
 }
 
@@ -135,7 +135,7 @@
 }
 
 .cart-page .cart-steps .border {
-  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 0.15s;
   background-color: #e8d9c4;
   width: calc(0.25rem * 19.2);
@@ -166,7 +166,7 @@
 .cart-page .promo-code-container .title {
   color: #3d2414;
   font-size: 1.4rem;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: "Outfit", system-ui, sans-serif;
   font-weight: 600;
   margin-bottom: calc(0.25rem * 4.8);
   margin-top: 0;
@@ -179,24 +179,30 @@
 
 .cart-page .promo-code-container .promo-code-input input {
   transition-property: all;
-  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 0.15s;
-  color: #3d2414;
+
   padding-block: calc(0.25rem * 4.8);
   padding-inline: calc(0.25rem * 6.4);
-  font-size: 1.4rem;
+
   background-color: #faf6f0;
   border: 1px solid #e8d9c4;
   border-radius: 1.2rem;
 }
 
+.cart-page .promo-code-container .promo-code-input input::placeholder {
+  font-size: 1.4rem;
+  color: #a48a77;
+  font-family: "Outfit", system-ui, sans-serif;
+}
+
 .cart-page .promo-code-container .promo-code-input button {
-  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 0.15s;
   color: #faf6f0;
   font-weight: 600;
   font-size: 1.4rem;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: "Outfit", system-ui, sans-serif;
   background-color: #3d2414;
   border: none;
   border-radius: 1.2rem;
@@ -230,13 +236,13 @@
 }
 
 .cart-page .cart-info .cart-status .items-header .clear-all {
-  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 0.15s;
   border: unset;
   padding: 0;
   background-color: transparent;
   font-size: 1.2rem;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: "Outfit", system-ui, sans-serif;
 
   &:hover {
     color: #c1552a;
@@ -248,13 +254,13 @@
   color: #3d2414;
   font-weight: 600;
   font-size: 1.8rem;
-  font-family: 'Fraunces', Georgia, serif;
+  font-family: "Fraunces", Georgia, serif;
 }
 
 .cart-page .cart-info .cart-status .items-header .title .amount {
   color: #6b4226;
   font-size: 1.6rem;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: "Outfit", system-ui, sans-serif;
   font-weight: 400;
 }
 
@@ -301,7 +307,7 @@
   letter-spacing: 0.1rem;
   font-weight: 600;
   font-size: 1rem;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: "Outfit", system-ui, sans-serif;
   margin-bottom: calc(0.25rem * 0.8);
   text-align: left;
 }
@@ -310,7 +316,7 @@
   color: #3d2414;
   font-weight: 600;
   line-height: 1.375;
-  font-family: 'Fraunces', Georgia, serif;
+  font-family: "Fraunces", Georgia, serif;
   font-size: 1.6rem;
   text-align: left;
   margin-bottom: 0;
@@ -319,10 +325,10 @@
 .cart-page .cart-info .cart-status .items-body .item .item-details .price {
   color: #c1552a;
   font-size: 1.6rem;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: "Outfit", system-ui, sans-serif;
   font-weight: 600;
   text-align: left;
-  margin-top: calc(0.25rem * .8);
+  margin-top: calc(0.25rem * 0.8);
   margin-bottom: 0;
 }
 
@@ -333,18 +339,41 @@
   margin-top: calc(0.25rem * 4.8);
 }
 
-.cart-page .cart-info .cart-status .items-body .item .item-details .buttons .quantity-controls {
+.cart-page
+  .cart-info
+  .cart-status
+  .items-body
+  .item
+  .item-details
+  .buttons
+  .quantity-controls {
   border: 1px solid #e8d9c4;
   border-radius: 1.2rem;
   display: flex;
   align-items: center;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: "Outfit", system-ui, sans-serif;
 }
 
-.cart-page .cart-info .cart-status .items-body .item .item-details .buttons .quantity-controls .less,
-.cart-page .cart-info .cart-status .items-body .item .item-details .buttons .quantity-controls .more {
+.cart-page
+  .cart-info
+  .cart-status
+  .items-body
+  .item
+  .item-details
+  .buttons
+  .quantity-controls
+  .less,
+.cart-page
+  .cart-info
+  .cart-status
+  .items-body
+  .item
+  .item-details
+  .buttons
+  .quantity-controls
+  .more {
   color: #6b4226;
-  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 0.15s;
   font-weight: 700;
   line-height: calc(1.5 / 1);
@@ -360,29 +389,52 @@
   padding: 0;
 }
 
-.cart-page .cart-info .cart-status .items-body .item .item-details .buttons .quantity-controls .quantity {
+.cart-page
+  .cart-info
+  .cart-status
+  .items-body
+  .item
+  .item-details
+  .buttons
+  .quantity-controls
+  .quantity {
   font-size: 1.4rem;
   font-weight: 600;
   padding: 0;
   width: calc(0.25rem * 8);
 }
 
-.cart-page .cart-info .cart-status .items-body .item .item-details .buttons .remove {
-  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+.cart-page
+  .cart-info
+  .cart-status
+  .items-body
+  .item
+  .item-details
+  .buttons
+  .remove {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 0.15s;
   color: #6b4226;
   border: unset;
   background-color: transparent;
-  line-height: calc(1 / .75);
+  line-height: calc(1 / 0.75);
   gap: calc(0.25rem * 2);
   align-items: center;
   display: flex;
   touch-action: manipulation;
   font-size: 1.2rem;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: "Outfit", system-ui, sans-serif;
 }
 
-.cart-page .cart-info .cart-status .items-body .item .item-details .buttons .remove svg {
+.cart-page
+  .cart-info
+  .cart-status
+  .items-body
+  .item
+  .item-details
+  .buttons
+  .remove
+  svg {
   width: calc(0.25rem * 5.6);
   height: calc(0.25rem * 5.6);
   vertical-align: middle;
@@ -397,17 +449,23 @@
 .cart-page .cart-info .cart-status .items-body .item .price-container .price {
   color: #3d2414;
   font-size: 1.8rem;
-  font-family: 'Fraunces', Georgia, sans-serif;
+  font-family: "Fraunces", Georgia, sans-serif;
   font-weight: 700;
   line-height: calc(1.75 / 1.125);
   margin-bottom: 0;
 }
 
-.cart-page .cart-info .cart-status .items-body .item .price-container .quantity {
+.cart-page
+  .cart-info
+  .cart-status
+  .items-body
+  .item
+  .price-container
+  .quantity {
   margin-bottom: 0;
   color: #6b4226;
   font-size: 1.2rem;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: "Outfit", system-ui, sans-serif;
 }
 
 .cart-page .cart-info .cart-status .icon {
@@ -418,22 +476,22 @@
 .cart-page .cart-info .cart-status .info {
   color: #6b4226;
   font-size: 1.6rem;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: "Outfit", system-ui, sans-serif;
 }
 
 .cart-page .cart-info .cart-status .go-back {
-  transition-timing-function: var(--tw-ease, cubic-bezier(.4, 0, .2, 1));
+  transition-timing-function: var(--tw-ease, cubic-bezier(0.4, 0, 0.2, 1));
   transition-duration: 0.15s;
   color: #c1552a;
   font-size: 1.4rem;
-  line-height: calc(1.25 / .875);
+  line-height: calc(1.25 / 0.875);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: calc(0.25rem * 1.5);
   background-color: transparent;
   border: unset;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: "Outfit", system-ui, sans-serif;
   font-size: 1.4rem;
   font-weight: 600;
   padding: 0;
@@ -457,7 +515,7 @@
 .cart-page .cart-info .delivery-details-header .title {
   color: #3d2414;
   font-size: 1.8rem;
-  font-family: 'Fraunces', Georgia, serif;
+  font-family: "Fraunces", Georgia, serif;
   font-weight: 600;
   margin: 0;
 }
@@ -467,7 +525,7 @@
   font-size: 1.2rem;
   margin-top: calc(0.25rem * 2);
   margin-bottom: 0;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: "Outfit", system-ui, sans-serif;
 }
 
 .cart-page .cart-info .delivery-details .label {
@@ -475,7 +533,7 @@
   text-transform: uppercase;
   font-weight: 600;
   font-size: 1.2rem;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: "Outfit", system-ui, sans-serif;
   letter-spacing: 0.05em;
   margin-bottom: calc(0.25rem * 2);
   padding: 0;
@@ -489,7 +547,7 @@
   border: 1px solid #e8d9c4;
   border-radius: 1.4rem;
   padding: 2rem 1.6rem;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: "Outfit", system-ui, sans-serif;
   font-size: 1.4rem;
 }
 
@@ -507,8 +565,18 @@
   }
 }
 
-.cart-page .cart-info .delivery-details .delivery-details-body .form-group1>div,
-.cart-page .cart-info .delivery-details .delivery-details-body .form-group3>div {
+.cart-page
+  .cart-info
+  .delivery-details
+  .delivery-details-body
+  .form-group1
+  > div,
+.cart-page
+  .cart-info
+  .delivery-details
+  .delivery-details-body
+  .form-group3
+  > div {
   width: 100%;
 }
 
@@ -540,7 +608,7 @@
   border: 1px solid #e8d9c4;
   border-radius: 1.4rem;
   padding: 2rem 1.6rem;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: "Outfit", system-ui, sans-serif;
   font-size: 1.4rem;
 }
 
@@ -552,7 +620,7 @@
   color: #faf6f0;
   font-weight: 600;
   font-size: 1.4rem;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: "Outfit", system-ui, sans-serif;
   border: unset;
   padding-block: calc(0.25rem * 6.4);
   padding-inline: 0;
@@ -607,7 +675,7 @@
   color: #3d2414;
   font-weight: 600;
   font-size: 1.8rem;
-  font-family: 'Fraunces', Georgia, sans-serif;
+  font-family: "Fraunces", Georgia, sans-serif;
 }
 
 .cart-page .cart-info .order-summary .body {
@@ -621,13 +689,12 @@
   justify-content: space-between;
   margin-bottom: 1.6rem;
   font-size: 1.4rem;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: "Outfit", system-ui, sans-serif;
 }
 
 .cart-page .cart-info .order-summary .body .items span.title,
 .cart-page .cart-info .order-summary .body .shipping span.title {
   color: #6b4226;
-
 }
 
 .cart-page .cart-info .order-summary .body .items span.subtitle,
@@ -644,7 +711,7 @@
   margin-bottom: 1.2rem;
   color: #6b4226;
   font-size: 1.2rem;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: "Outfit", system-ui, sans-serif;
 }
 
 .cart-page .cart-info .order-summary .body .banner strong {
@@ -662,7 +729,7 @@
 .cart-page .cart-info .order-summary .body .total .title {
   color: #3d2414;
   font-size: 1.6rem;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: "Outfit", system-ui, sans-serif;
   font-weight: 600;
 }
 
@@ -670,22 +737,21 @@
   color: #6b4226;
   text-align: center;
   font-size: 1.2rem;
-  font-family: 'Outfit', system-ui, sans-serif;
-
+  font-family: "Outfit", system-ui, sans-serif;
 }
 
 .cart-page .cart-info .order-summary .body .total .subtitle {
   color: #c1552a;
   font-weight: 700;
   font-size: 2rem;
-  font-family: 'Fraunces', Georgia, sans-serif;
+  font-family: "Fraunces", Georgia, sans-serif;
 }
 
 .cart-page .cart-info .order-summary .body .order-details {
   padding: calc(0.25rem * 4.8);
   color: #6b4226;
   font-size: 1.2rem;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: "Outfit", system-ui, sans-serif;
   background-color: #f2ebe0;
   border: 1px solid #e8d9c4;
   border-radius: 1rem;
@@ -698,11 +764,21 @@
   font-weight: 600;
 }
 
-.cart-page .cart-info .order-summary .body .order-details .order-detail:not(:last-child) {
+.cart-page
+  .cart-info
+  .order-summary
+  .body
+  .order-details
+  .order-detail:not(:last-child) {
   margin-bottom: 0.4rem;
 }
 
-.cart-page .cart-info .order-summary .body .order-details .order-detail:last-child {
+.cart-page
+  .cart-info
+  .order-summary
+  .body
+  .order-details
+  .order-detail:last-child {
   margin-bottom: 0;
 }
 
@@ -722,7 +798,7 @@
   text-transform: uppercase;
   font-weight: 600;
   font-size: 1.2rem;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: "Outfit", system-ui, sans-serif;
   letter-spacing: 0.05em;
   margin-bottom: calc(0.25rem * 4.8);
 }
@@ -741,15 +817,14 @@
   font-weight: 500;
   border-radius: 1.4rem;
   font-size: 1.4rem;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: "Outfit", system-ui, sans-serif;
   border: 2px solid #e8d9c4;
   color: #6b4226;
 }
 
 .cart-page .form-group6 .types .home.active,
 .cart-page .form-group6 .types .business.active {
-  background-color:
-    color-mix(in oklab, #c1552a 5%, transparent);
+  background-color: color-mix(in oklab, #c1552a 5%, transparent);
   color: #3d2414;
   border: 2px solid #c1552a;
 }
@@ -763,7 +838,7 @@
 
 .cart-page .form-group6 .gift .checkbox {
   border: 2px solid #e8d9c4;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -775,13 +850,340 @@
 .cart-page .form-group6 .gift .text {
   color: #6b4226;
   font-size: 1.4rem;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: "Outfit", system-ui, sans-serif;
   font-weight: 400;
 }
 
 .cart-page .cart-info .delivery-details-body {
   padding: 2rem;
   padding-bottom: 0;
+}
+
+.checkout-page .cart-recommender {
+  background-color: #fff;
+  border: 1px solid #e8d9c4;
+  border-radius: 1.6rem;
+  margin-bottom: 2.4rem;
+}
+
+.checkout-page .cart-recommender .cart-recommender-header {
+  padding-block: calc(0.25rem * 6.4);
+  padding-inline: calc(0.25rem * 8);
+  border-bottom: 1px solid #e8d9c4;
+}
+
+.checkout-page .cart-recommender .cart-recommender-header .title {
+  margin: 0;
+  font-size: 1.6rem;
+  font-family: "Fraunces", Georgia, sans-serif;
+  color: #3d2414;
+  font-weight: 600;
+}
+
+.checkout-page .cart-recommender .cart-recommender-items {
+  padding: calc(0.25rem * 8);
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  display: grid;
+  gap: calc(0.25rem * 6.4);
+}
+
+.checkout-page
+  .cart-recommender
+  .cart-recommender-items
+  .cart-recommender-item {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.15s;
+  padding: calc(0.25rem * 6.4);
+  border: 1px solid #e8d9c4;
+  border-radius: 1.2rem;
+  gap: calc(0.25rem * 3);
+  align-items: center;
+  display: flex;
+}
+
+.checkout-page
+  .cart-recommender
+  .cart-recommender-items
+  .cart-recommender-item
+  .cart-recommender-item-details {
+  flex: 1;
+  min-width: calc(0.25rem * 0);
+}
+
+.checkout-page
+  .cart-recommender
+  .cart-recommender-items
+  .cart-recommender-item
+  .cart-recommender-item-details
+  .category {
+  color: #6b4226;
+  font-size: 1.2rem;
+  font-family: "Outfit", system-ui, sans-serif;
+  margin: 0;
+}
+
+.checkout-page
+  .cart-recommender
+  .cart-recommender-items
+  .cart-recommender-item
+  .cart-recommender-item-details
+  .name {
+  color: #3d2414;
+  font-size: 1.4rem;
+  font-family: "Outfit", system-ui, sans-serif;
+  font-weight: 600;
+  margin: 0;
+}
+
+.checkout-page
+  .cart-recommender
+  .cart-recommender-items
+  .cart-recommender-item
+  .cart-recommender-item-details
+  .price {
+  color: #c1552a;
+  font-size: 1.4rem;
+  font-family: "Outfit", system-ui, sans-serif;
+  font-weight: 700;
+  margin-top: calc(0.25rem * 0.8);
+  margin-bottom: 0;
+}
+
+.checkout-page
+  .cart-recommender
+  .cart-recommender-items
+  .cart-recommender-item
+  .image {
+  object-fit: cover;
+  border-radius: 1.2rem;
+  flex-shrink: 0;
+  width: calc(0.25rem * 22.4);
+  height: calc(0.25rem * 22.4);
+  max-width: 100%;
+}
+
+.checkout-page .pre-order-summary {
+  background-color: #fff;
+  border: 1px solid #e8d9c4;
+  border-radius: 1.6rem;
+  position: sticky;
+  top: calc(0.25rem * 20);
+}
+
+.checkout-page .pre-order-summary .pre-order-summary-header {
+  padding-block: calc(0.25rem * 6.4);
+  padding-inline: calc(0.25rem * 8);
+  border-bottom: 1px solid #e8d9c4;
+  background-color: #f2ebe0;
+  border-top-left-radius: 1.6rem;
+  border-top-right-radius: 1.6rem;
+}
+
+.checkout-page .pre-order-summary .pre-order-summary-header .title {
+  color: #3d2414;
+  font-weight: 600;
+  font-size: 1.8rem;
+  font-family: "Fraunces", Georgia, sans-serif;
+  margin: 0;
+}
+
+.checkout-page .pre-order-summary .pre-order-summary-header .subtitle {
+  color: #6b4226;
+  font-size: 1.2rem;
+  font-family: "Outfit", system-ui, sans-serif;
+  margin-top: calc(0.25rem * 0.8);
+  margin-bottom: 0;
+}
+
+.checkout-page .pre-order-summary .pre-order-summary-body {
+  padding-block: calc(0.25rem * 4.8);
+  padding-inline: calc(0.25rem * 8);
+  border-bottom: 1px solid #e8d9c4;
+  overflow-y: auto;
+  max-height: calc(0.25rem * 80);
+}
+
+.checkout-page
+  .pre-order-summary
+  .pre-order-summary-body
+  .pre-order-summary-item {
+  gap: calc(0.25rem * 5);
+  align-items: center;
+  display: flex;
+}
+
+.checkout-page
+  .pre-order-summary
+  .pre-order-summary-body
+  .pre-order-summary-item:not(:last-of-type) {
+  margin-bottom: 1rem;
+}
+
+.checkout-page
+  .pre-order-summary
+  .pre-order-summary-body
+  .pre-order-summary-item
+  .pre-order-summary-item-image {
+  background-color: #f2ebe0;
+  border-radius: 1rem;
+  overflow: hidden;
+  flex-shrink: 0;
+  width: calc(0.25rem * 16);
+  height: calc(0.25rem * 16);
+}
+
+.checkout-page
+  .pre-order-summary
+  .pre-order-summary-body
+  .pre-order-summary-item
+  .pre-order-summary-item-image
+  .image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+}
+
+.checkout-page
+  .pre-order-summary
+  .pre-order-summary-body
+  .pre-order-summary-item
+  .pre-order-summary-item-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.checkout-page
+  .pre-order-summary
+  .pre-order-summary-body
+  .pre-order-summary-item
+  .pre-order-summary-item-details
+  .name {
+  color: #3d2414;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 1.2rem;
+  font-family: "Outfit", system-ui, sans-serif;
+  margin-bottom: 0;
+}
+
+.checkout-page
+  .pre-order-summary
+  .pre-order-summary-body
+  .pre-order-summary-item
+  .pre-order-summary-item-details
+  .quantity {
+  color: #6b4226;
+  font-size: 1.2rem;
+  font-family: "Outfit", system-ui, sans-serif;
+  margin-bottom: 0;
+}
+
+.checkout-page
+  .pre-order-summary
+  .pre-order-summary-body
+  .pre-order-summary-item
+  .price {
+  color: #3d2414;
+  font-size: 1.2rem;
+  font-family: "Outfit", system-ui, sans-serif;
+  margin-bottom: 0;
+  font-weight: 700;
+}
+
+.checkout-page .pre-order-summary .pre-order-summary-footer {
+  padding: calc(0.25rem * 8);
+}
+
+.checkout-page .pre-order-summary .pre-order-summary-footer .subtotal,
+.checkout-page .pre-order-summary .pre-order-summary-footer .shipping,
+.checkout-page .pre-order-summary .pre-order-summary-footer .loyalty-discount,
+.checkout-page .pre-order-summary .pre-order-summary-footer .total {
+  justify-content: space-between;
+  display: flex;
+  margin-bottom: 1rem;
+  padding: 0;
+}
+
+.checkout-page .pre-order-summary .pre-order-summary-footer .subtotal .label,
+.checkout-page .pre-order-summary .pre-order-summary-footer .shipping .label,
+.checkout-page
+  .pre-order-summary
+  .pre-order-summary-footer
+  .loyalty-discount
+  .label,
+.checkout-page .pre-order-summary .pre-order-summary-footer .total .label {
+  font-size: 1.4rem;
+  font-family: "Outfit", system-ui, sans-serif;
+  font-weight: 400;
+}
+
+.checkout-page .pre-order-summary .pre-order-summary-footer .subtotal .label,
+.checkout-page .pre-order-summary .pre-order-summary-footer .shipping .label {
+  color: #6b4226;
+}
+
+.checkout-page
+  .pre-order-summary
+  .pre-order-summary-footer
+  .loyalty-discount
+  .label,
+.checkout-page .pre-order-summary .pre-order-summary-footer .shipping .value,
+.checkout-page
+  .pre-order-summary
+  .pre-order-summary-footer
+  .loyalty-discount
+  .value {
+  color: #7a8c6e;
+  font-weight: 500;
+  font-size: 1.4rem;
+  font-family: "Outfit", system-ui, sans-serif;
+}
+
+.checkout-page .pre-order-summary .pre-order-summary-footer .subtotal .value {
+  font-size: 1.4rem;
+  font-family: "Outfit", system-ui, sans-serif;
+  font-weight: 500;
+  color: #3d2414;
+}
+
+.checkout-page .pre-order-summary .pre-order-summary-footer .total {
+  border-top: 1px solid #e8d9c4;
+  padding-top: calc(0.25rem * 6.4);
+  align-items: baseline;
+  display: flex;
+}
+
+.checkout-page .pre-order-summary .pre-order-summary-footer .total .label {
+  font-size: 1.6rem;
+  font-family: "Outfit", system-ui, sans-serif;
+  font-weight: 600;
+}
+
+.checkout-page .pre-order-summary .pre-order-summary-footer .total .value {
+  color: #c1552a;
+  font-weight: 700;
+  font-size: 2.4rem;
+  font-family: "Fraunces", Georgia, sans-serif;
+}
+
+.checkout-page .pre-order-summary .pre-order-summary-footer .proceed-button {
+  border: unset;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.15s;
+  color: #faf6f0;
+  background-color: #c1552a;
+  font-weight: 600;
+  padding-block: calc(0.25rem * 5.6);
+  border-radius: 1.2rem;
+  touch-action: manipulation;
+  width: 100%;
+  margin-top: calc(0.25rem * 1);
+  font-size: 1.4rem;
+  font-family: "Outfit", system-ui, sans-serif;
 }
 
 .checkout-page .footer {
@@ -798,7 +1200,7 @@
 
 .checkout-page .footer .title {
   color: #faf6f0;
-  font-family: 'Fraunces', serif;
+  font-family: "Fraunces", serif;
   font-size: 20px;
   font-weight: 600;
   font-style: italic;
@@ -808,7 +1210,7 @@
 
 .checkout-page .footer .subtitle {
   color: #faf6f0;
-  font-family: 'Outfit', sans-serif;
+  font-family: "Outfit", sans-serif;
   font-size: 14px;
 }
 
@@ -817,7 +1219,7 @@
   gap: 12px;
   justify-content: center;
   color: #faf6f0;
-  font-family: 'Outfit', sans-serif;
+  font-family: "Outfit", sans-serif;
   font-size: 14px;
   padding-bottom: 10px;
 }

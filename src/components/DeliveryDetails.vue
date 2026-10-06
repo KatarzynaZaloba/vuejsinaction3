@@ -1,3 +1,20 @@
+<script>
+export default {
+  name: 'DeliveryDetails',
+  props: {
+    order: {
+      type: Object,
+      required: true
+    },
+    states: {
+      type: Object,
+      required: true
+    }
+  },
+  emits: ['place-order']
+}
+</script>
+
 <template>
   <div class="delivery-details">
     <div>
@@ -55,8 +72,7 @@
               Home
             </label>
             <label class="business">
-              <input class="sr-only" type="radio" id="business" :value="order.business"
-                v-model="order.method">🏢
+              <input class="sr-only" type="radio" id="business" :value="order.business" v-model="order.method">🏢
               Business
             </label>
           </div>
@@ -79,20 +95,3 @@
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  name: 'DeliveryDetails',
-  props: {
-    order: {
-      type: Object,
-      required: true
-    },
-    states: {
-      type: Object,
-      required: true
-    }
-  },
-  emits: ['place-order']
-}
-</script>
