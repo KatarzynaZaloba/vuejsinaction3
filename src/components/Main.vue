@@ -1,5 +1,6 @@
 <script>
 import MyHeader from './Header.vue';
+import MyFooter from './Footer.vue';
 import { mapGetters } from 'vuex';
 import { mapState } from 'vuex';
 import { mapMutations } from 'vuex';
@@ -13,7 +14,7 @@ export default {
   firebase: {
     products: productsRef
   },
-  components: { MyHeader },
+  components: { MyHeader, MyFooter },
   setup() {
     const store = useStore();
     const loadCart = () => {
