@@ -152,7 +152,44 @@
           </div>
         </div>
 
-        <div class="delivery-details">
+        <div class="frequently-bought-together">
+          <div class="frequently-bought-together-header">
+            <h3 class="title">Frequently bought together</h3>
+          </div>
+          <div class="frequently-bought-together-body">
+            <div class="frequently-bought-together-item">
+              <img alt=""
+                src="https://images.unsplash.com/photo-1573435567032-ff5982925350?w=200&amp;h=200&amp;fit=crop&amp;auto=format">
+              <div class="">
+                <p class="">Health</p>
+                <p class="">Omega-3 Supplement Drops</p>
+                <p class="">$29.95</p>
+              </div>
+            </div>
+            <div
+              class="flex gap-3 items-center p-3 rounded-xl border border-sand hover:border-terracotta/40 hover:bg-parchment/50 transition-all group">
+              <img alt="Ceramic Dog Bowl Set" class="w-14 h-14 rounded-xl object-cover flex-shrink-0"
+                src="https://images.unsplash.com/photo-1714068691210-073dc52c6c1d?w=200&amp;h=200&amp;fit=crop&amp;auto=format">
+              <div class="min-w-0 flex-1">
+                <p class="text-xs text-bark-light">Accessories</p>
+                <p class="text-sm font-semibold text-bark leading-snug">Ceramic Dog Bowl Set</p>
+                <p class="text-terracotta font-bold text-sm mt-0.5">$38.00</p>
+              </div>
+            </div>
+            <div
+              class="flex gap-3 items-center p-3 rounded-xl border border-sand hover:border-terracotta/40 hover:bg-parchment/50 transition-all group">
+              <img alt="Kong Chew Bone" class="w-14 h-14 rounded-xl object-cover flex-shrink-0"
+                src="https://images.unsplash.com/photo-1535294435445-d7249524ef2e?w=200&amp;h=200&amp;fit=crop&amp;auto=format">
+              <div class="min-w-0 flex-1">
+                <p class="text-xs text-bark-light">Toys</p>
+                <p class="text-sm font-semibold text-bark leading-snug">Kong Chew Bone</p>
+                <p class="text-terracotta font-bold text-sm mt-0.5">$14.00</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="delivery-details">
           <div class="">
             <div class="delivery-details-header">
               <h2 class="title">Delivery details</h2>
@@ -232,11 +269,11 @@
           </div>
 
 
-        </div>
+        </div> -->
       </div>
 
 
-      <div class="order-summary">
+      <!-- <div class="order-summary">
         <div class="header">
           <h2 class="title">Order summary</h2>
         </div>
@@ -270,25 +307,16 @@
           </div>
           <p class="info">🔒 Secure payment · Free returns within 30 days</p>
         </div>
-      </div>
+      </div> -->
 
     </div>
-    <footer class="footer">
-      <div class="div">
-        <span class="title">Pawsome</span>
-        <p class="subtitle">© 2026 Pawsome Pet Supply. All rights reserved.</p>
-        <div class="links">
-          <a href="#" class="">Privacy</a>
-          <a href="#" class="">Terms</a>
-          <a href="#" class="">Contact</a>
-        </div>
-      </div>
-    </footer>
+    <MyFooter />
   </div>
 </template>
 
 <script>
 import MyHeader from './Header.vue';
+import MyFooter from './Footer.vue';
 export default {
   name: 'Form',
   props: ['cartItemCount'],
@@ -334,7 +362,7 @@ export default {
       return this.cart.reduce((sum, product) => sum + Number(product.price || 0), 0);
     }
   },
-  components: { MyHeader },
+  components: { MyHeader, MyFooter },
   methods: {
     submitForm() {
       this.madeOrder = true;
@@ -501,7 +529,8 @@ export default {
   }
 }
 
-.cart-page .promo-code-container {
+.cart-page .promo-code-container,
+.cart-page .frequently-bought-together {
   padding: calc(0.25rem * 8);
   background-color: #fff;
   border: 1px solid #e8d9c4;
@@ -548,6 +577,13 @@ export default {
   border-radius: 1.2rem;
   padding-block: calc(0.25rem * 4.8);
   padding-inline: calc(0.25rem * 6.4);
+}
+
+.cart-page .frequently-bought-together .frequently-bought-together-header {
+  padding-block: calc(0.25rem * 4);
+  padding-inline: calc(0.25rem * 5);
+  border-bottom: 1px solid #e8d9c4;
+  color: #3d2414;
 }
 
 .cart-page .cart-info .cart-status {
@@ -1128,47 +1164,5 @@ export default {
 .cart-page .cart-info .delivery-details-body {
   padding: 2rem;
   padding-bottom: 0;
-}
-
-.footer {
-  background-color: #3d2414;
-  color: #f1ece6;
-  padding: 20px 20px;
-}
-
-.footer .div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.footer .title {
-  color: #faf6f0;
-  font-family: 'Fraunces', serif;
-  font-size: 20px;
-  font-weight: 600;
-  font-style: italic;
-  padding-bottom: 20px;
-  padding-top: 10px;
-}
-
-.footer .subtitle {
-  color: #faf6f0;
-  font-family: 'Outfit', sans-serif;
-  font-size: 14px;
-}
-
-.footer .links {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  color: #faf6f0;
-  font-family: 'Outfit', sans-serif;
-  font-size: 14px;
-  padding-bottom: 10px;
-}
-
-.footer .links a {
-  color: #faf6f0;
 }
 </style>
