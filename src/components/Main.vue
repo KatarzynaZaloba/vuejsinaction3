@@ -389,7 +389,7 @@ export default {
         </div>
       </section>
 
-      <MyFooter />
+      <my-footer></my-footer>
     </main>
   </div>
 </template>

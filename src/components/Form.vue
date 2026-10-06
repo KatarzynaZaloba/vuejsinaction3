@@ -238,7 +238,7 @@ export default {
 
       </div>
     </div>
-    <MyFooter></MyFooter>
+    <my-footer></my-footer>
   </div>
 </template>
 
