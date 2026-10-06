@@ -100,21 +100,13 @@ export default {
 
       <div class="cart-info">
         <div class="cart-info-left">
-          <cart-items :cart="cart"></cart-items>
+          <cart-items :cart="cart" @clear-cart="cart = []"></cart-items>
           <promo-code></promo-code>
           <cart-recommender></cart-recommender>
         </div>
-        <div class="cart-info-right">
-          <pre-order-summary :order="order"></pre-order-summary>
+        <div>
+          <pre-order-summary :order="order" :cart="cart"></pre-order-summary>
         </div>
-
-        <!-- <delivery-details
-          :order="order"
-          :states="states"
-          @place-order="submitForm"
-        ></delivery-details> -->
-
-        <!-- <order-summary :order="order" @place-order="submitForm"></order-summary> -->
       </div>
     </div>
     <my-footer></my-footer>

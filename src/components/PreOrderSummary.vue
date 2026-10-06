@@ -1,6 +1,12 @@
 <script>
 export default {
   name: "PreOrderSummary",
+  props: {
+    cart: {
+      type: Array,
+      required: true,
+    },
+  },
 };
 </script>
 
@@ -8,7 +14,7 @@ export default {
   <div class="pre-order-summary">
     <div class="pre-order-summary-header">
       <h2 class="title">Order summary</h2>
-      <p class="subtitle">4 items</p>
+      <p class="subtitle">{{ cart.length }} items</p>
     </div>
     <div class="pre-order-summary-body">
       <div class="pre-order-summary-item">
