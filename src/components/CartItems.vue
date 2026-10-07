@@ -18,6 +18,14 @@ export default {
       localStorage.setItem("cart", JSON.stringify(remainingItems));
       this.$emit("remove-item", id);
     },
+    removeOneItem(id) {
+      const index = this.cart.findIndex((item) => item.id === id);
+      if (index === -1) return;
+
+      this.cart.splice(index, 1);
+      localStorage.setItem("cart", JSON.stringify(this.cart));
+      this.$emit("remove-one-item", id);
+    },
     addItem(id) {
       const item = this.cart.find((cartItem) => cartItem.id === id);
       if (!item) return;
@@ -64,7 +72,9 @@ export default {
               <p class="price">{{ item.unitPrice }}</p>
               <div class="buttons">
                 <div class="quantity-controls">
-                  <button class="less">−</button>
+                  <button class="less" @click="removeOneItem(item.id)">
+                    −
+                  </button>
                   <span class="quantity">{{
                     cart.filter((cartItem) => cartItem.id === item.id).length
                   }}</span>
