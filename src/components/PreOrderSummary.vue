@@ -43,7 +43,14 @@ export default {
             × {{ cart.filter((cartItem) => cartItem.id === item.id).length }}
           </p>
         </div>
-        <p class="price">${{ item.price.toFixed(2) }}</p>
+        <p class="price">
+          ${{
+            (
+              item.price *
+              cart.filter((cartItem) => cartItem.id === item.id).length
+            ).toFixed(2)
+          }}
+        </p>
       </div>
     </div>
     <div class="pre-order-summary-footer">
