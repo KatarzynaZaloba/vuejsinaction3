@@ -18,6 +18,14 @@ export default {
       localStorage.setItem("cart", JSON.stringify(remainingItems));
       this.$emit("remove-item", id);
     },
+    addItem(id) {
+      const item = this.cart.find((cartItem) => cartItem.id === id);
+      if (!item) return;
+
+      this.cart.push({ ...item });
+      localStorage.setItem("cart", JSON.stringify(this.cart));
+      this.$emit("add-item", id);
+    },
   },
   computed: {
     uniqueCart() {
@@ -60,7 +68,7 @@ export default {
                   <span class="quantity">{{
                     cart.filter((cartItem) => cartItem.id === item.id).length
                   }}</span>
-                  <button class="more">+</button>
+                  <button class="more" @click="addItem(item.id)">+</button>
                 </div>
                 <button class="remove" @click="removeItem(item.id)">
                   <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
