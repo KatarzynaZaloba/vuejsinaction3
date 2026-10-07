@@ -46,7 +46,7 @@ export default {
             </div>
             <div class="item-details">
               <p class="category">{{ item.category }}</p>
-              <p class="name">{{ item.name }}</p>
+              <p class="name">{{ item.title }}</p>
               <p class="price">{{ item.unitPrice }}</p>
               <div class="buttons">
                 <div class="quantity-controls">
