@@ -1,3 +1,34 @@
+<script>
+export default {
+  name: "CartItems",
+  props: {
+    cart: {
+      type: Array,
+      required: true,
+    },
+  },
+  methods: {
+    clearCart() {
+      localStorage.removeItem("cart");
+      this.$emit("clear-cart");
+    },
+  },
+  computed: {
+    uniqueCart() {
+      return this.cart.filter(
+        (item, index, arr) =>
+          arr.findIndex((cartItem) => cartItem.id === item.id) === index,
+      );
+    },
+  },
+  data() {
+    return {
+      items: [],
+    };
+  },
+};
+</script>
+
 <template>
   <div class="cart-status-wrapper">
     <div v-if="cart.length" class="cart-status">
@@ -9,7 +40,7 @@
           <button class="clear-all" @click="clearCart">Clear all</button>
         </div>
         <ul class="items-body">
-          <li v-for="item in items" :key="item.name" class="item">
+          <li v-for="item in uniqueCart" :key="item.id" class="item">
             <div class="image-container">
               <img :alt="item.name" class="image" :src="item.image" />
             </div>
@@ -20,7 +51,9 @@
               <div class="buttons">
                 <div class="quantity-controls">
                   <button class="less">−</button>
-                  <span class="quantity">{{ item.quantity }}</span>
+                  <span class="quantity">{{
+                    cart.filter((cartItem) => cartItem.id === item.id).length
+                  }}</span>
                   <button class="more">+</button>
                 </div>
                 <button class="remove">
@@ -37,7 +70,14 @@
               </div>
             </div>
             <div class="price-container">
-              <p class="price">{{ item.price }}</p>
+              <p class="price">
+                ${{
+                  (
+                    item.price *
+                    cart.filter((cartItem) => cartItem.id === item.id).length
+                  ).toFixed(2)
+                }}
+              </p>
               <p v-if="item.quantity > 1" class="quantity">
                 {{ item.quantity }} × {{ item.unitPrice }}
               </p>
@@ -55,54 +95,3 @@
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  name: "CartItems",
-  props: {
-    cart: {
-      type: Array,
-      required: true,
-    },
-  },
-  methods: {
-    clearCart() {
-      localStorage.removeItem("cart");
-      this.$emit("clear-cart");
-    },
-  },
-  data() {
-    return {
-      items: [
-        {
-          category: "Dog Food",
-          name: "Premium Grain-Free Kibble",
-          image:
-            "https://images.unsplash.com/photo-1591946559594-8c6d3b7391eb?w=300&h=300&fit=crop&auto=format",
-          unitPrice: "$42.99",
-          price: "$42.99",
-          quantity: 1,
-        },
-        {
-          category: "Toys",
-          name: "Plush Elephant Toy",
-          image:
-            "https://images.unsplash.com/photo-1591946614720-90a587da4a36?w=300&h=300&fit=crop&auto=format",
-          unitPrice: "$18.50",
-          price: "$37.00",
-          quantity: 2,
-        },
-        {
-          category: "Accessories",
-          name: "Adjustable Leather Collar",
-          image:
-            "https://images.unsplash.com/photo-1589924749359-9697080c3577?w=300&h=300&fit=crop&auto=format",
-          unitPrice: "$34.00",
-          price: "$34.00",
-          quantity: 1,
-        },
-      ],
-    };
-  },
-};
-</script>
