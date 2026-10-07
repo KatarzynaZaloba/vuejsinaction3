@@ -43,7 +43,7 @@ export default {
             × {{ cart.filter((cartItem) => cartItem.id === item.id).length }}
           </p>
         </div>
-        <p class="price">{{ item.price }}</p>
+        <p class="price">${{ item.price.toFixed(2) }}</p>
       </div>
     </div>
     <div class="pre-order-summary-footer">
@@ -63,7 +63,11 @@ export default {
       </div>
       <div class="total">
         <span class="label">Total</span>
-        <span class="value">$108.29</span>
+        <span class="value"
+          >${{
+            (subtotal + (subtotal > 35 ? 0 : 5) - subtotal * 0.05).toFixed(2)
+          }}</span
+        >
       </div>
       <button class="proceed-button">Proceed to delivery →</button>
       <div class="security-eco-returns">
