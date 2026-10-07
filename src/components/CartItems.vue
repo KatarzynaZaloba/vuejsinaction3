@@ -12,6 +12,12 @@ export default {
       localStorage.removeItem("cart");
       this.$emit("clear-cart");
     },
+    removeItem(id) {
+      const remainingItems = this.cart.filter((item) => item.id !== id);
+      this.cart.splice(0, this.cart.length, ...remainingItems);
+      localStorage.setItem("cart", JSON.stringify(remainingItems));
+      this.$emit("remove-item", id);
+    },
   },
   computed: {
     uniqueCart() {
@@ -56,7 +62,7 @@ export default {
                   }}</span>
                   <button class="more">+</button>
                 </div>
-                <button class="remove">
+                <button class="remove" @click="removeItem(item.id)">
                   <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path
                       stroke-linecap="round"
