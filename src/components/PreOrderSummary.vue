@@ -6,6 +6,18 @@ export default {
       type: Array,
       required: true,
     },
+    subtotal: {
+      type: Number,
+      required: true,
+    },
+  },
+  computed: {
+    uniqueCart() {
+      return this.cart.filter(
+        (item, index, arr) =>
+          arr.findIndex((cartItem) => cartItem.id === item.id) === index,
+      );
+    },
   },
 };
 </script>
@@ -16,62 +28,38 @@ export default {
       <h2 class="title">Order summary</h2>
       <p class="subtitle">{{ cart.length }} items</p>
     </div>
-    <div class="pre-order-summary-body">
-      <div class="pre-order-summary-item">
+    <div v-if="cart.length" class="pre-order-summary-body">
+      <div
+        v-for="item in uniqueCart"
+        :key="item.id"
+        class="pre-order-summary-item"
+      >
         <div class="pre-order-summary-item-image">
-          <img
-            alt="Premium Grain-Free Kibble"
-            class="image"
-            src="https://images.unsplash.com/photo-1591946559594-8c6d3b7391eb?w=300&amp;h=300&amp;fit=crop&amp;auto=format"
-          />
+          <img :alt="item.name" class="image" :src="item.image" />
         </div>
         <div class="pre-order-summary-item-details">
-          <p class="name">Premium Grain-Free Kibble</p>
-          <p class="quantity">× 1</p>
+          <p class="name">{{ item.title }}</p>
+          <p class="quantity">
+            × {{ cart.filter((cartItem) => cartItem.id === item.id).length }}
+          </p>
         </div>
-        <p class="price">$42.99</p>
-      </div>
-      <div class="pre-order-summary-item">
-        <div class="pre-order-summary-item-image">
-          <img
-            alt="Plush Elephant Toy"
-            class="image"
-            src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?w=300&amp;h=300&amp;fit=crop&amp;auto=format"
-          />
-        </div>
-        <div class="pre-order-summary-item-details">
-          <p class="name">Plush Elephant Toy</p>
-          <p class="quantity">× 2</p>
-        </div>
-        <p class="price">$37.00</p>
-      </div>
-      <div class="pre-order-summary-item">
-        <div class="pre-order-summary-item-image">
-          <img
-            alt="Adjustable Leather Collar"
-            class="image"
-            src="https://images.unsplash.com/photo-1589924749359-9697080c3577?w=300&amp;h=300&amp;fit=crop&amp;auto=format"
-          />
-        </div>
-        <div class="pre-order-summary-item-details">
-          <p class="name">Adjustable Leather Collar</p>
-          <p class="quantity">× 1</p>
-        </div>
-        <p class="price">$34.00</p>
+        <p class="price">{{ item.price }}</p>
       </div>
     </div>
     <div class="pre-order-summary-footer">
       <div class="subtotal">
         <span class="label">Subtotal</span>
-        <span class="value">$113.99</span>
+        <span class="value" v-if="cart.length">${{ subtotal.toFixed(2) }}</span>
+        <span class="value" v-else>$0.00</span>
       </div>
       <div class="shipping">
         <span class="label">Shipping</span>
-        <span class="value">Free 🎉</span>
+        <span class="value" v-if="subtotal > 35">Free 🎉</span>
+        <span class="value" v-else>$5.00</span>
       </div>
       <div class="loyalty-discount">
         <span class="label">Loyalty discount (5%)</span>
-        <span class="value">−$5.70</span>
+        <span class="value">−${{ (subtotal * 0.05).toFixed(2) }}</span>
       </div>
       <div class="total">
         <span class="label">Total</span>

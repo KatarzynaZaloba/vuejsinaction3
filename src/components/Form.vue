@@ -18,6 +18,10 @@ export default {
       const savedCart = localStorage.getItem("cart");
       const parsedCart = savedCart ? JSON.parse(savedCart) : [];
       cart = Array.isArray(parsedCart) ? parsedCart : [];
+      const subtotal = cart.reduce(
+        (sum, item) => sum + Number(item.price || 0),
+        0,
+      );
     } catch {
       cart = [];
     }
@@ -105,7 +109,12 @@ export default {
           <cart-recommender></cart-recommender>
         </div>
         <div>
-          <pre-order-summary :order="order" :cart="cart"></pre-order-summary>
+          <pre-order-summary
+            :order="order"
+            :cart="cart"
+            @clear-cart="cart = []"
+            :subtotal="subtotal"
+          ></pre-order-summary>
         </div>
       </div>
     </div>
