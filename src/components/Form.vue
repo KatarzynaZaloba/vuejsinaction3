@@ -108,7 +108,7 @@ export default {
           <promo-code></promo-code>
           <cart-recommender></cart-recommender>
         </div>
-        <div>
+        <div class="cart-info-right">
           <pre-order-summary
             :order="order"
             :cart="cart"
