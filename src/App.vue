@@ -16,7 +16,7 @@ export default {
 
 <style>
 #app {
-  overflow: hidden;
+  overflow: clip;
 }
 
 .cart-page header.desktop .div {

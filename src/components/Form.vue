@@ -1,16 +1,27 @@
 <script>
-import MyHeader from './Header.vue';
-import MyFooter from './Footer.vue';
+import MyHeader from "./Header.vue";
+import CartSteps from "./CartSteps.vue";
+import CartItems from "./CartItems.vue";
+import PromoCode from "./PromoCode.vue";
+import DeliveryDetails from "./DeliveryDetails.vue";
+import OrderSummary from "./OrderSummary.vue";
+import CartRecommender from "./CartRecommender.vue";
+import MyFooter from "./Footer.vue";
+import PreOrderSummary from "./PreOrderSummary.vue";
 export default {
-  name: 'Form',
-  props: ['cartItemCount'],
+  name: "Form",
+  props: ["cartItemCount"],
   data() {
     let cart = [];
 
     try {
-      const savedCart = localStorage.getItem('cart');
+      const savedCart = localStorage.getItem("cart");
       const parsedCart = savedCart ? JSON.parse(savedCart) : [];
       cart = Array.isArray(parsedCart) ? parsedCart : [];
+      const subtotal = cart.reduce(
+        (sum, item) => sum + Number(item.price || 0),
+        0,
+      );
     } catch {
       cart = [];
     }
@@ -18,769 +29,97 @@ export default {
     return {
       cart,
       states: {
-        DL: 'Dolnośląskie',
-        KP: 'Kujawsko-pomorskie',
-        LB: 'Lubelskie',
-        LU: 'Lubuskie'
+        DL: "Dolnośląskie",
+        KP: "Kujawsko-pomorskie",
+        LB: "Lubelskie",
+        LU: "Lubuskie",
       },
       order: {
-        firstName: '',
-        lastName: '',
-        address: '',
-        city: '',
-        zip: '',
-        state: '',
-        method: 'Home address',
-        business: 'Business address',
-        home: 'Home address',
-        gift: 'Send as a gift',
-        sendGift: 'Send as a gift',
-        dontSendGift: 'Do not send as a gift'
+        firstName: "",
+        lastName: "",
+        address: "",
+        city: "",
+        zip: "",
+        state: "",
+        method: "Home address",
+        business: "Business address",
+        home: "Home address",
+        gift: "Send as a gift",
+        sendGift: "Send as a gift",
+        dontSendGift: "Do not send as a gift",
       },
-      madeOrder: false
-
-    }
+      madeOrder: false,
+    };
   },
   computed: {
     subtotal() {
-      return this.cart.reduce((sum, product) => sum + Number(product.price || 0), 0);
-    }
+      return this.cart.reduce(
+        (sum, product) => sum + Number(product.price || 0),
+        0,
+      );
+    },
   },
-  components: { MyHeader, MyFooter },
+  components: {
+    MyHeader,
+    CartSteps,
+    CartItems,
+    PromoCode,
+    DeliveryDetails,
+    OrderSummary,
+    CartRecommender,
+    MyFooter,
+    PreOrderSummary,
+  },
   methods: {
     submitForm() {
       this.madeOrder = true;
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <template>
-  <div>
+  <div class="checkout-page">
     <div class="cart-page">
       <my-header :cartItemCount="cartItemCount"></my-header>
       <div class="container">
         <div class="header">
           <button class="go-back">
-            <svg class="" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-            </svg>Back to shop</button>
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 19l-7-7 7-7"
+              ></path>
+            </svg>
+            Back to shop
+          </button>
           <h1 class="title">Your <span class="highlight">cart</span></h1>
-          <p class="subtitle">Your cart is empty</p>
+          <p class="subtitle" v-if="!cart.length">Your cart is empty</p>
         </div>
       </div>
-      <div class="cart-steps">
-        <div class="step-1">
-          <div class="step-indicator active">
-            <div class="circle">1</div>
-            <span class="">Cart</span>
-          </div>
-          <div class="border"></div>
-        </div>
-        <div class="step-2">
-          <div class="step-indicator">
-            <div class="circle">2</div>
-            <span class="">Delivery</span>
-          </div>
-          <div class="border"></div>
-        </div>
-        <div class="step-3">
-          <div class="step-indicator">
-            <div class="circle">3</div>
-            <span class="">Payment</span>
-          </div>
-          <div class="border"></div>
-        </div>
-        <div class="step-4">
-          <div class="step-indicator">
-            <div class="circle">
-              4</div>
-            <span class="">Confirm</span>
-          </div>
-        </div>
-      </div>
+
+      <cart-steps></cart-steps>
+
       <div class="cart-info">
-        <div class="cart-status-wrapper">
-          <div class="cart-status">
-            <!-- <div v-if="cart.length">
-            <div v-for="(product, index) in cart" :key="`${product.id}-${index}`">
-              <img :src="product.image" :alt="product.title">
-              <h3>{{ product.title }}</h3>
-              <p>{{ product.description }}</p>
-              <p>${{ Number(product.price).toFixed(2) }}</p>
-            </div>
-          </div> -->
-            <div class="empty">
-              <p class="icon">🛒</p>
-              <p class="info">Your cart is empty.</p>
-              <button class="go-back">Back to shop</button>
-            </div>
-          </div>
-          <div class="delivery-details">
-            <div class="">
-              <div class="delivery-details-header">
-                <h2 class="title">Delivery details</h2>
-                <p class="subtitle">Tell us where to send your order</p>
-              </div>
-
-              <div class="delivery-details-body">
-                <div class="form-group1">
-                  <div class="">
-                    <strong class="label">First name:</strong>
-                    <input v-model.trim="order.firstName" placeholder="Jane" class="form-control" />
-                  </div>
-                  <div class="">
-                    <strong class="label">Last name:</strong>
-                    <input v-model.trim="order.lastName" placeholder="Smith" class="form-control" />
-                  </div>
-                </div>
-                <div class="form-group2">
-                  <div class="">
-                    <strong class="label">Address:</strong>
-                  </div>
-                  <div class="">
-                    <input v-model.trim="order.address" class="form-control" placeholder="123 Maple Street, Apt 4" />
-                  </div>
-                </div>
-                <div class="form-group3">
-                  <div class="">
-                    <strong class="label">City:</strong>
-                    <input v-model.trim="order.city" class="form-control" placeholder="New York" />
-                  </div>
-                  <div class="">
-                    <strong class="label">Zip code:</strong>
-                    <input v-model.number="order.zip" class="form-control" type="number" placeholder="10001" />
-                  </div>
-                </div>
-                <div class="form-group4">
-                  <div class="">
-                    <strong class="label">State:</strong>
-                    <select v-model="order.state" class="form-control">
-                      <option disabled value="">State</option>
-                      <option v-for="(state, key) in states" v-bind:value="state">
-                        {{ key }}
-                      </option>
-                    </select>
-                  </div>
-                </div>
-
-                <div class="form-group6">
-                  <p class="delivery-options">Delivery options</p>
-                  <div class="types">
-                    <label class="home active">
-                      <input class="sr-only" type="radio" id="home" v-bind:value="order.home" v-model="order.method">🏠
-                      Home
-                    </label>
-                    <label class="business">
-                      <input class="sr-only" type="radio" id="business" v-bind:value="order.business"
-                        v-model="order.method">🏢
-                      Business
-                    </label>
-                  </div>
-                  <label class="gift">
-                    <div class="checkbox">
-                    </div>
-                    <input class="sr-only" type="checkbox" id="gift" value="true" v-bind:true-value="order.sendGift"
-                      v-bind:false-value="order.dontSendGift" v-model="order.gift">
-                    <label class="text" for="gift">🎁 Send as a gift?</label>
-                  </label>
-                </div>
-                <div class="form-group8">
-                  <p data-v-1b5a9218="" class="test-text">TEST</p>
-                  <div class="">
-                    <button type="submit" class="btn btn-primary submit inactive" v-on:click="submitForm">Place order
-                      →</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
-          </div>
+        <div class="cart-info-left">
+          <cart-items :cart="cart" @clear-cart="cart = []"></cart-items>
+          <promo-code></promo-code>
+          <cart-recommender></cart-recommender>
         </div>
-
-
-        <div class="order-summary">
-          <div class="header">
-            <h2 class="title">Order summary</h2>
-          </div>
-          <div class="body">
-            <div class="items">
-              <span class="title">Items (0)</span>
-              <span class="subtitle">$0.00</span>
-            </div>
-            <div class="shipping">
-              <span class="title">Shipping</span>
-              <span class="subtitle">$9.99</span>
-            </div>
-            <p class="banner">Add <strong class="">$35.00</strong> more to qualify for free shipping.</p>
-            <div class="total">
-              <span class="title">Total</span>
-              <span class="subtitle">$9.99</span>
-            </div>
-            <div class="order-details">
-              <p class="title">Order details</p>
-              <p class="order-detail"><span class="bolder">Name:</span> {{ order.firstName }} {{ order.lastName }}</p>
-              <p class="order-detail"><span class="bolder">Address:</span> {{ order.address }}</p>
-              <p class="order-detail"><span class="bolder">City:</span> {{ order.address }}</p>
-              <p class="order-detail"><span class="bolder">State:</span> {{ order.city }}</p>
-              <p class="order-detail"><span class="bolder">Zip code:</span> {{ order.zip }}</p>
-              <p class="order-detail"><span class="bolder">Type:</span> {{ order.method }}</p>
-              <p class="order-detail"><span class="bolder">Gift:</span> {{ order.gift }}</p>
-            </div>
-            <div class="second">
-              <button type="submit inactive" class="btn btn-primary submit inactive" v-on:click="submitForm">Place order
-                →</button>
-            </div>
-            <p class="info">🔒 Secure payment · Free returns within 30 days</p>
-          </div>
+        <div>
+          <pre-order-summary
+            :order="order"
+            :cart="cart"
+            @clear-cart="cart = []"
+            :subtotal="subtotal"
+          ></pre-order-summary>
         </div>
-
       </div>
     </div>
     <my-footer></my-footer>
   </div>
 </template>
 
-<style scoped>
-.cart-page {
-  background-color: #faf6f0;
-}
-
-.cart-page .container {
-  background-color: #f2ebe0;
-  padding: 3.2rem 2.4rem;
-  width: 100%;
-  border-bottom: 1px solid #e8d9c4;
-}
-
-.cart-page .container .header {
-  max-width: 110rem;
-  margin: auto;
-}
-
-.cart-page .container .go-back {
-  transition-timing-function: var(--tw-ease, cubic-bezier(.4, 0, .2, 1));
-  transition-duration: 0.15s;
-  color: #6b4226;
-  font-size: 1.4rem;
-  line-height: calc(1.25 / .875);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: calc(0.25rem * 1.5);
-  background-color: transparent;
-  border: unset;
-  font-family: 'Outfit', system-ui, sans-serif;
-  font-size: 1.4rem;
-  padding: 0;
-
-  &:hover {
-    color: #c1552a;
-  }
-}
-
-.cart-page .container .go-back svg {
-  width: calc(0.25rem * 6);
-  height: calc(0.25rem * 6);
-}
-
-.cart-page .container .title {
-  font-size: 3.6rem;
-  font-family: 'Fraunces', Georgia, serif;
-  font-weight: 600;
-  color: #3d2414;
-  margin-bottom: 0;
-}
-
-.cart-page .container .title .highlight {
-  font-style: italic;
-  color: #c1552a;
-}
-
-.cart-page .container .subtitle {
-  color: #6b4226;
-  font-size: 1.4rem;
-  margin-top: calc(0.25rem * 1);
-  font-family: 'Outfit', system-ui, sans-serif;
-}
-
-.cart-page .cart-info {
-  background-color: #faf6f0;
-  padding: 0 2.4rem 3.2rem 2.4rem;
-
-  @media (min-width: 1024px) {
-    grid-template-columns: repeat(3, minmax(0px, 1fr));
-    display: grid;
-    padding-inline: calc(0.25rem * 9.6);
-    padding-block: 0 calc(0.25rem * 12.8);
-    gap: calc(0.25rem * 14);
-    max-width: 110rem;
-    margin-inline: auto;
-  }
-}
-
-.cart-page .cart-steps {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0;
-  margin-bottom: calc(0.25rem * 12.8);
-  margin-top: calc(0.25rem * 12.8);
-}
-
-.cart-page .cart-steps .step-1,
-.cart-page .cart-steps .step-2,
-.cart-page .cart-steps .step-3,
-.cart-page .cart-steps .step-4 {
-  display: flex;
-  align-items: center;
-}
-
-.cart-page .cart-steps .step-indicator {
-  flex-direction: column;
-  display: flex;
-  align-items: center;
-}
-
-.cart-page .cart-steps .step-indicator .circle {
-  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
-  transition-duration: 0.15s;
-  color: #6b4226;
-  font-weight: 700;
-  font-size: 1rem;
-  background-color: #e8d9c4;
-  border-radius: 50%;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-  scale: 110% 110%;
-  width: calc(0.25rem * 12.8);
-  height: calc(0.25rem * 12.8);
-  font-family: 'Outfit', system-ui, sans-serif;
-}
-
-.cart-page .cart-steps .step-indicator.active .circle {
-  color: #faf6f0;
-  background-color: #c1552a;
-}
-
-.cart-page .cart-steps .step-indicator span {
-  color: #6b4226;
-  font-weight: 500;
-  font-size: 10px;
-  font-family: 'Outfit', system-ui, sans-serif;
-  margin-top: calc(0.25rem * 1.6);
-}
-
-.cart-page .cart-steps .step-indicator.active span {
-  color: #c1552a;
-}
-
-.cart-page .cart-steps .border {
-  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
-  transition-duration: 0.15s;
-  background-color: #e8d9c4;
-  width: calc(0.25rem * 19.2);
-  height: 0.5px;
-  margin-bottom: calc(0.25rem * 8);
-  margin-inline: calc(0.25rem * 1.6);
-
-  @media (min-width: 640px) {
-    width: calc((0.25rem * 19.2) * 2);
-  }
-}
-
-.cart-page .cart-status-wrapper {
-  @media (min-width: 1024px) {
-    grid-column: span 2 / span 2;
-    display: grid;
-  }
-}
-
-.cart-page .cart-info .cart-status {
-  margin: 0 0 2.4rem;
-  padding: calc(0.25rem * 16);
-  text-align: center;
-  background-color: #fff;
-  border: 1px solid #e8d9c4;
-  border-radius: 1.6rem;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.cart-page .cart-info .cart-status .icon {
-  font-size: 3.6rem;
-  margin-bottom: calc(0.25rem * 4.8);
-}
-
-.cart-page .cart-info .cart-status .info {
-  color: #6b4226;
-  font-size: 1.6rem;
-  font-family: 'Outfit', system-ui, sans-serif;
-}
-
-.cart-page .cart-info .cart-status .go-back {
-  transition-timing-function: var(--tw-ease, cubic-bezier(.4, 0, .2, 1));
-  transition-duration: 0.15s;
-  color: #c1552a;
-  font-size: 1.4rem;
-  line-height: calc(1.25 / .875);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: calc(0.25rem * 1.5);
-  background-color: transparent;
-  border: unset;
-  font-family: 'Outfit', system-ui, sans-serif;
-  font-size: 1.4rem;
-  font-weight: 600;
-  padding: 0;
-
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
-.cart-page .cart-info .delivery-details {
-  background-color: #fff;
-  border: 1px solid #e8d9c4;
-  border-radius: 1.6rem;
-}
-
-.cart-page .cart-info .delivery-details-header {
-  border-bottom: 1px solid #e8d9c4;
-  padding: 1.6rem 2rem;
-}
-
-.cart-page .cart-info .delivery-details-header .title {
-  color: #3d2414;
-  font-size: 1.8rem;
-  font-family: 'Fraunces', Georgia, serif;
-  font-weight: 600;
-  margin: 0;
-}
-
-.cart-page .cart-info .delivery-details-header .subtitle {
-  color: #6b4226;
-  font-size: 1.2rem;
-  margin-top: calc(0.25rem * 2);
-  margin-bottom: 0;
-  font-family: 'Outfit', system-ui, sans-serif;
-}
-
-.cart-page .cart-info .delivery-details .label {
-  color: #6b4226;
-  text-transform: uppercase;
-  font-weight: 600;
-  font-size: 1.2rem;
-  font-family: 'Outfit', system-ui, sans-serif;
-  letter-spacing: 0.05em;
-  margin-bottom: calc(0.25rem * 2);
-  padding: 0;
-}
-
-.cart-page .cart-info .delivery-details input,
-.cart-page .cart-info .delivery-details select {
-  margin-top: calc(0.25rem * 2);
-  color: #3d2414;
-  background-color: #faf6f0;
-  border: 1px solid #e8d9c4;
-  border-radius: 1.4rem;
-  padding: 2rem 1.6rem;
-  font-family: 'Outfit', system-ui, sans-serif;
-  font-size: 1.4rem;
-}
-
-.cart-page .cart-info .delivery-details .delivery-details-body .form-group1,
-.cart-page .cart-info .delivery-details .delivery-details-body .form-group3 {
-  display: flex;
-  flex-direction: column;
-  gap: calc(0.25rem * 6);
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1.6rem;
-
-  @media (min-width: 640px) {
-    flex-direction: row;
-  }
-}
-
-.cart-page .cart-info .delivery-details .delivery-details-body .form-group1>div,
-.cart-page .cart-info .delivery-details .delivery-details-body .form-group3>div {
-  width: 100%;
-}
-
-.cart-page .cart-info .delivery-details .delivery-details-body .form-group2,
-.cart-page .cart-info .delivery-details .delivery-details-body .form-group3,
-.cart-page .cart-info .delivery-details .delivery-details-body .form-group4,
-.cart-page .cart-info .delivery-details .delivery-details-body .form-group5,
-.cart-page .cart-info .delivery-details .delivery-details-body .form-group6,
-.cart-page .cart-info .delivery-details .delivery-details-body .form-group7,
-.cart-page .cart-info .delivery-details .delivery-details-body .form-group8 {
-  width: 100%;
-  margin-bottom: 1.6rem;
-}
-
-.cart-page .cart-info .delivery-details .place-order {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column-reverse;
-  margin-bottom: 1.6rem;
-}
-
-.cart-page .cart-info .delivery-details .place-order pre {
-  width: 100%;
-  margin-bottom: 0;
-  margin-top: calc(0.25rem * 2);
-  color: #555;
-  background-color: #faf6f0;
-  border: 1px solid #e8d9c4;
-  border-radius: 1.4rem;
-  padding: 2rem 1.6rem;
-  font-family: 'Outfit', system-ui, sans-serif;
-  font-size: 1.4rem;
-}
-
-.cart-page .cart-info .submit {
-  float: unset;
-  margin-top: unset;
-  width: 100%;
-  background-color: #c1552a;
-  color: #faf6f0;
-  font-weight: 600;
-  font-size: 1.4rem;
-  font-family: 'Outfit', system-ui, sans-serif;
-  border: unset;
-  padding-block: calc(0.25rem * 6.4);
-  padding-inline: 0;
-  border-radius: 1.4rem;
-}
-
-.cart-page .cart-info .second .submit {
-  display: none;
-
-  @media (min-width: 768px) {
-    display: block;
-    margin-bottom: 1.6rem;
-  }
-}
-
-.cart-page .cart-info .form-group8 .submit {
-  display: block;
-
-  @media (min-width: 768px) {
-    display: none;
-  }
-}
-
-.cart-page .cart-info .submit.inactive {
-  opacity: 0.4;
-}
-
-.cart-page .cart-info .delivery-details .place-order {
-  padding: 0;
-}
-
-.cart-page .cart-info .order-summary {
-  background-color: #fff;
-  border: 1px solid #e8d9c4;
-  border-radius: 1.6rem;
-  margin-top: 2.4rem;
-
-  @media (min-width: 1024px) {
-    margin-top: 0;
-  }
-}
-
-.cart-page .cart-info .order-summary .header {
-  padding-block: calc(0.25rem * 6.4);
-  padding-inline: calc(0.25rem * 8);
-  border-bottom: 1px solid #e8d9c4;
-  margin: 0;
-}
-
-.cart-page .cart-info .order-summary .header .title {
-  margin: 0;
-  color: #3d2414;
-  font-weight: 600;
-  font-size: 1.8rem;
-  font-family: 'Fraunces', Georgia, sans-serif;
-}
-
-.cart-page .cart-info .order-summary .body {
-  padding: calc(0.25rem * 8);
-}
-
-.cart-page .cart-info .order-summary .body .items,
-.cart-page .cart-info .order-summary .body .shipping,
-.cart-page .cart-info .order-summary .body .total {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 1.6rem;
-  font-size: 1.4rem;
-  font-family: 'Outfit', system-ui, sans-serif;
-}
-
-.cart-page .cart-info .order-summary .body .items span.title,
-.cart-page .cart-info .order-summary .body .shipping span.title {
-  color: #6b4226;
-
-}
-
-.cart-page .cart-info .order-summary .body .items span.subtitle,
-.cart-page .cart-info .order-summary .body .shipping span.subtitle {
-  color: #3d2414;
-  font-weight: 500;
-}
-
-.cart-page .cart-info .order-summary .body .banner {
-  background-color: #f2ebe0;
-  padding-block: calc(0.25rem * 3.2);
-  padding-inline: calc(0.25rem * 4.8);
-  border-radius: 0.5rem;
-  margin-bottom: 1.2rem;
-  color: #6b4226;
-  font-size: 1.2rem;
-  font-family: 'Outfit', system-ui, sans-serif;
-}
-
-.cart-page .cart-info .order-summary .body .banner strong {
-  color: #3d2414;
-  font-weight: bolder;
-}
-
-.cart-page .cart-info .order-summary .body .total {
-  border-top: 1px solid #e8d9c4;
-  padding-top: 1.2rem;
-  display: flex;
-  justify-content: space-between;
-}
-
-.cart-page .cart-info .order-summary .body .total .title {
-  color: #3d2414;
-  font-size: 1.6rem;
-  font-family: 'Outfit', system-ui, sans-serif;
-  font-weight: 600;
-}
-
-.cart-page .cart-info .order-summary .body .info {
-  color: #6b4226;
-  text-align: center;
-  font-size: 1.2rem;
-  font-family: 'Outfit', system-ui, sans-serif;
-
-}
-
-.cart-page .cart-info .order-summary .body .total .subtitle {
-  color: #c1552a;
-  font-weight: 700;
-  font-size: 2rem;
-  font-family: 'Fraunces', Georgia, sans-serif;
-}
-
-.cart-page .cart-info .order-summary .body .order-details {
-  padding: calc(0.25rem * 4.8);
-  color: #6b4226;
-  font-size: 1.2rem;
-  font-family: 'Outfit', system-ui, sans-serif;
-  background-color: #f2ebe0;
-  border: 1px solid #e8d9c4;
-  border-radius: 1rem;
-  margin-bottom: 1.6rem;
-}
-
-.cart-page .cart-info .order-summary .body .order-details .title {
-  color: #3d2414;
-  text-transform: uppercase;
-  font-weight: 600;
-}
-
-.cart-page .cart-info .order-summary .body .order-details .order-detail:not(:last-child) {
-  margin-bottom: 0.4rem;
-}
-
-.cart-page .cart-info .order-summary .body .order-details .order-detail:last-child {
-  margin-bottom: 0;
-}
-
-.cart-page .cart-info .order-summary .body .order-details .bolder {
-  font-weight: 500;
-  color: #3d2414;
-}
-
-.form-group6 {
-  padding-top: calc(0.25rem * 6.4);
-  border-top: 1px solid #e8d9c4;
-}
-
-.form-group6 .delivery-options,
-.form-group8 .test-text {
-  color: #6b4226;
-  text-transform: uppercase;
-  font-weight: 600;
-  font-size: 1.2rem;
-  font-family: 'Outfit', system-ui, sans-serif;
-  letter-spacing: 0.05em;
-  margin-bottom: calc(0.25rem * 4.8);
-}
-
-.form-group6 .types {
-  display: flex;
-  gap: calc(0.25rem * 6);
-  margin-bottom: 1.6rem;
-}
-
-.form-group6 .types .home,
-.form-group6 .types .business {
-  padding-block: calc(0.25rem * 4.8);
-  padding-inline: calc(0.25rem * 6.4);
-  margin-bottom: 0;
-  font-weight: 500;
-  border-radius: 1.4rem;
-  font-size: 1.4rem;
-  font-family: 'Outfit', system-ui, sans-serif;
-  border: 2px solid #e8d9c4;
-  color: #6b4226;
-}
-
-.form-group6 .types .home.active,
-.form-group6 .types .business.active {
-  background-color:
-    color-mix(in oklab, #c1552a 5%, transparent);
-  color: #3d2414;
-  border: 2px solid #c1552a;
-}
-
-.form-group6 .gift {
-  display: flex;
-  flex-direction: row;
-  gap: calc(0.25rem * 6);
-  align-items: center;
-}
-
-.form-group6 .gift .checkbox {
-  border: 2px solid #e8d9c4;
-  border-radius: .25rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: calc(0.25rem * 8);
-  height: calc(0.25rem * 8);
-  margin: 0;
-}
-
-.form-group6 .gift .text {
-  color: #6b4226;
-  font-size: 1.4rem;
-  font-family: 'Outfit', system-ui, sans-serif;
-  font-weight: 400;
-}
-
-.cart-page .cart-info .delivery-details-body {
-  padding: 2rem;
-  padding-bottom: 0;
-}
-</style>
+<style src="./Form.css"></style>
