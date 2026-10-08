@@ -30,6 +30,11 @@ export default {
       const item = this.cart.find((cartItem) => cartItem.id === id);
       if (!item) return;
 
+      const quantity = this.cart.filter(
+        (cartItem) => cartItem.id === id,
+      ).length;
+      if (!(item.availableInventory > quantity)) return;
+
       this.cart.push({ ...item });
       localStorage.setItem("cart", JSON.stringify(this.cart));
       this.$emit("add-item", id);
