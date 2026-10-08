@@ -114,8 +114,16 @@ export default {
                   ).toFixed(2)
                 }}
               </p>
-              <p v-if="item.quantity > 1" class="quantity">
-                {{ item.quantity }} × {{ item.unitPrice }}
+              <p
+                v-if="
+                  cart.filter((cartItem) => cartItem.id === item.id).length > 1
+                "
+                class="quantity"
+              >
+                {{
+                  cart.filter((cartItem) => cartItem.id === item.id).length
+                }}
+                × {{ item.price }}
               </p>
             </div>
           </li>
