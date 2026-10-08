@@ -1,4 +1,6 @@
 <script>
+import { publicAsset } from "../utils/publicAsset";
+
 export default {
   name: "CartItems",
   props: {
@@ -8,6 +10,7 @@ export default {
     },
   },
   methods: {
+    publicAsset,
     clearCart() {
       localStorage.removeItem("cart");
       this.$emit("clear-cart");
@@ -69,7 +72,11 @@ export default {
         <ul class="items-body">
           <li v-for="item in uniqueCart" :key="item.id" class="item">
             <div class="image-container">
-              <img :alt="item.name" class="image" :src="item.image" />
+              <img
+                :alt="item.name"
+                class="image"
+                :src="publicAsset(item.image)"
+              />
             </div>
             <div class="item-details">
               <p class="category">{{ item.category }}</p>
