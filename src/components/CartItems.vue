@@ -81,7 +81,7 @@ export default {
             <div class="item-details">
               <p class="category">{{ item.category }}</p>
               <p class="name">{{ item.title }}</p>
-              <p class="price">{{ item.unitPrice }}</p>
+              <p class="price">${{ Number(item.price || 0).toFixed(2) }}</p>
               <div class="buttons">
                 <div class="quantity-controls">
                   <button class="less" @click="removeOneItem(item.id)">
