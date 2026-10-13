@@ -215,15 +215,15 @@
   padding-inline: calc(0.25rem * 6.4);
 }
 
-.cart-page .promo-code-container .promo-code-input button:hover {
-  background-color: #6b4226;
-}
-
 .cart-page .cart-info .cart-info-left {
   /* TEST PRODUCTION */
   @media (min-width: 1024px) {
     grid-column: span 2 / span 2;
   }
+}
+
+.cart-page .promo-code-container .promo-code-input button:hover {
+  background-color: #6b4226;
 }
 
 .cart-page .cart-info .cart-info-right {
