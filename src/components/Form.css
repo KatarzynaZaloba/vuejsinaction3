@@ -220,6 +220,7 @@
 }
 
 .cart-page .cart-info .cart-info-left {
+  /* TEST PRODUCTION */
   @media (min-width: 1024px) {
     grid-column: span 2 / span 2;
   }
