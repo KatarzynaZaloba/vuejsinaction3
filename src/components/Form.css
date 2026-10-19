@@ -178,6 +178,20 @@
   margin-top: 0;
 }
 
+.cart-page .promo-code-container .promo-code-applied {
+  color: #7a8c6e;
+  font-weight: 600;
+  gap: calc(0.25rem * 4);
+  align-items: center;
+  display: flex;
+  font-size: 1.4rem;
+  font-family: "Outfit", system-ui, sans-serif;
+}
+
+.cart-page .promo-code-container .promo-code-applied strong {
+  font-weight: 600;
+}
+
 .cart-page .promo-code-container .promo-code-input {
   gap: calc(0.25rem * 3.5);
   display: flex;
