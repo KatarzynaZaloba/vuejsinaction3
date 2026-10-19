@@ -20,19 +20,31 @@
 export default {
   name: "PromoCode",
   data() {
+    let applied = false;
+    try {
+      applied = localStorage.getItem("discount") === "PAWSOME20";
+    } catch {
+      applied = false;
+    }
+
     return {
       code: "",
-      applied: localStorage.getItem("discount") === "PAWSOME20",
+      applied,
     };
   },
   methods: {
     apply() {
       const code = this.code.trim().toUpperCase();
       if (code !== "PAWSOME20") return;
-      if (!localStorage.getItem("discount")) {
-        localStorage.setItem("discount", code);
+
+      try {
+        if (!localStorage.getItem("discount")) {
+          localStorage.setItem("discount", code);
+        }
+        this.applied = true;
+      } catch {
+        this.applied = false;
       }
-      this.applied = true;
     },
   },
 };

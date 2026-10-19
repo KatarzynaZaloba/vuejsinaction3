@@ -14,14 +14,25 @@ export default {
     },
   },
   data() {
+    let hasDiscount = false;
+    try {
+      hasDiscount = Boolean(localStorage.getItem("discount"));
+    } catch {
+      hasDiscount = false;
+    }
+
     return {
-      hasDiscount: Boolean(localStorage.getItem("discount")),
+      hasDiscount,
       discountInterval: null,
     };
   },
   mounted() {
     this.discountInterval = setInterval(() => {
-      this.hasDiscount = Boolean(localStorage.getItem("discount"));
+      try {
+        this.hasDiscount = Boolean(localStorage.getItem("discount"));
+      } catch {
+        this.hasDiscount = false;
+      }
     }, 100);
   },
   beforeUnmount() {
