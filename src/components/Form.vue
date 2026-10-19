@@ -73,6 +73,13 @@ export default {
   methods: {
     submitForm() {
       this.madeOrder = true;
+      try {
+        if (localStorage.getItem("discount") === "PAWSOME20") {
+          localStorage.setItem("discountRedeemed", "true");
+          localStorage.removeItem("discount");
+        }
+      } catch {
+      }
     },
   },
 };
