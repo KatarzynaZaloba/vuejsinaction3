@@ -1,4 +1,6 @@
 <script>
+import { publicAsset } from "../utils/publicAsset";
+
 export default {
   name: "PreOrderSummary",
   props: {
@@ -10,6 +12,9 @@ export default {
       type: Number,
       required: true,
     },
+  },
+  methods: {
+    publicAsset,
   },
   computed: {
     uniqueCart() {
@@ -35,7 +40,7 @@ export default {
         class="pre-order-summary-item"
       >
         <div class="pre-order-summary-item-image">
-          <img :alt="item.name" class="image" :src="item.image" />
+          <img :alt="item.name" class="image" :src="publicAsset(item.image)" />
         </div>
         <div class="pre-order-summary-item-details">
           <p class="name">{{ item.title }}</p>
