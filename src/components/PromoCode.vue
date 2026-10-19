@@ -22,7 +22,9 @@ export default {
   data() {
     let applied = false;
     try {
-      applied = localStorage.getItem("discount") === "PAWSOME20";
+      applied =
+        localStorage.getItem("discountRedeemed") !== "true" &&
+        localStorage.getItem("discount") === "PAWSOME20";
     } catch {
       applied = false;
     }
@@ -38,9 +40,8 @@ export default {
       if (code !== "PAWSOME20") return;
 
       try {
-        if (!localStorage.getItem("discount")) {
-          localStorage.setItem("discount", code);
-        }
+        if (localStorage.getItem("discountRedeemed") === "true") return;
+        localStorage.setItem("discount", code);
         this.applied = true;
       } catch {
         this.applied = false;

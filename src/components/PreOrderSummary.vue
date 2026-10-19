@@ -16,7 +16,9 @@ export default {
   data() {
     let hasDiscount = false;
     try {
-      hasDiscount = Boolean(localStorage.getItem("discount"));
+      hasDiscount =
+        localStorage.getItem("discountRedeemed") !== "true" &&
+        localStorage.getItem("discount") === "PAWSOME20";
     } catch {
       hasDiscount = false;
     }
@@ -29,7 +31,9 @@ export default {
   mounted() {
     this.discountInterval = setInterval(() => {
       try {
-        this.hasDiscount = Boolean(localStorage.getItem("discount"));
+        this.hasDiscount =
+          localStorage.getItem("discountRedeemed") !== "true" &&
+          localStorage.getItem("discount") === "PAWSOME20";
       } catch {
         this.hasDiscount = false;
       }
