@@ -13,6 +13,20 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      hasDiscount: Boolean(localStorage.getItem("discount")),
+      discountInterval: null,
+    };
+  },
+  mounted() {
+    this.discountInterval = setInterval(() => {
+      this.hasDiscount = Boolean(localStorage.getItem("discount"));
+    }, 100);
+  },
+  beforeUnmount() {
+    clearInterval(this.discountInterval);
+  },
   methods: {
     publicAsset,
   },
@@ -70,14 +84,24 @@ export default {
         <span class="value" v-else>$5.00</span>
       </div>
       <div class="loyalty-discount">
-        <span class="label">Loyalty discount (5%)</span>
-        <span class="value">−${{ (subtotal * 0.05).toFixed(2) }}</span>
+        <template v-if="hasDiscount">
+          <span class="label">PAWSOME20 code (20%)</span>
+          <span class="value">−${{ (subtotal * 0.2).toFixed(2) }}</span>
+        </template>
+        <template v-else>
+          <span class="label">Loyalty discount (5%)</span>
+          <span class="value">−${{ (subtotal * 0.05).toFixed(2) }}</span>
+        </template>
       </div>
       <div class="total">
         <span class="label">Total</span>
         <span class="value"
           >${{
-            (subtotal + (subtotal > 35 ? 0 : 5) - subtotal * 0.05).toFixed(2)
+            (
+              subtotal +
+              (subtotal > 35 ? 0 : 5) -
+              (hasDiscount ? subtotal * 0.2 : subtotal * 0.05)
+            ).toFixed(2)
           }}</span
         >
       </div>
