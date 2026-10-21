@@ -82,6 +82,7 @@ export default {
     },
     backStep() {
       const stepIndicators = document.querySelectorAll(".step-indicator");
+      const backButton = document.querySelector(".header .go-back");
 
       stepIndicators.forEach((indicator, index) => {
         if (index === 1) {
@@ -102,6 +103,12 @@ export default {
 
       if (activeStep) {
         activeStep.innerHTML = "1";
+      }
+
+      const doneStep = document.querySelector(".step-indicator.done .circle");
+
+      if (!doneStep && backButton) {
+        backButton.innerHTML = `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg> Back to shop`;
       }
     },
   },
