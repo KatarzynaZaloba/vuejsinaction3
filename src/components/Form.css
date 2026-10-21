@@ -128,6 +128,11 @@
   background-color: #c1552a;
 }
 
+.cart-page .cart-steps .step-indicator.done .circle {
+  color: #faf6f0;
+  background-color: #7a8c6e;
+}
+
 .cart-page .cart-steps .step-indicator span {
   color: #6b4226;
   font-weight: 500;

@@ -78,7 +78,30 @@ export default {
           localStorage.setItem("discountRedeemed", "true");
           localStorage.removeItem("discount");
         }
-      } catch {
+      } catch {}
+    },
+    backStep() {
+      const stepIndicators = document.querySelectorAll(".step-indicator");
+
+      stepIndicators.forEach((indicator, index) => {
+        if (index === 1) {
+          indicator.classList.remove("active");
+        }
+      });
+
+      stepIndicators.forEach((indicator, index) => {
+        if (index === 0) {
+          indicator.classList.remove("done");
+          indicator.classList.add("active");
+        }
+      });
+
+      const activeStep = document.querySelector(
+        ".step-indicator.active .circle",
+      );
+
+      if (activeStep) {
+        activeStep.innerHTML = "1";
       }
     },
   },
@@ -91,7 +114,7 @@ export default {
       <my-header :cartItemCount="cartItemCount"></my-header>
       <div class="container">
         <div class="header">
-          <button class="go-back">
+          <button @click="backStep" class="go-back">
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 stroke-linecap="round"
