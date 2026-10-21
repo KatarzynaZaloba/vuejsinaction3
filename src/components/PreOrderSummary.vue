@@ -44,6 +44,34 @@ export default {
   },
   methods: {
     publicAsset,
+    nextStep() {
+      const stepIndicators = document.querySelectorAll(".step-indicator");
+      const backButton = document.querySelector(".header .go-back");
+
+      stepIndicators.forEach((indicator, index) => {
+        if (index === 1) {
+          indicator.classList.add("active");
+        } else {
+          indicator.classList.remove("active");
+        }
+      });
+
+      stepIndicators.forEach((indicator, index) => {
+        if (index === 0) {
+          indicator.classList.add("done");
+        }
+      });
+
+      const doneStep = document.querySelector(".step-indicator.done .circle");
+
+      if (doneStep) {
+        doneStep.innerHTML = "✓";
+      }
+
+      if (backButton) {
+        backButton.innerHTML = `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg> Back`;
+      }
+    },
   },
   computed: {
     uniqueCart() {
@@ -120,7 +148,9 @@ export default {
           }}</span
         >
       </div>
-      <button class="proceed-button">Proceed to delivery →</button>
+      <button class="proceed-button" @click="nextStep">
+        Proceed to delivery →
+      </button>
       <div class="security-eco-returns">
         <span class="label">🔒 SSL secure</span>
         <span class="label">♻️ Eco packing</span>

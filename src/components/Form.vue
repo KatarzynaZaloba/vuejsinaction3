@@ -78,7 +78,44 @@ export default {
           localStorage.setItem("discountRedeemed", "true");
           localStorage.removeItem("discount");
         }
-      } catch {
+      } catch {}
+    },
+    backStep() {
+      const stepIndicators = document.querySelectorAll(".step-indicator");
+      if (
+        stepIndicators.length &&
+        stepIndicators[0].classList.contains("active")
+      ) {
+        this.$router.push({ name: "Main" });
+        return;
+      }
+      const backButton = document.querySelector(".header .go-back");
+
+      stepIndicators.forEach((indicator, index) => {
+        if (index === 1) {
+          indicator.classList.remove("active");
+        }
+      });
+
+      stepIndicators.forEach((indicator, index) => {
+        if (index === 0) {
+          indicator.classList.remove("done");
+          indicator.classList.add("active");
+        }
+      });
+
+      const activeStep = document.querySelector(
+        ".step-indicator.active .circle",
+      );
+
+      if (activeStep) {
+        activeStep.innerHTML = "1";
+      }
+
+      const doneStep = document.querySelector(".step-indicator.done .circle");
+
+      if (!doneStep && backButton) {
+        backButton.innerHTML = `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg> Back to shop`;
       }
     },
   },
@@ -91,7 +128,7 @@ export default {
       <my-header :cartItemCount="cartItemCount"></my-header>
       <div class="container">
         <div class="header">
-          <button class="go-back">
+          <button @click="backStep" class="go-back">
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 stroke-linecap="round"
