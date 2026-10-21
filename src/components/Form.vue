@@ -82,6 +82,13 @@ export default {
     },
     backStep() {
       const stepIndicators = document.querySelectorAll(".step-indicator");
+      if (
+        stepIndicators.length &&
+        stepIndicators[0].classList.contains("active")
+      ) {
+        this.$router.push({ name: "Main" });
+        return;
+      }
       const backButton = document.querySelector(".header .go-back");
 
       stepIndicators.forEach((indicator, index) => {
