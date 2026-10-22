@@ -126,6 +126,12 @@ export default {
         <span class="value" v-if="subtotal > 35">Free 🎉</span>
         <span class="value" v-else>$5.00</span>
       </div>
+      <div class="progress-bar">
+        <p class="">Add <strong class="">$10.01</strong> for free shipping</p>
+        <div class="progress-container">
+          <div class="progress"></div>
+        </div>
+      </div>
       <div class="loyalty-discount">
         <template v-if="hasDiscount">
           <span class="label">PAWSOME20 code (20%)</span>

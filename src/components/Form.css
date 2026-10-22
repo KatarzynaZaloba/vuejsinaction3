@@ -1146,6 +1146,8 @@
 
 .checkout-page .pre-order-summary .pre-order-summary-footer {
   padding: calc(0.25rem * 8);
+  display: flex;
+  flex-direction: column;
 }
 
 .checkout-page .pre-order-summary .pre-order-summary-footer .subtotal,
@@ -1156,6 +1158,24 @@
   display: flex;
   margin-bottom: 1rem;
   padding: 0;
+}
+
+.checkout-page .pre-order-summary .pre-order-summary-footer .progress-bar {
+  padding: calc(0.25rem * 3);
+  background-color: #f2ebe0;
+  border: unset;
+  border: 1px solid #e8d9c4;
+  border-radius: 1.2rem;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.checkout-page .pre-order-summary .pre-order-summary-footer .progress-bar p {
+  color: #6b4226;
+  font-size: 1.2rem;
+  margin-bottom: calc(0.25rem * 2.4);
+  font-family: "Outfit", system-ui, sans-serif;
+  text-align: left;
 }
 
 .checkout-page .pre-order-summary .pre-order-summary-footer .subtotal .label,
