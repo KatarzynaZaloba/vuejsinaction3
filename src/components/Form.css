@@ -1191,11 +1191,21 @@
   .pre-order-summary
   .pre-order-summary-footer
   .progress-bar
-  .progress-container
-  .progress {
+  .progress-container {
   background-color: #e8d9c4;
   height: calc(0.25rem * 2.4);
   margin: 0;
+}
+
+.checkout-page
+  .pre-order-summary
+  .pre-order-summary-footer
+  .progress-bar
+  .progress-container
+  .progress {
+  height: 100%;
+  background-color: #c1552a;
+  width: 50%;
 }
 
 .checkout-page .pre-order-summary .pre-order-summary-footer .subtotal .label,
