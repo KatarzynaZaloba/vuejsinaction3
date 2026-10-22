@@ -1205,6 +1205,9 @@
   .progress {
   height: 100%;
   background-color: #c1552a;
+  transition-property: all;
+  transition-duration: 0.15s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .checkout-page .pre-order-summary .pre-order-summary-footer .subtotal .label,
