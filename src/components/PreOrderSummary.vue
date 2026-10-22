@@ -132,7 +132,10 @@ export default {
           free shipping
         </p>
         <div class="progress-container">
-          <div class="progress"></div>
+          <div
+            class="progress"
+            :style="{ width: ((subtotal / 35) * 100).toFixed(2) + '%' }"
+          ></div>
         </div>
       </div>
       <div class="loyalty-discount">
