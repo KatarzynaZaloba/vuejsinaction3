@@ -124,7 +124,7 @@ export default {
       <div class="shipping">
         <span class="label">Shipping</span>
         <span class="value" v-if="subtotal > 35">Free 🎉</span>
-        <span class="value" v-else>$5.00</span>
+        <span class="value" v-else>$9.99</span>
       </div>
       <div class="progress-bar" v-if="subtotal < 35">
         <p class="">
