@@ -123,8 +123,20 @@ export default {
       </div>
       <div class="shipping">
         <span class="label">Shipping</span>
-        <span class="value" v-if="subtotal > 35">Free 🎉</span>
-        <span class="value" v-else>$5.00</span>
+        <span class="value" v-if="subtotal >= 35">Free 🎉</span>
+        <span class="value" v-else>$9.99</span>
+      </div>
+      <div class="progress-bar" v-if="subtotal < 35">
+        <p class="">
+          Add <strong class="">${{ (35 - subtotal).toFixed(2) }}</strong> for
+          free shipping
+        </p>
+        <div class="progress-container">
+          <div
+            class="progress"
+            :style="{ width: ((subtotal / 35) * 100).toFixed(2) + '%' }"
+          ></div>
+        </div>
       </div>
       <div class="loyalty-discount">
         <template v-if="hasDiscount">
@@ -142,7 +154,7 @@ export default {
           >${{
             (
               subtotal +
-              (subtotal > 35 ? 0 : 5) -
+              (subtotal >= 35 ? 0 : 9.99) -
               (hasDiscount ? subtotal * 0.2 : subtotal * 0.05)
             ).toFixed(2)
           }}</span
