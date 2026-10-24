@@ -123,7 +123,7 @@ export default {
       </div>
       <div class="shipping">
         <span class="label">Shipping</span>
-        <span class="value" v-if="subtotal > 35">Free 🎉</span>
+        <span class="value" v-if="subtotal >= 35">Free 🎉</span>
         <span class="value" v-else>$9.99</span>
       </div>
       <div class="progress-bar" v-if="subtotal < 35">
@@ -154,7 +154,7 @@ export default {
           >${{
             (
               subtotal +
-              (subtotal > 35 ? 0 : 9.99) -
+              (subtotal >= 35 ? 0 : 9.99) -
               (hasDiscount ? subtotal * 0.2 : subtotal * 0.05)
             ).toFixed(2)
           }}</span
