@@ -89,7 +89,9 @@ export default {
       this.step -= 1;
     },
     nextStep() {
-      this.step += 1;
+      if (this.step === 1) {
+        this.step = 2;
+      }
     },
   },
 };
