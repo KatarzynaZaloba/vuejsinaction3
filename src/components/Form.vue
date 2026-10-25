@@ -49,6 +49,7 @@ export default {
         dontSendGift: "Do not send as a gift",
       },
       madeOrder: false,
+      step: 1,
     };
   },
   computed: {
@@ -81,46 +82,14 @@ export default {
       } catch {}
     },
     backStep() {
-      const stepIndicators = document.querySelectorAll(".step-indicator");
-      const elementToHide = document.querySelector(".cart-info-left");
-      if (
-        stepIndicators.length &&
-        stepIndicators[0].classList.contains("active")
-      ) {
+      if (this.step === 1) {
         this.$router.push({ name: "Main" });
         return;
       }
-      const backButton = document.querySelector(".header .go-back");
-
-      stepIndicators.forEach((indicator, index) => {
-        if (index === 1) {
-          indicator.classList.remove("active");
-        }
-      });
-
-      stepIndicators.forEach((indicator, index) => {
-        if (index === 0) {
-          indicator.classList.remove("done");
-          indicator.classList.add("active");
-        }
-      });
-
-      const activeStep = document.querySelector(
-        ".step-indicator.active .circle",
-      );
-
-      if (activeStep) {
-        activeStep.innerHTML = "1";
-      }
-
-      const doneStep = document.querySelector(".step-indicator.done .circle");
-
-      if (!doneStep && backButton) {
-        backButton.innerHTML = `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg> Back to shop`;
-      }
-      if (elementToHide.hasAttribute("style")) {
-        elementToHide.style.display = "block";
-      }
+      this.step -= 1;
+    },
+    nextStep() {
+      this.step += 1;
     },
   },
 };
@@ -141,17 +110,23 @@ export default {
                 d="M15 19l-7-7 7-7"
               ></path>
             </svg>
-            Back to shop
+            {{ step === 1 ? "Back to shop" : "Back" }}
           </button>
           <h1 class="title">Your <span class="highlight">cart</span></h1>
           <p class="subtitle" v-if="!cart.length">Your cart is empty</p>
         </div>
       </div>
 
-      <cart-steps></cart-steps>
+      <cart-steps :step="step"></cart-steps>
 
       <div class="cart-info">
-        <div class="cart-info-left">
+        <delivery-details
+          v-if="step === 2"
+          :order="order"
+          :states="states"
+          @place-order="submitForm"
+        ></delivery-details>
+        <div class="cart-info-left" v-show="step === 1">
           <cart-items :cart="cart" @clear-cart="cart = []"></cart-items>
           <promo-code></promo-code>
           <cart-recommender></cart-recommender>
@@ -162,6 +137,7 @@ export default {
             :cart="cart"
             @clear-cart="cart = []"
             :subtotal="subtotal"
+            @next-step="nextStep"
           ></pre-order-summary>
         </div>
       </div>
