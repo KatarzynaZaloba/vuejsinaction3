@@ -47,12 +47,19 @@ export default {
     nextStep() {
       const stepIndicators = document.querySelectorAll(".step-indicator");
       const backButton = document.querySelector(".header .go-back");
+      const elementToHide = document.querySelector(".cart-info-left");
 
       stepIndicators.forEach((indicator, index) => {
         if (index === 1) {
           indicator.classList.add("active");
         } else {
           indicator.classList.remove("active");
+        }
+      });
+
+      stepIndicators.forEach((indicator, index) => {
+        if (index === 0 && elementToHide) {
+          elementToHide.style.display = "none";
         }
       });
 

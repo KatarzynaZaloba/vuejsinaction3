@@ -82,6 +82,7 @@ export default {
     },
     backStep() {
       const stepIndicators = document.querySelectorAll(".step-indicator");
+      const elementToHide = document.querySelector(".cart-info-left");
       if (
         stepIndicators.length &&
         stepIndicators[0].classList.contains("active")
@@ -116,6 +117,9 @@ export default {
 
       if (!doneStep && backButton) {
         backButton.innerHTML = `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg> Back to shop`;
+      }
+      if (elementToHide.hasAttribute("style")) {
+        elementToHide.style.display = "block";
       }
     },
   },
