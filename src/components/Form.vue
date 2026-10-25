@@ -120,16 +120,18 @@ export default {
       <cart-steps :step="step"></cart-steps>
 
       <div class="cart-info">
-        <delivery-details
-          v-if="step === 2"
-          :order="order"
-          :states="states"
-          @place-order="submitForm"
-        ></delivery-details>
-        <div class="cart-info-left" v-show="step === 1">
-          <cart-items :cart="cart" @clear-cart="cart = []"></cart-items>
-          <promo-code></promo-code>
-          <cart-recommender></cart-recommender>
+        <div class="cart-info-left">
+          <delivery-details
+            v-if="step === 2"
+            :order="order"
+            :states="states"
+            @place-order="submitForm"
+          ></delivery-details>
+          <template v-else>
+            <cart-items :cart="cart" @clear-cart="cart = []"></cart-items>
+            <promo-code></promo-code>
+            <cart-recommender></cart-recommender>
+          </template>
         </div>
         <div class="cart-info-right">
           <pre-order-summary
