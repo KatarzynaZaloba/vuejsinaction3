@@ -548,6 +548,9 @@
   background-color: #fff;
   border: 1px solid #e8d9c4;
   border-radius: 1.6rem;
+  @media (max-width: 1024px) {
+    margin-bottom: 2rem;
+  }
 }
 
 .cart-page .cart-info .delivery-details-header {
