@@ -1,37 +1,31 @@
 <template>
   <div class="cart-steps">
-    <div class="step-1">
-      <div class="step-indicator active">
-        <div class="circle">1</div>
-        <span>Cart</span>
+    <div v-for="(label, index) in labels" :key="label" :class="'step-' + (index + 1)">
+      <div
+        class="step-indicator"
+        :class="{ active: step === index + 1, done: step > index + 1 }"
+      >
+        <div class="circle">{{ step > index + 1 ? "✓" : index + 1 }}</div>
+        <span>{{ label }}</span>
       </div>
-      <div class="border"></div>
-    </div>
-    <div class="step-2">
-      <div class="step-indicator">
-        <div class="circle">2</div>
-        <span>Delivery</span>
-      </div>
-      <div class="border"></div>
-    </div>
-    <div class="step-3">
-      <div class="step-indicator">
-        <div class="circle">3</div>
-        <span>Payment</span>
-      </div>
-      <div class="border"></div>
-    </div>
-    <div class="step-4">
-      <div class="step-indicator">
-        <div class="circle">4</div>
-        <span>Confirm</span>
-      </div>
+      <div v-if="index < labels.length - 1" class="border"></div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'CartSteps'
+  name: 'CartSteps',
+  props: {
+    step: {
+      type: Number,
+      default: 1
+    }
+  },
+  data() {
+    return {
+      labels: ['Cart', 'Delivery', 'Payment', 'Confirm']
+    }
+  }
 }
 </script>

@@ -3,6 +3,7 @@ import { publicAsset } from "../utils/publicAsset";
 
 export default {
   name: "PreOrderSummary",
+  emits: ["next-step"],
   props: {
     cart: {
       type: Array,
@@ -45,32 +46,7 @@ export default {
   methods: {
     publicAsset,
     nextStep() {
-      const stepIndicators = document.querySelectorAll(".step-indicator");
-      const backButton = document.querySelector(".header .go-back");
-
-      stepIndicators.forEach((indicator, index) => {
-        if (index === 1) {
-          indicator.classList.add("active");
-        } else {
-          indicator.classList.remove("active");
-        }
-      });
-
-      stepIndicators.forEach((indicator, index) => {
-        if (index === 0) {
-          indicator.classList.add("done");
-        }
-      });
-
-      const doneStep = document.querySelector(".step-indicator.done .circle");
-
-      if (doneStep) {
-        doneStep.innerHTML = "✓";
-      }
-
-      if (backButton) {
-        backButton.innerHTML = `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg> Back`;
-      }
+      this.$emit("next-step");
     },
   },
   computed: {
