@@ -641,6 +641,15 @@
   margin-bottom: 1.6rem;
 }
 
+.cart-page
+  .cart-info
+  .delivery-details
+  .delivery-details-body
+  .form-group2
+  > div {
+  margin-bottom: 1.6rem;
+}
+
 .cart-page .cart-info .delivery-details .place-order {
   display: flex;
   justify-content: center;
