@@ -159,6 +159,10 @@
   }
 }
 
+.cart-page .cart-steps .border.done {
+  background-color: #7a8c6e;
+}
+
 .cart-page .cart-status-wrapper {
   @media (min-width: 1024px) {
     grid-column: span 2 / span 2;
@@ -1237,7 +1241,6 @@
   .pre-order-summary-footer
   .loyalty-discount
   .label,
-.checkout-page .pre-order-summary .pre-order-summary-footer .shipping .value,
 .checkout-page
   .pre-order-summary
   .pre-order-summary-footer
@@ -1249,7 +1252,8 @@
   font-family: "Outfit", system-ui, sans-serif;
 }
 
-.checkout-page .pre-order-summary .pre-order-summary-footer .subtotal .value {
+.checkout-page .pre-order-summary .pre-order-summary-footer .subtotal .value,
+.checkout-page .pre-order-summary .pre-order-summary-footer .shipping .value {
   font-size: 1.4rem;
   font-family: "Outfit", system-ui, sans-serif;
   font-weight: 500;
@@ -1306,7 +1310,7 @@
   .pre-order-summary-footer
   .security-eco-returns {
   padding-top: calc(0.25rem * 1.6);
-  gap: calc(0.25rem * 6);
+  gap: calc(0.25rem * 3);
   justify-content: center;
   align-items: center;
   display: flex;
