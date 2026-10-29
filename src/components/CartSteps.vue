@@ -8,7 +8,11 @@
         <div class="circle">{{ step > index + 1 ? "✓" : index + 1 }}</div>
         <span>{{ label }}</span>
       </div>
-      <div v-if="index < labels.length - 1" class="border"></div>
+      <div
+        v-if="index < labels.length - 1"
+        class="border"
+        :class="{ done: step > index + 1 }"
+      ></div>
     </div>
   </div>
 </template>
