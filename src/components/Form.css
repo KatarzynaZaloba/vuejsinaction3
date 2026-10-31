@@ -620,6 +620,38 @@
   .delivery-details
   .delivery-details-body
   .form-group1
+  .label
+  span,
+.cart-page
+  .cart-info
+  .delivery-details
+  .delivery-details-body
+  .form-group2
+  .label
+  span,
+.cart-page
+  .cart-info
+  .delivery-details
+  .delivery-details-body
+  .form-group3
+  .label
+  span,
+.cart-page
+  .cart-info
+  .delivery-details
+  .delivery-details-body
+  .form-group4
+  .label
+  span {
+  color: #c1552a;
+  margin-left: 0.2rem;
+}
+
+.cart-page
+  .cart-info
+  .delivery-details
+  .delivery-details-body
+  .form-group1
   > div,
 .cart-page
   .cart-info
