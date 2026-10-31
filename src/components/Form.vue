@@ -142,6 +142,7 @@ export default {
             @clear-cart="cart = []"
             :subtotal="subtotal"
             @next-step="nextStep"
+            :step="step"
           ></pre-order-summary>
         </div>
       </div>
