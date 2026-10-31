@@ -652,6 +652,33 @@
   .delivery-details
   .delivery-details-body
   .form-group1
+  input::placeholder,
+.cart-page
+  .cart-info
+  .delivery-details
+  .delivery-details-body
+  .form-group2
+  input::placeholder,
+.cart-page
+  .cart-info
+  .delivery-details
+  .delivery-details-body
+  .form-group3
+  input::placeholder,
+.cart-page
+  .cart-info
+  .delivery-details
+  .delivery-details-body
+  .form-group4
+  input::placeholder {
+  color: #a48a77;
+}
+
+.cart-page
+  .cart-info
+  .delivery-details
+  .delivery-details-body
+  .form-group1
   > div,
 .cart-page
   .cart-info
