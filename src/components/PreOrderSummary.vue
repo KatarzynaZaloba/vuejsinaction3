@@ -13,6 +13,10 @@ export default {
       type: Number,
       required: true,
     },
+    step: {
+      type: Number,
+      default: 1,
+    },
   },
   data() {
     let hasDiscount = false;
@@ -137,7 +141,7 @@ export default {
         >
       </div>
       <button class="proceed-button" @click="nextStep">
-        Proceed to delivery →
+        {{ step === 2 ? "Continue to payment →" : "Proceed to delivery →" }}
       </button>
       <div class="security-eco-returns">
         <span class="label">🔒 SSL secure</span>

@@ -19,23 +19,29 @@ export default {
   <div class="delivery-details">
     <div>
       <div class="delivery-details-header">
-        <h2 class="title">Delivery details</h2>
-        <p class="subtitle">Tell us where to send your order</p>
+        <h2 class="title">Delivery information</h2>
+        <p class="subtitle">All fields marked * are required</p>
       </div>
 
       <div class="delivery-details-body">
         <div class="form-group1">
           <div>
-            <strong class="label">First name:</strong>
+            <label class="label" for="delivery-first-name"
+              >First name<span class="">*</span></label
+            >
             <input
+              id="delivery-first-name"
               v-model.trim="order.firstName"
               placeholder="Jane"
               class="form-control"
             />
           </div>
           <div>
-            <strong class="label">Last name:</strong>
+            <label class="label" for="delivery-last-name"
+              >Last name<span class="">*</span></label
+            >
             <input
+              id="delivery-last-name"
               v-model.trim="order.lastName"
               placeholder="Smith"
               class="form-control"
@@ -44,10 +50,26 @@ export default {
         </div>
         <div class="form-group2">
           <div>
-            <strong class="label">Address:</strong>
+            <label class="label" for="delivery-email">
+              Email address<span>*</span>
+            </label>
+            <input
+              id="delivery-email"
+              required=""
+              class="form-control"
+              placeholder="jane@example.com"
+              type="email"
+              v-model.trim="order.email"
+            />
+          </div>
+          <div>
+            <label class="label" for="delivery-address"
+              >Street Address<span class="">*</span></label
+            >
           </div>
           <div>
             <input
+              id="delivery-address"
               v-model.trim="order.address"
               class="form-control"
               placeholder="123 Maple Street, Apt 4"
@@ -56,16 +78,22 @@ export default {
         </div>
         <div class="form-group3">
           <div>
-            <strong class="label">City:</strong>
+            <label class="label" for="delivery-city"
+              >City<span class="">*</span></label
+            >
             <input
+              id="delivery-city"
               v-model.trim="order.city"
               class="form-control"
               placeholder="New York"
             />
           </div>
           <div>
-            <strong class="label">Zip code:</strong>
+            <label class="label" for="delivery-zip"
+              >Zip code<span class="">*</span></label
+            >
             <input
+              id="delivery-zip"
               v-model.number="order.zip"
               class="form-control"
               type="number"
@@ -75,8 +103,14 @@ export default {
         </div>
         <div class="form-group4">
           <div>
-            <strong class="label">State:</strong>
-            <select v-model="order.state" class="form-control">
+            <label class="label" for="delivery-state"
+              >State<span class="">*</span></label
+            >
+            <select
+              id="delivery-state"
+              v-model="order.state"
+              class="form-control"
+            >
               <option disabled value="">State</option>
               <option v-for="(state, key) in states" :key="key" :value="state">
                 {{ key }}
@@ -86,9 +120,9 @@ export default {
         </div>
 
         <div class="form-group6">
-          <p class="delivery-options">Delivery options</p>
+          <p class="delivery-options">Address type</p>
           <div class="types">
-            <label class="home active">
+            <label class="home active" for="home">
               <input
                 class="sr-only"
                 type="radio"
@@ -97,7 +131,7 @@ export default {
                 v-model="order.method"
               />🏠 Home
             </label>
-            <label class="business">
+            <label class="business" for="business">
               <input
                 class="sr-only"
                 type="radio"
@@ -107,7 +141,7 @@ export default {
               />🏢 Business
             </label>
           </div>
-          <label class="gift">
+          <label class="gift" for="gift">
             <div class="checkbox"></div>
             <input
               class="sr-only"
@@ -118,7 +152,7 @@ export default {
               :false-value="order.dontSendGift"
               v-model="order.gift"
             />
-            <label class="text" for="gift">🎁 Send as a gift?</label>
+            <label class="text" for="gift">🎁 Send as a gift</label>
           </label>
         </div>
         <div class="form-group8">

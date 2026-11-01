@@ -159,6 +159,10 @@
   }
 }
 
+.cart-page .cart-steps .border.done {
+  background-color: #7a8c6e;
+}
+
 .cart-page .cart-status-wrapper {
   @media (min-width: 1024px) {
     grid-column: span 2 / span 2;
@@ -616,6 +620,66 @@
   .delivery-details
   .delivery-details-body
   .form-group1
+  .label
+  span,
+.cart-page
+  .cart-info
+  .delivery-details
+  .delivery-details-body
+  .form-group2
+  .label
+  span,
+.cart-page
+  .cart-info
+  .delivery-details
+  .delivery-details-body
+  .form-group3
+  .label
+  span,
+.cart-page
+  .cart-info
+  .delivery-details
+  .delivery-details-body
+  .form-group4
+  .label
+  span {
+  color: #c1552a;
+  margin-left: 0.2rem;
+}
+
+.cart-page
+  .cart-info
+  .delivery-details
+  .delivery-details-body
+  .form-group1
+  input::placeholder,
+.cart-page
+  .cart-info
+  .delivery-details
+  .delivery-details-body
+  .form-group2
+  input::placeholder,
+.cart-page
+  .cart-info
+  .delivery-details
+  .delivery-details-body
+  .form-group3
+  input::placeholder,
+.cart-page
+  .cart-info
+  .delivery-details
+  .delivery-details-body
+  .form-group4
+  input::placeholder {
+  color: #6b4226;
+  opacity: 1;
+}
+
+.cart-page
+  .cart-info
+  .delivery-details
+  .delivery-details-body
+  .form-group1
   > div,
 .cart-page
   .cart-info
@@ -634,6 +698,15 @@
 .cart-page .cart-info .delivery-details .delivery-details-body .form-group7,
 .cart-page .cart-info .delivery-details .delivery-details-body .form-group8 {
   width: 100%;
+  margin-bottom: 1.6rem;
+}
+
+.cart-page
+  .cart-info
+  .delivery-details
+  .delivery-details-body
+  .form-group2
+  > div {
   margin-bottom: 1.6rem;
 }
 
@@ -1237,7 +1310,6 @@
   .pre-order-summary-footer
   .loyalty-discount
   .label,
-.checkout-page .pre-order-summary .pre-order-summary-footer .shipping .value,
 .checkout-page
   .pre-order-summary
   .pre-order-summary-footer
@@ -1249,7 +1321,8 @@
   font-family: "Outfit", system-ui, sans-serif;
 }
 
-.checkout-page .pre-order-summary .pre-order-summary-footer .subtotal .value {
+.checkout-page .pre-order-summary .pre-order-summary-footer .subtotal .value,
+.checkout-page .pre-order-summary .pre-order-summary-footer .shipping .value {
   font-size: 1.4rem;
   font-family: "Outfit", system-ui, sans-serif;
   font-weight: 500;
@@ -1306,7 +1379,7 @@
   .pre-order-summary-footer
   .security-eco-returns {
   padding-top: calc(0.25rem * 1.6);
-  gap: calc(0.25rem * 6);
+  gap: calc(0.25rem * 3);
   justify-content: center;
   align-items: center;
   display: flex;
