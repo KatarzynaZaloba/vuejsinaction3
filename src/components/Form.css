@@ -671,7 +671,8 @@
   .delivery-details-body
   .form-group4
   input::placeholder {
-  color: #a48a77;
+  color: #6b4226;
+  opacity: 1;
 }
 
 .cart-page
