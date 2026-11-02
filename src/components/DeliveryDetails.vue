@@ -113,7 +113,7 @@ export default {
             >
               <option disabled value="">Select state...</option>
               <option v-for="(state, key) in states" :key="key" :value="state">
-                {{ key }}
+                {{ state }}
               </option>
             </select>
           </div>

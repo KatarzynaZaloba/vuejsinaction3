@@ -596,7 +596,8 @@
   background-color: #faf6f0;
   border: 1px solid #e8d9c4;
   border-radius: 1.4rem;
-  padding: 2rem 1.6rem;
+  padding: 1.2rem 1.6rem;
+  height: auto;
   font-family: "Outfit", system-ui, sans-serif;
   font-size: 1.4rem;
 }

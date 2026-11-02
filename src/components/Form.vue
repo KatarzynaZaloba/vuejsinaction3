@@ -146,6 +146,7 @@ export default {
       this.saveStep();
     },
     nextStep() {
+      console.log("order:", this.order);
       if (this.step === 1) {
         this.step = 2;
         this.saveStep();
