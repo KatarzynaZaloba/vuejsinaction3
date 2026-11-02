@@ -10,6 +10,18 @@ import MyFooter from "./Footer.vue";
 import PreOrderSummary from "./PreOrderSummary.vue";
 
 const checkoutStepStorageKey = "checkoutStep";
+const checkoutOrderStorageKey = "checkoutOrder";
+const persistedOrderFields = [
+  "firstName",
+  "lastName",
+  "email",
+  "address",
+  "city",
+  "zip",
+  "state",
+  "method",
+  "gift",
+];
 
 export default {
   name: "Form",
@@ -34,6 +46,35 @@ export default {
       step = Number(localStorage.getItem(checkoutStepStorageKey)) === 2 ? 2 : 1;
     } catch (error) {
       console.error("Error loading checkout step from localStorage:", error);
+    }
+
+    const order = {
+      firstName: "",
+      lastName: "",
+      email: "",
+      address: "",
+      city: "",
+      zip: "",
+      state: "",
+      method: "Home address",
+      business: "Business address",
+      home: "Home address",
+      gift: "Send as a gift",
+      sendGift: "Send as a gift",
+      dontSendGift: "Do not send as a gift",
+    };
+
+    try {
+      const savedOrder = JSON.parse(
+        localStorage.getItem(checkoutOrderStorageKey) || "{}",
+      );
+      persistedOrderFields.forEach((field) => {
+        if (savedOrder && field in savedOrder) {
+          order[field] = savedOrder[field];
+        }
+      });
+    } catch (error) {
+      console.error("Error loading order from localStorage:", error);
     }
 
     return {
@@ -90,20 +131,7 @@ export default {
         Wisconsin: "Wisconsin",
         Wyoming: "Wyoming",
       },
-      order: {
-        firstName: "",
-        lastName: "",
-        address: "",
-        city: "",
-        zip: "",
-        state: "",
-        method: "Home address",
-        business: "Business address",
-        home: "Home address",
-        gift: "Send as a gift",
-        sendGift: "Send as a gift",
-        dontSendGift: "Do not send as a gift",
-      },
+      order,
       madeOrder: false,
       step,
     };
@@ -114,6 +142,14 @@ export default {
         (sum, product) => sum + Number(product.price || 0),
         0,
       );
+    },
+  },
+  watch: {
+    order: {
+      deep: true,
+      handler() {
+        this.saveOrder();
+      },
     },
   },
   components: {
@@ -146,10 +182,23 @@ export default {
       this.saveStep();
     },
     nextStep() {
-      console.log("order:", this.order);
       if (this.step === 1) {
         this.step = 2;
         this.saveStep();
+      }
+    },
+    saveOrder() {
+      try {
+        const savedOrder = {};
+        persistedOrderFields.forEach((field) => {
+          savedOrder[field] = this.order[field];
+        });
+        localStorage.setItem(
+          checkoutOrderStorageKey,
+          JSON.stringify(savedOrder),
+        );
+      } catch (error) {
+        console.error("Error saving order to localStorage:", error);
       }
     },
     saveStep() {

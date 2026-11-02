@@ -22,6 +22,32 @@ describe("Form.vue checkout step", () => {
     expect(Form.data().step).toBe(1);
   });
 
+  it("restores saved delivery details", () => {
+    localStorage.setItem(
+      "checkoutOrder",
+      JSON.stringify({ firstName: "Jane", state: "Illinois" }),
+    );
+
+    const { order } = Form.data();
+
+    expect(order.firstName).toBe("Jane");
+    expect(order.state).toBe("Illinois");
+    expect(order.lastName).toBe("");
+  });
+
+  it("persists delivery details", () => {
+    const checkout = {
+      order: { firstName: "Jane", state: "Illinois", business: "ignored" },
+    };
+
+    Form.methods.saveOrder.call(checkout);
+
+    expect(JSON.parse(localStorage.getItem("checkoutOrder"))).toMatchObject({
+      firstName: "Jane",
+      state: "Illinois",
+    });
+  });
+
   it("persists step changes", () => {
     const checkout = {
       step: 1,
