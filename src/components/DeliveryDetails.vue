@@ -111,7 +111,7 @@ export default {
               v-model="order.state"
               class="form-control"
             >
-              <option disabled value="">State</option>
+              <option disabled value="">Select state...</option>
               <option v-for="(state, key) in states" :key="key" :value="state">
                 {{ key }}
               </option>

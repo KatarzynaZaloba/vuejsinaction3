@@ -8,11 +8,15 @@ import OrderSummary from "./OrderSummary.vue";
 import CartRecommender from "./CartRecommender.vue";
 import MyFooter from "./Footer.vue";
 import PreOrderSummary from "./PreOrderSummary.vue";
+
+const checkoutStepStorageKey = "checkoutStep";
+
 export default {
   name: "Form",
   props: ["cartItemCount"],
   data() {
     let cart = [];
+    let step = 1;
 
     try {
       const savedCart = localStorage.getItem("cart");
@@ -26,13 +30,65 @@ export default {
       cart = [];
     }
 
+    try {
+      step = Number(localStorage.getItem(checkoutStepStorageKey)) === 2 ? 2 : 1;
+    } catch (error) {
+      console.error("Error loading checkout step from localStorage:", error);
+    }
+
     return {
       cart,
       states: {
-        DL: "Dolnośląskie",
-        KP: "Kujawsko-pomorskie",
-        LB: "Lubelskie",
-        LU: "Lubuskie",
+        Alabama: "Alabama",
+        Alaska: "Alaska",
+        Arizona: "Arizona",
+        Arkansas: "Arkansas",
+        California: "California",
+        Colorado: "Colorado",
+        Connecticut: "Connecticut",
+        Delaware: "Delaware",
+        Florida: "Florida",
+        Georgia: "Georgia",
+        Hawaii: "Hawaii",
+        Idaho: "Idaho",
+        Illinois: "Illinois",
+        Indiana: "Indiana",
+        Iowa: "Iowa",
+        Kansas: "Kansas",
+        Kentucky: "Kentucky",
+        Louisiana: "Louisiana",
+        Maine: "Maine",
+        Maryland: "Maryland",
+        Massachusetts: "Massachusetts",
+        Michigan: "Michigan",
+        Minnesota: "Minnesota",
+        Mississippi: "Mississippi",
+        Missouri: "Missouri",
+        Montana: "Montana",
+        Nebraska: "Nebraska",
+        Nevada: "Nevada",
+        NewHampshire: "New Hampshire",
+        NewJersey: "New Jersey",
+        NewMexico: "New Mexico",
+        NewYork: "New York",
+        NorthCarolina: "North Carolina",
+        NorthDakota: "North Dakota",
+        Ohio: "Ohio",
+        Oklahoma: "Oklahoma",
+        Oregon: "Oregon",
+        Pennsylvania: "Pennsylvania",
+        RhodeIsland: "Rhode Island",
+        SouthCarolina: "South Carolina",
+        SouthDakota: "South Dakota",
+        Tennessee: "Tennessee",
+        Texas: "Texas",
+        Utah: "Utah",
+        Vermont: "Vermont",
+        Virginia: "Virginia",
+        Washington: "Washington",
+        WestVirginia: "West Virginia",
+        Wisconsin: "Wisconsin",
+        Wyoming: "Wyoming",
       },
       order: {
         firstName: "",
@@ -49,7 +105,7 @@ export default {
         dontSendGift: "Do not send as a gift",
       },
       madeOrder: false,
-      step: 1,
+      step,
     };
   },
   computed: {
@@ -87,10 +143,19 @@ export default {
         return;
       }
       this.step -= 1;
+      this.saveStep();
     },
     nextStep() {
       if (this.step === 1) {
         this.step = 2;
+        this.saveStep();
+      }
+    },
+    saveStep() {
+      try {
+        localStorage.setItem(checkoutStepStorageKey, String(this.step));
+      } catch (error) {
+        console.error("Error saving checkout step to localStorage:", error);
       }
     },
   },
