@@ -136,7 +136,7 @@ export default {
                 type="radio"
                 id="home"
                 @change="deliveryOption"
-                :value="order.home"
+                :value="'home'"
                 v-model="order.method"
               />🏠 Home
             </label>
@@ -146,7 +146,7 @@ export default {
                 type="radio"
                 id="business"
                 @change="deliveryOption"
-                :value="order.business"
+                :value="'business'"
                 v-model="order.method"
               />🏢 Business
             </label>
