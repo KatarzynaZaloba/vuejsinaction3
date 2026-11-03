@@ -12,6 +12,14 @@ export default {
     },
   },
   emits: ["place-order"],
+  methods: {
+    deliveryOption(event) {
+      const selectedOption = event.target.value;
+      console.log("Selected option:", selectedOption);
+      this.order.method = selectedOption;
+      console.log(this.order);
+    },
+  },
 };
 </script>
 
@@ -127,6 +135,7 @@ export default {
                 class="sr-only"
                 type="radio"
                 id="home"
+                @change="deliveryOption"
                 :value="order.home"
                 v-model="order.method"
               />🏠 Home
@@ -136,6 +145,7 @@ export default {
                 class="sr-only"
                 type="radio"
                 id="business"
+                @change="deliveryOption"
                 :value="order.business"
                 v-model="order.method"
               />🏢 Business
