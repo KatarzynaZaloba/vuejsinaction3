@@ -940,6 +940,7 @@
   font-family: "Outfit", system-ui, sans-serif;
   border: 2px solid #e8d9c4;
   color: #6b4226;
+  cursor: pointer;
 }
 
 .cart-page .form-group6 .types .home.active,

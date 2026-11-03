@@ -15,9 +15,13 @@ export default {
   methods: {
     deliveryOption(event) {
       const selectedOption = event.target.value;
-      console.log("Selected option:", selectedOption);
       this.order.method = selectedOption;
-      console.log(this.order);
+
+      if (!event.target.closest("label").classList.contains("active")) {
+        const labels = document.querySelectorAll(".types label");
+        labels.forEach((label) => label.classList.remove("active"));
+        event.target.closest("label").classList.add("active");
+      }
     },
   },
 };
