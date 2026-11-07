@@ -23,6 +23,15 @@ export default {
         event.target.closest("label").classList.add("active");
       }
     },
+    toggleGift(event) {
+      console.log(this.order);
+      console.log(event.target.previousElementSibling);
+
+      const giftCheckbox = event.target.previousElementSibling;
+      if (giftCheckbox) {
+        giftCheckbox.classList.toggle("active");
+      }
+    },
   },
 };
 </script>
@@ -165,6 +174,7 @@ export default {
               :true-value="order.sendGift"
               :false-value="order.dontSendGift"
               v-model="order.gift"
+              @change="toggleGift"
             />
             <label class="text" for="gift">🎁 Send as a gift</label>
           </label>
