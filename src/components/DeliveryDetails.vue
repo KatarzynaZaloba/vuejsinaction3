@@ -13,16 +13,6 @@ export default {
   },
   emits: ["place-order"],
   methods: {
-    deliveryOption(event) {
-      const selectedOption = event.target.value;
-      this.order.method = selectedOption;
-
-      if (!event.target.closest("label").classList.contains("active")) {
-        const labels = document.querySelectorAll(".types label");
-        labels.forEach((label) => label.classList.remove("active"));
-        event.target.closest("label").classList.add("active");
-      }
-    },
     toggleGift(event) {
       console.log(this.order);
       console.log(event.target.previousElementSibling);
@@ -143,22 +133,20 @@ export default {
         <div class="form-group6">
           <p class="delivery-options">Address type</p>
           <div class="types">
-            <label class="home active" for="home">
+            <label class="home" :class="{ active: order.method === order.home }" for="home">
               <input
                 class="sr-only"
                 type="radio"
                 id="home"
-                @change="deliveryOption"
                 :value="order.home"
                 v-model="order.method"
               />🏠 Home
             </label>
-            <label class="business" for="business">
+            <label class="business" :class="{ active: order.method === 'business' }" for="business">
               <input
                 class="sr-only"
                 type="radio"
                 id="business"
-                @change="deliveryOption"
                 :value="'business'"
                 v-model="order.method"
               />🏢 Business
