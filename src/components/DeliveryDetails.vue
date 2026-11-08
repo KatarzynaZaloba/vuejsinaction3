@@ -12,17 +12,6 @@ export default {
     },
   },
   emits: ["place-order"],
-  methods: {
-    toggleGift(event) {
-      console.log(this.order);
-      console.log(event.target.previousElementSibling);
-
-      const giftCheckbox = event.target.previousElementSibling;
-      if (giftCheckbox) {
-        giftCheckbox.classList.toggle("active");
-      }
-    },
-  },
 };
 </script>
 
@@ -133,7 +122,11 @@ export default {
         <div class="form-group6">
           <p class="delivery-options">Address type</p>
           <div class="types">
-            <label class="home" :class="{ active: order.method === order.home }" for="home">
+            <label
+              class="home"
+              :class="{ active: order.method === order.home }"
+              for="home"
+            >
               <input
                 class="sr-only"
                 type="radio"
@@ -142,7 +135,11 @@ export default {
                 v-model="order.method"
               />🏠 Home
             </label>
-            <label class="business" :class="{ active: order.method === 'business' }" for="business">
+            <label
+              class="business"
+              :class="{ active: order.method === 'business' }"
+              for="business"
+            >
               <input
                 class="sr-only"
                 type="radio"
@@ -153,7 +150,10 @@ export default {
             </label>
           </div>
           <label class="gift" for="gift">
-            <div class="checkbox"></div>
+            <div
+              class="checkbox"
+              :class="{ active: order.gift === order.sendGift }"
+            ></div>
             <input
               class="sr-only"
               type="checkbox"
@@ -162,7 +162,6 @@ export default {
               :true-value="order.sendGift"
               :false-value="order.dontSendGift"
               v-model="order.gift"
-              @change="toggleGift"
             />
             <label class="text" for="gift">🎁 Send as a gift</label>
           </label>
