@@ -149,7 +149,7 @@ export default {
                 type="radio"
                 id="home"
                 @change="deliveryOption"
-                :value="'home'"
+                :value="order.home"
                 v-model="order.method"
               />🏠 Home
             </label>
