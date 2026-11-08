@@ -111,9 +111,9 @@ export default {
               v-model="order.state"
               class="form-control"
             >
-              <option disabled value="">State</option>
+              <option disabled value="">Select state...</option>
               <option v-for="(state, key) in states" :key="key" :value="state">
-                {{ key }}
+                {{ state }}
               </option>
             </select>
           </div>
@@ -122,7 +122,11 @@ export default {
         <div class="form-group6">
           <p class="delivery-options">Address type</p>
           <div class="types">
-            <label class="home active" for="home">
+            <label
+              class="home"
+              :class="{ active: order.method === order.home }"
+              for="home"
+            >
               <input
                 class="sr-only"
                 type="radio"
@@ -131,18 +135,25 @@ export default {
                 v-model="order.method"
               />🏠 Home
             </label>
-            <label class="business" for="business">
+            <label
+              class="business"
+              :class="{ active: order.method === 'business' }"
+              for="business"
+            >
               <input
                 class="sr-only"
                 type="radio"
                 id="business"
-                :value="order.business"
+                :value="'business'"
                 v-model="order.method"
               />🏢 Business
             </label>
           </div>
           <label class="gift" for="gift">
-            <div class="checkbox"></div>
+            <div
+              class="checkbox"
+              :class="{ active: order.gift === order.sendGift }"
+            ></div>
             <input
               class="sr-only"
               type="checkbox"

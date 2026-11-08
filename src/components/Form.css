@@ -596,7 +596,8 @@
   background-color: #faf6f0;
   border: 1px solid #e8d9c4;
   border-radius: 1.4rem;
-  padding: 2rem 1.6rem;
+  padding: 1.2rem 1.6rem;
+  height: auto;
   font-family: "Outfit", system-ui, sans-serif;
   font-size: 1.4rem;
 }
@@ -939,6 +940,7 @@
   font-family: "Outfit", system-ui, sans-serif;
   border: 2px solid #e8d9c4;
   color: #6b4226;
+  cursor: pointer;
 }
 
 .cart-page .form-group6 .types .home.active,
@@ -964,6 +966,21 @@
   width: calc(0.25rem * 8);
   height: calc(0.25rem * 8);
   margin: 0;
+  cursor: pointer;
+}
+
+.cart-page .form-group6 .gift .checkbox.active {
+  color: #faf6f0;
+  background-color: #c1552a;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 0.4rem;
+  border: unset;
+}
+
+.cart-page .form-group6 .gift .checkbox.active::after {
+  content: "✓";
+  font-size: 1rem;
+  line-height: 1;
 }
 
 .cart-page .form-group6 .gift .text {
