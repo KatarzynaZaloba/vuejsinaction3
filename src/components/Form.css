@@ -966,6 +966,7 @@
   width: calc(0.25rem * 8);
   height: calc(0.25rem * 8);
   margin: 0;
+  cursor: pointer;
 }
 
 .cart-page .form-group6 .gift .checkbox.active {
