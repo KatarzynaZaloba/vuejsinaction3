@@ -166,13 +166,9 @@ export default {
             <label class="text" for="gift">🎁 Send as a gift</label>
           </label>
         </div>
-        <div class="form-group8">
-          <!-- <p class="test-text">TEST</p> -->
-          <div>
-            <!-- <button type="submit" class="btn btn-primary submit inactive" @click="$emit('place-order')">
-              Place order →
-            </button> -->
-          </div>
+        <div class="form-group7">
+          <label class="title">Gift message</label
+          ><textarea class="gift-text" rows="3" placeholder=""></textarea>
         </div>
       </div>
     </div>
