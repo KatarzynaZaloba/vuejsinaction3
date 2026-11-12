@@ -1006,6 +1006,24 @@
   letter-spacing: 0.05em;
 }
 
+.cart-page .form-group7 .gift-text {
+  background-color: #faf6f0;
+  color: #3d2414;
+  border: 1px solid #e8d9c4;
+  border-radius: 1.4rem;
+  padding: 1.2rem 1.6rem;
+  height: auto;
+  font-family: "Outfit", system-ui, sans-serif;
+  font-size: 1.4rem;
+}
+
+.cart-page .form-group7 .gift-text::placeholder {
+  color: #3d2414;
+  font-size: 1.4rem;
+  font-family: "Outfit", system-ui, sans-serif;
+  font-weight: 400;
+}
+
 .cart-page .cart-info .delivery-details-body {
   padding: 2rem;
   padding-bottom: 0;

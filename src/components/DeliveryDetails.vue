@@ -168,7 +168,11 @@ export default {
         </div>
         <div class="form-group7">
           <label class="title">Gift message</label
-          ><textarea class="gift-text" rows="3" placeholder=""></textarea>
+          ><textarea
+            class="gift-text"
+            rows="3"
+            placeholder="Write a personal message to include with the gift…"
+          ></textarea>
         </div>
       </div>
     </div>
